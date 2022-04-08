@@ -1,0 +1,299 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: megrim;
+  src: url("/Fonts/Megrim-Regular.ttf");
+  font-display: swap;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.header {
+  padding: 20px;
+  background-color: rgb(157, 56, 252);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+}
+
+.header p {
+  color: white;
+  font-family: megrim;
+  font-size: 2rem;
+  font-weight: bolder;
+  margin: 0;
+}
+
+.header a {
+  font-size: 2rem;
+  color: white;
+}
+
+.footer {
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+}
+
+.footer img {
+  opacity: 0.6;
+}
+
+.footer img:hover {
+  opacity: 1;
+}
+
+.home #home-icon,
+.profile #user-icon,
+.notification #notif-icon,
+.search #search-icon {
+  opacity: 1;
+}
+
+.search-bar {
+  background-color: rgb(157, 56, 252);
+  padding: 20px;
+  margin-bottom: 50px;
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+}
+
+.search-bar input {
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+  padding: 10px 20px;
+  width: 70%;
+  font-family: "Poppins", sans-serif;
+}
+
+input:focus,
+button:focus,
+textarea:focus {
+  outline: none;
+}
+
+.notification .header p,
+.profile .header p {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+}
+
+.loader {
+  height: 100vh;
+  width: 100vw;
+}
+
+.loader-icon {
+  font-family: megrim;
+  background-color: #9d38fc;
+  color: white;
+  font-size: 10rem;
+  animation: pulse 1s infinite;
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+}
+
+.logo-loader {
+  font-family: megrim;
+  background-color: #9d38fc;
+  color: white;
+  font-size: 2rem;
+  animation: pulse 1s infinite;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+#loader {
+  margin: 0;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: #9d38fc 0 0 0 0;
+  }
+  80% {
+    box-shadow: #9d38fc00 0 0 0 20px;
+  }
+}
+
+.login {
+  min-height: 100vh;
+}
+
+.auth-form {
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #9d38fc;
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+  width: 60vw;
+  text-align: center;
+}
+
+.google {
+  margin: 20px;
+}
+
+hr {
+  border: 0.5px solid #ededed;
+  width: 100px;
+}
+
+#login-logo {
+  margin-bottom: 30px;
+  margin-top: 0;
+  font-size: 5rem;
+  font-family: megrim;
+  color: #9d38fc;
+}
+
+.auth-form input,
+.auth-form textarea {
+  width: 50vw;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #9d38fc;
+  font-family: "poppins", sans-serif;
+  margin-bottom: 20px;
+}
+
+.auth-form .flex input {
+  width: 30vw;
+  margin-bottom: 0;
+}
+
+.auth-form .flex {
+  margin-bottom: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-family: "poppins", sans-serif;
+  background-color: #9d38fc;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  margin: 20px;
+  transition: 0.5;
+}
+
+.btn:hover {
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+}
+
+a {
+  color: black;
+}
+
+.login a {
+  color: #9d38fc;
+}
+
+.profile-info {
+  text-align: center;
+  margin: 50px 10%;
+  border-bottom: 1px solid #9d38fc;
+}
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid #9d38fc;
+}
+
+.post-icons svg {
+  width: 32px;
+  height: 32px;
+}
+
+.follow-section {
+  justify-content: space-evenly;
+}
+
+#flw-num {
+  opacity: 0.6;
+}
+
+.post {
+  margin: 20px;
+  border: 1px solid #9d38fc;
+  border-radius: 20px;
+  padding: 20px;
+  max-width: 550px;
+}
+
+#post-title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.post-image img {
+  border-radius: 20px;
+}
+
+.post-info {
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.post-info svg:hover {
+  fill: red;
+}
+
+#date {
+  opacity: 0.5;
+}
+
+.profile-notif {
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid #9d38fc;
+  justify-content: left;
+  margin-bottom: 20px;
+}
+
+#userId {
+  font-weight: 700;
+  opacity: 0.7;
+}
+
+#post-title2 {
+  font-weight: 900;
+  padding-left: 5px;
+}
+
+.mb-100 {
+  margin-bottom: 100px;
+}

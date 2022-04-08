@@ -1,0 +1,107 @@
+import Image from "next/image";
+import { toast } from "react-toastify";
+import API from "../../requests/API";
+import jwt_decode from "jwt-decode";
+
+const Post = ({
+  title,
+  description,
+  date,
+  image,
+  id = 0,
+  deletable = false,
+  onDelete,
+}) => {
+  function likeColor(e) {
+    e.target.style.fill = "red";
+  }
+
+  async function deletePost(params) {
+    const option = {
+      method: "DELETE",
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    };
+
+    var result = await API(option, `api/posts/${id}`);
+
+    if (result.status == 200) {
+      toast.success("Post deleted!");
+      var token = localStorage.getItem("token");
+      const jwt = jwt_decode(token);
+      onDelete(jwt);
+    }
+  }
+
+  const host = "http://localhost:5000/";
+
+  return (
+    <div className="flex">
+      <div className="post">
+        <div className="post-image flex">
+          <Image src={host + image} width={500} height={500} />
+        </div>
+        <p id="post-title">{title}</p>
+        <p id="post-description">{description}</p>
+        <div className="post-info flex">
+          <div className="post-icons flex">
+            <svg
+              version="1.1"
+              id="Uploaded to svgrepo.com"
+              viewBox="0 0 32 32"
+              onClick={likeColor}
+            >
+              <path d="M10.5,8v2C9.122,10,8,11.121,8,12.5H6C6,10.019,8.019,8,10.5,8z" />
+              <path
+                d="M21.5,5c-2.116,0-4.093,0.881-5.5,2.406C14.593,5.881,12.616,5,10.5,5C6.364,5,3,8.333,3,12.5
+	C3,21.542,16,27,16,27s13-5.458,13-14.5C29,8.333,25.636,5,21.5,5z M16,24.797C13.378,23.521,5,18.938,5,12.5
+	C5,9.467,7.467,7,10.5,7c1.55,0,2.982,0.626,4.03,1.762l0.735,0.797h1.47l0.735-0.797C18.518,7.626,19.95,7,21.5,7
+	c3.033,0,5.5,2.467,5.5,5.5C27,18.938,18.622,23.521,16,24.797z"
+              />
+            </svg>
+            {deletable && (
+              <div onClick={deletePost}>
+                <svg version="1.1" id="Capa_1" viewBox="0 0 59 59">
+                  <g>
+                    <path
+                      d="M52.5,6H38.456c-0.11-1.25-0.495-3.358-1.813-4.711C35.809,0.434,34.751,0,33.499,0H23.5c-1.252,0-2.31,0.434-3.144,1.289
+		C19.038,2.642,18.653,4.75,18.543,6H6.5c-0.552,0-1,0.447-1,1s0.448,1,1,1h46c0.552,0,1-0.447,1-1S53.052,6,52.5,6z M21.792,2.681
+		C22.24,2.223,22.799,2,23.5,2h9.999c0.701,0,1.26,0.223,1.708,0.681c0.805,0.823,1.128,2.271,1.24,3.319H20.553
+		C20.665,4.952,20.988,3.504,21.792,2.681z"
+                    />
+                    <path
+                      d="M10.456,54.021C10.493,55.743,11.565,59,15.364,59h28.272c3.799,0,4.871-3.257,4.907-4.958L50.376,10H8.624L10.456,54.021z
+		 M48.291,12l-1.747,41.979C46.538,54.288,46.4,57,43.636,57H15.364c-2.734,0-2.898-2.717-2.909-3.042L10.709,12H48.291z"
+                    />
+                    <path d="M17.5,54h24c0.552,0,1-0.447,1-1s-0.448-1-1-1h-24c-0.552,0-1,0.447-1,1S16.948,54,17.5,54z" />
+                    <path d="M17.5,49h24c0.552,0,1-0.447,1-1s-0.448-1-1-1h-24c-0.552,0-1,0.447-1,1S16.948,49,17.5,49z" />
+                    <path d="M17.5,44h24c0.552,0,1-0.447,1-1s-0.448-1-1-1h-24c-0.552,0-1,0.447-1,1S16.948,44,17.5,44z" />
+                  </g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                </svg>
+              </div>
+            )}
+          </div>
+          <p id="date">{date}</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Post;
