@@ -2,6 +2,9 @@ import Image from "next/image";
 import { toast } from "react-toastify";
 import API from "../../requests/API";
 import jwt_decode from "jwt-decode";
+import dateFormat from "dateformat";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const Post = ({
   title,
@@ -11,12 +14,34 @@ const Post = ({
   id = 0,
   deletable = false,
   onDelete,
+  creator,
 }) => {
+  const [user, SetUser] = useState({ username: "" });
+
+  useEffect(() => {
+    async function getPostCreator() {
+      const option = {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+        },
+      };
+
+      var result = await API(option, `api/users/${creator}`);
+      console.log(result);
+      if (result.status == 200) {
+        SetUser(result.data.user);
+      }
+    }
+
+    getPostCreator();
+  }, []);
+
   function likeColor(e) {
     e.target.style.fill = "red";
   }
 
-  async function deletePost(params) {
+  async function deletePost() {
     const option = {
       method: "DELETE",
       headers: {
@@ -39,6 +64,9 @@ const Post = ({
   return (
     <div className="flex">
       <div className="post">
+        <div className="post-user">
+          <p>{user && user.username}</p>
+        </div>
         <div className="post-image flex">
           <Image src={host + image} width={500} height={500} />
         </div>
@@ -97,7 +125,7 @@ const Post = ({
               </div>
             )}
           </div>
-          <p id="date">{date}</p>
+          <p id="date">{dateFormat(date)}</p>
         </div>
       </div>
     </div>

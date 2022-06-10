@@ -8,9 +8,13 @@ import API from "../../requests/API";
 
 const Profile = () => {
   const router = useRouter();
-  const [user, SetUser] = useState({ posts: [] });
+  const [user, SetUser] = useState({
+    posts: [],
+    followers: [],
+    followings: [],
+  });
   const [posts, SetPosts] = useState([
-    { title: "", description: "", image: "" },
+    { title: "", description: "", image: "", creator: "", date: "" },
   ]);
 
   async function getUserPosts(jwt) {
@@ -83,11 +87,11 @@ const Profile = () => {
         <div className="follow-section flex">
           <div className="followers">
             <p>Followers</p>
-            <p id="flw-num">100</p>
+            <p id="flw-num">{user.followers.length}</p>
           </div>
           <div className="followers">
             <p>Following</p>
-            <p id="flw-num">100</p>
+            <p id="flw-num">{user.followings.length}</p>
           </div>
         </div>
       </div>
@@ -97,12 +101,13 @@ const Profile = () => {
           <div key={post._id}>
             <Post
               image={post.image}
-              date={"4/4/2022"}
+              date={post.date}
               title={post.title}
               description={post.description}
               deletable={true}
               id={post._id}
               onDelete={getUserPosts}
+              creator={post.creator}
             />
           </div>
         );

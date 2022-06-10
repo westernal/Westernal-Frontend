@@ -6,7 +6,7 @@ import API from "../../requests/API";
 
 export default function Index() {
   const [posts, SetPosts] = useState([
-    { title: "", description: "", image: "", _id: "0" },
+    { title: "", description: "", image: "", _id: "0", creator: "", date: "" },
   ]);
   useEffect(() => {
     async function getPosts(params) {
@@ -34,9 +34,10 @@ export default function Index() {
           <div key={post._id}>
             <Post
               image={post.image}
-              date={"4/4/2022"}
+              date={post.date}
               title={post.title}
               description={post.description}
+              creator={post.creator}
             />
           </div>
         );
