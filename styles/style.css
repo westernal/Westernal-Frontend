@@ -139,6 +139,10 @@ textarea:focus {
   margin: 0;
 }
 
+.post-user p {
+  color: #9d38fc;
+}
+
 @keyframes pulse {
   0% {
     box-shadow: #9d38fc 0 0 0 0;

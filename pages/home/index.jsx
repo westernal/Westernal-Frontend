@@ -6,7 +6,15 @@ import API from "../../requests/API";
 
 export default function Index() {
   const [posts, SetPosts] = useState([
-    { title: "", description: "", image: "", _id: "0", creator: "", date: "" },
+    {
+      title: "",
+      description: "",
+      image: "",
+      _id: "0",
+      creator: "",
+      date: "",
+      likes: [],
+    },
   ]);
   useEffect(() => {
     async function getPosts(params) {
@@ -32,13 +40,7 @@ export default function Index() {
       {posts.map((post) => {
         return (
           <div key={post._id}>
-            <Post
-              image={post.image}
-              date={post.date}
-              title={post.title}
-              description={post.description}
-              creator={post.creator}
-            />
+            <Post details={post} />
           </div>
         );
       })}

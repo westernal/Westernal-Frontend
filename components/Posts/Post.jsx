@@ -5,20 +5,20 @@ import jwt_decode from "jwt-decode";
 import dateFormat from "dateformat";
 import { useEffect } from "react";
 import { useState } from "react";
+import Link from "next/link";
 
-const Post = ({
-  title,
-  description,
-  date,
-  image,
-  id = 0,
-  deletable = false,
-  onDelete,
-  creator,
-}) => {
+const Post = ({ details, onDelete, deletable = false }) => {
   const [user, SetUser] = useState({ username: "" });
+  const [likes, SetLikes] = useState(details.likes.length);
+  const [hasLiked, SetHasLiked] = useState(false);
 
   useEffect(() => {
+    if (
+      details.likes.includes(jwt_decode(localStorage.getItem("token")).userId)
+    ) {
+      document.getElementById("like-btn").style.fill = "red";
+      SetHasLiked(true);
+    }
     async function getPostCreator() {
       const option = {
         method: "GET",
@@ -27,8 +27,8 @@ const Post = ({
         },
       };
 
-      var result = await API(option, `api/users/${creator}`);
-      console.log(result);
+      var result = await API(option, `api/users/${details.creator}`);
+
       if (result.status == 200) {
         SetUser(result.data.user);
       }
@@ -37,8 +37,64 @@ const Post = ({
     getPostCreator();
   }, []);
 
-  function likeColor(e) {
+  async function likePost(e) {
     e.target.style.fill = "red";
+
+    SetHasLiked(true);
+
+    var token = localStorage.getItem("token");
+
+    const userID = jwt_decode(token).userId;
+
+    if (!details.likes.includes(userID)) {
+      const option = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+        body: JSON.stringify({
+          userId: userID,
+        }),
+        redirect: "follow",
+      };
+
+      var result = await API(option, `api/posts/like/${details._id}`);
+
+      if (result.status == 200) {
+        SetLikes(likes + 1);
+      }
+    }
+  }
+
+  async function unlikePost(e) {
+    e.target.style.fill = "black";
+
+    SetHasLiked(false);
+
+    var token = localStorage.getItem("token");
+
+    const userID = jwt_decode(token).userId;
+
+    if (details.likes.includes(userID)) {
+      const option = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+        body: JSON.stringify({
+          userId: userID,
+        }),
+        redirect: "follow",
+      };
+
+      var result = await API(option, `api/posts/unlike/${details._id}`);
+      console.log(result);
+      if (result.status == 200) {
+        SetLikes(likes - 1);
+      }
+    }
   }
 
   async function deletePost() {
@@ -49,7 +105,7 @@ const Post = ({
       },
     };
 
-    var result = await API(option, `api/posts/${id}`);
+    var result = await API(option, `api/posts/${details._id}`);
 
     if (result.status == 200) {
       toast.success("Post deleted!");
@@ -64,21 +120,27 @@ const Post = ({
   return (
     <div className="flex">
       <div className="post">
-        <div className="post-user">
-          <p>{user && user.username}</p>
-        </div>
         <div className="post-image flex">
-          <Image src={host + image} width={500} height={500} />
+          <Image src={host + details.image} width={500} height={500} />
         </div>
-        <p id="post-title">{title}</p>
-        <p id="post-description">{description}</p>
+        {user && (
+          <Link href={`/profile/${user.username}`}>
+            <a>
+              <div className="post-user">
+                <p>{user.username}</p>
+              </div>
+            </a>
+          </Link>
+        )}
+        <p id="post-title">{details.title}</p>
+        <p id="post-description">{details.description}</p>
         <div className="post-info flex">
           <div className="post-icons flex">
             <svg
               version="1.1"
-              id="Uploaded to svgrepo.com"
+              id="like-btn"
               viewBox="0 0 32 32"
-              onClick={likeColor}
+              onClick={hasLiked ? unlikePost : likePost}
             >
               <path d="M10.5,8v2C9.122,10,8,11.121,8,12.5H6C6,10.019,8.019,8,10.5,8z" />
               <path
@@ -88,6 +150,7 @@ const Post = ({
 	c3.033,0,5.5,2.467,5.5,5.5C27,18.938,18.622,23.521,16,24.797z"
               />
             </svg>
+            <p>{likes}</p>
             {deletable && (
               <div onClick={deletePost}>
                 <svg version="1.1" id="Capa_1" viewBox="0 0 59 59">
@@ -125,7 +188,7 @@ const Post = ({
               </div>
             )}
           </div>
-          <p id="date">{dateFormat(date)}</p>
+          <p id="date">{dateFormat(details.date)}</p>
         </div>
       </div>
     </div>

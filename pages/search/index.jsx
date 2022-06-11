@@ -5,10 +5,26 @@ import Post from "../../components/Posts/Post";
 
 const Search = () => {
   const [posts, SetPosts] = useState([
-    { title: "", description: "", image: "" },
+    {
+      title: "",
+      description: "",
+      image: "",
+      _id: "0",
+      creator: "",
+      date: "",
+      likes: [],
+    },
   ]);
   const [result, SetResult] = useState([
-    { title: "", description: "", image: "" },
+    {
+      title: "",
+      description: "",
+      image: "",
+      _id: "0",
+      creator: "",
+      date: "",
+      likes: [],
+    },
   ]);
   const [isTyped, SetIstyped] = useState(false);
 
@@ -48,15 +64,12 @@ const Search = () => {
         result.map((post) => {
           return (
             <div key={post._id}>
-              <Post
-                image={post.image}
-                date={"4/4/2022"}
-                title={post.title}
-                description={post.description}
-              />
+              <Post details={post} />
             </div>
           );
         })}
+
+      <div className="mb-100"></div>
 
       <Footer />
     </div>

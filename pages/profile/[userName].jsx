@@ -14,11 +14,18 @@ const Profile = () => {
     followings: [],
   });
   const [posts, SetPosts] = useState([
-    { title: "", description: "", image: "", creator: "", date: "" },
+    {
+      title: "",
+      description: "",
+      image: "",
+      creator: "",
+      date: "",
+      _id: 0,
+      likes: [],
+    },
   ]);
 
   async function getUserPosts(jwt) {
-    console.log("done");
     const option = {
       method: "GET",
       headers: {
@@ -99,16 +106,7 @@ const Profile = () => {
       {posts.map((post) => {
         return (
           <div key={post._id}>
-            <Post
-              image={post.image}
-              date={post.date}
-              title={post.title}
-              description={post.description}
-              deletable={true}
-              id={post._id}
-              onDelete={getUserPosts}
-              creator={post.creator}
-            />
+            <Post details={post} deletable={true} onDelete={getUserPosts} />
           </div>
         );
       })}
