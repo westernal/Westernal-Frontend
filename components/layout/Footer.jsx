@@ -11,7 +11,7 @@ const Footer = () => {
   function generateToken() {
     var token = localStorage.getItem("token");
     const jwt = jwt_decode(token);
-    router.push(`/profile/${jwt.username}`);
+    router.push(`/profile/${jwt.username}/${jwt.userId}`);
   }
 
   return (

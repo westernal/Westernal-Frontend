@@ -1,10 +1,10 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import Footer from "../../components/layout/Footer";
-import Post from "../../components/Posts/Post";
+import Footer from "../../../components/layout/Footer";
+import Post from "../../../components/Posts/Post";
 import jwt_decode from "jwt-decode";
-import API from "../../requests/API";
+import API from "../../../requests/API";
 
 const Profile = () => {
   const router = useRouter();
@@ -13,6 +13,7 @@ const Profile = () => {
     followers: [],
     followings: [],
   });
+  const [isUserSelf, SetIsUserSelf] = useState(false);
   const [posts, SetPosts] = useState([
     {
       title: "",
@@ -25,7 +26,7 @@ const Profile = () => {
     },
   ]);
 
-  async function getUserPosts(jwt) {
+  async function getUserPosts(id) {
     const option = {
       method: "GET",
       headers: {
@@ -33,7 +34,7 @@ const Profile = () => {
       },
     };
 
-    var result = await API(option, `api/posts/user/${jwt.userId}`);
+    var result = await API(option, `api/posts/user/${router.query.id}`);
 
     if (result.status == 200) {
       SetPosts(result.data.posts);
@@ -41,7 +42,17 @@ const Profile = () => {
   }
 
   useEffect(() => {
-    async function getUserInfo(jwt) {
+    function checkUser(userName) {
+      if (userName === router.query.username) {
+        SetIsUserSelf(true);
+      }
+      if (router.query.username) {
+        getUserPosts(router.query.id);
+        getUserInfo(router.query.id);
+      }
+    }
+
+    async function getUserInfo(id) {
       const option = {
         method: "GET",
         headers: {
@@ -49,23 +60,24 @@ const Profile = () => {
         },
       };
 
-      var result = await API(option, `api/users/${jwt.userId}`);
+      var result = await API(option, `api/users/${id}`);
+
+      console.log(result);
 
       if (result.status == 200) {
         SetUser(result.data.user);
       }
     }
 
-    async function getToken(params) {
+    async function getToken() {
       var token = localStorage.getItem("token");
       const jwt = jwt_decode(token);
 
-      getUserPosts(jwt);
-      getUserInfo(jwt);
+      checkUser(jwt.username);
     }
 
     getToken();
-  }, []);
+  }, [router.query]);
 
   return (
     <div className="profile">
@@ -101,6 +113,11 @@ const Profile = () => {
             <p id="flw-num">{user.followings.length}</p>
           </div>
         </div>
+        {isUserSelf && (
+          <div className="flex">
+            <button className="follow-btn">Follow</button>
+          </div>
+        )}
       </div>
 
       {posts.map((post) => {

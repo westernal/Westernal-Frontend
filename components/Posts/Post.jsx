@@ -40,13 +40,11 @@ const Post = ({ details, onDelete, deletable = false }) => {
   async function likePost(e) {
     e.target.style.fill = "red";
 
-    SetHasLiked(true);
-
     var token = localStorage.getItem("token");
 
     const userID = jwt_decode(token).userId;
 
-    if (!details.likes.includes(userID)) {
+    if (!details.likes.includes(userID) || !hasLiked) {
       const option = {
         method: "POST",
         headers: {
@@ -63,6 +61,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
 
       if (result.status == 200) {
         SetLikes(likes + 1);
+        SetHasLiked(true);
       }
     }
   }
@@ -70,13 +69,11 @@ const Post = ({ details, onDelete, deletable = false }) => {
   async function unlikePost(e) {
     e.target.style.fill = "black";
 
-    SetHasLiked(false);
-
     var token = localStorage.getItem("token");
 
     const userID = jwt_decode(token).userId;
 
-    if (details.likes.includes(userID)) {
+    if (details.likes.includes(userID) || hasLiked) {
       const option = {
         method: "POST",
         headers: {
@@ -90,9 +87,10 @@ const Post = ({ details, onDelete, deletable = false }) => {
       };
 
       var result = await API(option, `api/posts/unlike/${details._id}`);
-      console.log(result);
+
       if (result.status == 200) {
         SetLikes(likes - 1);
+        SetHasLiked(false);
       }
     }
   }
@@ -150,10 +148,10 @@ const Post = ({ details, onDelete, deletable = false }) => {
 	c3.033,0,5.5,2.467,5.5,5.5C27,18.938,18.622,23.521,16,24.797z"
               />
             </svg>
-            <p>{likes}</p>
+            <p id="like-count">{likes}</p>
             {deletable && (
               <div onClick={deletePost}>
-                <svg version="1.1" id="Capa_1" viewBox="0 0 59 59">
+                <svg version="1.1" id="delete-btn" viewBox="0 0 59 59">
                   <g>
                     <path
                       d="M52.5,6H38.456c-0.11-1.25-0.495-3.358-1.813-4.711C35.809,0.434,34.751,0,33.499,0H23.5c-1.252,0-2.31,0.434-3.144,1.289

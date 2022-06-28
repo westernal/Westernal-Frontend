@@ -143,6 +143,12 @@ textarea:focus {
   color: #9d38fc;
 }
 
+#like-count,
+#like-btn,
+#delete-btn {
+  transition: 0.2s;
+}
+
 @keyframes pulse {
   0% {
     box-shadow: #9d38fc 0 0 0 0;
@@ -201,7 +207,8 @@ hr {
   margin-bottom: 20px;
 }
 
-.btn {
+.btn,
+.follow-btn {
   padding: 10px 20px;
   font-family: "poppins", sans-serif;
   background-color: #9d38fc;
@@ -209,7 +216,18 @@ hr {
   border: none;
   border-radius: 10px;
   margin: 20px;
-  transition: 0.5;
+  transition: 0.5s;
+}
+
+.follow-btn {
+  width: 50%;
+  border: 0.5px solid #9d38fc;
+}
+
+.follow-btn:hover {
+  background-color: white;
+  border: 0.5px solid #9d38fc;
+  color: #9d38fc;
 }
 
 .btn:hover {
@@ -285,7 +303,7 @@ a {
   padding: 20px;
   border: 1px solid #9d38fc;
   justify-content: left;
-  margin-bottom: 20px;
+  margin: 20px;
 }
 
 #userId {
