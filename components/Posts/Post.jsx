@@ -8,7 +8,7 @@ import { useState } from "react";
 import Link from "next/link";
 
 const Post = ({ details, onDelete, deletable = false }) => {
-  const [user, SetUser] = useState({ username: "" });
+  const [user, SetUser] = useState({ username: "s", _id: 0 });
   const [likes, SetLikes] = useState(details.likes.length);
   const [hasLiked, SetHasLiked] = useState(false);
 
@@ -122,7 +122,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
           <Image src={host + details.image} width={500} height={500} />
         </div>
         {user && (
-          <Link href={`/profile/${user.username}`}>
+          <Link href={`/profile/${user.username}/${user._id}`}>
             <a>
               <div className="post-user">
                 <p>{user.username}</p>

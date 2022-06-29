@@ -27,6 +27,9 @@ const SignUp = () => {
       localStorage.setItem("token", result.data.token);
       toast.success(`Welcome, ${username}!`);
       router.push("/home");
+    } else {
+      SetLoader(false);
+      toast.error("Please try again!");
     }
   }
 
