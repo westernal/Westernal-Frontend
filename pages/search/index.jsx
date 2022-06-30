@@ -50,7 +50,12 @@ const Search = () => {
     SetIstyped(true);
     SetResult(
       posts.filter((post) => {
-        return post.title.indexOf(searchInput) > -1;
+        if (post.title.toUpperCase().indexOf(searchInput) > -1) {
+          return post.title.toUpperCase().indexOf(searchInput) > -1;
+        }
+        if (post.description.toUpperCase().indexOf(searchInput) > -1) {
+          return post.description.toUpperCase().indexOf(searchInput) > -1;
+        }
       })
     );
   }
