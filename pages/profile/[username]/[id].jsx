@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Footer from "../../../components/layout/Footer";
 import Post from "../../../components/Posts/Post";
-import jwt_decode from "jwt-decode";
 import API from "../../../requests/API";
 import UserInfo from "../../../components/User/userInfo";
 

@@ -3,6 +3,7 @@ import Footer from "../../components/layout/Footer";
 import Header from "../../components/layout/Header";
 import Post from "../../components/Posts/Post";
 import API from "../../requests/API";
+import jwt_decode from "jwt-decode";
 
 export default function Index() {
   const [posts, SetPosts] = useState([
@@ -17,7 +18,7 @@ export default function Index() {
     },
   ]);
   useEffect(() => {
-    async function getPosts(params) {
+    async function getPosts(userId) {
       const option = {
         method: "GET",
         headers: {
@@ -25,13 +26,14 @@ export default function Index() {
         },
       };
 
-      var result = await API(option, "api/posts");
+      var result = await API(option, `api/posts/timeline/${userId}`);
+      console.log(result);
 
       if (result.status == 200) {
         SetPosts(result.data.posts);
       }
     }
-    getPosts();
+    getPosts(jwt_decode(localStorage.getItem("token")).userId);
   }, []);
   return (
     <div className="home">
