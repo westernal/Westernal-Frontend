@@ -5,6 +5,7 @@ import Footer from "../../../components/layout/Footer";
 import Post from "../../../components/Posts/Post";
 import API from "../../../requests/API";
 import UserInfo from "../../../components/User/userInfo";
+import Link from "next/link";
 
 const Profile = () => {
   const router = useRouter();
@@ -45,12 +46,16 @@ const Profile = () => {
     <div className="profile">
       <div className="header">
         <p>{router.query.username}</p>
-        <Image
-          src="/Images/settings.png"
-          alt="setting"
-          width={32}
-          height={32}
-        />
+        <Link href={`/${router.query.username}/setting`}>
+          <a>
+            <Image
+              src="/Images/settings.png"
+              alt="setting"
+              width={32}
+              height={32}
+            />
+          </a>
+        </Link>
       </div>
 
       <UserInfo />

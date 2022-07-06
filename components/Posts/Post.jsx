@@ -8,6 +8,7 @@ import { useState } from "react";
 import Link from "next/link";
 
 const Post = ({ details, onDelete, deletable = false }) => {
+  console.log(details);
   const [user, SetUser] = useState({ username: "s", _id: 0 });
   const [likes, SetLikes] = useState(details.likes.length);
   const [hasLiked, SetHasLiked] = useState(false);
