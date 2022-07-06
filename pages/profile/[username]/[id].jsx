@@ -46,7 +46,7 @@ const Profile = () => {
     <div className="profile">
       <div className="header">
         <p>{router.query.username}</p>
-        <Link href={`/${router.query.username}/setting`}>
+        <Link href={`/profile/${router.query.username}/setting`}>
           <a>
             <Image
               src="/Images/settings.png"

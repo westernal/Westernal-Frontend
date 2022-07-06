@@ -36,6 +36,7 @@ const SignUp = () => {
   function checkInputs() {
     SetLoader(true);
     const password = document.getElementById("password");
+    const rpassword = document.getElementById("rpassword");
     const username = document.getElementById("username");
     const email = document.getElementById("email");
 
@@ -49,8 +50,13 @@ const SignUp = () => {
       SetLoader(false);
     }
 
-    if (password.value < 6) {
+    if (password.value.length < 6) {
       toast.error("Password must be more than 6 characters!");
+      SetLoader(false);
+    }
+
+    if (password.value !== rpassword.value) {
+      toast.error("Password must be equal to repeat password!");
       SetLoader(false);
     } else signup(username.value, email.value, password.value);
   }
