@@ -44,20 +44,6 @@ const Profile = () => {
 
   return (
     <div className="profile">
-      <div className="header">
-        <p>{router.query.username}</p>
-        <Link href={`/profile/${router.query.username}/setting`}>
-          <a>
-            <Image
-              src="/Images/settings.png"
-              alt="setting"
-              width={32}
-              height={32}
-            />
-          </a>
-        </Link>
-      </div>
-
       <UserInfo />
 
       {posts.map((post) => {

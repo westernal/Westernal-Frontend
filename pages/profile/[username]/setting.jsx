@@ -25,8 +25,37 @@ const Setting = () => {
     } else editUser(username.value, password.value);
   }
 
+  async function getUserInfo(id) {
+    const option = {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+      },
+    };
+
+    var result = await API(option, `api/users/${id}`);
+
+    if (result.status == 200) {
+      SetUser(result.data.user);
+      if (
+        result.data.user.followers.includes(
+          jwt_decode(localStorage.getItem("token")).userId
+        )
+      ) {
+        SetIsFollowing(true);
+      }
+    }
+  }
+
   useEffect(() => {
-    async function getUserInfo(params) {}
+    function getToken() {
+      var token = localStorage.getItem("token");
+      const jwt = jwt_decode(token);
+
+      getUserInfo(jwt.userId);
+    }
+
+    getToken();
   }, []);
 
   async function editUser(params) {}

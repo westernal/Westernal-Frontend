@@ -109,41 +109,58 @@ const UserInfo = () => {
   }, [router.query]);
 
   return (
-    <div className="profile-info">
-      <div className="flex">
-        <div className="profile-pic flex">
-          <img
-            src="/Images/userIcon.png"
-            alt="profile picture"
-            width={32}
-            height={32}
-          />
-        </div>
+    <>
+      <div className="header">
+        <p>{router.query.username}</p>
+        {isUserSelf && (
+          <Link href={`/profile/${router.query.username}/setting`}>
+            <a>
+              <Image
+                src="/Images/settings.png"
+                alt="setting"
+                width={32}
+                height={32}
+              />
+            </a>
+          </Link>
+        )}
       </div>
-      <p id="bio">Founder of Westernal</p>
-      <div className="follow-section flex">
-        <div className="followers">
-          <p>Followers</p>
-          <p id="flw-num " className="followers-count">
-            {user.followers.length}
-          </p>
-        </div>
-        <div className="followers">
-          <p>Following</p>
-          <p id="flw-num">{user.followings.length}</p>
-        </div>
-      </div>
-      {!isUserSelf && (
+      <div className="profile-info">
         <div className="flex">
-          <button
-            className="follow-btn"
-            onClick={!isFollowing ? followUser : unfollowUser}
-          >
-            {!isFollowing ? <p>Follow</p> : <p>Unfollow</p>}
-          </button>
+          <div className="profile-pic flex">
+            <img
+              src="/Images/userIcon.png"
+              alt="profile picture"
+              width={32}
+              height={32}
+            />
+          </div>
         </div>
-      )}
-    </div>
+        <p id="bio">Founder of Westernal</p>
+        <div className="follow-section flex">
+          <div className="followers">
+            <p>Followers</p>
+            <p id="flw-num " className="followers-count">
+              {user.followers.length}
+            </p>
+          </div>
+          <div className="followers">
+            <p>Following</p>
+            <p id="flw-num">{user.followings.length}</p>
+          </div>
+        </div>
+        {!isUserSelf && (
+          <div className="flex">
+            <button
+              className="follow-btn"
+              onClick={!isFollowing ? followUser : unfollowUser}
+            >
+              {!isFollowing ? <p>Follow</p> : <p>Unfollow</p>}
+            </button>
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 
