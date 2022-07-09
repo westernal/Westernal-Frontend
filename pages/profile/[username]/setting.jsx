@@ -7,6 +7,10 @@ import API from "../../../requests/API";
 const Setting = () => {
   const [loader, SetLoader] = useState(false);
   const [image, SetImage] = useState("/Images/userIcon.png");
+  const [user, SetUser] = useState({
+    username: "Username",
+    bio: "Bio",
+  });
 
   function checkInputs() {
     SetLoader(true);
@@ -37,13 +41,6 @@ const Setting = () => {
 
     if (result.status == 200) {
       SetUser(result.data.user);
-      if (
-        result.data.user.followers.includes(
-          jwt_decode(localStorage.getItem("token")).userId
-        )
-      ) {
-        SetIsFollowing(true);
-      }
     }
   }
 
@@ -76,8 +73,8 @@ const Setting = () => {
             <img src={image} alt="user image" id="edit-img" />
             <input type="file" id="image" name="image" accept="image/*" />
           </div>
-          <input type="text" placeholder="Username" id="username" />
-          <input type="text" placeholder="Bio" id="bio" />
+          <input type="text" placeholder={user.username} id="username" />
+          <input type="text" placeholder={user.bio} id="bio" />
           <input type="text" placeholder="Password" id="password" />
           <input type="text" placeholder="Repeat Password" id="rpassword" />
         </div>
