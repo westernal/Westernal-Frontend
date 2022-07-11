@@ -12,6 +12,7 @@ const UserInfo = () => {
     posts: [],
     followers: [],
     followings: [],
+    bio: "",
   });
 
   async function followUser() {
@@ -136,7 +137,7 @@ const UserInfo = () => {
             />
           </div>
         </div>
-        <p id="bio">Founder of Westernal</p>
+        <p id="bio">{user.bio}</p>
         <div className="follow-section flex">
           <div className="followers">
             <p>Followers</p>
