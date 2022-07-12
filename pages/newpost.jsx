@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import API from "../requests/API";
 import jwt_decode from "jwt-decode";
+import BackHeader from "../components/layout/BackHeader";
 
 const NewPost = () => {
   const [loader, SetLoader] = useState(false);
@@ -71,31 +72,34 @@ const NewPost = () => {
   }
 
   return (
-    <div className="login flex">
-      <div className="auth-form">
-        <p id="login-logo">W</p>
-        {loader && (
-          <div className="flex">
-            <div className="logo-loader flex">
-              <p id="loader">w</p>
+    <>
+      <BackHeader />
+      <div className="login flex">
+        <div className="auth-form">
+          <p id="login-logo">W</p>
+          {loader && (
+            <div className="flex">
+              <div className="logo-loader flex">
+                <p id="loader">w</p>
+              </div>
             </div>
+          )}
+          <div className="form-inputs">
+            <div className="flex">
+              <label htmlFor="image">Image:</label>
+              <input type="file" id="image" name="image" accept="image/*" />
+            </div>
+            <input type="text" placeholder="Title" id="title" />
+            <textarea placeholder="Description" id="description" />
           </div>
-        )}
-        <div className="form-inputs">
           <div className="flex">
-            <label htmlFor="image">Image:</label>
-            <input type="file" id="image" name="image" accept="image/*" />
+            <button className="btn" onClick={checkInputs}>
+              Post
+            </button>
           </div>
-          <input type="text" placeholder="Title" id="title" />
-          <textarea placeholder="Description" id="description" />
-        </div>
-        <div className="flex">
-          <button className="btn" onClick={checkInputs}>
-            Post
-          </button>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -14,7 +14,9 @@ const UserInfo = () => {
     followers: [],
     followings: [],
     bio: "",
+    image: "",
   });
+  const host = "http://localhost:5000/";
 
   async function followUser() {
     const option = {
@@ -131,7 +133,7 @@ const UserInfo = () => {
         <div className="flex">
           <div className="profile-pic flex">
             <img
-              src="/Images/userIcon.png"
+              src={host + user.image}
               alt="profile picture"
               width={32}
               height={32}
