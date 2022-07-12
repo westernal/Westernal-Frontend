@@ -3,6 +3,7 @@ import Header from "../../../components/layout/Footer";
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import API from "../../../requests/API";
+import jwt_decode from "jwt-decode";
 
 const Setting = () => {
   const [loader, SetLoader] = useState(false);
@@ -14,19 +15,28 @@ const Setting = () => {
 
   function checkInputs() {
     SetLoader(true);
-    const password = document.getElementById("password");
-    const rpassword = document.getElementById("rpassword");
-    const username = document.getElementById("username");
+    const password = document.getElementById("password").value;
+    const rpassword = document.getElementById("rpassword").value;
+    let username = document.getElementById("username");
+    let bio = document.getElementById("bio");
 
-    if (password.value.length < 6 && password.value !== 0) {
+    if (bio.value === "") {
+      bio.value = bio.placeholder;
+    }
+
+    if (username.value === "") {
+      username.value = username.placeholder;
+    }
+
+    if (password.length < 6 && password.length !== 0) {
       toast.error("Password must be more than 6 characters!");
       SetLoader(false);
     }
 
-    if (password.value !== rpassword.value) {
+    if (password !== rpassword) {
       toast.error("Password must be equal to repeat password!");
       SetLoader(false);
-    } else editUser(username.value, password.value);
+    } else editUser(username.value, password, bio.value);
   }
 
   async function getUserInfo(id) {
@@ -55,7 +65,40 @@ const Setting = () => {
     getToken();
   }, []);
 
-  async function editUser(params) {}
+  async function editUser(username, password, bio) {
+    let newBody = {
+      username: username,
+      password: password,
+      bio: bio,
+    };
+
+    if (password.length === 0) {
+      newBody = {
+        username: username,
+        bio: bio,
+      };
+    }
+
+    const option = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newBody),
+      redirect: "follow",
+    };
+
+    var result = await API(option, `api/users/edit/${user._id}`);
+
+    if (result.status == 200) {
+      toast.success(`Information Edited!`);
+      router.push(`/profile/${user.username}/${user._id}`);
+    } else {
+      SetLoader(false);
+      toast.error(result.data.message);
+    }
+  }
+
   return (
     <div className="setting flex">
       <Header />

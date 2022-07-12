@@ -5,7 +5,6 @@ import Footer from "../../../components/layout/Footer";
 import Post from "../../../components/Posts/Post";
 import API from "../../../requests/API";
 import UserInfo from "../../../components/User/userInfo";
-import Link from "next/link";
 
 const Profile = () => {
   const router = useRouter();

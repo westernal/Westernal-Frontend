@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 import jwt_decode from "jwt-decode";
+import Link from "next/link";
 
 const UserInfo = () => {
   const router = useRouter();
@@ -116,7 +117,7 @@ const UserInfo = () => {
         {isUserSelf && (
           <Link href={`/profile/${router.query.username}/setting`}>
             <a>
-              <Image
+              <img
                 src="/Images/settings.png"
                 alt="setting"
                 width={32}
