@@ -45,7 +45,7 @@ const Login = () => {
     if (password.value.length < 6) {
       toast.error("Password must be more than 6 characters!");
       SetLoader(false);
-    } else login(username.value, password.value);
+    } else login(username.value.toLowerCase(), password.value);
   }
 
   function responseGoogle(res) {}

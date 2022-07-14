@@ -58,7 +58,7 @@ const SignUp = () => {
     if (password.value !== rpassword.value) {
       toast.error("Password must be equal to repeat password!");
       SetLoader(false);
-    } else signup(username.value, email.value, password.value);
+    } else signup(username.value.toLowerCase(), email.value, password.value);
   }
 
   function responseGoogle(res) {}
