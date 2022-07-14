@@ -132,12 +132,7 @@ const UserInfo = () => {
       <div className="profile-info">
         <div className="flex">
           <div className="profile-pic flex">
-            <img
-              src={host + user.image}
-              alt="profile picture"
-              width={32}
-              height={32}
-            />
+            <img src={host + user.image} alt="profile picture" />
           </div>
         </div>
         <p id="bio">{user.bio}</p>

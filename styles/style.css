@@ -256,6 +256,12 @@ a {
   border: 1px solid #9d38fc;
 }
 
+.profile-pic img {
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+}
+
 .post-icons svg {
   width: 32px;
   height: 32px;
