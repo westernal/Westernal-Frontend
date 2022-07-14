@@ -6,6 +6,7 @@ import dateFormat from "dateformat";
 import { useEffect } from "react";
 import { useState } from "react";
 import Link from "next/link";
+import ReactPlayer from "react-player/lazy";
 
 const Post = ({ details, onDelete, deletable = false }) => {
   console.log(details);
@@ -120,7 +121,14 @@ const Post = ({ details, onDelete, deletable = false }) => {
     <div className="flex">
       <div className="post">
         <div className="post-image flex">
-          <Image src={host + details.image} width={500} height={500} />
+          <ReactPlayer
+            url="https://soundcloud.com/futureisnow/future-feat-drake-tems-wait"
+            config={{
+              file: {
+                forceAudio: true,
+              },
+            }}
+          />
         </div>
         {user && (
           <Link href={`/profile/${user.username}/${user._id}`}>
