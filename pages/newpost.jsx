@@ -16,13 +16,13 @@ const NewPost = () => {
     return jwt;
   }
 
-  async function publish(image, title, description) {
+  async function publish(song, title, description) {
     const jwt = generateToken();
     let formData = new FormData();
     formData.append("title", title);
     formData.append("description", description);
     formData.append("creator", jwt.userId);
-    formData.append("image", image);
+    formData.append("song", song);
 
     const option = {
       method: "POST",
@@ -46,7 +46,7 @@ const NewPost = () => {
 
   function checkInputs() {
     SetLoader(true);
-    const image = document.getElementById("image");
+    const song = document.getElementById("song");
     const title = document.getElementById("title");
     const description = document.getElementById("description");
 
@@ -65,10 +65,10 @@ const NewPost = () => {
       SetLoader(false);
     }
 
-    if (image.value === "") {
-      toast.error("Image must be included!");
+    if (song.value === "") {
+      toast.error("song must be included!");
       SetLoader(false);
-    } else publish(image.files[0], title.value, description.value);
+    } else publish(song.files[0], title.value, description.value);
   }
 
   return (
@@ -86,8 +86,8 @@ const NewPost = () => {
           )}
           <div className="form-inputs">
             <div className="flex">
-              <label htmlFor="image">Image:</label>
-              <input type="file" id="image" name="image" accept="image/*" />
+              <label htmlFor="song">song:</label>
+              <input type="file" id="song" name="song" accept="audio/*" />
             </div>
             <input type="text" placeholder="Title" id="title" />
             <textarea placeholder="Description" id="description" />

@@ -120,14 +120,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
     <div className="flex">
       <div className="post">
         <div className="post-image flex">
-          <ReactPlayer
-            url="https://soundcloud.com/futureisnow/future-feat-drake-tems-wait"
-            config={{
-              file: {
-                forceAudio: true,
-              },
-            }}
-          />
+          <ReactPlayer controls url={host + details.song} />
         </div>
         {user && (
           <Link href={`/profile/${user.username}/${user._id}`}>
