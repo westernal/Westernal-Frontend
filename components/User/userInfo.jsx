@@ -139,9 +139,14 @@ const UserInfo = () => {
         <div className="follow-section flex">
           <div className="followers">
             <p>Followers</p>
-            <p id="flw-num " className="followers-count">
-              {user.followers.length}
-            </p>
+            <Link href={`/profile/${user.username}/${user._id}/followers`}>
+              <a>
+                {" "}
+                <p id="flw-num " className="followers-count">
+                  {user.followers.length}
+                </p>
+              </a>
+            </Link>
           </div>
           <div className="followers">
             <p>Following</p>
