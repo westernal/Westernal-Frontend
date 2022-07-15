@@ -150,7 +150,12 @@ const UserInfo = () => {
           </div>
           <div className="followers">
             <p>Following</p>
-            <p id="flw-num">{user.followings.length}</p>
+            <Link href={`/profile/${user.username}/${user._id}/followings`}>
+              <a>
+                {" "}
+                <p id="flw-num">{user.followings.length}</p>
+              </a>
+            </Link>
           </div>
         </div>
         {!isUserSelf && (

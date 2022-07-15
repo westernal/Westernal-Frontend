@@ -6,9 +6,9 @@ import { useRouter } from "next/dist/client/router";
 import API from "../../../../requests/API";
 import Link from "next/dist/client/link";
 
-const Followers = () => {
+const Followings = () => {
   const router = useRouter();
-  const [followers, SetFollowers] = useState([]);
+  const [followings, SetFollowings] = useState([]);
   const host = "http://localhost:5000/";
 
   useEffect(() => {
@@ -20,10 +20,11 @@ const Followers = () => {
         },
       };
 
-      var result = await API(option, `api/users/followers/${router.query.id}`);
+      var result = await API(option, `api/users/followings/${router.query.id}`);
+      console.log(result);
 
       if (result.status == 200) {
-        SetFollowers(result.data.followers);
+        SetFollowings(result.data.followings);
       }
     }
 
@@ -36,17 +37,17 @@ const Followers = () => {
       <BackHeader />
 
       <div className="user-list">
-        {followers.map((follower) => (
-          <div className="profile-notif flex" key={follower._id}>
-            <Link href={`/profile/${follower.username}/${follower._id}`}>
+        {followings.map((following) => (
+          <div className="profile-notif flex" key={following._id}>
+            <Link href={`/profile/${following.username}/${following._id}`}>
               <a className="flex">
                 <img
-                  src={host + follower.image}
+                  src={host + following.image}
                   width={50}
                   height={50}
                   style={{ borderRadius: "50%" }}
                 />
-                <span id="userId">{follower.username} </span>
+                <span id="userId">{following.username} </span>
               </a>
             </Link>
           </div>
@@ -58,4 +59,4 @@ const Followers = () => {
   );
 };
 
-export default Followers;
+export default Followings;
