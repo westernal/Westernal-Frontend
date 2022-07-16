@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { toast } from "react-toastify";
 import API from "../../requests/API";
 import jwt_decode from "jwt-decode";
@@ -6,7 +5,7 @@ import dateFormat from "dateformat";
 import { useEffect } from "react";
 import { useState } from "react";
 import Link from "next/link";
-import ReactPlayer from "react-player/lazy";
+import ReactAudioPlayer from "react-audio-player";
 
 const Post = ({ details, onDelete, deletable = false }) => {
   const [user, SetUser] = useState({ username: "s", _id: 0 });
@@ -120,7 +119,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
     <div className="flex">
       <div className="post">
         <div className="post-image flex">
-          <ReactPlayer controls url={host + details.song} />
+          <ReactAudioPlayer src={host + details.song} controls />
         </div>
         {user && (
           <Link href={`/profile/${user.username}/${user._id}`}>
