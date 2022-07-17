@@ -34,7 +34,7 @@ const Followings = () => {
   }, [router.query]);
   return (
     <div className="followers">
-      <BackHeader />
+      <BackHeader title="Followings" />
 
       <div className="user-list">
         {followings.map((following) => (

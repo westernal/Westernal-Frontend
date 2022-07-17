@@ -33,7 +33,7 @@ const Followers = () => {
   }, [router.query]);
   return (
     <div className="followers">
-      <BackHeader />
+      <BackHeader title="Followers" />
 
       <div className="user-list">
         {followers.map((follower) => (

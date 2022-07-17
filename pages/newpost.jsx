@@ -73,7 +73,7 @@ const NewPost = () => {
 
   return (
     <>
-      <BackHeader />
+      <BackHeader title="New Post" />
       <div className="login flex">
         <div className="auth-form">
           <p id="login-logo">W</p>
