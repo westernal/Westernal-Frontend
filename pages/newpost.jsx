@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import API from "../requests/API";
 import jwt_decode from "jwt-decode";
 import BackHeader from "../components/layout/BackHeader";
+import Footer from "../components/layout/Footer";
 
 const NewPost = () => {
   const [loader, SetLoader] = useState(false);
@@ -99,6 +100,7 @@ const NewPost = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };
