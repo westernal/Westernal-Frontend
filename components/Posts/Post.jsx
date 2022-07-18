@@ -95,7 +95,8 @@ const Post = ({ details, onDelete, deletable = false }) => {
     }
   }
 
-  async function deletePost() {
+  async function deletePost(e) {
+    e.preventDefault();
     const option = {
       method: "DELETE",
       headers: {
@@ -119,7 +120,11 @@ const Post = ({ details, onDelete, deletable = false }) => {
     <div className="flex">
       <div className="post">
         <div className="post-image flex">
-          <ReactAudioPlayer src={host + details.song} controls />
+          <ReactAudioPlayer
+            src={host + details.song}
+            controls
+            preload="false"
+          />
         </div>
         {user && (
           <Link href={`/profile/${user.username}/${user._id}`}>
@@ -150,7 +155,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
             </svg>
             <p id="like-count">{likes}</p>
             {deletable && (
-              <div onClick={deletePost}>
+              <a onClick={deletePost} href="#">
                 <svg version="1.1" id="delete-btn" viewBox="0 0 59 59">
                   <g>
                     <path
@@ -183,7 +188,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
                   <g></g>
                   <g></g>
                 </svg>
-              </div>
+              </a>
             )}
           </div>
           <p id="date">{dateFormat(details.date)}</p>
