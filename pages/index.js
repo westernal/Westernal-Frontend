@@ -11,30 +11,29 @@ export default function Index() {
   useEffect(() => {
     async function startLoaderPreview() {
       await sleep(1500);
-      document.getElementsByClassName("loader")[0].style.display = "none";
-      document.getElementsByClassName("login")[0].style.display = "flex";
+      if (document.getElementsByClassName("loader")[0]) {
+        document.getElementsByClassName("loader")[0].style.display = "none";
+        document.getElementsByClassName("login")[0].style.display = "flex";
+      }
     }
 
     startLoaderPreview();
   }, []);
   return (
-    <div >
+    <div>
       <Head>
-    <meta charSet="utf-8" />
+        <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta
           name="viewport"
           content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=5"
         />
         <title>Westernal</title>
-        <meta
-          name="description"
-          content="A social media"
-        />
+        <meta name="description" content="A social media" />
         <meta name="keywords" content="Westernal social media" />
-  </Head>
-      <Loader /> 
+      </Head>
+      <Loader />
       <Login />
     </div>
-  )
+  );
 }

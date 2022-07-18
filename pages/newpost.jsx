@@ -61,11 +61,6 @@ const NewPost = () => {
       SetLoader(false);
     }
 
-    if (description.value.length < 10) {
-      toast.error("Description must be more than 10 characters!");
-      SetLoader(false);
-    }
-
     if (song.value === "") {
       toast.error("song must be included!");
       SetLoader(false);

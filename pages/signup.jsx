@@ -90,12 +90,12 @@ const SignUp = () => {
           <hr /> OR <hr />
         </div>
         <div className="flex google">
-          <GoogleLogin
+          {/* <GoogleLogin
             clientId=""
             buttonText="Signup"
             onSuccess={responseGoogle}
             cookiePolicy={"single_host_origin"}
-          />
+          /> */}
         </div>
         <div className="flex">
           <p>Have an account?</p>
