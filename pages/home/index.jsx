@@ -27,7 +27,7 @@ export default function Index() {
       };
 
       var result = await API(option, `api/posts/timeline/${userId}`);
-      console.log(result);
+
       if (result.status == 200) {
         SetPosts(result.data.posts);
       }
@@ -39,11 +39,13 @@ export default function Index() {
       <Header />
 
       {posts.map((post) => {
-        return (
-          <div key={post._id}>
-            <Post details={post} />
-          </div>
-        );
+        if (post !== null && post.title !== "") {
+          return (
+            <div key={post._id}>
+              <Post details={post} />
+            </div>
+          );
+        }
       })}
 
       <div className="mb-100"></div>
