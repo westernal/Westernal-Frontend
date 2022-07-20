@@ -27,7 +27,7 @@ export default function Index() {
       };
 
       var result = await API(option, `api/posts/timeline/${userId}`);
-
+      console.log(result);
       if (result.status == 200) {
         SetPosts(result.data.posts);
       }

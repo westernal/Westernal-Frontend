@@ -34,7 +34,7 @@ const SignUp = () => {
       router.push("/home");
     } else {
       SetLoader(false);
-      toast.error("Server error! Please try again.");
+      toast.error(result.data.message);
     }
   }
 

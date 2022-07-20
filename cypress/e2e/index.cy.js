@@ -1,6 +1,6 @@
 const { findByRole } = require("@testing-library/react");
 
-describe("create post", () => {
+describe("create post and delete.", () => {
   it("user can create post and delete it.", async () => {
     //login
     cy.visit("/");
@@ -12,7 +12,7 @@ describe("create post", () => {
     //click on + button
     cy.findByRole("link", { name: "add" }).click();
 
-    //add inputs and click post
+    //create post
     cy.findByLabelText(/song/i).selectFile(
       "C:/Users/ASUS/Desktop/Rauf_Faik_Lullaby_128.mp3"
     );
