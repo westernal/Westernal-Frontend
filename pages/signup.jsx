@@ -21,15 +21,20 @@ const SignUp = () => {
       redirect: "follow",
     };
 
-    var result = await API(option, "api/users/signup");
+    try {
+      var result = await API(option, "api/users/signup");
+    } catch (error) {
+      toast.error(error);
+      SetLoader(false);
+    }
 
-    if (result.status == 201) {
+    if (result && result.status == 201) {
       localStorage.setItem("token", result.data.token);
       toast.success(`Welcome, ${username}!`);
       router.push("/home");
     } else {
       SetLoader(false);
-      toast.error("Please try again!");
+      toast.error("Server error! Please try again.");
     }
   }
 

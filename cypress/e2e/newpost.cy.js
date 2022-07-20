@@ -1,7 +1,7 @@
 const { findByRole } = require("@testing-library/react");
 
 describe("create post", () => {
-  it("user can create post", async () => {
+  it("user can create post and delete it.", async () => {
     //login
     cy.visit("/");
     cy.findByPlaceholderText(/username/i).type("westernal");
