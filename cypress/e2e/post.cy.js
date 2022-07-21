@@ -1,5 +1,3 @@
-const { findByRole } = require("@testing-library/react");
-
 describe("create post and delete.", () => {
   it("user can create post and delete it.", async () => {
     //login

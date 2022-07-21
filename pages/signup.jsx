@@ -24,7 +24,7 @@ const SignUp = () => {
     try {
       var result = await API(option, "api/users/signup");
     } catch (error) {
-      toast.error(error);
+      toast.error("Server Error! Please try again.");
       SetLoader(false);
     }
 

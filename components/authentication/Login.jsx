@@ -23,7 +23,7 @@ const Login = () => {
     try {
       var result = await API(option, "api/users/login");
     } catch (error) {
-      toast.error(error);
+      toast.error("Server Error! Please try again.");
       SetLoader(false);
     }
 
