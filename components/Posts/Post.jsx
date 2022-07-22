@@ -5,7 +5,6 @@ import dateFormat from "dateformat";
 import { useEffect } from "react";
 import { useState } from "react";
 import Link from "next/link";
-import ReactAudioPlayer from "react-audio-player";
 
 const Post = ({ details, onDelete, deletable = false }) => {
   const [user, SetUser] = useState({ username: "s", _id: 0 });
@@ -119,22 +118,23 @@ const Post = ({ details, onDelete, deletable = false }) => {
   return (
     <div className="flex">
       <div className="post">
-        <div className="post-image flex">
-          <ReactAudioPlayer
-            src={host + details.song}
-            controls
-            preload="false"
-          />
-        </div>
         {user && (
           <Link href={`/profile/${user.username}/${user._id}`}>
             <a>
-              <div className="post-user">
+              <div className="post-user flex">
+                <img src={host + user.image} alt="user avatar" id="avatar" />
                 <p>{user.username}</p>
               </div>
             </a>
           </Link>
         )}
+        <div className="post-image flex">
+          <audio controls src={host + details.song}>
+            Your browser does not support the
+            <code>audio</code> element.
+          </audio>
+        </div>
+
         <p id="post-title">{details.title}</p>
         <p id="post-description">{details.description}</p>
         <div className="post-info flex">

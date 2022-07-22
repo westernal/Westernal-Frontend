@@ -143,6 +143,10 @@ textarea:focus {
   color: #9d38fc;
 }
 
+.post-user {
+  justify-content: left;
+}
+
 #like-count,
 #like-btn,
 #delete-btn {
@@ -339,4 +343,10 @@ a {
 
 input {
   font-size: 16px;
+}
+
+#avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
 }
