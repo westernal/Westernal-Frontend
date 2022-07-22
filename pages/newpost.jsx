@@ -51,16 +51,6 @@ const NewPost = () => {
     const title = document.getElementById("title");
     const description = document.getElementById("description");
 
-    if (title.value === "") {
-      toast.error("Title must be included!");
-      SetLoader(false);
-    }
-
-    if (description.value === "") {
-      toast.error("Description must be included!");
-      SetLoader(false);
-    }
-
     if (song.value === "") {
       toast.error("song must be included!");
       SetLoader(false);
