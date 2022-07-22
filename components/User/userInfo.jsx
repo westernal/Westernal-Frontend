@@ -124,9 +124,8 @@ const UserInfo = () => {
         <p>{router.query.username}</p>
         {isUserSelf && (
           <div className="flex">
-            <a href="#" onClick={logOut}>
-              <p id="logout-btn"> Log Out</p>
-            </a>
+            <button onClick={logOut}>Logout</button>
+
             <Link href={`/profile/${router.query.username}/setting`}>
               <a className="flex">
                 <img

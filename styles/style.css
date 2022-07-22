@@ -351,12 +351,16 @@ input {
   border-radius: 50%;
 }
 
-#logout-btn {
-  font-size: 16px;
-  opacity: 0.6;
+.header button {
+  color: #9d38fc;
+  background-color: white;
   transition: 0.5s;
+  border-radius: 10px;
+  padding: 10px;
+  font-family: "Poppins", sans-serif;
+  border: none;
 }
 
-#logout-btn:hover {
-  opacity: 1;
+.header button:hover {
+  color: red;
 }
