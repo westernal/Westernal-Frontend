@@ -18,6 +18,12 @@ const UserInfo = () => {
   });
   const host = "http://localhost:5000/";
 
+  function logOut(e) {
+    e.preventDefault();
+    localStorage.removeItem("token");
+    router.push("/");
+  }
+
   async function followUser() {
     const option = {
       method: "POST",
@@ -117,16 +123,21 @@ const UserInfo = () => {
       <div className="header">
         <p>{router.query.username}</p>
         {isUserSelf && (
-          <Link href={`/profile/${router.query.username}/setting`}>
-            <a>
-              <img
-                src="/Images/settings.png"
-                alt="setting"
-                width={32}
-                height={32}
-              />
+          <div className="flex">
+            <a href="#" onClick={logOut}>
+              <p id="logout-btn"> Log Out</p>
             </a>
-          </Link>
+            <Link href={`/profile/${router.query.username}/setting`}>
+              <a className="flex">
+                <img
+                  src="/Images/settings.png"
+                  alt="setting"
+                  width={32}
+                  height={32}
+                />
+              </a>
+            </Link>
+          </div>
         )}
       </div>
       <div className="profile-info">

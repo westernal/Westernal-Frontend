@@ -46,8 +46,8 @@ a {
 }
 
 .header a {
-  font-size: 2rem;
   color: white;
+  padding: 0;
 }
 
 .footer {
@@ -349,4 +349,14 @@ input {
   width: 30px;
   height: 30px;
   border-radius: 50%;
+}
+
+#logout-btn {
+  font-size: 16px;
+  opacity: 0.6;
+  transition: 0.5s;
+}
+
+#logout-btn:hover {
+  opacity: 1;
 }
