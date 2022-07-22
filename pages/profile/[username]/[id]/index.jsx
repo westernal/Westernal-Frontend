@@ -5,9 +5,11 @@ import Footer from "../../../../components/layout/Footer";
 import Post from "../../../../components/Posts/Post";
 import API from "../../../../requests/API";
 import UserInfo from "../../../../components/User/userInfo";
+import jwt_decode from "jwt-decode";
 
 const Profile = () => {
   const router = useRouter();
+  const [isUserSelf, SetIsUserSelf] = useState(false);
   const [posts, SetPosts] = useState([
     {
       title: "",
@@ -39,16 +41,35 @@ const Profile = () => {
     if (router.query.username) {
       getUserPosts(router.query.id);
     }
+
+    function checkUser(userName) {
+      if (userName === router.query.username) {
+        SetIsUserSelf(true);
+      }
+    }
+
+    function getToken() {
+      var token = localStorage.getItem("token");
+      const jwt = jwt_decode(token);
+
+      checkUser(jwt.username);
+    }
+
+    getToken();
   }, [router.query]);
 
   return (
     <div className="profile">
-      <UserInfo />
+      <UserInfo isUserSelf={isUserSelf} />
 
       {posts.map((post) => {
         return (
           <div key={post._id}>
-            <Post details={post} deletable={true} onDelete={getUserPosts} />
+            <Post
+              details={post}
+              deletable={isUserSelf}
+              onDelete={getUserPosts}
+            />
           </div>
         );
       })}

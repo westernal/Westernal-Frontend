@@ -284,7 +284,7 @@ a {
   border: 1px solid #9d38fc;
   border-radius: 20px;
   padding: 20px;
-  max-width: 550px;
+  width: 550px;
 }
 
 #post-title {
@@ -367,4 +367,14 @@ input {
 
 #add-btn {
   font-size: 2rem;
+}
+
+audio {
+  width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  .post {
+    width: 600px;
+  }
 }

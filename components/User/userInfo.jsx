@@ -3,11 +3,12 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 import jwt_decode from "jwt-decode";
+
 import Link from "next/link";
 
-const UserInfo = () => {
+const UserInfo = ({ isUserSelf }) => {
   const router = useRouter();
-  const [isUserSelf, SetIsUserSelf] = useState(false);
+
   const [isFollowing, SetIsFollowing] = useState(false);
   const [user, SetUser] = useState({
     posts: [],
@@ -99,23 +100,9 @@ const UserInfo = () => {
   }
 
   useEffect(() => {
-    function checkUser(userName) {
-      if (userName === router.query.username) {
-        SetIsUserSelf(true);
-      }
-      if (router.query.username) {
-        getUserInfo(router.query.id);
-      }
+    if (router.query.username) {
+      getUserInfo(router.query.id);
     }
-
-    function getToken() {
-      var token = localStorage.getItem("token");
-      const jwt = jwt_decode(token);
-
-      checkUser(jwt.username);
-    }
-
-    getToken();
   }, [router.query]);
 
   return (
