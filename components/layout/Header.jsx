@@ -5,7 +5,7 @@ const Header = () => {
     <div className="header">
       <p>westernal</p>
       <Link href={"/newpost"}>
-        <a href="#" aria-label="add">
+        <a href="#" aria-label="add" id="add-btn">
           +
         </a>
       </Link>

@@ -364,3 +364,7 @@ input {
 .header button:hover {
   color: red;
 }
+
+#add-btn {
+  font-size: 2rem;
+}
