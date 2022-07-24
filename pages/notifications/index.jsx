@@ -1,28 +1,50 @@
 import Footer from "../../components/layout/Footer";
 import Image from "next/image";
+import { useState, useEffect } from "react";
+import API from "../../requests/API";
+import jwt_decode from "jwt-decode";
 
 const Notifications = () => {
-    return ( <div className="notification">
-        <div className="header">
-            <p>Notifications</p>
-        </div>
+  const [notifs, SetNotifs] = useState([]);
 
-        <div className="profile-notif flex">
-                <Image src={"/Images/userIcon.png"} width={50} height={50} style={{borderRadius: "50%"}} />
-                <p id="userId">@Westernal</p>
-                <p>started following you.</p>
-        </div>
-        <div className="profile-notif flex">
-                <Image src={"/Images/userIcon.png"} width={50} height={50} style={{borderRadius: "50%"}} />
-               <p> <span id="userId">@Westernal </span>
-                liked your post:
-                <span id="post-title2">why westernal?</span></p>
-        </div>
+  async function getNotifications() {
+    let id = jwt_decode(localStorage.getItem("token")).userId;
+    const option = {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+      },
+    };
 
-        <div className="mb-100"></div>
+    var result = await API(option, `api/notifications/${id}`);
 
-        <Footer />
-    </div> );
-}
- 
+    if (result.status == 200) {
+      SetNotifs(result.data.notifications);
+    }
+  }
+
+  useEffect(() => {
+    getNotifications();
+  }, []);
+
+  return (
+    <div className="notification">
+      <div className="header">
+        <p>Notifications</p>
+      </div>
+
+      {notifs &&
+        notifs.map((notif) => (
+          <div className="profile-notif flex" key={notif._id}>
+            <p>{notif.message}</p>
+          </div>
+        ))}
+
+      <div className="mb-100"></div>
+
+      <Footer />
+    </div>
+  );
+};
+
 export default Notifications;
