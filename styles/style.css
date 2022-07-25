@@ -261,8 +261,6 @@ a {
 }
 
 .profile-pic img {
-  width: 95px;
-  height: 95px;
   border-radius: 50%;
 }
 
@@ -332,8 +330,6 @@ a {
 }
 
 #edit-img {
-  width: 50px;
-  height: 50px;
   border-radius: 50%;
 }
 
@@ -346,8 +342,6 @@ input {
 }
 
 #avatar {
-  width: 30px;
-  height: 30px;
   border-radius: 50%;
 }
 

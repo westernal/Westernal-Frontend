@@ -5,6 +5,7 @@ import Footer from "../../../../components/layout/Footer";
 import { useRouter } from "next/dist/client/router";
 import API from "../../../../requests/API";
 import Link from "next/dist/client/link";
+import Image from "next/image";
 
 const Followings = () => {
   const router = useRouter();
@@ -41,7 +42,7 @@ const Followings = () => {
           <div className="profile-notif flex" key={following._id}>
             <Link href={`/profile/${following.username}/${following._id}`}>
               <a className="flex">
-                <img
+                <Image
                   src={host + following.image}
                   width={50}
                   height={50}

@@ -5,6 +5,7 @@ import dateFormat from "dateformat";
 import { useEffect } from "react";
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const Post = ({ details, onDelete, deletable = false }) => {
   const [user, SetUser] = useState({ username: "s", _id: 0 });
@@ -122,7 +123,13 @@ const Post = ({ details, onDelete, deletable = false }) => {
           <Link href={`/profile/${user.username}/${user._id}`}>
             <a>
               <div className="post-user flex">
-                <img src={host + user.image} alt="user avatar" id="avatar" />
+                <Image
+                  src={host + user.image}
+                  alt="user avatar"
+                  id="avatar"
+                  width={30}
+                  height={30}
+                />
                 <p>{user.username}</p>
               </div>
             </a>

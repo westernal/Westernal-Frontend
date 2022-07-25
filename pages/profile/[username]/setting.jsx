@@ -5,6 +5,7 @@ import API from "../../../requests/API";
 import jwt_decode from "jwt-decode";
 import BackHeader from "../../../components/layout/BackHeader";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 const Setting = () => {
   const [loader, SetLoader] = useState(false);
@@ -110,7 +111,13 @@ const Setting = () => {
           )}
           <div className="form-inputs">
             <div className="flex">
-              <img src={image} alt="user image" id="edit-img" />
+              <Image
+                width={50}
+                height={50}
+                src={image}
+                alt="user image"
+                id="edit-img"
+              />
               <input type="file" id="image" name="image" accept="image/*" />
             </div>
             <input type="text" placeholder={user.username} id="username" />

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 import jwt_decode from "jwt-decode";
+import Image from "next/image";
 
 import Link from "next/link";
 
@@ -115,7 +116,7 @@ const UserInfo = ({ isUserSelf }) => {
 
             <Link href={`/profile/${router.query.username}/setting`}>
               <a className="flex">
-                <img
+                <Image
                   src="/Images/settings.png"
                   alt="setting"
                   width={32}
@@ -129,7 +130,12 @@ const UserInfo = ({ isUserSelf }) => {
       <div className="profile-info">
         <div className="flex">
           <div className="profile-pic flex">
-            <img src={host + user.image} alt="profile picture" />
+            <Image
+              src={host + user.image}
+              alt="profile picture"
+              width={95}
+              height={95}
+            />
           </div>
         </div>
         <p id="bio">{user.bio}</p>
