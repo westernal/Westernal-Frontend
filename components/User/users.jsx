@@ -1,4 +1,9 @@
+import Link from "next/link";
+import Image from "next/image";
+
 const User = ({ users }) => {
+  const host = "http://localhost:5000/";
+
   return (
     <div className="user-list">
       {users.map((user) => (

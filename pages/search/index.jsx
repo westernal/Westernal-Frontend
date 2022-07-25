@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Footer from "../../components/layout/Footer";
 import API from "../../requests/API";
-import Post from "../../components/Posts/Post";
+import User from "../../components/User/users";
 
 const Search = () => {
   const [users, SetUsers] = useState([]);
@@ -40,20 +40,10 @@ const Search = () => {
   return (
     <div className="search">
       <div className="search-bar flex">
-        <input type="text" placeholder="Search..." onChange={searchPosts} />
+        <input type="text" placeholder="Search..." onChange={searchUsers} />
       </div>
-
-      {isTyped &&
-        result.map((post) => {
-          return (
-            <div key={post._id}>
-              <Post details={post} />
-            </div>
-          );
-        })}
-
+      {isTyped && <User users={result} />}
       <div className="mb-100"></div>
-
       <Footer />
     </div>
   );

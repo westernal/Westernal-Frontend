@@ -4,14 +4,11 @@ import BackHeader from "../../../../components/layout/BackHeader";
 import Footer from "../../../../components/layout/Footer";
 import { useRouter } from "next/dist/client/router";
 import API from "../../../../requests/API";
-import Link from "next/dist/client/link";
-import Image from "next/image";
 import User from "../../../../components/User/users";
 
 const Followers = () => {
   const router = useRouter();
   const [followers, SetFollowers] = useState([]);
-  const host = "http://localhost:5000/";
 
   useEffect(() => {
     async function getFollowers() {
