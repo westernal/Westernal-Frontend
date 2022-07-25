@@ -6,6 +6,7 @@ import { useRouter } from "next/dist/client/router";
 import API from "../../../../requests/API";
 import Link from "next/dist/client/link";
 import Image from "next/image";
+import User from "../../../../components/User/users";
 
 const Followings = () => {
   const router = useRouter();
@@ -37,23 +38,7 @@ const Followings = () => {
     <div className="followers">
       <BackHeader title="Followings" />
 
-      <div className="user-list">
-        {followings.map((following) => (
-          <div className="profile-notif flex" key={following._id}>
-            <Link href={`/profile/${following.username}/${following._id}`}>
-              <a className="flex">
-                <Image
-                  src={host + following.image}
-                  width={50}
-                  height={50}
-                  style={{ borderRadius: "50%" }}
-                />
-                <span id="userId">{following.username} </span>
-              </a>
-            </Link>
-          </div>
-        ))}
-      </div>
+      <User users={followings} />
 
       <Footer />
     </div>

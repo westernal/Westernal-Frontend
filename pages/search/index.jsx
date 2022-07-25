@@ -4,32 +4,12 @@ import API from "../../requests/API";
 import Post from "../../components/Posts/Post";
 
 const Search = () => {
-  const [posts, SetPosts] = useState([
-    {
-      title: "",
-      description: "",
-      image: "",
-      _id: "0",
-      creator: "",
-      date: "",
-      likes: [],
-    },
-  ]);
-  const [result, SetResult] = useState([
-    {
-      title: "",
-      description: "",
-      image: "",
-      _id: "0",
-      creator: "",
-      date: "",
-      likes: [],
-    },
-  ]);
+  const [users, SetUsers] = useState([]);
+  const [result, SetResult] = useState([]);
   const [isTyped, SetIstyped] = useState(false);
 
   useEffect(() => {
-    async function getPosts(params) {
+    async function getUsers(params) {
       const option = {
         method: "GET",
         headers: {
@@ -37,24 +17,22 @@ const Search = () => {
         },
       };
 
-      var result = await API(option, "api/posts");
+      var result = await API(option, "api/users");
 
       if (result.status == 200) {
-        SetPosts(result.data.posts);
+        SetUsers(result.data.users);
       }
     }
-    getPosts();
+    getUsers();
   }, []);
-  function searchPosts(e) {
+
+  function searchUsers(e) {
     const searchInput = e.target.value.toUpperCase();
     SetIstyped(true);
     SetResult(
-      posts.filter((post) => {
-        if (post.title.toUpperCase().indexOf(searchInput) > -1) {
-          return post.title.toUpperCase().indexOf(searchInput) > -1;
-        }
-        if (post.description.toUpperCase().indexOf(searchInput) > -1) {
-          return post.description.toUpperCase().indexOf(searchInput) > -1;
+      users.filter((user) => {
+        if (user.username.toUpperCase().indexOf(searchInput) > -1) {
+          return user.username.toUpperCase().indexOf(searchInput) > -1;
         }
       })
     );

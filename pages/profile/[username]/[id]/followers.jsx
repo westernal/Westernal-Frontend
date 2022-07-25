@@ -6,6 +6,7 @@ import { useRouter } from "next/dist/client/router";
 import API from "../../../../requests/API";
 import Link from "next/dist/client/link";
 import Image from "next/image";
+import User from "../../../../components/User/users";
 
 const Followers = () => {
   const router = useRouter();
@@ -37,21 +38,7 @@ const Followers = () => {
       <BackHeader title="Followers" />
 
       <div className="user-list">
-        {followers.map((follower) => (
-          <div className="profile-notif flex" key={follower._id}>
-            <Link href={`/profile/${follower.username}/${follower._id}`}>
-              <a className="flex">
-                <Image
-                  src={host + follower.image}
-                  width={50}
-                  height={50}
-                  style={{ borderRadius: "50%" }}
-                />
-                <span id="userId">{follower.username} </span>
-              </a>
-            </Link>
-          </div>
-        ))}
+        <User users={followers} />
       </div>
 
       <Footer />
