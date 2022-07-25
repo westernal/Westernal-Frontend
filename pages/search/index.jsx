@@ -36,6 +36,9 @@ const Search = () => {
         }
       })
     );
+    if (searchInput === "") {
+      SetIstyped(false);
+    }
   }
   return (
     <div className="search">
