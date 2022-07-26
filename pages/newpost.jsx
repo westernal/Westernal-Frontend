@@ -33,8 +33,11 @@ const NewPost = () => {
       body: formData,
     };
 
-    var result = await API(option, "api/posts");
-    console.log(result);
+    try {
+      var result = await API(option, "api/posts");
+    } catch (error) {
+      toast.error("Server error! please try again.");
+    }
 
     if (result.status == 201) {
       toast.success(`Post created!`);
