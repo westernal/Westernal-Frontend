@@ -12,7 +12,7 @@ describe("create post and delete.", () => {
 
     //create post
     cy.findByLabelText(/song/i).selectFile(
-      "C:/Users/ASUS/Desktop/Rauf_Faik_Lullaby_128.mp3"
+      "C:/Users/ASUS/Desktop/Folders/Ebi - Khaali.mp3"
     );
     cy.findByPlaceholderText(/title/i).type("new post");
     cy.findByPlaceholderText(/description/i).type("new post arrived");
