@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import API from "../requests/API";

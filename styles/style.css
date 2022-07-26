@@ -86,7 +86,8 @@ a {
   box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
 }
 
-.search-bar input {
+.search-bar input,
+#comment-text {
   border-radius: 20px;
   border: none;
   box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
@@ -307,7 +308,8 @@ a {
   opacity: 0.5;
 }
 
-.profile-notif {
+.profile-notif,
+.comment {
   border-radius: 10px;
   padding: 20px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -371,6 +373,18 @@ audio {
   height: 32px;
 }
 
+.post-comment {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+#cm-user {
+  font-weight: 600;
+  color: #9d38fc;
+}
 @media only screen and (max-width: 600px) {
   .post {
     width: 600px;

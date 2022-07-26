@@ -162,7 +162,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
               />
             </svg>
             <p id="like-count">{likes}</p>
-            <Link href="/">
+            <Link href={`/comments/${details._id}`}>
               <a id="comments">
                 <Image
                   width={32}
