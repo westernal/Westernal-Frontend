@@ -16,12 +16,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
     if (
       details.likes.includes(jwt_decode(localStorage.getItem("token")).userId)
     ) {
-      const likeButtons = document.querySelectorAll("#like-btn");
-
-      for (let i = 0; i < likeButtons.length; i++) {
-        likeButtons[i].style.fill = "red";
-      }
-
+      document.getElementsByClassName(details._id)[0].style.fill = "red";
       SetHasLiked(true);
     }
     async function getPostCreator() {
@@ -154,10 +149,10 @@ const Post = ({ details, onDelete, deletable = false }) => {
             <svg
               version="1.1"
               id="like-btn"
+              className={details._id}
               viewBox="0 0 32 32"
               onClick={hasLiked ? unlikePost : likePost}
             >
-              <path d="M10.5,8v2C9.122,10,8,11.121,8,12.5H6C6,10.019,8.019,8,10.5,8z" />
               <path
                 d="M21.5,5c-2.116,0-4.093,0.881-5.5,2.406C14.593,5.881,12.616,5,10.5,5C6.364,5,3,8.333,3,12.5
 	C3,21.542,16,27,16,27s13-5.458,13-14.5C29,8.333,25.636,5,21.5,5z M16,24.797C13.378,23.521,5,18.938,5,12.5
