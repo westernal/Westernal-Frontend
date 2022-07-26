@@ -171,7 +171,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
                 />
               </a>
             </Link>
-            <p id="like-count">{likes}</p>
+            <p id="like-count">{details.comments_length}</p>
             {deletable && (
               <a onClick={deletePost} href="#">
                 <svg version="1.1" id="delete-btn" viewBox="0 0 59 59">
