@@ -16,7 +16,12 @@ const Post = ({ details, onDelete, deletable = false }) => {
     if (
       details.likes.includes(jwt_decode(localStorage.getItem("token")).userId)
     ) {
-      document.getElementById("like-btn").style.fill = "red";
+      const likeButtons = document.querySelectorAll("#like-btn");
+
+      for (let i = 0; i < likeButtons.length; i++) {
+        likeButtons[i].style.fill = "red";
+      }
+
       SetHasLiked(true);
     }
     async function getPostCreator() {
@@ -35,7 +40,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
     }
 
     getPostCreator();
-  }, []);
+  }, [details]);
 
   async function likePost(e) {
     e.target.style.fill = "red";
