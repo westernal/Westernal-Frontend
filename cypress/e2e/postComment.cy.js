@@ -1,5 +1,6 @@
 describe("comment on a post.", () => {
   it("user can comment on posts", async () => {
+    let message = 1000 * Math.random();
     //login
     cy.visit("/");
     cy.findByPlaceholderText(/username/i).type("westernal");
@@ -12,9 +13,9 @@ describe("comment on a post.", () => {
     cy.wait(500);
 
     //post a comment
-    cy.findByRole("textbox").type("great post");
+    cy.findByRole("textbox").type(message);
 
     //check if comment added
-    cy.findByText("great post");
+    cy.findByText(message);
   });
 });

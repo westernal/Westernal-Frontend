@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import API from "../../requests/API";
 import dateFormat from "dateformat";
 
-const CommentsList = ({ postId }) => {
+const CommentsList = ({ postId, rerender }) => {
   const [comments, SetComments] = useState([]);
   const host = "http://localhost:5000/";
 
@@ -25,7 +25,7 @@ const CommentsList = ({ postId }) => {
 
   useEffect(() => {
     getComments();
-  }, []);
+  }, [rerender]);
   return (
     <div className="cm-list">
       {comments.map((comment) => (

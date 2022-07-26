@@ -2,7 +2,7 @@ import { toast } from "react-toastify";
 import API from "../../requests/API";
 import jwtDecode from "jwt-decode";
 
-const PostComment = ({ postId, writerId }) => {
+const PostComment = ({ postId, onPost }) => {
   const checkInput = () => {
     const message = document.getElementById("comment-text").value;
 
@@ -32,6 +32,8 @@ const PostComment = ({ postId, writerId }) => {
 
     if (result && result.status == 201) {
       toast.success(`Comment posted!`);
+      document.getElementById("comment-text").value = "";
+      onPost();
     } else {
       toast.error(result.data.message);
     }
