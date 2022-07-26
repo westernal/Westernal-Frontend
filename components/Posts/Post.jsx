@@ -162,6 +162,16 @@ const Post = ({ details, onDelete, deletable = false }) => {
               />
             </svg>
             <p id="like-count">{likes}</p>
+            <Link href="/">
+              <a id="comments">
+                <Image
+                  width={32}
+                  height={32}
+                  src="/Images/comment-svgrepo-com.svg"
+                />
+              </a>
+            </Link>
+            <p id="like-count">{likes}</p>
             {deletable && (
               <a onClick={deletePost} href="#">
                 <svg version="1.1" id="delete-btn" viewBox="0 0 59 59">

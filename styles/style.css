@@ -367,6 +367,10 @@ audio {
   width: 100%;
 }
 
+#comments {
+  height: 32px;
+}
+
 @media only screen and (max-width: 600px) {
   .post {
     width: 600px;
