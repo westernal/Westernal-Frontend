@@ -168,6 +168,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
                   width={32}
                   height={32}
                   src="/Images/comment-svgrepo-com.svg"
+                  id="comment-icon"
                 />
               </a>
             </Link>
