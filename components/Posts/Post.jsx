@@ -19,6 +19,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
       document.getElementsByClassName(details._id)[0].style.fill = "red";
       SetHasLiked(true);
     }
+
     async function getPostCreator() {
       const option = {
         method: "GET",
@@ -198,7 +199,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
               </a>
             )}
           </div>
-          <p id="date">{dateFormat(details.date)}</p>
+          <p id="date">{dateFormat(details.date, "mmm d, yyyy")}</p>
         </div>
       </div>
     </div>

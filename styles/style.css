@@ -279,7 +279,6 @@ a {
 
 .post {
   margin: 20px;
-
   border-radius: 20px;
   padding: 20px;
   width: 550px;
@@ -311,8 +310,8 @@ a {
 .profile-notif {
   border-radius: 10px;
   padding: 20px;
-  border: 1px solid #9d38fc;
-  justify-content: left;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  justify-content: space-between;
   margin: 20px;
 }
 

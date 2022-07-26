@@ -1,5 +1,5 @@
 import Footer from "../../components/layout/Footer";
-import Image from "next/image";
+import dateFormat from "dateformat";
 import { useState, useEffect } from "react";
 import API from "../../requests/API";
 import jwt_decode from "jwt-decode";
@@ -37,6 +37,7 @@ const Notifications = () => {
         notifs.map((notif) => (
           <div className="profile-notif flex" key={notif._id}>
             <p>{notif.message}</p>
+            <p id="date">{dateFormat(notif.date, "mmm d, yyyy")}</p>
           </div>
         ))}
 
