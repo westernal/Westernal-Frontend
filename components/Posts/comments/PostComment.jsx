@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-import API from "../../requests/API";
+import API from "../../../requests/API";
 import jwtDecode from "jwt-decode";
 
 const PostComment = ({ postId, onPost }) => {

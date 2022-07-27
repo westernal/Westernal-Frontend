@@ -265,9 +265,14 @@ a {
   border-radius: 50%;
 }
 
-.post-icons svg {
+.post-icons svg,
+#delete-btn {
   width: 32px;
   height: 32px;
+}
+
+#delete-btn:hover {
+  fill: red;
 }
 
 .follow-section {
