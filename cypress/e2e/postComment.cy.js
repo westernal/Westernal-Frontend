@@ -1,5 +1,5 @@
 describe("comment on a post.", () => {
-  it("user can comment on posts", () => {
+  it("user can comment on posts and delete it", () => {
     let message = 1000 * Math.random();
     //login
     cy.visit("/");
@@ -18,6 +18,13 @@ describe("comment on a post.", () => {
     cy.wait(1000);
 
     //check if comment added
-    cy.findByText(message);
+    cy.findByText(message).should("be.visible");
+
+    //delete comment
+    cy.get("#delete-btn").click();
+    cy.wait(1000);
+
+    //check if comment deleted
+    cy.findByText(message).should("not.exist");
   });
 });

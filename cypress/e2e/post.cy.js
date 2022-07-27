@@ -21,11 +21,16 @@ describe("create post and delete.", () => {
 
     //go to profile
     cy.findByRole("img", { name: /profile/i }).click({ force: true });
+    cy.wait(1000);
 
     //verify if post was made
-    cy.findByText("new post");
+    cy.findByText("new post").should("be.visible");
 
     //delete the post
     cy.get("#delete-btn").click();
+    cy.wait(1000);
+
+    //check if post deleted
+    cy.findByText("new post").should("not.exist");
   });
 });

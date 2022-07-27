@@ -13,8 +13,9 @@ describe("search for a user.", () => {
 
     //search for a user
     cy.findByRole("textbox").type("alinavidi");
+    cy.wait(1000);
 
     //check if user exists
-    cy.findByText("alinavidi");
+    cy.findByText("alinavidi").should("be.visible");
   });
 });
