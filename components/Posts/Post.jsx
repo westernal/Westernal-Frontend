@@ -161,18 +161,23 @@ const Post = ({ details, onDelete, deletable = false }) => {
 	c3.033,0,5.5,2.467,5.5,5.5C27,18.938,18.622,23.521,16,24.797z"
               />
             </svg>
-            <p id="like-count">{likes}</p>
+            <Link href={`/likes/${details._id}`}>
+              <a>
+                <p id="like-count">{likes}</p>
+              </a>
+            </Link>
             <Link href={`/comments/${details._id}`}>
-              <a id="comments">
+              <a id="comments" className="flex">
                 <Image
                   width={32}
                   height={32}
                   src="/Images/comment-svgrepo-com.svg"
                   id="comment-icon"
                 />
+
+                <p id="like-count">{details.comments_length}</p>
               </a>
             </Link>
-            <p id="like-count">{details.comments_length}</p>
             {deletable && (
               <a onClick={deletePost} href="#">
                 <svg version="1.1" id="delete-btn" viewBox="0 0 59 59">
