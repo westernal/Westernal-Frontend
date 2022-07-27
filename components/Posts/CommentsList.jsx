@@ -24,8 +24,10 @@ const CommentsList = ({ postId, rerender }) => {
   };
 
   useEffect(() => {
-    getComments();
-  }, [rerender]);
+    if (postId) {
+      getComments();
+    }
+  }, [rerender, postId]);
   return (
     <div className="cm-list">
       {comments.map((comment) => (
