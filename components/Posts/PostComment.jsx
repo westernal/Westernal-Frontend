@@ -3,6 +3,13 @@ import API from "../../requests/API";
 import jwtDecode from "jwt-decode";
 
 const PostComment = ({ postId, onPost }) => {
+  const handleEnter = (e) => {
+    if (e.keyCode === 13) {
+      e.preventDefault();
+      checkInput();
+    }
+  };
+
   const checkInput = () => {
     const message = document.getElementById("comment-text").value;
 
@@ -40,7 +47,12 @@ const PostComment = ({ postId, onPost }) => {
   };
   return (
     <div className="post-comment flex">
-      <input type="text" placeholder="Write a comment..." id="comment-text" />
+      <input
+        type="text"
+        placeholder="Write a comment..."
+        id="comment-text"
+        onKeyDown={handleEnter}
+      />
       <button className="btn" onClick={checkInput}>
         Post
       </button>
