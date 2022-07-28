@@ -43,7 +43,11 @@ const Search = () => {
   return (
     <div className="search">
       <div className="search-bar flex">
-        <input type="text" placeholder="Search..." onChange={searchUsers} />
+        <input
+          type="text"
+          placeholder="Search users..."
+          onChange={searchUsers}
+        />
       </div>
       {isTyped && <User users={result} />}
       <div className="mb-100"></div>
