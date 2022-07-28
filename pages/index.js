@@ -2,13 +2,19 @@ import Loader from "../components/layout/Loader";
 import { useEffect } from "react";
 import Head from "next/head";
 import Login from "../components/authentication/Login";
+import { useRouter } from "next/router";
 
 export default function Index() {
+  const router = useRouter();
+
   function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
   useEffect(() => {
+    if (localStorage.getItem("token")) {
+      router.push("/home");
+    }
     async function startLoaderPreview() {
       await sleep(1500);
       if (document.getElementsByClassName("loader")[0]) {
