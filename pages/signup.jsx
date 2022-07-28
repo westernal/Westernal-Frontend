@@ -104,7 +104,7 @@ const SignUp = () => {
         </div>
         <div className="flex">
           <p>Have an account?</p>
-          <Link href={"/signup"}>
+          <Link href={"/"}>
             <a aria-label="signup">login</a>
           </Link>
         </div>
