@@ -75,7 +75,12 @@ const NewPost = () => {
           <div className="form-inputs">
             <div className="flex">
               <label htmlFor="song">song:</label>
-              <input type="file" id="song" name="song" accept="audio/*" />
+              <input
+                type="file"
+                id="song"
+                name="song"
+                accept="audio/* .mp3 .mkv .wav"
+              />
             </div>
             <input type="text" placeholder="Title" id="title" />
             <textarea placeholder="Description" id="description" />
