@@ -5,7 +5,14 @@ const BackHeader = ({ title }) => {
   const router = useRouter();
   return (
     <div className="header back-header">
-      <a href="#" aria-label="add" onClick={() => router.back()}>
+      <a
+        href="#"
+        aria-label="add"
+        onClick={(e) => {
+          e.preventDefault();
+          router.back();
+        }}
+      >
         <Image
           src="/Images/icons8-left-arrow-50.png"
           alt="back button"
