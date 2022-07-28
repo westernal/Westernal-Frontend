@@ -15,7 +15,7 @@ const Setting = () => {
     bio: "Bio",
   });
   const router = useRouter();
-  const host = "http://localhost:5000/";
+  const host = "http://alinavidi.ir/";
 
   function checkInputs() {
     SetLoader(true);

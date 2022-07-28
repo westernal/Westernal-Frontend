@@ -18,7 +18,7 @@ const UserInfo = ({ isUserSelf }) => {
     bio: "",
     image: "",
   });
-  const host = "http://localhost:5000/";
+  const host = "http://alinavidi.ir/";
 
   function logOut(e) {
     e.preventDefault();

@@ -1,17 +1,13 @@
+export default async function API(options, address) {
+  const host = "http://alinavidi.ir/";
 
-export default async function API (options,address)  {
+  const response = await fetch(host + address, options);
 
-    const host = "http://localhost:5000/";
+  const data = await response.json();
 
-    const response = await fetch(host + address, options);
-    
-    const data = await response.json();
+  const status = response.status;
 
-    const status = response.status;
+  var ret = { status, data };
 
-    var ret = {status,data};
-    
-    return ret;
-   
+  return ret;
 }
- 
