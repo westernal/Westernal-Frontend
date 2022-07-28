@@ -79,7 +79,7 @@ const NewPost = () => {
                 type="file"
                 id="song"
                 name="song"
-                accept="audio/* .mp3 .mkv .wav"
+                accept="audio/* .mp3 .mkv .wav .m4a .m4r .mp4 .flac .aac"
               />
             </div>
             <input type="text" placeholder="Title" id="title" />
