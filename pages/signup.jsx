@@ -82,8 +82,8 @@ const SignUp = () => {
         <div className="form-inputs">
           <input type="text" placeholder="Username" id="username" />
           <input type="text" placeholder="Email" id="email" />
-          <input type="text" placeholder="Password" id="password" />
-          <input type="text" placeholder="Repeat Password" id="rpassword" />
+          <input type="password" placeholder="Password" id="password" />
+          <input type="password" placeholder="Repeat Password" id="rpassword" />
         </div>
         <div className="flex">
           <button className="btn" onClick={checkInputs}>
