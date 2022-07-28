@@ -421,7 +421,8 @@ audio {
   }
 
   .form-inputs input,
-  .auth-form .flex input {
+  .auth-form .flex input,
+  .form-inputs textarea {
     width: 70vw;
   }
 
