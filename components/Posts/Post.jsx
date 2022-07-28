@@ -115,7 +115,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
     }
   }
 
-  const host = "http://alinavidi.ir/";
+  const host = "https://alinavidi.ir/";
 
   return (
     <div className="flex">

@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 const User = ({ users }) => {
-  const host = "http://alinavidi.ir/";
+  const host = "https://alinavidi.ir/";
 
   return (
     <div className="user-list">

@@ -18,7 +18,7 @@ const UserInfo = ({ isUserSelf }) => {
     bio: "",
     image: "",
   });
-  const host = "http://alinavidi.ir/";
+  const host = "https://alinavidi.ir/";
 
   function logOut(e) {
     e.preventDefault();

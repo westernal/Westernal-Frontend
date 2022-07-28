@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import API from "../../../requests/API";
 
 const Comment = ({ comment, onDelete }) => {
-  const host = "http://alinavidi.ir/";
+  const host = "https://alinavidi.ir/";
   const [deletable, SetDeletable] = useState(false);
 
   const deleteComment = async (e) => {

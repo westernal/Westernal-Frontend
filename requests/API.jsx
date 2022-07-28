@@ -1,5 +1,5 @@
 export default async function API(options, address) {
-  const host = "http://alinavidi.ir/";
+  const host = "https://alinavidi.ir/";
 
   const response = await fetch(host + address, options);
 
