@@ -424,4 +424,8 @@ audio {
   .auth-form .flex input {
     width: 70vw;
   }
+
+  .search-bar input {
+    width: 80vw;
+  }
 }
