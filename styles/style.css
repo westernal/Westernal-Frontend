@@ -279,7 +279,7 @@ a {
   justify-content: space-evenly;
 }
 
-#flw-num {
+.flw-num {
   opacity: 0.6;
 }
 
@@ -406,5 +406,22 @@ audio {
   .auth-form input,
   .auth-form textarea {
     border: 0.5px solid #ededed;
+  }
+
+  .comment {
+    flex-direction: column;
+  }
+
+  .cm-main {
+    flex-direction: column;
+  }
+
+  .form-inputs .flex {
+    flex-direction: column;
+  }
+
+  .form-inputs input,
+  .auth-form .flex input {
+    width: 70vw;
   }
 }

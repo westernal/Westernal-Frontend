@@ -128,8 +128,8 @@ const Post = ({ details, onDelete, deletable = false }) => {
                   src={host + user.image}
                   alt="user avatar"
                   id="avatar"
-                  width={30}
-                  height={30}
+                  width={35}
+                  height={35}
                 />
                 <p>{user.username}</p>
               </div>

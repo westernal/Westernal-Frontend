@@ -144,8 +144,7 @@ const UserInfo = ({ isUserSelf }) => {
             <p>Followers</p>
             <Link href={`/profile/${user.username}/${user._id}/followers`}>
               <a>
-                {" "}
-                <p id="flw-num " className="followers-count">
+                <p className="followers-count flw-num">
                   {user.followers.length}
                 </p>
               </a>
@@ -155,8 +154,7 @@ const UserInfo = ({ isUserSelf }) => {
             <p>Following</p>
             <Link href={`/profile/${user.username}/${user._id}/followings`}>
               <a>
-                {" "}
-                <p id="flw-num">{user.followings.length}</p>
+                <p className="flw-num">{user.followings.length}</p>
               </a>
             </Link>
           </div>

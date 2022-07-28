@@ -121,7 +121,11 @@ const Setting = () => {
               <input type="file" id="image" name="image" accept="image/*" />
             </div>
             <input type="text" placeholder={user.username} id="username" />
-            <input type="text" placeholder={user.bio} id="bio" />
+            <input
+              type="text"
+              placeholder={user.bio ? user.bio : "Bio"}
+              id="bio"
+            />
             <input type="text" placeholder="Password" id="password" />
             <input type="text" placeholder="Repeat Password" id="rpassword" />
           </div>
