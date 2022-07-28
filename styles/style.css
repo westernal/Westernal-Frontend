@@ -34,7 +34,7 @@ a {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 50px;
-  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .header p {
@@ -61,7 +61,7 @@ a {
   bottom: 0;
   width: 100%;
   z-index: 100;
-  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .footer img {
@@ -83,14 +83,14 @@ a {
   background-color: rgb(157, 56, 252);
   padding: 20px;
   margin-bottom: 50px;
-  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .search-bar input,
 #comment-text {
   border-radius: 20px;
   border: none;
-  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   padding: 10px 20px;
   width: 70%;
   font-family: "Poppins", sans-serif;
@@ -237,7 +237,7 @@ hr {
 }
 
 .btn:hover {
-  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 a {
@@ -397,5 +397,14 @@ audio {
 @media only screen and (max-width: 600px) {
   .post {
     width: 600px;
+  }
+
+  .auth-form {
+    width: 80vw;
+  }
+
+  .auth-form input,
+  .auth-form textarea {
+    border: 0.5px solid #ededed;
   }
 }
