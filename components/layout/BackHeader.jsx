@@ -4,7 +4,7 @@ import Image from "next/image";
 const BackHeader = ({ title }) => {
   const router = useRouter();
   return (
-    <div className="header">
+    <div className="header back-header">
       <a href="#" aria-label="add" onClick={() => router.back()}>
         <Image
           src="/Images/icons8-left-arrow-50.png"

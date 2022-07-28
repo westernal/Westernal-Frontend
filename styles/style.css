@@ -171,8 +171,7 @@ textarea:focus {
 .auth-form {
   padding: 20px;
   border-radius: 10px;
-  border: 1px solid #9d38fc;
-  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   width: 60vw;
   text-align: center;
 }
@@ -198,8 +197,9 @@ hr {
 .auth-form textarea {
   width: 50vw;
   padding: 10px;
+  border: none;
   border-radius: 10px;
-  border: 1px solid #9d38fc;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   font-family: "poppins", sans-serif;
   margin-bottom: 20px;
 }
@@ -342,6 +342,10 @@ a {
 
 .header h1 {
   color: white;
+}
+
+.back-header {
+  padding: 0 20px;
 }
 
 input {
