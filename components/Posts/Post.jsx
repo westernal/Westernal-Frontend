@@ -8,7 +8,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 const Post = ({ details, onDelete, deletable = false }) => {
-  const [user, SetUser] = useState({ username: "s", _id: 0 });
+  const [user, SetUser] = useState();
   const [likes, SetLikes] = useState(details.likes.length);
   const [hasLiked, SetHasLiked] = useState(false);
 
