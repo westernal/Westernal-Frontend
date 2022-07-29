@@ -300,6 +300,10 @@ a {
   border-radius: 20px;
 }
 
+.post-image {
+  width: 500px;
+}
+
 .post-info {
   justify-content: space-between;
   margin-top: 30px;
@@ -403,6 +407,10 @@ audio {
     width: 600px;
   }
 
+  .post-image {
+    width: 400px;
+  }
+
   .auth-form {
     width: 80vw;
   }
@@ -429,5 +437,11 @@ audio {
 
   .search-bar input {
     width: 80vw;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .post-image {
+    width: 300px;
   }
 }

@@ -137,8 +137,10 @@ const Post = ({ details, onDelete, deletable = false }) => {
             </a>
           </Link>
         )}
-        <div className="post-image flex">
-          <ReactPlayer url={details.songUrl} />
+        <div className="flex">
+          <div className="post-image flex">
+            <ReactPlayer url={details.songUrl} />
+          </div>
         </div>
 
         <p id="post-title">{details.title}</p>
