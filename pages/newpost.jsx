@@ -74,10 +74,7 @@ const NewPost = () => {
             </div>
           )}
           <div className="form-inputs">
-            <div className="flex">
-              <label htmlFor="song">Song URL:</label>
-              <input type="text" id="song" />
-            </div>
+            <input type="text" id="song" placeholder="Song URL" />
             <input type="text" placeholder="Title" id="title" />
             <textarea placeholder="Description" id="description" />
           </div>
