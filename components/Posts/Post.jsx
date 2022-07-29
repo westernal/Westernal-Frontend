@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import ReactPlayer from "react-player";
 
 const Post = ({ details, onDelete, deletable = false }) => {
   const [user, SetUser] = useState();
@@ -137,10 +138,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
           </Link>
         )}
         <div className="post-image flex">
-          <audio controls src={host + details.song}>
-            Your browser does not support the
-            <code>audio</code> element.
-          </audio>
+          <ReactPlayer url={details.songUrl} />
         </div>
 
         <p id="post-title">{details.title}</p>

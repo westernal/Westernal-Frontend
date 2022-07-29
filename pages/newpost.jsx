@@ -18,18 +18,19 @@ const NewPost = () => {
 
   async function publish(song, title, description) {
     const jwt = generateToken();
-    let formData = new FormData();
-    formData.append("title", title);
-    formData.append("description", description);
-    formData.append("creator", jwt.userId);
-    formData.append("song", song);
 
     const option = {
       method: "POST",
       headers: {
+        "Content-Type": "application/json",
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
-      body: formData,
+      body: JSON.stringify({
+        title: title,
+        description: description,
+        creator: jwt.userId,
+        song: song,
+      }),
     };
 
     try {
@@ -56,7 +57,7 @@ const NewPost = () => {
     if (song.value === "") {
       toast.error("song must be included!");
       SetLoader(false);
-    } else publish(song.files[0], title.value, description.value);
+    } else publish(song.value, title.value, description.value);
   }
 
   return (
@@ -74,13 +75,8 @@ const NewPost = () => {
           )}
           <div className="form-inputs">
             <div className="flex">
-              <label htmlFor="song">song:</label>
-              <input
-                type="file"
-                id="song"
-                name="song"
-                accept="audio/* .mp3 .mkv .wav .m4a .m4r .mp4 .flac .aac"
-              />
+              <label htmlFor="song">Song URL:</label>
+              <input type="text" id="song" />
             </div>
             <input type="text" placeholder="Title" id="title" />
             <textarea placeholder="Description" id="description" />
