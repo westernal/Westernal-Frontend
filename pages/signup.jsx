@@ -87,7 +87,7 @@ const SignUp = () => {
         </div>
         <div className="flex">
           <button className="btn" onClick={checkInputs}>
-            Login
+            Signup
           </button>
         </div>
 
