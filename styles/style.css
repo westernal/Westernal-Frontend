@@ -416,10 +416,6 @@ audio {
     flex-direction: column;
   }
 
-  .cm-main {
-    flex-direction: column;
-  }
-
   .form-inputs .flex {
     flex-direction: column;
   }
