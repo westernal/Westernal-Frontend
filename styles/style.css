@@ -356,8 +356,10 @@ a {
   padding: 0 20px;
 }
 
-input {
+input,
+textarea {
   font-size: 16px;
+  -webkit-appearance: none;
 }
 
 #avatar {
