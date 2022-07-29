@@ -38,6 +38,8 @@ const Followers = () => {
         <User users={followers} />
       </div>
 
+      <div className="mb-100"></div>
+
       <Footer />
     </div>
   );

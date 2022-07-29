@@ -37,6 +37,8 @@ const Followings = () => {
 
       <User users={followings} />
 
+      <div className="mb-100"></div>
+
       <Footer />
     </div>
   );
