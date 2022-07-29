@@ -407,7 +407,8 @@ audio {
 }
 @media only screen and (max-width: 600px) {
   .post {
-    width: 600px;
+    width: 90%;
+    margin: 10px 20px;
   }
 
   .post-image {
@@ -445,6 +446,7 @@ audio {
 
 @media only screen and (max-width: 400px) {
   .post-image {
-    width: 300px;
+    width: 100%;
+    margin: 10px;
   }
 }
