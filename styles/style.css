@@ -322,6 +322,10 @@ a {
   margin: 20px;
 }
 
+.profile-notif p {
+  font-weight: 600;
+}
+
 #userId {
   font-weight: 700;
   opacity: 0.7;

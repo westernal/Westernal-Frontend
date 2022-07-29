@@ -37,12 +37,6 @@ const Comment = ({ comment, onDelete }) => {
       <div className="cm-main flex">
         <Link href={`/profile/${comment.writer.username}/${comment.writer.id}`}>
           <a className="flex">
-            <Image
-              src={host + comment.writer.avatar}
-              width={50}
-              height={50}
-              id="avatar"
-            />
             <p id="cm-user">{comment.writer.username}:</p>
           </a>
         </Link>
