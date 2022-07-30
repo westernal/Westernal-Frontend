@@ -461,6 +461,11 @@ iframe {
     gap: 0;
   }
 
+  .profile-notif p,
+  .comment p {
+    text-align: center;
+  }
+
   .notif-main {
     flex-direction: column;
     gap: 0;
