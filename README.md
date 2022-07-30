@@ -12,7 +12,7 @@ Westernal is a social media that you can share your songs with others it is also
 
 
 
-![Westernal's home page](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/htc78zdijr3ybviiunlt.png)
+![Westernal's home page](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3xfnajylsv0glu9qv6n0.jpeg)
 
 ## How it works?
 A user can easily signup and connect with people via following them and share a song URL from Spotify, YouTube, SoundCloud and etc. (not the actual song itself because of copyright) for followers. you can like and comment on posts to interact with people.
