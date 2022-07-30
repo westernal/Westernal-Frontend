@@ -3,6 +3,7 @@ import dateFormat from "dateformat";
 import { useState, useEffect } from "react";
 import API from "../../requests/API";
 import jwt_decode from "jwt-decode";
+import Link from "next/link";
 
 const Notifications = () => {
   const [notifs, SetNotifs] = useState([]);
@@ -36,7 +37,14 @@ const Notifications = () => {
       {notifs &&
         notifs.map((notif) => (
           <div className="profile-notif flex" key={notif._id}>
-            <p>{notif.message}</p>
+            <div className="flex">
+              <Link href={`/profile/${notif.user.username}/${notif.user.id}`}>
+                <a>
+                  <p>{"@" + notif.user.username}</p>
+                </a>
+              </Link>
+              <p>{notif.message}</p>
+            </div>
             <p id="date">{dateFormat(notif.date, "mmm d, yyyy")}</p>
           </div>
         ))}
