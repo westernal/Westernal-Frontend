@@ -50,6 +50,8 @@ const UserInfo = ({ isUserSelf }) => {
         parseInt(
           document.getElementsByClassName("followers-count")[0].innerHTML
         ) + 1;
+    } else {
+      toast.error(result.data.message);
     }
   }
 
@@ -75,6 +77,8 @@ const UserInfo = ({ isUserSelf }) => {
       SetIsFollowing(false);
       document.getElementsByClassName("followers-count")[0].innerHTML =
         document.getElementsByClassName("followers-count")[0].innerHTML - 1;
+    } else {
+      toast.error(result.data.message);
     }
   }
 
