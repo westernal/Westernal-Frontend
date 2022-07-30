@@ -62,6 +62,7 @@ a {
   width: 100%;
   z-index: 100;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-color: white;
 }
 
 .footer img {
@@ -450,6 +451,11 @@ iframe {
   .search-bar input {
     width: 80vw;
   }
+
+  .footer {
+    justify-content: space-between;
+    padding: 20px 10%;
+  }
 }
 
 @media only screen and (max-width: 400px) {
@@ -459,6 +465,6 @@ iframe {
   }
 
   #comment-text {
-    margin-left: 10px;
+    margin-left: 20px;
   }
 }
