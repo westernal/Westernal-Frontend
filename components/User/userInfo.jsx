@@ -18,7 +18,7 @@ const UserInfo = ({ isUserSelf }) => {
     bio: "",
     image: "",
   });
-  const [verified, Setverified] = useState(false);
+
   const host = "https://alinavidi.ir/";
 
   function logOut(e) {
@@ -109,18 +109,14 @@ const UserInfo = ({ isUserSelf }) => {
     if (router.query.username) {
       getUserInfo(router.query.id);
     }
-
-    if (user.verified && user.verified === true) {
-      Setverified(true);
-    }
-  }, [router.query, user]);
+  }, [router.query]);
 
   return (
     <>
       <div className="header">
         <div className="flex username">
           <p>{router.query.username}</p>
-          {verified && (
+          {user.verified && (
             <Image
               src="/Images/verified.png"
               alt="verified"
