@@ -37,7 +37,7 @@ const Notifications = () => {
       {notifs &&
         notifs.map((notif) => (
           <div className="profile-notif flex" key={notif._id}>
-            <div className="flex">
+            <div className="notif-main flex">
               {notif.user && (
                 <Link href={`/profile/${notif.user.username}/${notif.user.id}`}>
                   <a>

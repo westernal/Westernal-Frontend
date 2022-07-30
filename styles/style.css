@@ -433,10 +433,6 @@ iframe {
     border: 0.5px solid #ededed;
   }
 
-  .comment {
-    flex-direction: column;
-  }
-
   .form-inputs .flex {
     flex-direction: column;
   }
@@ -455,6 +451,19 @@ iframe {
   .footer {
     justify-content: space-between;
     padding: 20px 10%;
+  }
+
+  .profile-notif,
+  .notif-main,
+  .cm-main,
+  .comment {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .notif-main {
+    flex-direction: column;
+    gap: 0;
   }
 }
 
