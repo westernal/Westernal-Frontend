@@ -141,6 +141,15 @@ const Post = ({ details, onDelete, deletable = false }) => {
                   height={35}
                 />
                 <p>{user.username}</p>
+                {user.verified && (
+                  <Image
+                    src="/Images/verified 2.png"
+                    alt="verify"
+                    width={20}
+                    height={20}
+                    id="verify"
+                  />
+                )}
               </div>
             </a>
           </Link>

@@ -17,6 +17,15 @@ const User = ({ users }) => {
                 style={{ borderRadius: "50%" }}
               />
               <span id="userId">{user.username} </span>
+              {user.verified && (
+                <Image
+                  src="/Images/verified 2.png"
+                  alt="verify"
+                  width={25}
+                  height={25}
+                  id="verify"
+                />
+              )}
             </a>
           </Link>
         </div>
