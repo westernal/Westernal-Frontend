@@ -118,7 +118,7 @@ const UserInfo = ({ isUserSelf }) => {
   return (
     <>
       <div className="header">
-        <div className="flex">
+        <div className="flex username">
           <p>{router.query.username}</p>
           {verified && (
             <Image

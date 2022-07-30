@@ -411,6 +411,10 @@ audio {
   width: 100%;
 }
 
+.username {
+  gap: 10px;
+}
+
 iframe {
   border-radius: 10px 10px 0 0;
 }
