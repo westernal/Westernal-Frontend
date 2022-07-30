@@ -26,19 +26,15 @@ Download the app through share button --> add to HomeScreen.
 ![App](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/bky7y3ulqp4vvo0kvmxf.png)
 
 ## Technologies
-**Front-End:** Next.js
-**Back-End:** Node.js, Express
+**Front-End:** Next.js /
+**Back-End:** Node.js, Express /
 **Database:** MongoDB
 
 ## Source Code
- [Front-End](https://github.com/westernal/social-media-frontend)
+ [Front-End](https://github.com/westernal/social-media-frontend) /
  [Back-End](https://github.com/westernal/social-media-backend)
 
 
-## What do you think?
-I'll be happy to hear your thoughts on it.
 
-## Thank you for reading, let's connect!
-[My portfolio](https://westernal.me/)
 
 
