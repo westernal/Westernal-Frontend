@@ -40,7 +40,7 @@ const Notifications = () => {
             <div className="flex">
               <Link href={`/profile/${notif.user.username}/${notif.user.id}`}>
                 <a>
-                  <p>{"@" + notif.user.username}</p>
+                  <p id="cm-user">{"@" + notif.user.username}</p>
                 </a>
               </Link>
               <p>{notif.message}</p>
