@@ -38,11 +38,13 @@ const Notifications = () => {
         notifs.map((notif) => (
           <div className="profile-notif flex" key={notif._id}>
             <div className="flex">
-              <Link href={`/profile/${notif.user.username}/${notif.user.id}`}>
-                <a>
-                  <p id="cm-user">{"@" + notif.user.username}</p>
-                </a>
-              </Link>
+              {notif.user && (
+                <Link href={`/profile/${notif.user.username}/${notif.user.id}`}>
+                  <a>
+                    <p id="cm-user">{"@" + notif.user.username}</p>
+                  </a>
+                </Link>
+              )}
               <p>{notif.message}</p>
             </div>
             <p id="date">{dateFormat(notif.date, "mmm d, yyyy")}</p>
