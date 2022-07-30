@@ -113,7 +113,7 @@ const UserInfo = ({ isUserSelf }) => {
     if (user.verified && user.verified === true) {
       Setverified(true);
     }
-  }, [router.query]);
+  }, [router.query, user]);
 
   return (
     <>
