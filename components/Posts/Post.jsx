@@ -7,11 +7,13 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import ReactPlayer from "react-player";
+import SpotifyPlayer from "react-spotify-player";
 
 const Post = ({ details, onDelete, deletable = false }) => {
   const [user, SetUser] = useState();
   const [likes, SetLikes] = useState(details.likes.length);
   const [hasLiked, SetHasLiked] = useState(false);
+  const [isSpotify, SetIsSpotify] = useState(false);
 
   useEffect(() => {
     if (
@@ -19,6 +21,12 @@ const Post = ({ details, onDelete, deletable = false }) => {
     ) {
       document.getElementsByClassName(details._id)[0].style.fill = "red";
       SetHasLiked(true);
+    }
+
+    if (details.songUrl) {
+      if (details.songUrl.toLowerCase().includes("spotify")) {
+        SetIsSpotify(true);
+      }
     }
 
     async function getPostCreator() {
@@ -139,7 +147,14 @@ const Post = ({ details, onDelete, deletable = false }) => {
         )}
         <div className="flex">
           <div className="post-image flex">
-            <ReactPlayer url={details.songUrl} />
+            {!isSpotify && <ReactPlayer url={details.songUrl} />}
+            {isSpotify && (
+              <SpotifyPlayer
+                uri={details.songUrl}
+                view="coverart"
+                theme="black"
+              />
+            )}
           </div>
         </div>
 

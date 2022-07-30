@@ -405,6 +405,14 @@ audio {
   font-weight: 600;
   color: #9d38fc;
 }
+
+.SpotifyPlayer {
+  width: 100%;
+}
+
+iframe {
+  border-radius: 10px 10px 0 0;
+}
 @media only screen and (max-width: 600px) {
   .post {
     width: 90%;
