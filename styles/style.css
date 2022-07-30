@@ -457,4 +457,8 @@ iframe {
     width: 100%;
     margin: 10px;
   }
+
+  #comment-text {
+    margin-left: 10px;
+  }
 }
