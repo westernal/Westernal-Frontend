@@ -8,14 +8,25 @@ import Link from "next/link";
 import Image from "next/image";
 import ReactPlayer from "react-player";
 import SpotifyPlayer from "react-spotify-player";
+import ContentLoader from "react-content-loader";
 
 const Post = ({ details, onDelete, deletable = false }) => {
   const [user, SetUser] = useState();
   const [likes, SetLikes] = useState(details.likes.length);
   const [hasLiked, SetHasLiked] = useState(false);
   const [isSpotify, SetIsSpotify] = useState(false);
+  const [loader, SetLoader] = useState(true);
 
   useEffect(() => {
+    function sleep(ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+
+    async function loaderpreview(params) {
+      await sleep(500);
+      SetLoader(false);
+    }
+
     if (
       details.likes.includes(jwt_decode(localStorage.getItem("token")).userId)
     ) {
@@ -45,6 +56,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
     }
 
     getPostCreator();
+    loaderpreview();
   }, [details]);
 
   async function likePost(e) {
@@ -129,7 +141,22 @@ const Post = ({ details, onDelete, deletable = false }) => {
   return (
     <div className="flex">
       <div className="post">
-        {user && (
+        {loader && (
+          <ContentLoader
+            speed={2}
+            width={"100%"}
+            height={"100%"}
+            viewBox="0 0 300 350"
+            backgroundColor="#f3f3f3"
+            foregroundColor="#9d38fc"
+          >
+            <circle cx="31" cy="31" r="15" />
+            <rect x="58" y="18" rx="2" ry="2" width="140" height="10" />
+            <rect x="58" y="34" rx="2" ry="2" width="140" height="10" />
+            <rect x="0" y="60" rx="2" ry="2" width="400" height="400" />
+          </ContentLoader>
+        )}
+        {user && !loader && (
           <Link href={`/profile/${user.username}/${user._id}`}>
             <a>
               <div className="post-user flex">
