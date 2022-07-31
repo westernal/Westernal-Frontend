@@ -6,6 +6,7 @@ import jwt_decode from "jwt-decode";
 import Image from "next/image";
 
 import Link from "next/link";
+import Head from "next/head";
 
 const UserInfo = ({ isUserSelf }) => {
   const router = useRouter();
@@ -113,6 +114,9 @@ const UserInfo = ({ isUserSelf }) => {
 
   return (
     <>
+      <Head>
+        <title>{router.query.username} - Westernal</title>
+      </Head>
       <div className="header">
         <div className="flex username">
           <p>{router.query.username}</p>

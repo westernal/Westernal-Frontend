@@ -4,6 +4,7 @@ import { GoogleLogin } from "react-google-login";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import API from "../requests/API";
+import Head from "next/head";
 
 const SignUp = () => {
   const [loader, SetLoader] = useState(false);
@@ -70,6 +71,9 @@ const SignUp = () => {
 
   return (
     <div className="login flex">
+      <Head>
+        <title>Signup - Westernal</title>
+      </Head>
       <div className="auth-form">
         <p id="login-logo">W</p>
         {loader && (

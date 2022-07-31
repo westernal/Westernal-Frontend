@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import API from "../../requests/API";
 import jwt_decode from "jwt-decode";
 import Link from "next/link";
+import Head from "next/head";
 
 const Notifications = () => {
   const [notifs, SetNotifs] = useState([]);
@@ -30,6 +31,9 @@ const Notifications = () => {
 
   return (
     <div className="notification">
+      <Head>
+        <title>Notifications - Westernal</title>
+      </Head>
       <div className="header">
         <p>Notifications</p>
       </div>

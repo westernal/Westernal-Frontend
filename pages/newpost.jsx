@@ -5,6 +5,7 @@ import API from "../requests/API";
 import jwt_decode from "jwt-decode";
 import BackHeader from "../components/layout/BackHeader";
 import Footer from "../components/layout/Footer";
+import Head from "next/head";
 
 const NewPost = () => {
   const [loader, SetLoader] = useState(false);
@@ -62,6 +63,9 @@ const NewPost = () => {
 
   return (
     <>
+      <Head>
+        <title>New Post - Westernal</title>
+      </Head>
       <BackHeader title="New Post" />
       <div className="login flex">
         <div className="auth-form">

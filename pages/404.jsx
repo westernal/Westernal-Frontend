@@ -1,10 +1,14 @@
 import Footer from "../components/layout/Footer";
 import BackHeader from "../components/layout/BackHeader";
 import Image from "next/image";
+import Head from "next/head";
 
 const Error = () => {
   return (
     <div className="404">
+      <Head>
+        <title>404 - Westernal</title>
+      </Head>
       <BackHeader title={"Error"} />
 
       <div className="flex">

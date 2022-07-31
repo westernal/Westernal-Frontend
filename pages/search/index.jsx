@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Footer from "../../components/layout/Footer";
 import API from "../../requests/API";
 import User from "../../components/User/users";
+import Head from "next/head";
 
 const Search = () => {
   const [users, SetUsers] = useState([]);
@@ -42,6 +43,9 @@ const Search = () => {
   }
   return (
     <div className="search">
+      <Head>
+        <title>Search - Westernal</title>
+      </Head>
       <div className="search-bar flex">
         <input
           type="text"

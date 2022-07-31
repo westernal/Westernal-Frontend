@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import User from "../../components/User/users";
 import BackHeader from "../../components/layout/BackHeader";
+import Head from "next/head";
 
 const Likes = () => {
   const router = useRouter();
@@ -35,6 +36,9 @@ const Likes = () => {
 
   return (
     <div className="likes">
+      <Head>
+        <title>Likes - Westernal</title>
+      </Head>
       <BackHeader title={"Likes"} />
 
       <User users={users} />

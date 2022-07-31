@@ -23,7 +23,6 @@ const Footer = () => {
           name="viewport"
           content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=5"
         />
-        <title>Westernal</title>
         <meta name="description" content="Let the songs talk" />
         <meta name="keywords" content="Westernal social media songs music" />
       </Head>

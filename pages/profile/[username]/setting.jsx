@@ -6,6 +6,7 @@ import jwt_decode from "jwt-decode";
 import BackHeader from "../../../components/layout/BackHeader";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import Head from "next/head";
 
 const Setting = () => {
   const [loader, SetLoader] = useState(false);
@@ -99,6 +100,9 @@ const Setting = () => {
 
   return (
     <>
+      <Head>
+        <title>Setting - Westernal</title>
+      </Head>
       <BackHeader />
       <div className="setting flex">
         <div className="auth-form">

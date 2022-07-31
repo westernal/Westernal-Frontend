@@ -5,6 +5,7 @@ import Footer from "../../../../components/layout/Footer";
 import { useRouter } from "next/dist/client/router";
 import API from "../../../../requests/API";
 import User from "../../../../components/User/users";
+import Head from "next/head";
 
 const Followers = () => {
   const router = useRouter();
@@ -32,6 +33,9 @@ const Followers = () => {
   }, [router.query]);
   return (
     <div className="followers">
+      <Head>
+        <title>Followers - Westernal</title>
+      </Head>
       <BackHeader title="Followers" />
 
       <div className="user-list">

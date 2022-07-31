@@ -4,6 +4,7 @@ import Header from "../../components/layout/Header";
 import Post from "../../components/Posts/Post";
 import API from "../../requests/API";
 import jwt_decode from "jwt-decode";
+import Head from "next/head";
 
 export default function Index() {
   const [posts, SetPosts] = useState([
@@ -37,6 +38,9 @@ export default function Index() {
   return (
     <div className="home">
       <Header />
+      <Head>
+        <title>Westernal</title>
+      </Head>
 
       {posts.map((post) => {
         if (post !== null) {
