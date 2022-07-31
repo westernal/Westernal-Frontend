@@ -7,11 +7,6 @@ import Image from "next/image";
 
 const PWAModal = () => {
   useEffect(() => {
-    var x = window.matchMedia("(max-width: 922px)");
-
-    if (x.matches) {
-      document.getElementById("myModal").style.display = "block";
-    }
     var modal = document.getElementById("myModal");
 
     var span = document.getElementsByClassName("close1")[0];

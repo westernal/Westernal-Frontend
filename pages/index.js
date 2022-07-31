@@ -14,13 +14,20 @@ export default function Index() {
 
   useEffect(() => {
     async function startLoaderPreview() {
+      console.log("slm1");
       await sleep(1500);
       if (localStorage.getItem("token")) {
+        console.log("slm");
         await router.push("/home");
-      } else if (document.getElementsByClassName("loader")[0]) {
+      } else if (document.getElementsByClassName("loader")[0] && localStorage) {
+        console.log("first");
         document.getElementsByClassName("loader")[0].style.display = "none";
         document.getElementsByClassName("login")[0].style.display = "flex";
-        document.getElementsByClassName("modal")[0].style.display = "block";
+        var x = window.matchMedia("(max-width: 922px)");
+
+        if (x.matches) {
+          document.getElementById("myModal").style.display = "block";
+        }
       }
     }
 
