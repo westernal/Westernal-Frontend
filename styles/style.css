@@ -460,7 +460,7 @@ iframe {
 
 .pw-img {
   position: absolute;
-  top: 1.6vh;
+  top: 7px;
   right: 5vw;
   z-index: 2;
 }
