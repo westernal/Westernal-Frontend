@@ -39,7 +39,7 @@ export default function Index() {
       <Header />
 
       {posts.map((post) => {
-        if (post !== null && post.title !== "") {
+        if (post !== null) {
           return (
             <div key={post._id}>
               <Post details={post} />
