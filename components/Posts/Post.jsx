@@ -15,18 +15,8 @@ const Post = ({ details, onDelete, deletable = false }) => {
   const [likes, SetLikes] = useState(details.likes.length);
   const [hasLiked, SetHasLiked] = useState(false);
   const [isSpotify, SetIsSpotify] = useState(false);
-  const [loader, SetLoader] = useState(true);
 
   useEffect(() => {
-    function sleep(ms) {
-      return new Promise((resolve) => setTimeout(resolve, ms));
-    }
-
-    async function loaderpreview(params) {
-      await sleep(500);
-      SetLoader(false);
-    }
-
     if (
       details.likes.includes(jwt_decode(localStorage.getItem("token")).userId)
     ) {
@@ -56,7 +46,6 @@ const Post = ({ details, onDelete, deletable = false }) => {
     }
 
     getPostCreator();
-    loaderpreview();
   }, [details]);
 
   async function likePost(e) {
@@ -141,7 +130,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
   return (
     <div className="flex">
       <div className="post">
-        {loader && (
+        {!user && (
           <ContentLoader
             speed={2}
             width={"100%"}
@@ -156,7 +145,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
             <rect x="0" y="60" rx="2" ry="2" width="400" height="400" />
           </ContentLoader>
         )}
-        {user && !loader && (
+        {user && (
           <Link href={`/profile/${user.username}/${user._id}`}>
             <a>
               <div className="post-user flex">
