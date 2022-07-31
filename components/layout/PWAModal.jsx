@@ -50,7 +50,7 @@ const PWAModal = () => {
               <p>Click on share button.</p>
             </div>
             <div className="flex">
-              <Image width={35} height={35} src={share2.src} alt="HomeScreen" />
+              <Image width={45} height={45} src={share2.src} alt="HomeScreen" />
               <p>Choose Add To Homescreen.</p>
             </div>
             <div className="flex">

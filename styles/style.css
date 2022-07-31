@@ -450,6 +450,10 @@ iframe {
   justify-content: center;
 }
 
+.modal-main p {
+  text-align: left;
+}
+
 @media only screen and (max-width: 600px) {
   .post {
     width: 90%;
