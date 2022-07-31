@@ -4,10 +4,20 @@ import { GoogleLogin } from "react-google-login";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import API from "../../requests/API";
+import Image from "next/image";
 
 const Login = () => {
   const [loader, SetLoader] = useState(false);
   const router = useRouter();
+
+  const showPassword = () => {
+    var password = document.getElementById("password");
+    if (password.type === "password") {
+      password.type = "text";
+    } else {
+      password.type = "password";
+    }
+  };
 
   async function login(username, password) {
     const option = {
@@ -68,7 +78,18 @@ const Login = () => {
         )}
         <div className="form-inputs">
           <input type="text" placeholder="Username" id="username" />
-          <input type="password" placeholder="Password" id="password" />
+          <div className="password-field">
+            <input type="password" placeholder="Password" id="password" />
+            <div className="pw-img">
+              <Image
+                src="/Images/eye.png"
+                width={32}
+                height={32}
+                alt="eye"
+                onClick={showPassword}
+              />
+            </div>
+          </div>
         </div>
         <div className="flex">
           <button className="btn" onClick={checkInputs}>

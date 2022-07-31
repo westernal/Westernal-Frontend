@@ -454,6 +454,17 @@ iframe {
   text-align: left;
 }
 
+.password-field {
+  position: relative;
+}
+
+.pw-img {
+  position: absolute;
+  top: 1.6vh;
+  right: 5vw;
+  z-index: 2;
+}
+
 @media only screen and (max-width: 600px) {
   .post {
     width: 90%;
