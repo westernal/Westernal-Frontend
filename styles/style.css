@@ -112,6 +112,7 @@ textarea:focus {
 .loader {
   height: 100vh;
   width: 100vw;
+  z-index: 2;
 }
 
 .loader-icon {
@@ -423,7 +424,7 @@ iframe {
   display: none;
   color: #9d38fc;
   position: fixed;
-  z-index: 101;
+  z-index: 1;
   left: 0;
   top: 0;
   width: 100%;
