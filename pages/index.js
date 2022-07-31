@@ -17,8 +17,7 @@ export default function Index() {
       await sleep(1500);
       if (localStorage.getItem("token")) {
         router.push("/home");
-      }
-      if (document.getElementsByClassName("loader")[0]) {
+      } else if (document.getElementsByClassName("loader")[0]) {
         document.getElementsByClassName("loader")[0].style.display = "none";
         document.getElementsByClassName("login")[0].style.display = "flex";
         document.getElementsByClassName("modal")[0].style.display = "block";
