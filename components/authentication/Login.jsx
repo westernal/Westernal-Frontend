@@ -88,7 +88,7 @@ const Login = () => {
           /> */}
         </div>
         <div className="flex">
-          <p>Have an account?</p>
+          <p>Don{"'"}t have an account?</p>
           <Link href={"/signup"}>
             <a aria-label="signup">signup</a>
           </Link>
