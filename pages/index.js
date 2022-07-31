@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import Head from "next/head";
 import Login from "../components/authentication/Login";
 import { useRouter } from "next/router";
+import PWAModal from "../components/layout/PWAModal";
 
 export default function Index() {
   const router = useRouter();
@@ -20,6 +21,7 @@ export default function Index() {
       if (document.getElementsByClassName("loader")[0]) {
         document.getElementsByClassName("loader")[0].style.display = "none";
         document.getElementsByClassName("login")[0].style.display = "flex";
+        document.getElementsByClassName("modal")[0].style.display = "block";
       }
     }
 
@@ -39,6 +41,7 @@ export default function Index() {
         <meta name="keywords" content="Westernal social media" />
       </Head>
       <Loader />
+      <PWAModal />
       <Login />
     </div>
   );

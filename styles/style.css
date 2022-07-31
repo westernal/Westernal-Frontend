@@ -418,6 +418,38 @@ audio {
 iframe {
   border-radius: 10px 10px 0 0;
 }
+
+.modal {
+  display: none;
+  color: #9d38fc;
+  position: fixed;
+  z-index: 101;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  border: none;
+}
+
+.modal-content {
+  background-color: white;
+
+  padding: 20px;
+  background: white;
+
+  width: 100vw;
+  height: 100vh;
+}
+
+.share-info {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  padding: 0 10%;
+  justify-content: center;
+}
+
 @media only screen and (max-width: 600px) {
   .post {
     width: 90%;
