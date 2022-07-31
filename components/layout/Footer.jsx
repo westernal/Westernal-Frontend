@@ -24,8 +24,8 @@ const Footer = () => {
           content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=5"
         />
         <title>Westernal</title>
-        <meta name="description" content="A social media" />
-        <meta name="keywords" content="Westernal social media" />
+        <meta name="description" content="Let the song talk" />
+        <meta name="keywords" content="Westernal social media songs music" />
       </Head>
       <Link href="/home">
         <a aria-label="home">
