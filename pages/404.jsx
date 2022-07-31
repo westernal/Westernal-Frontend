@@ -9,9 +9,11 @@ const Error = () => {
 
       <div className="flex">
         <div className="auth-form">
-          <Image src={"/Images/logo.png"} width={90} height={90} />
+          <Image src={"/Images/logo.png"} width={90} height={90} alt="logo" />
           <h1>404 - Page not found</h1>
-          <h2>Looks like the link you're looking for doesn{"'"}t exist!</h2>
+          <h2>
+            Looks like the link you{"'"}re looking for doesn{"'"}t exist!
+          </h2>
         </div>
       </div>
 
