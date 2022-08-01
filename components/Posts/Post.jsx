@@ -160,7 +160,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
                   <p>{user.username}</p>
                   {user.verified && (
                     <Image
-                      src="/Images/verified 2.png"
+                      src="/Images/verified (2).png"
                       alt="verify"
                       width={20}
                       height={20}
