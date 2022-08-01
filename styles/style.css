@@ -252,14 +252,14 @@ a {
 .profile-info {
   text-align: center;
   margin: 50px 10%;
-  border-bottom: 1px solid #9d38fc;
+  border-bottom: 1px solid #ededed;
 }
 
 .profile-pic {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  border: 1px solid #9d38fc;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .profile-pic img {
