@@ -162,8 +162,8 @@ const Post = ({ details, onDelete, deletable = false }) => {
                     <Image
                       src="/Images/verified 2.png"
                       alt="verify"
-                      width={20}
-                      height={20}
+                      width={30}
+                      height={30}
                       id="verify"
                     />
                   )}
