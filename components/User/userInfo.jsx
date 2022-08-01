@@ -136,10 +136,10 @@ const UserInfo = ({ isUserSelf }) => {
             <Link href={`/profile/${router.query.username}/setting`}>
               <a className="flex">
                 <Image
-                  src="/Images/settings.png"
+                  src="/Images/setting.svg"
                   alt="setting"
-                  width={32}
-                  height={32}
+                  width={40}
+                  height={40}
                 />
               </a>
             </Link>

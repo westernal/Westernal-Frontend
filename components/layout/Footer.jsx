@@ -8,7 +8,8 @@ import { useRouter } from "next/router";
 const Footer = () => {
   const router = useRouter();
 
-  function generateToken() {
+  function generateToken(e) {
+    e.preventDefault();
     var token = localStorage.getItem("token");
     const jwt = jwt_decode(token);
     router.push(`/profile/${jwt.username}/${jwt.userId}`);
@@ -55,18 +56,18 @@ const Footer = () => {
           <Image
             width={32}
             height={32}
-            src="/Images/bellIcon.png"
+            src="/Images/notification.svg"
             alt="notification"
             id="notif-icon"
           />
         </a>
       </Link>
 
-      <a aria-label="profile" onClick={generateToken}>
+      <a aria-label="profile" href="#" onClick={generateToken}>
         <Image
           width={32}
           height={32}
-          src="/Images/userIcon.png"
+          src="/Images/user.svg"
           alt="profile"
           id="user-icon"
         />
