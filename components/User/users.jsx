@@ -18,13 +18,14 @@ const User = ({ users }) => {
               />
               <span id="userId">{user.username} </span>
               {user.verified && (
-                <Image
-                  src="/Images/verified (2).png"
-                  alt="verify"
-                  width={25}
-                  height={25}
-                  id="verify"
-                />
+                <div className="verify">
+                  <Image
+                    src="/Images/verified (2).png"
+                    alt="verify"
+                    width={20}
+                    height={20}
+                  />
+                </div>
               )}
             </a>
           </Link>

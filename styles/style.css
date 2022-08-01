@@ -487,6 +487,11 @@ canvas {
   margin-top: -20px;
 }
 
+.verify {
+  margin-left: -5px;
+  height: 20px;
+}
+
 @media only screen and (max-width: 600px) {
   .post {
     width: 90%;
