@@ -291,8 +291,8 @@ a {
 
 .post {
   margin: 20px;
-  border-radius: 20px;
-  padding: 20px;
+  border-radius: 10px 20px;
+  padding: 0 20px;
   width: 550px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   word-wrap: break-word;
@@ -477,6 +477,14 @@ img {
 canvas {
   display: none;
   border-radius: 10px;
+}
+
+#post-title {
+  margin-top: 5px;
+}
+
+#post-description {
+  margin-top: -20px;
 }
 
 @media only screen and (max-width: 600px) {
