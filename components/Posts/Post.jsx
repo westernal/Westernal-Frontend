@@ -30,23 +30,6 @@ const Post = ({ details, onDelete, deletable = false }) => {
       }
     }
 
-    function reveal() {
-      console.log("salam");
-      var reveals = document.querySelectorAll(".reveal");
-
-      for (var i = 0; i < reveals.length; i++) {
-        var windowHeight = window.innerHeight;
-        var elementTop = reveals[i].getBoundingClientRect().top;
-        var elementVisible = 150;
-
-        if (elementTop < windowHeight - elementVisible) {
-          reveals[i].classList.add("active");
-        } else {
-          reveals[i].classList.remove("active");
-        }
-      }
-    }
-
     async function getPostCreator() {
       const option = {
         method: "GET",
@@ -63,7 +46,6 @@ const Post = ({ details, onDelete, deletable = false }) => {
     }
 
     getPostCreator();
-    window.addEventListener("scroll", reveal);
   }, [details]);
 
   async function likePost(e) {
@@ -146,8 +128,8 @@ const Post = ({ details, onDelete, deletable = false }) => {
   const host = "https://alinavidi.ir/";
 
   return (
-    <div className="flex">
-      <div className="post reveal">
+    <div className="flex ">
+      <div className="post ">
         {!user && (
           <ContentLoader
             speed={2}
@@ -155,7 +137,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
             height={"100%"}
             viewBox="0 0 300 350"
             backgroundColor="#f3f3f3"
-            foregroundColor="#9d38fc"
+            foregroundColor="#ecebeb"
           >
             <circle cx="31" cy="31" r="15" />
             <rect x="58" y="18" rx="2" ry="2" width="140" height="10" />
