@@ -4,7 +4,6 @@ import { GoogleLogin } from "react-google-login";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import API from "../../requests/API";
-import Image from "next/image";
 
 const Login = () => {
   const [loader, SetLoader] = useState(false);
@@ -78,18 +77,8 @@ const Login = () => {
         )}
         <div className="form-inputs">
           <input type="text" placeholder="Username" id="username" />
-          <div className="password-field">
-            <input type="password" placeholder="Password" id="password" />
-            <div className="pw-img">
-              <Image
-                src="/Images/eye.png"
-                width={32}
-                height={32}
-                alt="eye"
-                onClick={showPassword}
-              />
-            </div>
-          </div>
+
+          <input type="password" placeholder="Password" id="password" />
         </div>
         <div className="flex">
           <button className="btn" onClick={checkInputs}>

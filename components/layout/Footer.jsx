@@ -42,9 +42,9 @@ const Footer = () => {
       <Link href="/search">
         <a aria-label="search">
           <Image
-            width={37}
-            height={37}
-            src="/Images/magnifierIcon.png"
+            width={32}
+            height={32}
+            src="/Images/search.svg"
             alt="search"
             id="search-icon"
           />
@@ -54,8 +54,8 @@ const Footer = () => {
       <Link href="/notifications">
         <a aria-label="notification">
           <Image
-            width={32}
-            height={32}
+            width={30}
+            height={30}
             src="/Images/notification.svg"
             alt="notification"
             id="notif-icon"
@@ -65,8 +65,8 @@ const Footer = () => {
 
       <a aria-label="profile" href="#" onClick={generateToken}>
         <Image
-          width={32}
-          height={32}
+          width={37}
+          height={37}
           src="/Images/user.svg"
           alt="profile"
           id="user-icon"
