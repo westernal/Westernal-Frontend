@@ -19,7 +19,7 @@ const User = ({ users }) => {
               <span id="userId">{user.username} </span>
               {user.verified && (
                 <Image
-                  src="/Images/verified 2.png"
+                  src="/Images/verified (2).png"
                   alt="verify"
                   width={25}
                   height={25}
