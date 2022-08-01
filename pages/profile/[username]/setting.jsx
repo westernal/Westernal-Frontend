@@ -6,6 +6,7 @@ import jwt_decode from "jwt-decode";
 import BackHeader from "../../../components/layout/BackHeader";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import Image from "next/image";
 
 const Setting = () => {
   const [loader, SetLoader] = useState(false);
