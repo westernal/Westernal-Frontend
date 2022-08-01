@@ -5,12 +5,12 @@ import API from "../../../requests/API";
 import jwt_decode from "jwt-decode";
 import BackHeader from "../../../components/layout/BackHeader";
 import { useRouter } from "next/router";
-import Image from "next/image";
 import Head from "next/head";
 
 const Setting = () => {
   const [loader, SetLoader] = useState(false);
   const [image, SetImage] = useState("/Images/userIcon.png");
+
   const [user, SetUser] = useState({
     username: "Username",
     bio: "Bio",
@@ -98,12 +98,17 @@ const Setting = () => {
     }
   }
 
+  const selectImage = (e) => {
+    SetImage(e.target.files[0]);
+    document.querySelector("canvas").style.display = "block";
+  };
+
   return (
     <>
       <Head>
         <title>Setting - Westernal</title>
       </Head>
-      <BackHeader />
+      <BackHeader title={"Setting"} />
       <div className="setting flex">
         <div className="auth-form">
           {loader && (
@@ -115,14 +120,13 @@ const Setting = () => {
           )}
           <div className="form-inputs">
             <div className="flex">
-              <Image
-                width={50}
-                height={50}
-                src={image}
-                alt="user image"
-                id="edit-img"
+              <input
+                type="file"
+                id="image"
+                name="image"
+                accept="image/*"
+                onChange={selectImage}
               />
-              <input type="file" id="image" name="image" accept="image/*" />
             </div>
             <input type="text" placeholder={user.username} id="username" />
             <input

@@ -146,45 +146,48 @@ const Post = ({ details, onDelete, deletable = false }) => {
           </ContentLoader>
         )}
         {user && (
-          <Link href={`/profile/${user.username}/${user._id}`}>
-            <a>
-              <div className="post-user flex">
-                <Image
-                  src={host + user.image}
-                  alt="user avatar"
-                  id="avatar"
-                  width={35}
-                  height={35}
-                />
-                <p>{user.username}</p>
-                {user.verified && (
+          <>
+            <Link href={`/profile/${user.username}/${user._id}`}>
+              <a>
+                <div className="post-user flex">
                   <Image
-                    src="/Images/verified 2.png"
-                    alt="verify"
-                    width={20}
-                    height={20}
-                    id="verify"
+                    src={host + user.image}
+                    alt="user avatar"
+                    id="avatar"
+                    width={35}
+                    height={35}
+                  />
+                  <p>{user.username}</p>
+                  {user.verified && (
+                    <Image
+                      src="/Images/verified 2.png"
+                      alt="verify"
+                      width={20}
+                      height={20}
+                      id="verify"
+                    />
+                  )}
+                </div>
+              </a>
+            </Link>
+
+            <div className="flex">
+              <div className="post-image flex">
+                {!isSpotify && <ReactPlayer url={details.songUrl} />}
+                {isSpotify && (
+                  <SpotifyPlayer
+                    uri={details.songUrl}
+                    view="coverart"
+                    theme="black"
                   />
                 )}
               </div>
-            </a>
-          </Link>
-        )}
-        <div className="flex">
-          <div className="post-image flex">
-            {!isSpotify && <ReactPlayer url={details.songUrl} />}
-            {isSpotify && (
-              <SpotifyPlayer
-                uri={details.songUrl}
-                view="coverart"
-                theme="black"
-              />
-            )}
-          </div>
-        </div>
+            </div>
 
-        <p id="post-title">{details.title}</p>
-        <p id="post-description">{details.description}</p>
+            <p id="post-title">{details.title}</p>
+            <p id="post-description">{details.description}</p>
+          </>
+        )}
         <div className="post-info flex">
           <div className="post-icons flex">
             <svg
