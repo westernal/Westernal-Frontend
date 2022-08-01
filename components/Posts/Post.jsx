@@ -30,6 +30,23 @@ const Post = ({ details, onDelete, deletable = false }) => {
       }
     }
 
+    function reveal() {
+      console.log("salam");
+      var reveals = document.querySelectorAll(".reveal");
+
+      for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 150;
+
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add("active");
+        } else {
+          reveals[i].classList.remove("active");
+        }
+      }
+    }
+
     async function getPostCreator() {
       const option = {
         method: "GET",
@@ -46,6 +63,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
     }
 
     getPostCreator();
+    window.addEventListener("scroll", reveal);
   }, [details]);
 
   async function likePost(e) {
@@ -129,7 +147,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
 
   return (
     <div className="flex">
-      <div className="post">
+      <div className="post reveal">
         {!user && (
           <ContentLoader
             speed={2}
