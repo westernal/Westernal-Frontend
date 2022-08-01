@@ -9,8 +9,8 @@ const Header = () => {
         <a aria-label="add" id="add-btn">
           <Image
             src={"/Images/add.svg"}
-            width={32}
-            height={32}
+            width={30}
+            height={30}
             alt="add button"
           />
         </a>
