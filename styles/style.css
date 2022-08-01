@@ -146,6 +146,10 @@ textarea:focus {
   font-size: 18px;
 }
 
+.back-header a {
+  height: 30px;
+}
+
 .post-user {
   justify-content: left;
 }

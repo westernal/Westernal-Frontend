@@ -14,10 +14,10 @@ const BackHeader = ({ title }) => {
         }}
       >
         <Image
-          src="/Images/icons8-left-arrow-50.png"
+          src="/Images/back.svg"
           alt="back button"
-          width={50}
-          height={50}
+          width={30}
+          height={30}
         />
       </a>
       <h1>{title}</h1>
