@@ -98,11 +98,6 @@ const Setting = () => {
     }
   }
 
-  const selectImage = (e) => {
-    SetImage(e.target.files[0]);
-    document.querySelector("canvas").style.display = "block";
-  };
-
   return (
     <>
       <Head>
@@ -120,13 +115,14 @@ const Setting = () => {
           )}
           <div className="form-inputs">
             <div className="flex">
-              <input
-                type="file"
-                id="image"
-                name="image"
-                accept="image/*"
-                onChange={selectImage}
+              <Image
+                width={50}
+                height={50}
+                src={image}
+                alt="user image"
+                id="edit-img"
               />
+              <input type="file" id="image" name="image" accept="image/*" />
             </div>
             <input type="text" placeholder={user.username} id="username" />
             <input
