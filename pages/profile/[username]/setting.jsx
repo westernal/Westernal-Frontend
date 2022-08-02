@@ -100,6 +100,7 @@ const Setting = () => {
 
     if (result.status == 200) {
       toast.success(`Information Edited!`);
+      localStorage.setItem("token", result.data.token);
       router.push(`/profile/${username}/${user._id}`);
     } else {
       SetLoader(false);
