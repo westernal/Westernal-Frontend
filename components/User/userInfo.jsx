@@ -150,7 +150,11 @@ const UserInfo = ({ isUserSelf }) => {
         <div className="flex">
           <div className="profile-pic flex">
             <Image
-              src={host + user.image}
+              src={
+                !user.image.includes("userIcon")
+                  ? host + user.image
+                  : "/Images/user.svg"
+              }
               alt="profile picture"
               width={95}
               height={95}

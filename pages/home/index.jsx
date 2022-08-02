@@ -5,6 +5,7 @@ import Post from "../../components/Posts/Post";
 import API from "../../requests/API";
 import jwt_decode from "jwt-decode";
 import Head from "next/head";
+import Loader from "../../components/layout/Loader";
 
 export default function Index() {
   const [posts, SetPosts] = useState([

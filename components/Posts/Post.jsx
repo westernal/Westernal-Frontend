@@ -151,7 +151,11 @@ const Post = ({ details, onDelete, deletable = false }) => {
               <a>
                 <div className="post-user flex">
                   <Image
-                    src={host + user.image}
+                    src={
+                      !user.image.includes("userIcon")
+                        ? host + user.image
+                        : "/Images/user.svg"
+                    }
                     alt="user avatar"
                     id="avatar"
                     width={40}

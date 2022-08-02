@@ -10,12 +10,18 @@ const User = ({ users }) => {
         <div className="profile-notif flex" key={user._id}>
           <Link href={`/profile/${user.username}/${user._id}`}>
             <a className="flex">
-              <Image
-                src={host + user.image}
-                width={50}
-                height={50}
-                style={{ borderRadius: "50%" }}
-              />
+              {
+                <Image
+                  src={
+                    !user.image.includes("userIcon")
+                      ? host + user.image
+                      : "/Images/user.svg"
+                  }
+                  width={50}
+                  height={50}
+                  style={{ borderRadius: "50%" }}
+                />
+              }
               <span id="userId">{user.username} </span>
               {user.verified && (
                 <div className="verify">
