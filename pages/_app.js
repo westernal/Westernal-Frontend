@@ -16,13 +16,14 @@ function MyApp({ Component, pageProps }) {
     <>
       <ToastContainer
         position="top-left"
-        autoClose={5000}
+        autoClose={2000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
         pauseOnFocusLoss
         draggable
         pauseOnHover
+        theme="colored"
       />
       <Component {...pageProps} />
     </>
