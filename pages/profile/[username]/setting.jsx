@@ -27,6 +27,8 @@ const Setting = () => {
     let bio = document.getElementById("bio");
     const Image = document.getElementById("image");
 
+    let correctedUsername = username.value.replace(/\s+/g, "");
+
     if (bio.value === "") {
       bio.value = bio.placeholder;
     }
@@ -43,7 +45,13 @@ const Setting = () => {
     if (password !== rpassword) {
       toast.error("Password must be equal to repeat password!");
       SetLoader(false);
-    } else editUser(username.value, password, bio.value, Image.files[0]);
+    } else
+      editUser(
+        correctedUsername.toLowerCase(),
+        password,
+        bio.value,
+        Image.files[0]
+      );
   }
 
   async function getUserInfo(id) {
@@ -92,7 +100,7 @@ const Setting = () => {
 
     if (result.status == 200) {
       toast.success(`Information Edited!`);
-      router.push(`/profile/${user.username}/${user._id}`);
+      router.push(`/profile/${username}/${user._id}`);
     } else {
       SetLoader(false);
       toast.error(result.data.message);
@@ -119,7 +127,11 @@ const Setting = () => {
               <Image
                 width={50}
                 height={50}
-                src={image}
+                src={
+                  !image.includes("userIcon")
+                    ? host + user.image
+                    : "/Images/user.svg"
+                }
                 alt="user image"
                 id="edit-img"
               />

@@ -46,6 +46,9 @@ const SignUp = () => {
     const username = document.getElementById("username");
     const email = document.getElementById("email");
 
+    let correctedUsername = username.value.replace(/\s+/g, "");
+    console.log(correctedUsername);
+
     if (username.value == "") {
       toast.error("Username must be included!");
       SetLoader(false);
@@ -64,7 +67,7 @@ const SignUp = () => {
     if (password.value !== rpassword.value) {
       toast.error("Password must be equal to repeat password!");
       SetLoader(false);
-    } else signup(username.value.toLowerCase(), email.value, password.value);
+    } else signup(correctedUsername.toLowerCase(), email.value, password.value);
   }
 
   function responseGoogle(res) {}
