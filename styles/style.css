@@ -19,11 +19,17 @@ a {
   text-decoration: none;
 }
 
-.flex {
+.flex,
+.icons {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
+}
+
+.icons {
+  margin-bottom: 20px;
+  opacity: 0.8;
 }
 
 .header {

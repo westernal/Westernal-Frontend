@@ -6,6 +6,7 @@ import jwt_decode from "jwt-decode";
 import BackHeader from "../components/layout/BackHeader";
 import Footer from "../components/layout/Footer";
 import Head from "next/head";
+import Icons from "../components/Posts/Icons";
 
 const NewPost = () => {
   const [loader, SetLoader] = useState(false);
@@ -78,6 +79,7 @@ const NewPost = () => {
             </div>
           )}
           <div className="form-inputs">
+            <Icons />
             <input type="text" id="song" placeholder="Song URL" />
             <input type="text" placeholder="Title" id="title" />
             <textarea placeholder="Description" id="description" />
