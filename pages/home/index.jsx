@@ -19,8 +19,15 @@ export default function Index() {
       likes: [],
     },
   ]);
+  const [refresh, SetRefresh] = useState(false);
+
+  const onRefresh = () => {
+    SetRefresh(!refresh);
+  };
+
   useEffect(() => {
     async function getPosts(userId) {
+      console.log("object");
       const option = {
         method: "GET",
         headers: {
@@ -35,10 +42,10 @@ export default function Index() {
       }
     }
     getPosts(jwt_decode(localStorage.getItem("token")).userId);
-  }, []);
+  }, [refresh]);
   return (
     <div className="home">
-      <Header />
+      <Header refresh={onRefresh} />
       <Head>
         <title>Westernal</title>
       </Head>

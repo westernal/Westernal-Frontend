@@ -4,7 +4,15 @@ import Link from "next/link";
 const Header = () => {
   return (
     <div className="header">
-      <p>westernal</p>
+      <a
+        href="#"
+        onClick={(e) => {
+          e.preventDefault();
+          location.reload();
+        }}
+      >
+        westernal
+      </a>
       <Link href={"/newpost"}>
         <a aria-label="add" id="add-btn">
           <Image

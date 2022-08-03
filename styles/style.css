@@ -36,17 +36,13 @@ a {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
+.header a,
 .header p {
   color: white;
   font-family: megrim;
   font-size: 30px;
   font-weight: bolder;
   margin: 0;
-}
-
-.header a {
-  color: white;
-  padding: 0;
 }
 
 .footer {
