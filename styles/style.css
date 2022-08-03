@@ -106,8 +106,6 @@ textarea:focus {
 .profile .header p {
   font-family: "Poppins", sans-serif;
   font-size: 1.5rem;
-  max-width: 250px;
-  word-wrap: break-word;
 }
 
 .loader {
@@ -549,6 +547,13 @@ canvas {
   .notif-main {
     flex-direction: column;
     gap: 0;
+  }
+
+  .profile .header p {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.5rem;
+    max-width: 250px;
+    word-wrap: break-word;
   }
 }
 
