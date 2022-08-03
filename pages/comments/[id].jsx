@@ -23,6 +23,8 @@ const Comments = () => {
 
       <CommentsList postId={router.query.id} rerender={rerender} />
 
+      <div className="mb-100"></div>
+
       <PostComment postId={router.query.id} onPost={render} />
     </div>
   );
