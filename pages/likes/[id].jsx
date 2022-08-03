@@ -43,6 +43,8 @@ const Likes = () => {
 
       <User users={users} />
 
+      <div className="mb-100"></div>
+
       <Footer />
     </div>
   );
