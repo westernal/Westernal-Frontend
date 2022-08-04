@@ -494,6 +494,13 @@ canvas {
   height: 20px;
 }
 
+@media screen and (prefers-color-scheme: dark) {
+  body {
+    background-color: black;
+    color: white;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .post {
     width: 90%;
