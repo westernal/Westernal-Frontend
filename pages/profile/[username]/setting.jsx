@@ -27,15 +27,15 @@ const Setting = () => {
     let bio = document.getElementById("bio");
     const Image = document.getElementById("image");
 
-    let correctedUsername = username.value.replace(/\s+/g, "");
-
     if (bio.value === "") {
       bio.value = bio.placeholder;
     }
 
-    if (username.value === "") {
+    if (!username.value) {
       username.value = username.placeholder;
     }
+
+    let correctedUsername = username.value.replace(/\s+/g, "");
 
     if (password.length < 6 && password.length !== 0) {
       toast.error("Password must be more than 6 characters!");
