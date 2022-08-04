@@ -26,6 +26,12 @@ Download the app through share button --> add to HomeScreen.
 
 ![App](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/bky7y3ulqp4vvo0kvmxf.png)
 
+## Dark Mode
+It also supports dark mode!
+
+
+![Dark Mode](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/izazmpv1ed8utbp4td2f.png)
+
 ## Technologies
 **Front-End:** Next.js /
 **Back-End:** Node.js, Express /
