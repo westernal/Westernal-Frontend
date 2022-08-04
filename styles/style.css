@@ -511,6 +511,14 @@ canvas {
   .post {
     background-color: #1d034a;
   }
+
+  .auth-form {
+    background-color: #1d034a;
+  }
+
+  #image {
+    background-color: white;
+  }
 }
 
 @media only screen and (max-width: 600px) {
