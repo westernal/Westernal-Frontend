@@ -52,7 +52,7 @@ a {
 }
 
 .footer {
-  border-radius: 20px;
+  border-radius: 20px 20px 0 0;
   padding: 20px;
   display: flex;
   justify-content: space-evenly;
@@ -506,6 +506,11 @@ canvas {
 
   #like-count {
     color: black;
+    opacity: 0.8;
+  }
+
+  .post-icons {
+    opacity: 0.6;
   }
 
   #image {
@@ -523,6 +528,10 @@ canvas {
   .post,
   .footer {
     background-color: #1d034a;
+  }
+
+  .post {
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 1);
   }
 }
 
