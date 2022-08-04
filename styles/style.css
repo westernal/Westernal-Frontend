@@ -34,7 +34,7 @@ a {
 
 .header {
   padding: 20px;
-  background-color: rgb(157, 56, 252);
+  background-color: #1d034a;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -82,7 +82,7 @@ a {
 }
 
 .search-bar {
-  background-color: rgb(157, 56, 252);
+  background-color: #1d034a;
   padding: 20px;
   margin-bottom: 50px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
