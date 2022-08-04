@@ -500,20 +500,8 @@ canvas {
     color: white;
   }
 
-  .footer {
-    background-color: #1d034a;
-  }
-
   a {
     color: white;
-  }
-
-  .post {
-    background-color: #1d034a;
-  }
-
-  .auth-form {
-    background-color: #1d034a;
   }
 
   #image {
@@ -526,6 +514,14 @@ canvas {
 
   .post svg path {
     fill: white;
+  }
+
+  .comment,
+  .profile-notif,
+  .auth-form,
+  .post,
+  .footer {
+    background-color: #1d034a;
   }
 }
 
