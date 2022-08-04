@@ -1,7 +1,7 @@
 {
   "name": "Westernal",
   "short_name": "Westernal",
-  "theme_color": "#FFFFFF",
+  "theme_color": "#1d034a",
   "background_color": "#FFFFFF",
   "start_url": "/",
   "display": "standalone",

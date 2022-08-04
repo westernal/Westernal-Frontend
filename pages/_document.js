@@ -13,7 +13,7 @@ class MyDocument extends Document {
             type="image/x-icon"
           />
           <link rel="icon" href="/Images/favicon.ico" type="image/x-icon" />
-          <meta name="theme-color" content="#9d38fc" />
+          <meta name="theme-color" content="#1d034a" />
           <meta name="background-color" content="#FFFFF" />
         </Head>
         <body>
