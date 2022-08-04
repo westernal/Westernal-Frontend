@@ -510,6 +510,7 @@ canvas {
 
   #image {
     background-color: white;
+    color: black;
   }
 
   .modal {
