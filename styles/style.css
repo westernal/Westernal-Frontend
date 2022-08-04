@@ -499,6 +499,18 @@ canvas {
     background-color: black;
     color: white;
   }
+
+  .footer {
+    background-color: black;
+  }
+
+  a {
+    color: white;
+  }
+
+  .post {
+    background-color: 1d034a;
+  }
 }
 
 @media only screen and (max-width: 600px) {
