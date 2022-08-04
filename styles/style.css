@@ -523,6 +523,10 @@ canvas {
   .modal {
     background-color: black;
   }
+
+  .post svg path {
+    fill: white;
+  }
 }
 
 @media only screen and (max-width: 600px) {
