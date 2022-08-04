@@ -504,16 +504,16 @@ canvas {
     color: white;
   }
 
+  #like-count {
+    color: black;
+  }
+
   #image {
     background-color: white;
   }
 
   .modal {
     background-color: black;
-  }
-
-  .post svg path {
-    fill: white;
   }
 
   .comment,
