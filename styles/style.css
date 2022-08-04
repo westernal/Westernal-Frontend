@@ -519,6 +519,10 @@ canvas {
   #image {
     background-color: white;
   }
+
+  .modal {
+    background-color: black;
+  }
 }
 
 @media only screen and (max-width: 600px) {
