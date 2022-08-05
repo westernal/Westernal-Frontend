@@ -322,6 +322,10 @@ a {
   fill: red;
 }
 
+#comments svg:hover {
+  fill: initial;
+}
+
 #date {
   opacity: 0.5;
 }
@@ -494,6 +498,11 @@ canvas {
   height: 20px;
 }
 
+#comment svg {
+  width: 28px;
+  height: 28px;
+}
+
 @media screen and (prefers-color-scheme: dark) {
   body {
     background-color: black;
@@ -508,10 +517,6 @@ canvas {
     color: white;
   }
 
-  .post-icons {
-    opacity: 0.6;
-  }
-
   #image {
     background-color: white;
     color: black;
@@ -524,13 +529,21 @@ canvas {
   .comment,
   .profile-notif,
   .auth-form,
-  .post,
   .footer {
     background-color: #1d034a;
   }
 
   .post {
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 1);
+    box-shadow: 0 -2px 10px #1d034a;
+  }
+
+  .post-info svg,
+  #comment svg path {
+    fill: white;
+  }
+
+  #comments svg:hover {
+    fill: white;
   }
 }
 
