@@ -526,15 +526,15 @@ canvas {
     background-color: black;
   }
 
-  .comment,
-  .profile-notif,
-  .auth-form,
   .footer {
     background-color: #1d034a;
   }
 
-  .post {
-    box-shadow: 0 -2px 10px #1d034a;
+  .post,
+  .comment,
+  .profile-notif,
+  .auth-form {
+    box-shadow: 0 -2px 15px #1d034a;
   }
 
   .post-info svg,
