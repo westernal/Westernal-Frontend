@@ -557,6 +557,10 @@ canvas {
     margin: 10px 20px;
   }
 
+  .post-info svg:hover {
+    fill: currentColor;
+  }
+
   .post-image {
     width: 400px;
   }
