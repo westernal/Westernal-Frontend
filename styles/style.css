@@ -164,7 +164,7 @@ textarea:focus {
 
 @keyframes pulse {
   0% {
-    box-shadow: #9d38fc 0 0 0 0;
+    box-shadow: #1d034a 0 0 0 0;
   }
   80% {
     box-shadow: #9d38fc00 0 0 0 20px;
