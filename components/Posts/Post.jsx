@@ -71,7 +71,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
       var result = await API(option, `api/posts/like/${details._id}`);
 
       if (result.status == 200) {
-        e.target.classList.add("liked");
+        document.getElementsByClassName(details._id)[0].classList.add("liked");
         SetLikes(likes + 1);
         SetHasLiked(true);
       }
@@ -101,7 +101,9 @@ const Post = ({ details, onDelete, deletable = false }) => {
       var result = await API(option, `api/posts/unlike/${details._id}`);
 
       if (result.status == 200) {
-        e.target.classList.remove("liked");
+        document
+          .getElementsByClassName(details._id)[0]
+          .classList.remove("liked");
         SetLikes(likes - 1);
         SetHasLiked(false);
       }
