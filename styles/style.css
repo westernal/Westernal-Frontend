@@ -534,7 +534,7 @@ canvas {
   .comment,
   .profile-notif,
   .auth-form {
-    box-shadow: 0 -2px 15px #1d034a;
+    box-shadow: 0 5px 15px #1d034a;
   }
 
   .post-info svg,
