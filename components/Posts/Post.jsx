@@ -20,7 +20,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
     if (
       details.likes.includes(jwt_decode(localStorage.getItem("token")).userId)
     ) {
-      document.getElementsByClassName(details._id)[0].style.fill = "red";
+      document.getElementsByClassName(details._id)[0].classList.add("liked");
       SetHasLiked(true);
     }
 
@@ -49,7 +49,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
   }, [details]);
 
   async function likePost(e) {
-    e.target.style.fill = "red";
+    e.preventDefault();
 
     var token = localStorage.getItem("token");
 
@@ -71,6 +71,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
       var result = await API(option, `api/posts/like/${details._id}`);
 
       if (result.status == 200) {
+        e.target.classList.add("liked");
         SetLikes(likes + 1);
         SetHasLiked(true);
       }
@@ -78,7 +79,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
   }
 
   async function unlikePost(e) {
-    e.target.style.fill = "black";
+    e.preventDefault();
 
     var token = localStorage.getItem("token");
 
@@ -100,6 +101,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
       var result = await API(option, `api/posts/unlike/${details._id}`);
 
       if (result.status == 200) {
+        e.target.classList.remove("liked");
         SetLikes(likes - 1);
         SetHasLiked(false);
       }
@@ -209,6 +211,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
 	c3.033,0,5.5,2.467,5.5,5.5C27,18.938,18.622,23.521,16,24.797z"
               />
             </svg>
+
             <Link href={`/likes/${details._id}`}>
               <a>
                 <p id="like-count">{likes}</p>

@@ -503,6 +503,10 @@ canvas {
   height: 28px;
 }
 
+.liked {
+  fill: red !important;
+}
+
 @media screen and (prefers-color-scheme: dark) {
   body {
     background-color: black;
