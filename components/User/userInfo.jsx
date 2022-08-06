@@ -161,7 +161,7 @@ const UserInfo = ({ isUserSelf }) => {
             />
           </div>
         </div>
-        <p id="bio">{user.bio}</p>
+        <p id="user-bio">{user.bio}</p>
         <div className="follow-section flex">
           <div className="followers">
             <p>Followers</p>

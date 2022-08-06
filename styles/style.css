@@ -507,7 +507,7 @@ canvas {
   fill: red !important;
 }
 
-#bio {
+user-bio {
   font-weight: 600;
 }
 
@@ -549,11 +549,6 @@ canvas {
     color: white;
   }
 
-  #image {
-    background-color: white;
-    color: black;
-  }
-
   .modal {
     background-color: black;
   }
@@ -566,7 +561,8 @@ canvas {
   .comment,
   .profile-notif,
   .auth-form {
-    border: 1px solid #1d034a;
+    background-color: #030304;
+    box-shadow: none;
   }
 
   .post-info svg,
@@ -576,6 +572,17 @@ canvas {
 
   #comments svg:hover {
     fill: white;
+  }
+
+  input,
+  #image {
+    background-color: #030304;
+    color: white;
+  }
+
+  input::placeholder,
+  #image::placeholder {
+    color: #ededed;
   }
 }
 
@@ -595,11 +602,6 @@ canvas {
 
   .auth-form {
     width: 80vw;
-  }
-
-  .auth-form input,
-  .auth-form textarea {
-    border: 0.5px solid #ededed;
   }
 
   .form-inputs .flex {
