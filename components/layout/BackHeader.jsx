@@ -16,8 +16,8 @@ const BackHeader = ({ title }) => {
         <Image
           src="/Images/back.svg"
           alt="back button"
-          width={30}
-          height={30}
+          width={20}
+          height={20}
         />
       </a>
       <h1>{title}</h1>

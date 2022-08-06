@@ -637,6 +637,21 @@ canvas {
   .follow-btn {
     width: 100%;
   }
+
+  h1,
+  #post-title,
+  .notification .header p,
+  .profile .header p {
+    font-size: 20px;
+  }
+
+  #post-title {
+    margin-top: 20px;
+  }
+
+  .post-info {
+    margin-top: 5px;
+  }
 }
 
 @media only screen and (max-width: 400px) {
