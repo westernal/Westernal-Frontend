@@ -633,6 +633,10 @@ canvas {
     max-width: 250px;
     word-wrap: break-word;
   }
+
+  .follow-btn {
+    width: 100%;
+  }
 }
 
 @media only screen and (max-width: 400px) {
