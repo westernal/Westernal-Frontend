@@ -1,13 +1,19 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
-  isLight = true;
+  constructor(props) {
+    super(props);
+    this.state = { isLight: true };
+  }
+
   componentDidMount() {
     if (
       window.matchMedia &&
       window.matchMedia("(prefers-color-scheme: dark)").matches
     ) {
-      this.isLight = false;
+      this.setState({
+        isLight: false,
+      });
     }
   }
 
@@ -25,9 +31,12 @@ class MyDocument extends Document {
           <link rel="icon" href="/Images/favicon.ico" type="image/x-icon" />
           <meta
             name="theme-color"
-            content={this.isLight ? "#9d38fc" : "#1d034a"}
+            content={this.state.isLight ? "#9d38fc" : "#1d034a"}
           />
-          <meta name="background-color" content="#FFFFF" />
+          <meta
+            name="background-color"
+            content={this.state.isLight ? "#FFFFF" : "#00000"}
+          />
         </Head>
         <body>
           <Main />
