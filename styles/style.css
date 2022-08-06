@@ -561,7 +561,7 @@ user-bio {
   .comment,
   .profile-notif,
   .auth-form {
-    background-color: #030304;
+    background-color: #101015;
     box-shadow: none;
   }
 
@@ -576,7 +576,7 @@ user-bio {
 
   input,
   #image {
-    background-color: #030304;
+    background-color: #101015;
     color: white;
   }
 
