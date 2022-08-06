@@ -30,8 +30,8 @@ const Footer = () => {
       <Link href="/home">
         <a aria-label="home">
           <Image
-            width={25}
-            height={25}
+            width={28}
+            height={28}
             src="/Images/home.png"
             alt="home"
             id="home-icon"
@@ -42,8 +42,8 @@ const Footer = () => {
       <Link href="/search">
         <a aria-label="search">
           <Image
-            width={25}
-            height={25}
+            width={28}
+            height={28}
             src="/Images/search.svg"
             alt="search"
             id="search-icon"
@@ -54,8 +54,8 @@ const Footer = () => {
       <Link href="/notifications">
         <a aria-label="notification">
           <Image
-            width={20}
-            height={20}
+            width={23}
+            height={23}
             src="/Images/notification.svg"
             alt="notification"
             id="notif-icon"
@@ -65,8 +65,8 @@ const Footer = () => {
 
       <a aria-label="profile" href="#" onClick={generateToken}>
         <Image
-          width={27}
-          height={27}
+          width={31}
+          height={31}
           src="/Images/user.svg"
           alt="profile"
           id="user-icon"
