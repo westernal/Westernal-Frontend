@@ -34,7 +34,7 @@ a {
 
 .header {
   padding: 20px;
-  background-color: #1d034a;
+  background-color: #9d38fc;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -63,7 +63,7 @@ a {
   width: 100%;
   z-index: 100;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  background-color: #1d034a;
+  background-color: white;
 }
 
 .footer img {
@@ -511,6 +511,19 @@ canvas {
   body {
     background-color: black;
     color: white;
+  }
+
+  .modal-content {
+    background-color: black;
+  }
+
+  .header,
+  .modal-main {
+    background-color: #1d034a;
+  }
+
+  #delete-btn {
+    fill: white;
   }
 
   a {
