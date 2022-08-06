@@ -652,6 +652,10 @@ canvas {
   .post-info {
     margin-top: 5px;
   }
+
+  .footer {
+    padding-bottom: 40px;
+  }
 }
 
 @media only screen and (max-width: 400px) {
