@@ -82,7 +82,7 @@ a {
 }
 
 .search-bar {
-  background-color: #1d034a;
+  background-color: #9d38fc;
   padding: 20px;
   margin-bottom: 50px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -118,7 +118,7 @@ textarea:focus {
 
 .loader-icon {
   font-family: megrim;
-  background-color: #1d034a;
+  background-color: #9d38fc;
   color: white;
   font-size: 10rem;
   animation: pulse 1s infinite;
@@ -518,7 +518,9 @@ canvas {
   }
 
   .header,
-  .modal-main {
+  .modal-main,
+  .search-bar,
+  .loader-icon {
     background-color: #1d034a;
   }
 
