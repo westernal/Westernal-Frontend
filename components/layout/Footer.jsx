@@ -54,8 +54,8 @@ const Footer = () => {
       <Link href="/notifications">
         <a aria-label="notification">
           <Image
-            width={23}
-            height={23}
+            width={25}
+            height={25}
             src="/Images/notification.svg"
             alt="notification"
             id="notif-icon"
@@ -65,8 +65,8 @@ const Footer = () => {
 
       <a aria-label="profile" href="#" onClick={generateToken}>
         <Image
-          width={31}
-          height={31}
+          width={33}
+          height={33}
           src="/Images/user.svg"
           alt="profile"
           id="user-icon"
