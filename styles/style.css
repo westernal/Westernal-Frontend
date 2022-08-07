@@ -520,7 +520,7 @@ canvas {
 
   @keyframes pulse {
     0% {
-      box-shadow: #1d034a 0 0 0 0;
+      box-shadow: #9d38fc 0 0 0 0;
     }
     80% {
       box-shadow: #9d38fc00 0 0 0 20px;
@@ -531,11 +531,10 @@ canvas {
     background-color: black;
   }
 
-  .header,
   .modal-main,
-  .search-bar,
-  .loader-icon {
-    background-color: #1d034a;
+  .search-bar {
+    background-color: black;
+    box-shadow: none;
   }
 
   #delete-btn {
@@ -555,7 +554,9 @@ canvas {
   }
 
   .footer {
-    background-color: #1d034a;
+    background-color: black;
+    box-shadow: none;
+    border: 1px solid #101015;
   }
 
   .post,
@@ -576,14 +577,16 @@ canvas {
   }
 
   input,
-  #image {
+  #image,
+  textarea {
     background-color: #101015;
     color: white;
   }
 
   input::placeholder,
-  #image::placeholder {
-    color: #ededed;
+  textarea::placeholder,
+  #image {
+    color: #5f5d5d;
   }
 }
 
@@ -671,6 +674,12 @@ canvas {
 
   .footer {
     padding-bottom: 30px;
+  }
+
+  #image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
