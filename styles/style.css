@@ -248,6 +248,10 @@ hr {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
+.follow-name {
+  color: #101015;
+}
+
 a {
   color: black;
 }
@@ -587,6 +591,10 @@ canvas {
   textarea::placeholder,
   #image {
     color: #5f5d5d;
+  }
+
+  .profile-info {
+    border-bottom: 1px solid #101015;
   }
 }
 
