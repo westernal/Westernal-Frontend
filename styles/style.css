@@ -581,7 +581,8 @@ canvas {
 
   input,
   #image,
-  textarea {
+  textarea,
+  .search-bar {
     background-color: #101015;
     color: white;
   }
