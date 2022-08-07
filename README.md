@@ -31,8 +31,8 @@ It also supports dark mode!
 
 
 
-![Dark Mode](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/6j276oamhorvq29c7rc6.png)
-![Light Mode](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/fersjz5snyopzpi9iy43.png)
+![Dark Mode](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/abso17kqqy9ubm4r17o7.png)
+![Light Mode](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/lk84xxutvb3x1igmx1pw.png)
 
 
 ## Technologies
