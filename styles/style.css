@@ -249,7 +249,7 @@ hr {
 }
 
 .follow-name {
-  color: #101015;
+  color: #5f5d5d;
 }
 
 a {
@@ -594,7 +594,7 @@ canvas {
   }
 
   .profile-info {
-    border-bottom: 1px solid #101015;
+    border-bottom: 1px solid #5f5d5d;
   }
 }
 
