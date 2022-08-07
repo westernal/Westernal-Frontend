@@ -535,8 +535,7 @@ canvas {
     background-color: black;
   }
 
-  .modal-main,
-  .search-bar {
+  .modal-main {
     background-color: black;
     box-shadow: none;
   }
