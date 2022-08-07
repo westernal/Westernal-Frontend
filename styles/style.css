@@ -507,8 +507,9 @@ canvas {
   fill: red !important;
 }
 
-user-bio {
+#user-bio {
   font-weight: 600;
+  font-size: 18px;
 }
 
 @media screen and (prefers-color-scheme: dark) {
