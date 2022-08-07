@@ -263,7 +263,7 @@ a {
 .profile-info {
   text-align: center;
   margin: 50px 10%;
-  border-bottom: 1px solid #ededed;
+  border-bottom: 1px solid #5f5d5d;
 }
 
 .profile-pic {
@@ -590,10 +590,6 @@ canvas {
   textarea::placeholder,
   #image {
     color: #5f5d5d;
-  }
-
-  .profile-info {
-    border-bottom: 1px solid #101015;
   }
 }
 
