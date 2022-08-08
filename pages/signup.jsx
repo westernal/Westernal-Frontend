@@ -74,7 +74,17 @@ const SignUp = () => {
     } else signup(correctedUsername.toLowerCase(), email.value, password.value);
   }
 
-  function responseGoogle(res) {}
+  function googleSignup(res) {
+    signup(
+      res.profileObj.email.split("@", 1)[0].toLowerCase(),
+      res.profileObj.email,
+      "12345678"
+    );
+  }
+
+  const googleError = () => {
+    toast.error("Login failed!");
+  };
 
   return (
     <div className="login flex">
@@ -112,12 +122,13 @@ const SignUp = () => {
           <hr /> OR <hr />
         </div>
         <div className="flex google">
-          {/* <GoogleLogin
-            clientId=""
+          <GoogleLogin
+            clientId="http://764903312753-lfjbsd7k2lepc64g12b8pkabhekpcbij.apps.googleusercontent.com/"
             buttonText="Signup"
-            onSuccess={responseGoogle}
+            onSuccess={googleSignup}
+            onFailure={googleError}
             cookiePolicy={"single_host_origin"}
-          /> */}
+          />
         </div>
         <div className="flex">
           <p>Have an account?</p>

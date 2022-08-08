@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { useState } from "react";
-import { GoogleLogin } from "react-google-login";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import API from "../../requests/API";
@@ -66,8 +65,6 @@ const Login = () => {
     } else login(username.value.toLowerCase(), password.value);
   }
 
-  function responseGoogle(res) {}
-
   return (
     <div className="login flex">
       <div className="auth-form">
@@ -95,14 +92,7 @@ const Login = () => {
         <div className="flex">
           <hr /> OR <hr />
         </div>
-        <div className="flex google">
-          {/* <GoogleLogin
-            clientId=""
-            buttonText="Login"
-            onSuccess={responseGoogle}
-            cookiePolicy={"single_host_origin"}
-          /> */}
-        </div>
+        <GoogleLogin />
         <div className="flex">
           <p>Don{"'"}t have an account?</p>
           <Link href={"/signup"}>
