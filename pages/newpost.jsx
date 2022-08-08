@@ -45,7 +45,7 @@ const NewPost = () => {
       toast.success(`Post created!`);
       router.push("/home");
     } else {
-      toast.error("Post creation failed!");
+      toast.error(result.data.message);
       SetLoader(false);
     }
   }
