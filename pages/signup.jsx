@@ -39,7 +39,8 @@ const SignUp = () => {
     }
   }
 
-  function checkInputs() {
+  function checkInputs(e) {
+    e.preventDefault();
     SetLoader(true);
     const password = document.getElementById("password");
     const rpassword = document.getElementById("rpassword");
@@ -47,26 +48,29 @@ const SignUp = () => {
     const email = document.getElementById("email");
 
     let correctedUsername = username.value.replace(/\s+/g, "");
-    console.log(correctedUsername);
 
     if (username.value == "") {
       toast.error("Username must be included!");
       SetLoader(false);
+      return;
     }
 
     if (email.value == "") {
       toast.error("Email must be included!");
       SetLoader(false);
+      return;
     }
 
     if (password.value.length < 6) {
       toast.error("Password must be more than 6 characters!");
       SetLoader(false);
+      return;
     }
 
     if (password.value !== rpassword.value) {
       toast.error("Password must be equal to repeat password!");
       SetLoader(false);
+      return;
     } else signup(correctedUsername.toLowerCase(), email.value, password.value);
   }
 
@@ -86,17 +90,23 @@ const SignUp = () => {
             </div>
           </div>
         )}
-        <div className="form-inputs">
-          <input type="text" placeholder="Username" id="username" />
-          <input type="text" placeholder="Email" id="email" />
-          <input type="password" placeholder="Password" id="password" />
-          <input type="password" placeholder="Repeat Password" id="rpassword" />
-        </div>
-        <div className="flex">
-          <button className="btn" onClick={checkInputs}>
-            Signup
-          </button>
-        </div>
+        <form onSubmit={checkInputs}>
+          <div className="form-inputs">
+            <input type="text" placeholder="Username" id="username" />
+            <input type="email" placeholder="Email" id="email" />
+            <input type="password" placeholder="Password" id="password" />
+            <input
+              type="password"
+              placeholder="Repeat Password"
+              id="rpassword"
+            />
+          </div>
+          <div className="flex">
+            <button className="btn" type="submit">
+              Signup
+            </button>
+          </div>
+        </form>
 
         <div className="flex">
           <hr /> OR <hr />

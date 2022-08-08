@@ -46,7 +46,9 @@ const Login = () => {
     }
   }
 
-  function checkInputs() {
+  function checkInputs(e) {
+    e.preventDefault();
+
     SetLoader(true);
     const password = document.getElementById("password");
     const username = document.getElementById("username");
@@ -54,11 +56,13 @@ const Login = () => {
     if (username.value == "") {
       toast.error("Username must be included!");
       SetLoader(false);
+      return;
     }
 
     if (password.value.length < 6) {
       toast.error("Password must be more than 6 characters!");
       SetLoader(false);
+      return;
     } else login(username.value.toLowerCase(), password.value);
   }
 
@@ -75,16 +79,18 @@ const Login = () => {
             </div>
           </div>
         )}
-        <div className="form-inputs">
-          <input type="text" placeholder="Username" id="username" />
+        <form onSubmit={checkInputs}>
+          <div className="form-inputs">
+            <input type="text" placeholder="Username" id="username" />
 
-          <input type="password" placeholder="Password" id="password" />
-        </div>
-        <div className="flex">
-          <button className="btn" onClick={checkInputs}>
-            Login
-          </button>
-        </div>
+            <input type="password" placeholder="Password" id="password" />
+          </div>
+          <div className="flex">
+            <button className="btn" type="submit">
+              Login
+            </button>
+          </div>
+        </form>
 
         <div className="flex">
           <hr /> OR <hr />
