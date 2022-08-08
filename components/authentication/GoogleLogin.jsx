@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 
 const GoogleSignin = () => {
   const googleSignin = async (res) => {
+    console.log(res);
     const option = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
