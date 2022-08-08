@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { useState } from "react";
-import { GoogleLogin } from "react-google-login";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import API from "../requests/API";
@@ -74,14 +73,6 @@ const SignUp = () => {
     } else signup(correctedUsername.toLowerCase(), email.value, password.value);
   }
 
-  function googleSignup(res) {
-    signup(
-      res.profileObj.email.split("@", 1)[0].toLowerCase(),
-      res.profileObj.email,
-      "12345678"
-    );
-  }
-
   return (
     <div className="login flex">
       <Head>
@@ -98,13 +89,29 @@ const SignUp = () => {
         )}
         <form onSubmit={checkInputs}>
           <div className="form-inputs">
-            <input type="text" placeholder="Username" id="username" />
-            <input type="email" placeholder="Email" id="email" />
-            <input type="password" placeholder="Password" id="password" />
+            <input
+              type="text"
+              placeholder="Username"
+              id="username"
+              autocomplete="off"
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              id="email"
+              autocomplete="off"
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              id="password"
+              autocomplete="off"
+            />
             <input
               type="password"
               placeholder="Repeat Password"
               id="rpassword"
+              autocomplete="off"
             />
           </div>
           <div className="flex">
@@ -117,14 +124,7 @@ const SignUp = () => {
         <div className="flex">
           <hr /> OR <hr />
         </div>
-        <div className="flex google">
-          <GoogleLogin
-            clientId="764903312753-lfjbsd7k2lepc64g12b8pkabhekpcbij.apps.googleusercontent.com"
-            buttonText="Signup"
-            onSuccess={googleSignup}
-            cookiePolicy={"single_host_origin"}
-          />
-        </div>
+
         <div className="flex">
           <p>Have an account?</p>
           <Link href={"/"}>

@@ -154,6 +154,7 @@ const Setting = () => {
             </button>
           </div>
         </div>
+        <div className="mb-100"></div>
 
         <Footer />
       </div>
