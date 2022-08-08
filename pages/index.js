@@ -36,6 +36,10 @@ export default function Index() {
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta
+          name="google-site-verification"
+          content="obTV1STSza2467gj0NbcnQ63napdJ3UUW5-lPidbe5E"
+        />
+        <meta
           name="viewport"
           content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=5"
         />
