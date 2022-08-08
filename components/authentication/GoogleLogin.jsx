@@ -16,7 +16,6 @@ const GoogleLogin = () => {
       var result = await API(option, "api/users/login/google");
     } catch (error) {
       toast.error("Server Error! Please try again.");
-      SetLoader(false);
     }
 
     if (result && result.status == 200) {
@@ -24,7 +23,6 @@ const GoogleLogin = () => {
       toast.success(`Welcome, ${result.data.username}!`);
       router.push("/home");
     } else {
-      SetLoader(false);
       toast.error(result.data.message);
     }
   };
