@@ -123,7 +123,7 @@ const SignUp = () => {
         </div>
         <div className="flex google">
           <GoogleLogin
-            clientId="http://764903312753-lfjbsd7k2lepc64g12b8pkabhekpcbij.apps.googleusercontent.com/"
+            clientId="764903312753-lfjbsd7k2lepc64g12b8pkabhekpcbij.apps.googleusercontent.com/"
             buttonText="Signup"
             onSuccess={googleSignup}
             onFailure={googleError}
