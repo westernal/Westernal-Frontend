@@ -27,7 +27,6 @@ export default function Index() {
 
   useEffect(() => {
     async function getPosts(userId) {
-      console.log("object");
       const option = {
         method: "GET",
         headers: {

@@ -21,7 +21,6 @@ const Followings = () => {
       };
 
       var result = await API(option, `api/users/followings/${router.query.id}`);
-      console.log(result);
 
       if (result.status == 200) {
         SetFollowings(result.data.followings);
