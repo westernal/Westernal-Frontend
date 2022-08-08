@@ -28,17 +28,12 @@ const GoogleSignin = () => {
     }
   };
 
-  const googleError = () => {
-    toast.error("Login failed!");
-  };
-
   return (
     <div className="flex google">
       <GoogleLogin
         clientId="764903312753-lfjbsd7k2lepc64g12b8pkabhekpcbij.apps.googleusercontent.com"
         buttonText="Login"
         onSuccess={googleSignin}
-        onFailure={googleError}
         cookiePolicy={"single_host_origin"}
       />
     </div>

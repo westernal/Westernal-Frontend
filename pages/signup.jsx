@@ -82,10 +82,6 @@ const SignUp = () => {
     );
   }
 
-  const googleError = () => {
-    toast.error("Login failed!");
-  };
-
   return (
     <div className="login flex">
       <Head>
@@ -126,7 +122,6 @@ const SignUp = () => {
             clientId="764903312753-lfjbsd7k2lepc64g12b8pkabhekpcbij.apps.googleusercontent.com"
             buttonText="Signup"
             onSuccess={googleSignup}
-            onFailure={googleError}
             cookiePolicy={"single_host_origin"}
           />
         </div>
