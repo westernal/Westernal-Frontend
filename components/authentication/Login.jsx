@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import API from "../../requests/API";
+import GoogleSignin from "./GoogleLogin";
 
 const Login = () => {
   const [loader, SetLoader] = useState(false);
@@ -92,7 +93,7 @@ const Login = () => {
         <div className="flex">
           <hr /> OR <hr />
         </div>
-        <GoogleLogin />
+        <GoogleSignin />
         <div className="flex">
           <p>Don{"'"}t have an account?</p>
           <Link href={"/signup"}>

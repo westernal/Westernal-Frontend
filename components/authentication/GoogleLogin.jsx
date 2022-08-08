@@ -1,8 +1,8 @@
 import { GoogleLogin } from "react-google-login";
 import API from "../../requests/API";
 
-const GoogleLogin = () => {
-  const googleLogin = async (res) => {
+const GoogleSignin = () => {
+  const googleSignin = async (res) => {
     const option = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -36,7 +36,7 @@ const GoogleLogin = () => {
       <GoogleLogin
         clientId="http://764903312753-lfjbsd7k2lepc64g12b8pkabhekpcbij.apps.googleusercontent.com/"
         buttonText="Login"
-        onSuccess={googleLogin}
+        onSuccess={googleSignin}
         onFailure={googleError}
         cookiePolicy={"single_host_origin"}
       />
@@ -44,4 +44,4 @@ const GoogleLogin = () => {
   );
 };
 
-export default GoogleLogin;
+export default GoogleSignin;
