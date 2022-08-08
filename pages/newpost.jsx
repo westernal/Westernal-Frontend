@@ -91,6 +91,7 @@ const NewPost = () => {
           </div>
         </div>
       </div>
+      <div className="mb-100"></div>
       <Footer />
     </>
   );
