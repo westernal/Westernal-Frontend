@@ -82,14 +82,14 @@ const Login = () => {
               type="text"
               placeholder="Username"
               id="username"
-              autocomplete="on"
+              autoComplete="on"
             />
 
             <input
               type="password"
               placeholder="Password"
               id="password"
-              autocomplete="on"
+              autoComplete="on"
             />
           </div>
           <div className="flex">
