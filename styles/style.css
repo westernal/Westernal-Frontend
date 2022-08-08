@@ -74,6 +74,11 @@ a {
   opacity: 1;
 }
 
+.home {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 5000px;
+}
+
 .home #home-icon,
 .profile #user-icon,
 .notification #notif-icon,
