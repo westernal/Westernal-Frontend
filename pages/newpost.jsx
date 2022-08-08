@@ -57,7 +57,7 @@ const NewPost = () => {
     const description = document.getElementById("description");
 
     if (song.value === "") {
-      toast.error("song must be included!");
+      toast.error("song's URL must be included!");
       SetLoader(false);
     } else publish(song.value, title.value, description.value);
   }
@@ -80,7 +80,7 @@ const NewPost = () => {
           )}
           <div className="form-inputs">
             <Icons />
-            <input type="text" id="song" placeholder="Song URL" />
+            <input type="text" id="song" placeholder="Song's URL" />
             <input type="text" placeholder="Title" id="title" />
             <textarea placeholder="Description" id="description" />
           </div>
