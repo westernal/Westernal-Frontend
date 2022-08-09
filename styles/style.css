@@ -27,6 +27,14 @@ a {
   gap: 10px;
 }
 
+.grid {
+  grid-template-columns: auto auto;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  display: grid;
+}
+
 .icons {
   margin-bottom: 20px;
   opacity: 0.6;
@@ -174,6 +182,10 @@ textarea:focus {
 .login,
 .setting {
   min-height: 100vh;
+}
+
+.login {
+  display: none;
 }
 
 .auth-form {
@@ -517,6 +529,31 @@ canvas {
   font-size: 18px;
 }
 
+.checkbox {
+  width: 15px;
+  height: 15px;
+  padding: 2px;
+  transition: 0.5s;
+  background-color: inherit;
+  border: 0.5px solid #5f5d5d;
+  border-radius: 2px;
+}
+
+.show-password {
+  justify-content: left;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 50vw;
+  margin-top: -20px;
+  margin-left: 20px;
+}
+
+.show {
+  font-size: 14px;
+  color: #5f5d5d;
+}
+
 @media screen and (prefers-color-scheme: dark) {
   body {
     background-color: black;
@@ -621,6 +658,10 @@ canvas {
   .form-inputs textarea {
     width: 70vw;
     -webkit-appearance: none;
+  }
+
+  .show-password {
+    width: 70vw;
   }
 
   .search-bar input {

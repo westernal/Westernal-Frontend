@@ -40,15 +40,15 @@ const PWAModal = () => {
             <h3>Download the Westernal app and enjoy!</h3>
           </div>
           <div className="share-info">
-            <div className="flex">
+            <div className="grid">
               <Image width={35} height={35} src={share1.src} alt="share" />
               <p>Click on share button.</p>
             </div>
-            <div className="flex">
-              <Image width={45} height={45} src={share2.src} alt="HomeScreen" />
+            <div className="grid">
+              <Image width={35} height={35} src={share2.src} alt="HomeScreen" />
               <p>Choose Add To Homescreen.</p>
             </div>
-            <div className="flex">
+            <div className="grid">
               <Image width={35} height={35} src={share3.src} alt="Add" />
               <p>Click Add.</p>
             </div>

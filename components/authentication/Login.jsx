@@ -8,7 +8,12 @@ const Login = () => {
   const [loader, SetLoader] = useState(false);
   const router = useRouter();
 
-  const showPassword = () => {
+  const showPassword = (e) => {
+    console.log(e.target.style.backgroundColor);
+    if (e.target.style.backgroundColor === "inherit") {
+      e.target.style.backgroundColor = "#5f5d5d";
+    } else e.target.style.backgroundColor = "inherit";
+
     var password = document.getElementById("password");
     if (password.type === "password") {
       password.type = "text";
@@ -91,7 +96,18 @@ const Login = () => {
               id="password"
               autoComplete="on"
             />
+            <div className="flex ">
+              <div className="show-password">
+                <div
+                  className="checkbox"
+                  onClick={showPassword}
+                  style={{ backgroundColor: "inherit" }}
+                ></div>
+                <p className="show">Show password</p>
+              </div>
+            </div>
           </div>
+
           <div className="flex">
             <button className="btn" type="submit">
               Login
