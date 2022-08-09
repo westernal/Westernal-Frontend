@@ -537,6 +537,7 @@ canvas {
   background-color: inherit;
   border: 0.5px solid #5f5d5d;
   border-radius: 2px;
+  transform: translateZ(0);
 }
 
 .show-password {
