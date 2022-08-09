@@ -276,7 +276,7 @@ a {
 .profile-info {
   text-align: center;
   margin: 50px 10%;
-  border-bottom: 1px solid #5f5d5d;
+  border-bottom: 1px solid #ededed;
 }
 
 .profile-pic {
@@ -593,6 +593,10 @@ canvas {
 
   .modal {
     background-color: black;
+  }
+
+  .profile-info {
+    border-bottom: 1px solid #101015;
   }
 
   .footer {
