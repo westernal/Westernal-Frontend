@@ -15,6 +15,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
   const [likes, SetLikes] = useState(details.likes.length);
   const [hasLiked, SetHasLiked] = useState(false);
   const [isSpotify, SetIsSpotify] = useState(false);
+  const [error, SetError] = useState(false);
 
   useEffect(() => {
     if (
@@ -47,6 +48,10 @@ const Post = ({ details, onDelete, deletable = false }) => {
 
     getPostCreator();
   }, [details]);
+
+  const playerError = () => {
+    SetError(true);
+  };
 
   async function likePost(e) {
     e.preventDefault();
@@ -182,8 +187,11 @@ const Post = ({ details, onDelete, deletable = false }) => {
 
             <div className="flex">
               <div className="post-image flex">
-                {!isSpotify && <ReactPlayer url={details.songUrl} />}
-                {isSpotify && (
+                {error && <p>Sorry, looks like we dont support this link!</p>}
+                {!isSpotify && !error && (
+                  <ReactPlayer url={details.songUrl} onError={playerError} />
+                )}
+                {isSpotify && !error && (
                   <SpotifyPlayer
                     uri={details.songUrl}
                     view="coverart"

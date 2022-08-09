@@ -68,7 +68,7 @@ const NewPost = () => {
         <title>New Post - Westernal</title>
       </Head>
       <BackHeader title="New Post" />
-      <div className="login flex">
+      <div className="flex">
         <div className="auth-form">
           <p id="login-logo">W</p>
           {loader && (

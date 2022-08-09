@@ -74,7 +74,7 @@ const SignUp = () => {
   }
 
   return (
-    <div className="login flex">
+    <div className="flex">
       <Head>
         <title>Signup - Westernal</title>
       </Head>
