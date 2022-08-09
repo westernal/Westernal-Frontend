@@ -187,7 +187,11 @@ const Post = ({ details, onDelete, deletable = false }) => {
 
             <div className="flex">
               <div className="post-image flex">
-                {error && <p>Sorry, looks like we dont support this link!</p>}
+                {error && (
+                  <p>
+                    Sorry, looks like you don{"'"}t have access to this link!
+                  </p>
+                )}
                 {!isSpotify && !error && (
                   <ReactPlayer url={details.songUrl} onError={playerError} />
                 )}
