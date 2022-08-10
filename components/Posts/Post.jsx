@@ -9,22 +9,14 @@ import ReactPlayer from "react-player";
 import SpotifyPlayer from "react-spotify-player";
 import ContentLoader from "react-content-loader";
 import DeletePost from "./DeletePost";
+import LikePost from "./LikePost";
 
 const Post = ({ details, onDelete, deletable = false }) => {
   const [user, SetUser] = useState();
-  const [likes, SetLikes] = useState(details.likes.length);
-  const [hasLiked, SetHasLiked] = useState(false);
   const [isSpotify, SetIsSpotify] = useState(false);
   const [error, SetError] = useState(false);
 
   useEffect(() => {
-    if (
-      details.likes.includes(jwt_decode(localStorage.getItem("token")).userId)
-    ) {
-      document.getElementsByClassName(details._id)[0].classList.add("liked");
-      SetHasLiked(true);
-    }
-
     if (details.songUrl) {
       if (details.songUrl.toLowerCase().includes("spotify")) {
         SetIsSpotify(true);
@@ -52,68 +44,6 @@ const Post = ({ details, onDelete, deletable = false }) => {
   const playerError = () => {
     SetError(true);
   };
-
-  async function likePost(e) {
-    e.preventDefault();
-
-    var token = localStorage.getItem("token");
-
-    const userID = jwt_decode(token).userId;
-
-    if (!details.likes.includes(userID) || !hasLiked) {
-      const option = {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-        body: JSON.stringify({
-          userId: userID,
-        }),
-        redirect: "follow",
-      };
-
-      var result = await API(option, `api/posts/like/${details._id}`);
-
-      if (result.status == 200) {
-        document.getElementsByClassName(details._id)[0].classList.add("liked");
-        SetLikes(likes + 1);
-        SetHasLiked(true);
-      }
-    }
-  }
-
-  async function unlikePost(e) {
-    e.preventDefault();
-
-    var token = localStorage.getItem("token");
-
-    const userID = jwt_decode(token).userId;
-
-    if (details.likes.includes(userID) || hasLiked) {
-      const option = {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-        body: JSON.stringify({
-          userId: userID,
-        }),
-        redirect: "follow",
-      };
-
-      var result = await API(option, `api/posts/unlike/${details._id}`);
-
-      if (result.status == 200) {
-        document
-          .getElementsByClassName(details._id)[0]
-          .classList.remove("liked");
-        SetLikes(likes - 1);
-        SetHasLiked(false);
-      }
-    }
-  }
 
   const host = "https://alinavidi.ir/";
 
@@ -192,26 +122,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
         )}
         <div className="post-info flex">
           <div className="post-icons flex">
-            <svg
-              version="1.1"
-              id="like-btn"
-              className={details._id}
-              viewBox="0 0 32 32"
-              onClick={hasLiked ? unlikePost : likePost}
-            >
-              <path
-                d="M21.5,5c-2.116,0-4.093,0.881-5.5,2.406C14.593,5.881,12.616,5,10.5,5C6.364,5,3,8.333,3,12.5
-	C3,21.542,16,27,16,27s13-5.458,13-14.5C29,8.333,25.636,5,21.5,5z M16,24.797C13.378,23.521,5,18.938,5,12.5
-	C5,9.467,7.467,7,10.5,7c1.55,0,2.982,0.626,4.03,1.762l0.735,0.797h1.47l0.735-0.797C18.518,7.626,19.95,7,21.5,7
-	c3.033,0,5.5,2.467,5.5,5.5C27,18.938,18.622,23.521,16,24.797z"
-              />
-            </svg>
-
-            <Link href={`/likes/${details._id}`}>
-              <a>
-                <p id="like-count">{likes}</p>
-              </a>
-            </Link>
+            <LikePost id={details._id} likes={details.likes.length} />
             <Link href={`/comments/${details._id}`}>
               <a id="comments" className="flex">
                 <svg width="24px" height="24px" viewBox="0 0 24 24">
