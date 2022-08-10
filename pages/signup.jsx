@@ -87,7 +87,7 @@ const SignUp = () => {
             </div>
           </div>
         )}
-        <form onSubmit={checkInputs}>
+        <form onSubmit={checkInputs} autoComplete="off">
           <div className="form-inputs">
             <input
               type="text"

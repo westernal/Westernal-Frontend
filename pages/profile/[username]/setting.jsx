@@ -125,7 +125,7 @@ const Setting = () => {
             </div>
           )}
 
-          <form onSubmit={checkInputs}>
+          <form onSubmit={checkInputs} autoComplete={"off"}>
             <div className="form-inputs">
               <div className="flex">
                 <Image
@@ -147,13 +147,13 @@ const Setting = () => {
                 type="password"
                 placeholder="Password"
                 id="password"
-                autoComplete="no"
+                autoComplete="off"
               />
               <input
                 type="password"
                 placeholder="Repeat Password"
                 id="rpassword"
-                autoComplete="no"
+                autoComplete="off"
               />
             </div>
 

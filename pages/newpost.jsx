@@ -50,7 +50,8 @@ const NewPost = () => {
     }
   }
 
-  function checkInputs() {
+  function checkInputs(e) {
+    e.preventDefault();
     SetLoader(true);
     const song = document.getElementById("song");
     const title = document.getElementById("title");
@@ -78,17 +79,19 @@ const NewPost = () => {
               </div>
             </div>
           )}
-          <div className="form-inputs">
-            <Icons />
-            <input type="text" id="song" placeholder="Song's URL" />
-            <input type="text" placeholder="Title" id="title" />
-            <textarea placeholder="Description" id="description" />
-          </div>
-          <div className="flex">
-            <button className="btn" onClick={checkInputs}>
-              Post
-            </button>
-          </div>
+          <form onSubmit={checkInputs}>
+            <div className="form-inputs" autoComplete="off">
+              <Icons />
+              <input type="text" id="song" placeholder="Song's URL" />
+              <input type="text" placeholder="Title" id="title" />
+              <textarea placeholder="Description" id="description" />
+            </div>
+            <div className="flex">
+              <button className="btn" type="submit">
+                Post
+              </button>
+            </div>
+          </form>
         </div>
       </div>
       <div className="mb-100"></div>
