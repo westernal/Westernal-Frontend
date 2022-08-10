@@ -4,7 +4,10 @@ import DeleteModal from "./DeleteModal";
 const DeletePost = ({ onDelete, id }) => {
   const [showModal, SetShowModal] = useState(false);
 
-  const modalDisplay = () => {
+  const modalDisplay = (e) => {
+    if (e) {
+      e.preventDefault();
+    }
     SetShowModal(!showModal);
   };
 
