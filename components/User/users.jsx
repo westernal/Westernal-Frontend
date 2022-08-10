@@ -20,6 +20,7 @@ const User = ({ users }) => {
                   width={50}
                   height={50}
                   style={{ borderRadius: "50%" }}
+                  alt="user avatar"
                 />
               }
               <span id="userId">{user.username} </span>

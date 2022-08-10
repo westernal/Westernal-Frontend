@@ -665,7 +665,8 @@ canvas {
   .post,
   .comment,
   .profile-notif,
-  .auth-form {
+  .auth-form,
+  .modal-text {
     background-color: #101015;
     box-shadow: none;
   }
