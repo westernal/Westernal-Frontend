@@ -19,7 +19,8 @@ const Setting = () => {
   const router = useRouter();
   const host = "https://alinavidi.ir/";
 
-  function checkInputs() {
+  function checkInputs(e) {
+    e.preventDefault();
     SetLoader(true);
     const password = document.getElementById("password").value;
     const rpassword = document.getElementById("rpassword").value;
@@ -28,11 +29,11 @@ const Setting = () => {
     const Image = document.getElementById("image");
 
     if (bio.value === "") {
-      bio.value = bio.placeholder;
+      bio.value = user.bio;
     }
 
     if (!username.value) {
-      username.value = username.placeholder;
+      username.value = user.username;
     }
 
     let correctedUsername = username.value.replace(/\s+/g, "");
@@ -123,32 +124,45 @@ const Setting = () => {
               </div>
             </div>
           )}
-          <div className="form-inputs">
-            <div className="flex">
-              <Image
-                width={50}
-                height={50}
-                src={
-                  !image.includes("userIcon")
-                    ? host + user.image
-                    : "/Images/user.svg"
-                }
-                alt="user image"
-                id="edit-img"
-              />
-              <input type="file" id="image" name="image" accept="image/*" />
-            </div>
-            <input type="text" placeholder={user.username} id="username" />
-            <input type="text" placeholder={user.bio} id="bio" />
-            <input type="text" placeholder="Password" id="password" />
-            <input type="text" placeholder="Repeat Password" id="rpassword" />
-          </div>
 
-          <div className="flex">
-            <button className="btn" onClick={checkInputs}>
-              Edit
-            </button>
-          </div>
+          <form onSubmit={checkInputs}>
+            <div className="form-inputs">
+              <div className="flex">
+                <Image
+                  width={50}
+                  height={50}
+                  src={
+                    !image.includes("userIcon")
+                      ? host + user.image
+                      : "/Images/user.svg"
+                  }
+                  alt="user image"
+                  id="edit-img"
+                />
+                <input type="file" id="image" name="image" accept="image/*" />
+              </div>
+              <input type="text" placeholder={"Username"} id="username" />
+              <input type="text" placeholder={"Bio"} id="bio" />
+              <input
+                type="password"
+                placeholder="Password"
+                id="password"
+                autoComplete="no"
+              />
+              <input
+                type="password"
+                placeholder="Repeat Password"
+                id="rpassword"
+                autoComplete="no"
+              />
+            </div>
+
+            <div className="flex">
+              <button className="btn" type="submit">
+                Edit
+              </button>
+            </div>
+          </form>
         </div>
         <div className="mb-100"></div>
 
