@@ -91,13 +91,13 @@ a {
 
 .search-bar {
   background-color: #9d38fc;
-  padding: 20px;
+  padding: 10px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .search-bar input,
 #comment-text {
-  border-radius: 20px;
+  border-radius: 10px;
   border: none;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   padding: 10px 20px;
