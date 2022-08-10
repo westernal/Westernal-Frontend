@@ -141,7 +141,12 @@ const Setting = () => {
                 />
                 <input type="file" id="image" name="image" accept="image/*" />
               </div>
-              <input type="text" placeholder={"Username"} id="username" />
+              <input
+                type="text"
+                placeholder={"Username"}
+                id="username"
+                autoComplete="off"
+              />
               <input type="text" placeholder={"Bio"} id="bio" />
               <input
                 type="password"
