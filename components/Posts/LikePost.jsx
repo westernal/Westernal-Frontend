@@ -1,16 +1,15 @@
-import { useEffect,useState } from "react";
-import jwt_decode from jwt_decode
+import { useEffect, useState } from "react";
+import jwt_decode from "jwt-decode";
 import API from "../../requests/API";
+import Link from "next/link";
 
-const LikePost = ({ id, likes }) => {
-  const [likes, SetLikes] = useState(likes);
+const LikePost = ({ id, likesCount, postLikes }) => {
+  const [likes, SetLikes] = useState(likesCount);
   const [hasLiked, SetHasLiked] = useState(false);
 
   useEffect(() => {
-    if (
-      details.likes.includes(jwt_decode(localStorage.getItem("token")).userId)
-    ) {
-      document.getElementsByClassName(details._id)[0].classList.add("liked");
+    if (postLikes.includes(jwt_decode(localStorage.getItem("token")).userId)) {
+      document.getElementsByClassName(id)[0].classList.add("liked");
       SetHasLiked(true);
     }
   }, []);
@@ -22,7 +21,7 @@ const LikePost = ({ id, likes }) => {
 
     const userID = jwt_decode(token).userId;
 
-    if (!details.likes.includes(userID) || !hasLiked) {
+    if (!postLikes.includes(userID) || !hasLiked) {
       const option = {
         method: "POST",
         headers: {
@@ -35,10 +34,10 @@ const LikePost = ({ id, likes }) => {
         redirect: "follow",
       };
 
-      var result = await API(option, `api/posts/like/${details._id}`);
+      var result = await API(option, `api/posts/like/${id}`);
 
       if (result.status == 200) {
-        document.getElementsByClassName(details._id)[0].classList.add("liked");
+        document.getElementsByClassName(id)[0].classList.add("liked");
         SetLikes(likes + 1);
         SetHasLiked(true);
       }
@@ -52,7 +51,7 @@ const LikePost = ({ id, likes }) => {
 
     const userID = jwt_decode(token).userId;
 
-    if (details.likes.includes(userID) || hasLiked) {
+    if (postLikes.includes(userID) || hasLiked) {
       const option = {
         method: "POST",
         headers: {
@@ -65,12 +64,10 @@ const LikePost = ({ id, likes }) => {
         redirect: "follow",
       };
 
-      var result = await API(option, `api/posts/unlike/${details._id}`);
+      var result = await API(option, `api/posts/unlike/${id}`);
 
       if (result.status == 200) {
-        document
-          .getElementsByClassName(details._id)[0]
-          .classList.remove("liked");
+        document.getElementsByClassName(id)[0].classList.remove("liked");
         SetLikes(likes - 1);
         SetHasLiked(false);
       }

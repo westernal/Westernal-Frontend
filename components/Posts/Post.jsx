@@ -122,7 +122,11 @@ const Post = ({ details, onDelete, deletable = false }) => {
         )}
         <div className="post-info flex">
           <div className="post-icons flex">
-            <LikePost id={details._id} likes={details.likes.length} />
+            <LikePost
+              id={details._id}
+              likesCount={details.likes.length}
+              postLikes={details.likes}
+            />
             <Link href={`/comments/${details._id}`}>
               <a id="comments" className="flex">
                 <svg width="24px" height="24px" viewBox="0 0 24 24">
