@@ -1,11 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
 import dateFormat from "dateformat";
 import { useState, useEffect } from "react";
 import jwtDecode from "jwt-decode";
-import { toast } from "react-toastify";
-import API from "../../../requests/API";
 import DeleteComment from "./DeleteComment";
+import ReplyComment from "./ReplyComment";
 
 const Comment = ({ comment, onDelete }) => {
   const [deletable, SetDeletable] = useState(false);
@@ -30,6 +28,7 @@ const Comment = ({ comment, onDelete }) => {
       </div>
       <div className="flex">
         <p id="date">{dateFormat(comment.date, "mmm d, yyyy")}</p>
+        <ReplyComment />
         {deletable && <DeleteComment onDelete={onDelete} id={comment._id} />}
       </div>
     </div>
