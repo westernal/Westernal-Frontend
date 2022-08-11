@@ -93,6 +93,7 @@ const Setting = () => {
 
     const option = {
       method: "POST",
+      headers: { Authorization: "Bearer " + localStorage.getItem("token") },
       body: newBody,
       redirect: "follow",
     };
