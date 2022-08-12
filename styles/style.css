@@ -623,6 +623,7 @@ canvas {
 #reply-a svg {
   width: 23px;
   height: 23px;
+  stroke-width: 2px;
 }
 
 .cm-info {
@@ -692,8 +693,7 @@ canvas {
   }
 
   .post-info svg,
-  #comment svg path,
-  #reply-a svg path {
+  #comment svg path {
     fill: white;
   }
 
