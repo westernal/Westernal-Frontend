@@ -4,13 +4,26 @@ import { useState, useEffect } from "react";
 import jwtDecode from "jwt-decode";
 import DeleteComment from "./DeleteComment";
 import ReplyComment from "./ReplyComment";
+import API from "../../../requests/API";
+import Replies from "./Replies";
 
-const Comment = ({ comment, onDelete }) => {
+const Comment = ({ comment, onDelete, onReply }) => {
   const [deletable, SetDeletable] = useState(false);
-  const [isReply, SetIsReply] = useState(false);
+  const [replies, SetReplies] = useState([]);
 
-  const changeType = () => {
-    SetIsReply(!isReply);
+  const getReplies = async () => {
+    const option = {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+      },
+    };
+
+    var result = await API(option, `api/comments/replies/${comment._id}`);
+
+    if (result.status == 200) {
+      SetReplies(result.data.replies);
+    }
   };
 
   useEffect(() => {
@@ -19,28 +32,35 @@ const Comment = ({ comment, onDelete }) => {
     if (userId === comment.writer.id) {
       SetDeletable(true);
     }
+
+    getReplies();
   }, [comment]);
 
   return (
-    <div className="comment flex" key={comment._id}>
-      <div className="cm-main flex">
-        <Link href={`/profile/${comment.writer.username}/${comment.writer.id}`}>
-          <a className="flex">
-            <p id="cm-user">{comment.writer.username}:</p>
-          </a>
-        </Link>
-        <p dir="auto" className="cm-text">
-          {comment.message}
-        </p>
-      </div>
-      <div className="cm-info">
-        <div className="flex">
-          <p id="date">{dateFormat(comment.date, "mmm d, yyyy")}</p>
-          <ReplyComment />
+    <>
+      <div className="comment flex" key={comment._id}>
+        <div className="cm-main flex">
+          <Link
+            href={`/profile/${comment.writer.username}/${comment.writer.id}`}
+          >
+            <a className="flex">
+              <p id="cm-user">{comment.writer.username}:</p>
+            </a>
+          </Link>
+          <p dir="auto" className="cm-text">
+            {comment.message}
+          </p>
         </div>
-        {deletable && <DeleteComment onDelete={onDelete} id={comment._id} />}
+        <div className="cm-info">
+          <div className="flex">
+            <p id="date">{dateFormat(comment.date, "mmm d, yyyy")}</p>
+            <ReplyComment onReply={onReply} id={comment._id} />
+          </div>
+          {deletable && <DeleteComment onDelete={onDelete} id={comment._id} />}
+        </div>
       </div>
-    </div>
+      <Replies replies={replies} onDelete={onDelete} />
+    </>
   );
 };
 

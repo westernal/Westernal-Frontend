@@ -426,10 +426,9 @@ audio {
 .post-comment {
   position: fixed;
   left: 0;
-  bottom: 10px;
+  bottom: 20px;
   width: 100%;
   z-index: 100;
-  gap: 5px;
 }
 
 #cm-user {
@@ -644,6 +643,10 @@ canvas {
 
 .comment-buttons .btn {
   margin: 0;
+}
+
+.reply {
+  margin-left: 10%;
 }
 
 @media screen and (prefers-color-scheme: dark) {

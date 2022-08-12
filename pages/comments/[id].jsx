@@ -9,9 +9,15 @@ const Comments = () => {
   const router = useRouter();
   const [rerender, SetRerender] = useState(false);
   const [isReply, SetIsReply] = useState(false);
+  const [repliedComment, SetRepliedComment] = useState("");
 
-  const changeType = () => {
-    SetIsReply(!isReply);
+  const onReply = (id) => {
+    SetIsReply(true);
+    SetRepliedComment(id);
+  };
+
+  const onCancelReply = () => {
+    SetIsReply(false);
   };
 
   const render = () => {
@@ -26,7 +32,11 @@ const Comments = () => {
 
       <BackHeader title={"comments"} />
 
-      <CommentsList postId={router.query.id} rerender={rerender} />
+      <CommentsList
+        postId={router.query.id}
+        rerender={rerender}
+        onReply={onReply}
+      />
 
       <div className="mb-100"></div>
 
@@ -34,7 +44,8 @@ const Comments = () => {
         postId={router.query.id}
         onPost={render}
         isReply={isReply}
-        changeType={changeType}
+        repliedComment={repliedComment}
+        onCancelReply={onCancelReply}
       />
     </div>
   );

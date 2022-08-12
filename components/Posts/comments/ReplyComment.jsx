@@ -1,6 +1,7 @@
-const ReplyComment = () => {
+const ReplyComment = ({ onReply, id }) => {
   const reply = (e) => {
     e.preventDefault();
+    onReply(id);
   };
 
   return (

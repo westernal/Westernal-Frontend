@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import API from "../../../requests/API";
 import Comment from "./Comment";
 
-const CommentsList = ({ postId, rerender }) => {
+const CommentsList = ({ postId, rerender, onReply }) => {
   const [comments, SetComments] = useState([]);
   const [deleted, SetDeleted] = useState(false);
 
@@ -33,7 +33,12 @@ const CommentsList = ({ postId, rerender }) => {
   return (
     <div className="cm-list">
       {comments.map((comment) => (
-        <Comment comment={comment} key={comment._id} onDelete={onDelete} />
+        <Comment
+          comment={comment}
+          key={comment._id}
+          onDelete={onDelete}
+          onReply={onReply}
+        />
       ))}
     </div>
   );

@@ -2,7 +2,13 @@ import { toast } from "react-toastify";
 import API from "../../../requests/API";
 import jwtDecode from "jwt-decode";
 
-const PostComment = ({ postId, onPost, isReply, changeType, commentId }) => {
+const PostComment = ({
+  postId,
+  onPost,
+  isReply,
+  onCancelReply,
+  repliedComment,
+}) => {
   const handleEnter = (e) => {
     if (e.keyCode === 13) {
       e.preventDefault();
@@ -15,7 +21,11 @@ const PostComment = ({ postId, onPost, isReply, changeType, commentId }) => {
 
     if (message === "") {
       toast.error("Comment input is empty!");
-    } else sendComment(message);
+    } else {
+      if (isReply) {
+        sendReply(message);
+      } else sendComment(message);
+    }
   };
 
   const sendComment = async (message) => {
@@ -55,12 +65,12 @@ const PostComment = ({ postId, onPost, isReply, changeType, commentId }) => {
         writerId: writerId,
         postId: postId,
         message: message,
-        commentId: commentId,
+        commentId: repliedComment,
       }),
     };
 
     try {
-      var result = await API(option, `api/comments`);
+      var result = await API(option, `api/comments/replies`);
     } catch (error) {
       toast.error("Server error! please try again.");
       return;
@@ -88,7 +98,7 @@ const PostComment = ({ postId, onPost, isReply, changeType, commentId }) => {
           Post
         </button>
         {isReply && (
-          <button id="cancel-delete" onClick={() => changeType()}>
+          <button id="cancel-delete" onClick={() => onCancelReply()}>
             Cancel
           </button>
         )}
