@@ -426,9 +426,10 @@ audio {
 .post-comment {
   position: fixed;
   left: 0;
-  bottom: 0;
+  bottom: 10px;
   width: 100%;
   z-index: 100;
+  gap: 5px;
 }
 
 #cm-user {
@@ -633,6 +634,18 @@ canvas {
   gap: 10px;
 }
 
+.comment-buttons {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.comment-buttons .btn {
+  margin: 0;
+}
+
 @media screen and (prefers-color-scheme: dark) {
   body {
     background-color: black;
@@ -719,6 +732,11 @@ canvas {
   .cm-info {
     width: 100%;
   }
+
+  .comment-buttons {
+    grid-template-columns: auto;
+  }
+
   .post {
     width: 90%;
     margin: 10px 20px;

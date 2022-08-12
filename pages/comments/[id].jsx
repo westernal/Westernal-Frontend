@@ -8,6 +8,11 @@ import { useState } from "react";
 const Comments = () => {
   const router = useRouter();
   const [rerender, SetRerender] = useState(false);
+  const [isReply, SetIsReply] = useState(false);
+
+  const changeType = () => {
+    SetIsReply(!isReply);
+  };
 
   const render = () => {
     SetRerender(!rerender);
@@ -25,7 +30,12 @@ const Comments = () => {
 
       <div className="mb-100"></div>
 
-      <PostComment postId={router.query.id} onPost={render} />
+      <PostComment
+        postId={router.query.id}
+        onPost={render}
+        isReply={isReply}
+        changeType={changeType}
+      />
     </div>
   );
 };

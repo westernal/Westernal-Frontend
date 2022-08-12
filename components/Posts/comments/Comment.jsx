@@ -7,6 +7,11 @@ import ReplyComment from "./ReplyComment";
 
 const Comment = ({ comment, onDelete }) => {
   const [deletable, SetDeletable] = useState(false);
+  const [isReply, SetIsReply] = useState(false);
+
+  const changeType = () => {
+    SetIsReply(!isReply);
+  };
 
   useEffect(() => {
     const userId = jwtDecode(localStorage.getItem("token")).userId;
