@@ -6,11 +6,11 @@ const ReplyComment = () => {
   };
 
   return (
-    <a href="#" onClick={reply}>
+    <a href="#" onClick={reply} id="reply-a">
       <Image
         src="/Images/reply.svg"
-        width={25}
-        height={25}
+        width={23}
+        height={23}
         alt="reply"
         id="reply-button"
       />

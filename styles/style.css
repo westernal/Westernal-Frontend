@@ -616,6 +616,18 @@ canvas {
   text-align: left;
 }
 
+#reply-a {
+  height: 23px;
+  opacity: 0.5;
+}
+
+.cm-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
 @media screen and (prefers-color-scheme: dark) {
   body {
     background-color: black;
@@ -699,9 +711,21 @@ canvas {
 }
 
 @media only screen and (max-width: 600px) {
+  .cm-info {
+    width: 100%;
+  }
   .post {
     width: 90%;
     margin: 10px 20px;
+  }
+
+  #delete-btn {
+    width: 25px;
+    height: 25px;
+  }
+
+  p {
+    font-size: 14px;
   }
 
   .post-info svg:hover {
@@ -740,22 +764,28 @@ canvas {
     padding: 20px 10%;
   }
 
-  .notification .profile-notif,
-  .notif-main,
+  .comment,
+  .profile-notif {
+    flex-direction: column;
+    justify-content: left;
+    align-items: baseline;
+    gap: 0;
+    padding: 0 20px;
+  }
+
   .cm-main,
-  .comment {
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .profile-notif p,
-  .comment p {
-    text-align: center;
-  }
-
   .notif-main {
-    flex-direction: column;
-    gap: 0;
+    margin-bottom: -20px;
+    align-items: baseline;
+  }
+
+  .user-list .profile-notif {
+    padding: 20px;
+  }
+
+  .cm-text {
+    word-break: break-all;
+    text-align: left;
   }
 
   .profile .header p {
@@ -799,9 +829,5 @@ canvas {
   .post-image {
     width: 100%;
     margin: 10px;
-  }
-
-  #comment-text {
-    margin-left: 20px;
   }
 }

@@ -24,11 +24,15 @@ const Comment = ({ comment, onDelete }) => {
             <p id="cm-user">{comment.writer.username}:</p>
           </a>
         </Link>
-        <p dir="auto">{comment.message}</p>
+        <p dir="auto" className="cm-text">
+          {comment.message}
+        </p>
       </div>
-      <div className="flex">
-        <p id="date">{dateFormat(comment.date, "mmm d, yyyy")}</p>
-        <ReplyComment />
+      <div className="cm-info">
+        <div className="flex">
+          <p id="date">{dateFormat(comment.date, "mmm d, yyyy")}</p>
+          <ReplyComment />
+        </div>
         {deletable && <DeleteComment onDelete={onDelete} id={comment._id} />}
       </div>
     </div>
