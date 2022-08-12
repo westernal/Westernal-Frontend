@@ -649,6 +649,10 @@ canvas {
   margin-left: 10%;
 }
 
+.cm-text {
+  word-break: break-all;
+}
+
 @media screen and (prefers-color-scheme: dark) {
   body {
     background-color: black;
