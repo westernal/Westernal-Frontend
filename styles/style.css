@@ -618,7 +618,11 @@ canvas {
 
 #reply-a {
   height: 23px;
-  opacity: 0.5;
+}
+
+#reply-a svg {
+  width: 23px;
+  height: 23px;
 }
 
 .cm-info {
@@ -688,7 +692,8 @@ canvas {
   }
 
   .post-info svg,
-  #comment svg path {
+  #comment svg path,
+  #reply-a svg path {
     fill: white;
   }
 
@@ -724,8 +729,9 @@ canvas {
     height: 25px;
   }
 
-  p {
-    font-size: 14px;
+  .comment p,
+  .profile-notif p {
+    font-size: 15px;
   }
 
   .post-info svg:hover {
