@@ -611,6 +611,11 @@ canvas {
   background-color: #ededed;
 }
 
+#post-description,
+#post-title {
+  text-align: left;
+}
+
 @media screen and (prefers-color-scheme: dark) {
   body {
     background-color: black;

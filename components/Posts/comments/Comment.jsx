@@ -24,7 +24,7 @@ const Comment = ({ comment, onDelete }) => {
             <p id="cm-user">{comment.writer.username}:</p>
           </a>
         </Link>
-        <p>{comment.message}</p>
+        <p dir="auto">{comment.message}</p>
       </div>
       <div className="flex">
         <p id="date">{dateFormat(comment.date, "mmm d, yyyy")}</p>

@@ -109,7 +109,9 @@ const UserInfo = ({ isUserSelf }) => {
             />
           </div>
         </div>
-        <p id="user-bio">{user.bio}</p>
+        <p id="user-bio" dir="auto">
+          {user.bio}
+        </p>
 
         <FollowSection user={user} />
 

@@ -115,8 +115,12 @@ const Post = ({ details, onDelete, deletable = false }) => {
               </div>
             </div>
 
-            <p id="post-title">{details.title}</p>
-            <p id="post-description">{details.description}</p>
+            <p id="post-title" dir="auto">
+              {details.title}
+            </p>
+            <p id="post-description" dir="auto">
+              {details.description}
+            </p>
           </>
         )}
         <div className="post-info flex">
