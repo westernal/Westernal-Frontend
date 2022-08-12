@@ -7,13 +7,7 @@ const ReplyComment = () => {
 
   return (
     <a href="#" onClick={reply} id="reply-a">
-      <svg
-        id="i-reply"
-        viewBox="0 0 32 32"
-        fill="none"
-        stroke="#000"
-        stroke-width="1.4"
-      >
+      <svg id="i-reply" viewBox="0 0 32 32" fill="none" stroke="#000">
         <path d="M10 6 L3 14 10 22 M3 14 L18 14 C26 14 30 18 30 26" />
       </svg>
     </a>
