@@ -701,6 +701,7 @@ canvas {
     background-color: black;
     box-shadow: none;
     border: 1px solid #101015;
+    border-bottom: unset;
   }
 
   .post,
