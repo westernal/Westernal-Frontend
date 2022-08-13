@@ -51,7 +51,7 @@ const Notifications = () => {
               )}
               <p>{notif.message}</p>
             </div>
-            <p id="date">{dateFormat(notif.date, "mmm d, yyyy")}</p>
+            <p id="date">{dateFormat(notif.date, "mmm d yyyy, HH:MM")}</p>
           </div>
         ))}
 

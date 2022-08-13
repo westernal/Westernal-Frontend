@@ -141,7 +141,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
             </Link>
             {deletable && <DeletePost onDelete={onDelete} id={details._id} />}
           </div>
-          <p id="date">{dateFormat(details.date, "mmm d, yyyy")}</p>
+          <p id="date">{dateFormat(details.date, "mmm d yyyy, HH:MM")}</p>
         </div>
       </div>
     </div>

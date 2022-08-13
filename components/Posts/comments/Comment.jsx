@@ -53,7 +53,7 @@ const Comment = ({ comment, onDelete, onReply }) => {
         </div>
         <div className="cm-info">
           <div className="flex">
-            <p id="date">{dateFormat(comment.date, "mmm d, yyyy")}</p>
+            <p id="date">{dateFormat(comment.date, "mmm d yyyy, HH:MM")}</p>
             <ReplyComment onReply={onReply} id={comment._id} />
           </div>
           {deletable && <DeleteComment onDelete={onDelete} id={comment._id} />}
