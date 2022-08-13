@@ -750,17 +750,6 @@ canvas {
     width: 100%;
   }
 
-  #comments svg {
-    width: 23px;
-    height: 23px;
-  }
-
-  .post-icons svg,
-  #delete-btn {
-    width: 24px;
-    height: 24px;
-  }
-
   .comment-buttons {
     grid-template-columns: auto;
   }
