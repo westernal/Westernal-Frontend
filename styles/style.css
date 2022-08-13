@@ -291,8 +291,14 @@ a {
 
 .post-icons svg,
 #delete-btn {
-  width: 32px;
-  height: 32px;
+  width: 27px;
+  height: 27px;
+}
+
+#comments svg {
+  width: 26px;
+  height: 26px;
+  margin-top: 2px;
 }
 
 #delete-btn:hover {
@@ -317,7 +323,7 @@ a {
 }
 
 #post-title {
-  font-size: 2rem;
+  font-size: 20px;
   font-weight: 700;
 }
 
@@ -331,7 +337,6 @@ a {
 
 .post-info {
   justify-content: space-between;
-  margin-top: 30px;
 }
 
 .post-info svg:hover {
@@ -504,7 +509,7 @@ canvas {
 }
 
 #post-title {
-  margin-top: 5px;
+  margin-top: 20px;
 }
 
 #post-description {
@@ -519,6 +524,10 @@ canvas {
 #comment svg {
   width: 28px;
   height: 28px;
+}
+
+.gap-5 {
+  gap: 5px;
 }
 
 .liked {
@@ -741,6 +750,17 @@ canvas {
     width: 100%;
   }
 
+  #comments svg {
+    width: 23px;
+    height: 23px;
+  }
+
+  .post-icons svg,
+  #delete-btn {
+    width: 24px;
+    height: 24px;
+  }
+
   .comment-buttons {
     grid-template-columns: auto;
   }
@@ -832,18 +852,9 @@ canvas {
   }
 
   h1,
-  #post-title,
   .notification .header p,
   .profile .header p {
     font-size: 20px;
-  }
-
-  #post-title {
-    margin-top: 20px;
-  }
-
-  .post-info {
-    margin-top: 5px;
   }
 
   .footer {
