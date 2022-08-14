@@ -14,6 +14,7 @@ module.exports = withPWA({
     skipWaiting: true,
   },
 });
+
 module.exports = {
   images: {
     domains: ["localhost", "alinavidi.ir"],
