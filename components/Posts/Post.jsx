@@ -98,7 +98,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
             <div className="flex">
               <div className="post-image flex">
                 {error && (
-                  <p>
+                  <p id="post-error">
                     Sorry, looks like you don{"'"}t have access to this link!
                   </p>
                 )}

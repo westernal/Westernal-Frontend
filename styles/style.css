@@ -289,6 +289,13 @@ a {
   border-radius: 50%;
 }
 
+.post-info,
+.post-user,
+#post-description,
+#post-error {
+  margin: 0 10px;
+}
+
 .post-icons svg,
 #delete-btn {
   width: 27px;
@@ -316,7 +323,7 @@ a {
 .post {
   margin: 20px;
   border-radius: 10px 20px;
-  padding: 5px 10px 0 10px;
+  padding-top: 5px;
   width: 550px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   word-wrap: break-word;
@@ -325,6 +332,7 @@ a {
 #post-title {
   font-size: 20px;
   font-weight: 700;
+  padding: 0 10px;
 }
 
 .post-image img {
@@ -447,10 +455,6 @@ audio {
 
 .username {
   gap: 5px;
-}
-
-iframe {
-  border-radius: 10px;
 }
 
 .modal {
