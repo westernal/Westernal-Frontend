@@ -3,6 +3,7 @@
   "short_name": "Westernal",
   "theme_color": "#1d034a",
   "background_color": "#FFFFFF",
+  "description": "Let the songs talk",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
