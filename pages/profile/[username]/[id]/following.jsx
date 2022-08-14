@@ -34,9 +34,9 @@ const Followings = () => {
   return (
     <div className="followers">
       <Head>
-        <title>Followings - Westernal</title>
+        <title>Following - Westernal</title>
       </Head>
-      <BackHeader title="Followings" />
+      <BackHeader title="Following" />
 
       <User users={followings} />
 

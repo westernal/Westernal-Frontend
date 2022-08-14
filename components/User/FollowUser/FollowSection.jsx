@@ -13,7 +13,7 @@ const FollowSection = ({ user }) => {
       </div>
       <div className="followers">
         <p className="follow-name">Following</p>
-        <Link href={`/profile/${user.username}/${user._id}/followings`}>
+        <Link href={`/profile/${user.username}/${user._id}/following`}>
           <a>
             <p className="flw-num">{user.followings.length}</p>
           </a>
