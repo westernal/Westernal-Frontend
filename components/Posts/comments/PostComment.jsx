@@ -79,6 +79,7 @@ const PostComment = ({
     if (result && result.status == 201) {
       toast.success(`Comment posted!`);
       document.getElementById("comment-text").value = "";
+      onCancelReply();
       onPost();
     } else {
       toast.error(result.data.message);
