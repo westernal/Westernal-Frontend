@@ -315,8 +315,7 @@ a {
 
 .post {
   margin: 20px;
-  border-radius: 10px 20px;
-  padding: 0 10px;
+  border-radius: 10px;
   width: 550px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   word-wrap: break-word;
@@ -325,6 +324,15 @@ a {
 #post-title {
   font-size: 20px;
   font-weight: 700;
+}
+
+#post-title,
+#post-description,
+.post-info,
+.post-user,
+#post-error {
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 .post-image img {
