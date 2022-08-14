@@ -852,10 +852,3 @@ canvas {
     align-items: center;
   }
 }
-
-@media only screen and (max-width: 400px) {
-  .post-image {
-    width: 100%;
-    margin: 10px;
-  }
-}
