@@ -234,7 +234,8 @@ hr {
 }
 
 .btn,
-.follow-btn {
+.follow-btn,
+.unfollow-btn {
   padding: 10px 20px;
   font-family: "poppins", sans-serif;
   background-color: #9d38fc;
@@ -243,17 +244,27 @@ hr {
   border-radius: 10px;
   margin: 20px;
   transition: 0.5s;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-.follow-btn {
+.unfollow-btn {
+  color: #9d38fc;
+  background-color: white;
+}
+
+.follow-btn,
+.unfollow-btn {
   width: 50%;
-  border: 0.5px solid #9d38fc;
 }
 
 .follow-btn:hover {
   background-color: white;
-  border: 0.5px solid #9d38fc;
   color: #9d38fc;
+}
+
+.unfollow-btn:hover {
+  background-color: #9d38fc;
+  color: white;
 }
 
 .btn:hover {
@@ -836,7 +847,8 @@ canvas {
     word-wrap: break-word;
   }
 
-  .follow-btn {
+  .follow-btn,
+  .unfollow-btn {
     width: 100%;
   }
 

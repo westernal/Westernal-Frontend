@@ -67,7 +67,7 @@ const Follow = ({ isFollowing, SetIsFollowing }) => {
   return (
     <div className="flex">
       <button
-        className="follow-btn"
+        className={`${isFollowing ? "unfollow-btn" : "follow-btn"}`}
         onClick={!isFollowing ? followUser : unfollowUser}
       >
         {!isFollowing ? <p>Follow</p> : <p>Unfollow</p>}
