@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }) {
     if (!localStorage.getItem("token")) {
       router.push("/");
     }
-  }, []);
+  }, [router]);
 
   return (
     <>

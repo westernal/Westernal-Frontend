@@ -12,7 +12,7 @@ const LikePost = ({ id, likesCount, postLikes }) => {
       document.getElementsByClassName(id)[0].classList.add("liked");
       SetHasLiked(true);
     }
-  }, []);
+  }, [id, postLikes]);
 
   async function likePost(e) {
     e.preventDefault();

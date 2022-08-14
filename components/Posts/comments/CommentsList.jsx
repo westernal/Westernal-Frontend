@@ -10,22 +10,22 @@ const CommentsList = ({ postId, rerender, onReply }) => {
     SetDeleted(!deleted);
   };
 
-  const getComments = async () => {
-    const option = {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-      },
+  useEffect(() => {
+    const getComments = async () => {
+      const option = {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+        },
+      };
+
+      var result = await API(option, `api/comments/${postId}`);
+
+      if (result.status == 200) {
+        SetComments(result.data.comments);
+      }
     };
 
-    var result = await API(option, `api/comments/${postId}`);
-
-    if (result.status == 200) {
-      SetComments(result.data.comments);
-    }
-  };
-
-  useEffect(() => {
     if (postId) {
       getComments();
     }

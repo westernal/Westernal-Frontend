@@ -11,22 +11,22 @@ const Comment = ({ comment, onDelete, onReply }) => {
   const [deletable, SetDeletable] = useState(false);
   const [replies, SetReplies] = useState([]);
 
-  const getReplies = async () => {
-    const option = {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-      },
+  useEffect(() => {
+    const getReplies = async () => {
+      const option = {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+        },
+      };
+
+      var result = await API(option, `api/comments/replies/${comment._id}`);
+
+      if (result.status == 200) {
+        SetReplies(result.data.replies);
+      }
     };
 
-    var result = await API(option, `api/comments/replies/${comment._id}`);
-
-    if (result.status == 200) {
-      SetReplies(result.data.replies);
-    }
-  };
-
-  useEffect(() => {
     const userId = jwtDecode(localStorage.getItem("token")).userId;
 
     if (userId === comment.writer.id) {
