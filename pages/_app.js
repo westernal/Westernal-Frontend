@@ -7,6 +7,12 @@ import { useEffect } from "react";
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      router.push("/");
+    }
+  }, []);
+
   return (
     <>
       <ToastContainer
