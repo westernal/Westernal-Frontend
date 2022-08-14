@@ -316,7 +316,7 @@ a {
 .post {
   margin: 20px;
   border-radius: 10px 20px;
-  padding: 10px 20px 0 20px;
+  padding: 5px 10px 0 10px;
   width: 550px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   word-wrap: break-word;
@@ -332,7 +332,7 @@ a {
 }
 
 .post-image {
-  width: 500px;
+  width: 100%;
 }
 
 .post-info {
@@ -771,10 +771,6 @@ canvas {
 
   .post-info svg:hover {
     fill: currentColor;
-  }
-
-  .post-image {
-    width: 400px;
   }
 
   .auth-form {
