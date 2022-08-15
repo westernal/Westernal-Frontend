@@ -103,7 +103,12 @@ const Post = ({ details, onDelete, deletable = false }) => {
                   </p>
                 )}
                 {!isSpotify && !error && (
-                  <ReactPlayer url={details.songUrl} onError={playerError} />
+                  <ReactPlayer
+                    url={details.songUrl}
+                    onError={playerError}
+                    controls={true}
+                    pip={true}
+                  />
                 )}
                 {isSpotify && !error && (
                   <SpotifyPlayer
