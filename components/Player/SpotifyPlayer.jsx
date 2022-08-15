@@ -5,6 +5,7 @@ const SpotifyPlayer = ({ URL }) => {
     const getPlayer = async () => {
       const option = {
         method: "GET",
+        mode: "no-cors",
         headers: {
           "content-type": "application/json",
         },
@@ -15,6 +16,8 @@ const SpotifyPlayer = ({ URL }) => {
         option
       );
 
+      console.log(response);
+
       const data = await response.json();
 
       const status = response.status;
@@ -24,7 +27,6 @@ const SpotifyPlayer = ({ URL }) => {
       }
     };
     if (URL) {
-      getPlayer();
     }
   }, [URL]);
 
