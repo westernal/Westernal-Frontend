@@ -1,6 +1,7 @@
 import { toast } from "react-toastify";
 import API from "../../../requests/API";
 import jwtDecode from "jwt-decode";
+import { useEffect } from "react";
 
 const PostComment = ({
   postId,
@@ -9,6 +10,13 @@ const PostComment = ({
   onCancelReply,
   repliedComment,
 }) => {
+  useEffect(() => {
+    if (isReply) {
+      console.log("first");
+      document.getElementById("comment-text").click();
+    }
+  }, [isReply]);
+
   const handleEnter = (e) => {
     if (e.keyCode === 13) {
       e.preventDefault();
