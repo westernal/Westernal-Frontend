@@ -5,7 +5,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import ReactPlayer from "react-player";
-import SpotifyPlayer from "react-spotify-player";
+import SpotifyPlayer from "../Player/SpotifyPlayer";
 import ContentLoader from "react-content-loader";
 import DeletePost from "./DeletePost";
 import LikePost from "./LikePost";
@@ -105,13 +105,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
                 {!isSpotify && !error && (
                   <ReactPlayer url={details.songUrl} onError={playerError} />
                 )}
-                {isSpotify && !error && (
-                  <SpotifyPlayer
-                    uri={details.songUrl}
-                    view="coverart"
-                    theme="black"
-                  />
-                )}
+                {isSpotify && !error && <SpotifyPlayer />}
               </div>
             </div>
 
