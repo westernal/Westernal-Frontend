@@ -105,7 +105,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
                 {!isSpotify && !error && (
                   <ReactPlayer url={details.songUrl} onError={playerError} />
                 )}
-                {isSpotify && !error && <SpotifyPlayer />}
+                {isSpotify && !error && <SpotifyPlayer URL={details.songUrl} />}
               </div>
             </div>
 

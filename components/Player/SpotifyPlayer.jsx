@@ -23,7 +23,9 @@ const SpotifyPlayer = ({ URL }) => {
         document.getElementById("spotify-player").appendChild(data.html);
       }
     };
-    getPlayer();
+    if (URL) {
+      getPlayer();
+    }
   }, [URL]);
 
   return <div className="spotify-player"></div>;
