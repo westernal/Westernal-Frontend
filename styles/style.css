@@ -760,11 +760,6 @@ canvas {
   }
 }
 
-.unfollow-btn {
-  color: #9d38fc;
-  background-color: #101015;
-}
-
 @media only screen and (max-width: 600px) {
   .cm-info {
     width: 100%;

@@ -12,8 +12,7 @@ const PostComment = ({
 }) => {
   useEffect(() => {
     if (isReply) {
-      console.log("first");
-      document.getElementById("comment-text").click();
+      document.getElementById("comment-text").focus();
     }
   }, [isReply]);
 
