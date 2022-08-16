@@ -1,4 +1,4 @@
-import Image from "next/image";
+import ContentLoader from "react-content-loader";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Footer from "../../../../components/layout/Footer";
@@ -10,17 +10,8 @@ import jwt_decode from "jwt-decode";
 const Profile = () => {
   const router = useRouter();
   const [isUserSelf, SetIsUserSelf] = useState(false);
-  const [posts, SetPosts] = useState([
-    {
-      title: "",
-      description: "",
-      image: "",
-      creator: "",
-      date: "",
-      _id: 0,
-      likes: [],
-    },
-  ]);
+  const [posts, SetPosts] = useState();
+  const [bgColor, SetBgColor] = useState("#f3f3f3");
 
   async function getUserPosts(id) {
     const option = {
@@ -38,6 +29,13 @@ const Profile = () => {
   }
 
   useEffect(() => {
+    if (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
+      SetBgColor("#5f5d5d");
+    }
+
     if (router.query.username) {
       getUserPosts(router.query.id);
     }
@@ -62,17 +60,44 @@ const Profile = () => {
     <div className="profile">
       <UserInfo isUserSelf={isUserSelf} />
 
-      {posts.map((post) => {
-        return (
-          <div key={post._id}>
+      {!posts &&
+        [1, 2, 3].map((index) => {
+          return (
+            <div className="flex">
+              <div className="post" key={index}>
+                <ContentLoader
+                  speed={2}
+                  width={"100%"}
+                  height={"100%"}
+                  viewBox="0 0 320 420"
+                  backgroundColor={bgColor}
+                  foregroundColor="#ecebeb"
+                >
+                  <circle cx="25" cy="29" r="11" />
+                  <rect x="45" y="25" rx="2" ry="2" width="100" height="10" />
+                  <rect x="0" y="54" rx="2" ry="2" width="320" height="276" />
+                  <rect x="12" y="345" rx="0" ry="0" width="90" height="12" />
+                  <rect x="12" y="365" rx="0" ry="0" width="130" height="10" />
+                  <circle cx="20" cy="405" r="9" />
+                  <rect x="40" y="397" rx="0" ry="0" width="17" height="17" />
+                  <rect x="215" y="400" rx="0" ry="0" width="90" height="12" />
+                </ContentLoader>
+              </div>
+            </div>
+          );
+        })}
+
+      {posts &&
+        posts.map((post) => {
+          return (
             <Post
               details={post}
               deletable={isUserSelf}
               onDelete={getUserPosts}
+              key={post._id}
             />
-          </div>
-        );
-      })}
+          );
+        })}
 
       <div className="mb-100"></div>
 
