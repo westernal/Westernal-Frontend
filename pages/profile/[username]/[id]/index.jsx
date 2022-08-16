@@ -63,8 +63,8 @@ const Profile = () => {
       {!posts &&
         [1, 2, 3].map((index) => {
           return (
-            <div className="flex">
-              <div className="post" key={index}>
+            <div className="flex" key={index}>
+              <div className="post">
                 <ContentLoader
                   speed={2}
                   width={"100%"}
