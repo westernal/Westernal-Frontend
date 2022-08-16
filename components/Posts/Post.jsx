@@ -54,14 +54,18 @@ const Post = ({ details, onDelete, deletable = false }) => {
             speed={2}
             width={"100%"}
             height={"100%"}
-            viewBox="0 0 300 350"
+            viewBox="0 0 320 320"
             backgroundColor="#f3f3f3"
             foregroundColor="#ecebeb"
           >
-            <circle cx="31" cy="31" r="15" />
-            <rect x="58" y="18" rx="2" ry="2" width="140" height="10" />
-            <rect x="58" y="34" rx="2" ry="2" width="140" height="10" />
-            <rect x="0" y="60" rx="2" ry="2" width="400" height="400" />
+            <circle cx="25" cy="29" r="11" />
+            <rect x="45" y="25" rx="2" ry="2" width="100" height="10" />
+            <rect x="0" y="54" rx="2" ry="2" width="320" height="176" />
+            <rect x="12" y="245" rx="0" ry="0" width="90" height="12" />
+            <rect x="12" y="265" rx="0" ry="0" width="130" height="10" />
+            <circle cx="20" cy="305" r="9" />
+            <rect x="40" y="297" rx="0" ry="0" width="17" height="17" />
+            <rect x="215" y="300" rx="0" ry="0" width="90" height="12" />
           </ContentLoader>
         )}
         {user && (
