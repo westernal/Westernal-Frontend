@@ -306,10 +306,16 @@ a {
   height: 27px;
 }
 
+#like-btn,
+#a-like {
+  width: 23px;
+  height: 24px;
+}
+
 #comments svg {
   width: 26px;
   height: 26px;
-  margin-top: 2px;
+  margin-top: 6px;
 }
 
 #delete-btn:hover {
@@ -358,12 +364,16 @@ a {
   justify-content: space-between;
 }
 
-.post-info svg:hover {
+.post-info svg path {
+  transition: 0.3s;
+}
+
+.post-info svg:hover path {
   fill: red;
 }
 
-#comments svg:hover {
-  fill: initial;
+#comments svg:hover path {
+  fill: #5f5d5d;
 }
 
 #date {
@@ -737,7 +747,7 @@ canvas {
     box-shadow: none;
   }
 
-  .post-info svg,
+  .post-info svg path,
   #comment svg path {
     fill: white;
   }

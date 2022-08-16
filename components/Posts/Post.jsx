@@ -149,7 +149,40 @@ const Post = ({ details, onDelete, deletable = false }) => {
                 <Link href={`/comments/${details._id}`}>
                   <a id="comments" className="flex gap-5">
                     <svg viewBox="0 0 24 24">
-                      <path d="M12.0867962,18 L6,21.8042476 L6,18 L4,18 C2.8954305,18 2,17.1045695 2,16 L2,4 C2,2.8954305 2.8954305,2 4,2 L20,2 C21.1045695,2 22,2.8954305 22,4 L22,16 C22,17.1045695 21.1045695,18 20,18 L12.0867962,18 Z M8,18.1957524 L11.5132038,16 L20,16 L20,4 L4,4 L4,16 L8,16 L8,18.1957524 Z" />
+                      <g
+                        id="Icons"
+                        stroke="none"
+                        stroke-width="1"
+                        fill="none"
+                        fill-rule="evenodd"
+                      >
+                        <g
+                          id="Rounded"
+                          transform="translate(-680.000000, -2060.000000)"
+                        >
+                          <g
+                            id="Editor"
+                            transform="translate(100.000000, 1960.000000)"
+                          >
+                            <g
+                              id="-Round-/-Editor-/-mode_comment"
+                              transform="translate(578.000000, 98.000000)"
+                            >
+                              <g transform="translate(0.000000, 0.000000)">
+                                <polygon
+                                  id="Path"
+                                  points="0 0 24 0 24 24 0 24"
+                                ></polygon>
+                                <path
+                                  d="M22,4 C22,2.9 21.1,2 20,2 L4,2 C2.9,2 2,2.9 2,4 L2,16 C2,17.1 2.9,18 4,18 L18,18 L22,22 L22,4 Z"
+                                  id="🔹-Icon-Color"
+                                  fill="black"
+                                ></path>
+                              </g>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
                     </svg>
 
                     <p id="like-count">{details.comments_length}</p>
