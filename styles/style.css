@@ -752,10 +752,6 @@ canvas {
     fill: white;
   }
 
-  #comments svg:hover {
-    fill: white;
-  }
-
   input,
   #image,
   textarea {
