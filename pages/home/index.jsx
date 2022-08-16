@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Footer from "../../components/layout/Footer";
 import Header from "../../components/layout/Header";
-import Post from "../../components/Posts/Post";
+import Post from "../../components/posts/Post";
 import API from "../../requests/API";
 import jwt_decode from "jwt-decode";
 import Head from "next/head";

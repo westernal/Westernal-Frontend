@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import jwtDecode from "jwt-decode";
 import Link from "next/link";
 import dateFormat from "dateformat";
-import DeleteComment from "./DeleteComment";
+import DeleteComment from "../DeleteComment";
 
 const Reply = ({ reply, onDelete }) => {
   const [deletable, SetDeletable] = useState(false);

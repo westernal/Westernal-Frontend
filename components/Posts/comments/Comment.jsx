@@ -3,9 +3,9 @@ import dateFormat from "dateformat";
 import { useState, useEffect } from "react";
 import jwtDecode from "jwt-decode";
 import DeleteComment from "./DeleteComment";
-import ReplyComment from "./ReplyComment";
+import ReplyComment from "./replies/ReplyComment";
 import API from "../../../requests/API";
-import Replies from "./Replies";
+import Replies from "./replies/Replies";
 
 const Comment = ({ comment, onDelete, onReply }) => {
   const [deletable, SetDeletable] = useState(false);
