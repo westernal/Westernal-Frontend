@@ -149,13 +149,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
                 <Link href={`/comments/${details._id}`}>
                   <a id="comments" className="flex gap-5">
                     <svg viewBox="0 0 24 24">
-                      <g
-                        id="Icons"
-                        stroke="none"
-                        stroke-width="1"
-                        fill="none"
-                        fill-rule="evenodd"
-                      >
+                      <g id="Icons" stroke="none" fill="none">
                         <g
                           id="Rounded"
                           transform="translate(-680.000000, -2060.000000)"
