@@ -99,7 +99,7 @@ const SearchSong = ({ hide, chooseSong }) => {
                 hide();
               }}
             >
-              <div className="profile-notif flex">
+              <div className="profile-notif grid">
                 <Image
                   alt="song's cover"
                   src={song.album.images[0].url}

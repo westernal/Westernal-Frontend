@@ -102,6 +102,11 @@ a {
   font-family: "Poppins", sans-serif;
 }
 
+#search-input {
+  width: 100%;
+  margin: 0 15px;
+}
+
 .song-search {
   margin: 0 !important;
 }
@@ -713,9 +718,9 @@ canvas {
 }
 
 .search-modal {
-  width: 80vw;
-  min-height: 50vh;
-  margin: 5% auto;
+  width: 90vw;
+  min-height: 70vh;
+  margin: 10vh auto;
 }
 
 #artist {
