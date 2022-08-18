@@ -746,6 +746,11 @@ canvas {
     color: white;
   }
 
+  .search-btn {
+    background-color: #101015;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+
   @keyframes pulse {
     0% {
       box-shadow: #9d38fc 0 0 0 0;
