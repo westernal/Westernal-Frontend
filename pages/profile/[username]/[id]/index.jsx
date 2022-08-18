@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Footer from "../../../../components/layout/Footer";
 import Post from "../../../../components/posts/Post";
 import API from "../../../../requests/API";
-import UserInfo from "../../../../components/user/userInfo";
+import UserInfo from "../../../../components/user/UserInfo";
 import jwt_decode from "jwt-decode";
 
 const Profile = () => {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Footer from "../../components/layout/Footer";
 import API from "../../requests/API";
-import User from "../../components/user/users";
+import User from "../../components/user/Users";
 import Head from "next/head";
 
 const Search = () => {

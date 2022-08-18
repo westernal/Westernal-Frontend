@@ -3,7 +3,7 @@ import Footer from "../../components/layout/Footer";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import User from "../../components/user/users";
+import User from "../../components/user/Users";
 import BackHeader from "../../components/layout/BackHeader";
 import Head from "next/head";
 

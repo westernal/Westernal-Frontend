@@ -4,7 +4,7 @@ import BackHeader from "../../../../components/layout/BackHeader";
 import Footer from "../../../../components/layout/Footer";
 import { useRouter } from "next/dist/client/router";
 import API from "../../../../requests/API";
-import User from "../../../../components/user/users";
+import User from "../../../../components/user/Users";
 import Head from "next/head";
 
 const Followers = () => {
