@@ -3,16 +3,18 @@ import Footer from "../../components/layout/Footer";
 import API from "../../requests/API";
 import User from "../../components/user/users";
 import Head from "next/head";
-import CheckToken from "../../components/authentication/CheckToken";
 
 const Search = () => {
   const [users, SetUsers] = useState([]);
   const [result, SetResult] = useState([]);
   const [isTyped, SetIstyped] = useState(false);
 
-  CheckToken();
-
   useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      router.push("/");
+      return;
+    }
+
     async function getUsers(params) {
       const option = {
         method: "GET",

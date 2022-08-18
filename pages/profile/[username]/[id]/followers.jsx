@@ -6,15 +6,17 @@ import { useRouter } from "next/dist/client/router";
 import API from "../../../../requests/API";
 import User from "../../../../components/user/users";
 import Head from "next/head";
-import CheckToken from "../../../../components/authentication/CheckToken";
 
 const Followers = () => {
   const router = useRouter();
   const [followers, SetFollowers] = useState([]);
 
-  CheckToken();
-
   useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      router.push("/");
+      return;
+    }
+
     async function getFollowers() {
       const option = {
         method: "GET",
@@ -33,7 +35,7 @@ const Followers = () => {
     if (router.query.id) {
       getFollowers();
     }
-  }, [router.query]);
+  }, [router.query, router]);
   return (
     <div className="followers">
       <Head>

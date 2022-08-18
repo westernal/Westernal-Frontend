@@ -7,10 +7,18 @@ import BackHeader from "../components/layout/BackHeader";
 import Footer from "../components/layout/Footer";
 import Head from "next/head";
 import Icons from "../components/posts/Icons";
+import { useEffect } from "react";
 
 const NewPost = () => {
   const [loader, SetLoader] = useState(false);
   const router = useRouter();
+
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      router.push("/");
+      return;
+    }
+  }, [router]);
 
   function generateToken() {
     var token = localStorage.getItem("token");

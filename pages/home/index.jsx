@@ -6,19 +6,23 @@ import API from "../../requests/API";
 import jwt_decode from "jwt-decode";
 import Head from "next/head";
 import ContentLoader from "../../components/layout/ContentLoader";
-import CheckToken from "../../components/authentication/CheckToken";
+import { useRouter } from "next/router";
 
 export default function Index() {
   const [posts, SetPosts] = useState();
   const [refresh, SetRefresh] = useState(false);
-
-  CheckToken();
+  const router = useRouter();
 
   const onRefresh = () => {
     SetRefresh(!refresh);
   };
 
   useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      router.push("/");
+      return;
+    }
+
     async function getPosts(userId) {
       const option = {
         method: "GET",
@@ -34,7 +38,7 @@ export default function Index() {
       }
     }
     getPosts(jwt_decode(localStorage.getItem("token")).userId);
-  }, [refresh]);
+  }, [refresh, router]);
   return (
     <div className="home">
       <Header refresh={onRefresh} />

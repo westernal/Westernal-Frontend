@@ -4,7 +4,7 @@ import CommentsList from "../../components/posts/comments/CommentsList";
 import PostComment from "../../components/posts/comments/PostComment";
 import Head from "next/head";
 import { useState } from "react";
-import CheckToken from "../../components/authentication/CheckToken";
+import { useEffect } from "react";
 
 const Comments = () => {
   const router = useRouter();
@@ -12,7 +12,12 @@ const Comments = () => {
   const [isReply, SetIsReply] = useState(false);
   const [repliedComment, SetRepliedComment] = useState("");
 
-  CheckToken();
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      router.push("/");
+      return;
+    }
+  }, [router]);
 
   const onReply = (id) => {
     SetIsReply(true);

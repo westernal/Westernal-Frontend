@@ -5,12 +5,11 @@ import API from "../../requests/API";
 import jwt_decode from "jwt-decode";
 import Link from "next/link";
 import Head from "next/head";
-import CheckToken from "../../components/authentication/CheckToken";
+import { useRouter } from "next/router";
 
 const Notifications = () => {
   const [notifs, SetNotifs] = useState([]);
-
-  CheckToken();
+  const router = useRouter();
 
   async function getNotifications() {
     let id = jwt_decode(localStorage.getItem("token")).userId;
@@ -29,8 +28,13 @@ const Notifications = () => {
   }
 
   useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      router.push("/");
+      return;
+    }
+
     getNotifications();
-  }, []);
+  }, [router]);
 
   return (
     <div className="notification">

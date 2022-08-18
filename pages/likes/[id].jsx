@@ -6,15 +6,17 @@ import { useState } from "react";
 import User from "../../components/user/users";
 import BackHeader from "../../components/layout/BackHeader";
 import Head from "next/head";
-import CheckToken from "../../components/authentication/CheckToken";
 
 const Likes = () => {
   const router = useRouter();
   const [users, SetUsers] = useState([]);
 
-  CheckToken();
-
   useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      router.push("/");
+      return;
+    }
+
     async function getPostLikes(id) {
       const option = {
         method: "GET",
@@ -34,7 +36,7 @@ const Likes = () => {
     if (router.query.id) {
       getPostLikes();
     }
-  }, [router.query]);
+  }, [router.query, router]);
 
   return (
     <div className="likes">
