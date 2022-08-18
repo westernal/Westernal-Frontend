@@ -4,7 +4,7 @@ import BackHeader from "../../../../components/layout/BackHeader";
 import Footer from "../../../../components/layout/Footer";
 import { useRouter } from "next/dist/client/router";
 import API from "../../../../requests/API";
-import User from "../../../../components/User/users";
+import User from "../../../../components/user/users";
 import Head from "next/head";
 import CheckToken from "../../../../components/authentication/CheckToken";
 
