@@ -824,10 +824,6 @@ canvas {
   }
 }
 
-.search-modal .profile-notif:hover {
-  background-color: #5f5d5d;
-}
-
 .search-modal .profile-notif {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
@@ -841,6 +837,10 @@ canvas {
     flex-direction: row;
     align-items: center;
     gap: 10px;
+  }
+
+  .search-modal .profile-notif:hover {
+    background-color: #5f5d5d;
   }
 
   .comment-buttons {
