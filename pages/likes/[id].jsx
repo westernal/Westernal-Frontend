@@ -1,10 +1,9 @@
 import API from "../../requests/API";
-import Header from "../../components/layout/Header";
 import Footer from "../../components/layout/Footer";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import User from "../../components/User/users";
+import User from "../../components/user/users";
 import BackHeader from "../../components/layout/BackHeader";
 import Head from "next/head";
 import CheckToken from "../../components/authentication/CheckToken";

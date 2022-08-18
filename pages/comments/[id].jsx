@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import BackHeader from "../../components/layout/BackHeader";
-import CommentsList from "../../components/Posts/comments/CommentsList";
-import PostComment from "../../components/Posts/comments/PostComment";
+import CommentsList from "../../components/posts/comments/CommentsList";
+import PostComment from "../../components/posts/comments/PostComment";
 import Head from "next/head";
 import { useState } from "react";
 import CheckToken from "../../components/authentication/CheckToken";

@@ -6,7 +6,7 @@ import jwt_decode from "jwt-decode";
 import BackHeader from "../components/layout/BackHeader";
 import Footer from "../components/layout/Footer";
 import Head from "next/head";
-import Icons from "../components/Posts/Icons";
+import Icons from "../components/posts/Icons";
 
 const NewPost = () => {
   const [loader, SetLoader] = useState(false);
