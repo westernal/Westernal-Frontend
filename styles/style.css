@@ -92,13 +92,18 @@ a {
 }
 
 .search-bar input,
-#comment-text {
+#comment-text,
+#search-input {
   border-radius: 10px;
   border: none;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   padding: 10px 20px;
   width: 70%;
   font-family: "Poppins", sans-serif;
+}
+
+.song-search {
+  margin: 0 !important;
 }
 
 input:focus,
@@ -690,10 +695,6 @@ canvas {
   word-break: break-all;
 }
 
-.song-url {
-  margin-bottom: 0 !important;
-}
-
 .search-btn {
   display: flex;
   justify-content: center;
@@ -703,11 +704,35 @@ canvas {
   gap: 5px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   padding: 0 10px;
+  margin: 0;
 }
 
 .search-btn:hover {
   background-color: #9d38fc;
   color: white;
+}
+
+.search-modal {
+  width: 80vw;
+  min-height: 50vh;
+  margin: 5% auto;
+}
+
+#artist {
+  font-weight: unset;
+  opacity: 0.7;
+  margin-top: -12px;
+}
+
+.search-modal .profile-notif {
+  padding: 10px;
+  justify-content: left;
+  transition: 0.3s;
+  margin: 15px;
+}
+
+.search-modal .profile-notif:hover {
+  background-color: #ededed;
 }
 
 @media screen and (prefers-color-scheme: dark) {
@@ -723,10 +748,6 @@ canvas {
     80% {
       box-shadow: #9d38fc00 0 0 0 20px;
     }
-  }
-
-  .search-btn {
-    background-color: #5f5d5d;
   }
 
   .modal-content {
@@ -793,9 +814,23 @@ canvas {
   }
 }
 
+.search-modal .profile-notif:hover {
+  background-color: #5f5d5d;
+}
+
+.search-modal .profile-notif {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
 @media only screen and (max-width: 600px) {
   .cm-info {
     width: 100%;
+  }
+
+  .search-modal .profile-notif {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
   }
 
   .comment-buttons {

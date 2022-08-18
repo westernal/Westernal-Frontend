@@ -9,9 +9,11 @@ import Head from "next/head";
 import Icons from "../../components/posts/Icons";
 import { useEffect } from "react";
 import Image from "next/dist/client/image";
+import SearchSong from "../../components/posts/search/SearchSong";
 
 const NewPost = () => {
   const [loader, SetLoader] = useState(false);
+  const [showModal, SetShowModal] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -20,6 +22,20 @@ const NewPost = () => {
       return;
     }
   }, [router]);
+
+  const chooseSong = (url) => {
+    const song = document.getElementById("song");
+    song.value = url;
+  };
+
+  const openModal = (e) => {
+    e.preventDefault();
+    SetShowModal(true);
+  };
+
+  const closeModal = () => {
+    SetShowModal(false);
+  };
 
   function generateToken() {
     var token = localStorage.getItem("token");
@@ -78,6 +94,7 @@ const NewPost = () => {
         <title>New Post - Westernal</title>
       </Head>
       <BackHeader title="New Post" />
+      {showModal && <SearchSong hide={closeModal} chooseSong={chooseSong} />}
       <div className="flex">
         <div className="auth-form">
           <p id="login-logo">W</p>
@@ -93,7 +110,8 @@ const NewPost = () => {
               <Icons />
               <div className="song-url flex">
                 <input type="text" id="song" placeholder="Song's URL" />
-                <button className="search-btn ">
+                OR
+                <button className="search-btn" onClick={openModal}>
                   <Image
                     src={"/Images/spotify.svg"}
                     width={25}

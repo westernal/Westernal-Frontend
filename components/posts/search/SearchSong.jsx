@@ -1,34 +1,127 @@
+import { useEffect } from "react";
 import { useState } from "react";
+import Image from "next/dist/client/image";
 
-const SearchSong = (e) => {
+const SearchSong = ({ hide, chooseSong }) => {
   const [songs, SetSongs] = useState([]);
+  const [token, SetToken] = useState("");
+  const clientToken =
+    "355a112f4a27485cbbb614e817d439c8:f12328b921684083802df0f82574a6ee";
+
+  useEffect(() => {
+    const getToken = async () => {
+      const option = {
+        method: "POST",
+        headers: {
+          "content-type": "application/x-www-form-urlencoded",
+          Authorization:
+            "Basic" + " " + new Buffer(clientToken).toString("base64"),
+        },
+        body: "grant_type=client_credentials",
+        json: true,
+      };
+
+      const response = await fetch(
+        `https://accounts.spotify.com/api/token`,
+        option
+      );
+
+      const data = await response.json();
+
+      const status = response.status;
+
+      if (status == 200) {
+        SetToken(data.access_token);
+        search();
+      }
+    };
+
+    getToken();
+  }, []);
+
+  const closeModal = (e) => {
+    e.preventDefault();
+    hide();
+  };
+
+  window.onclick = function (event) {
+    if (event.target == document.getElementById("delete-modal")) {
+      hide();
+    }
+  };
   const search = async () => {
-    const input = document.getElementById("search").value;
+    const input = document.getElementById("search-input").value;
     const option = {
       method: "GET",
       headers: {
         "content-type": "application/json",
-        Authorization:
-          "Bearer BQC77q3QW-uuAXoA0Ro_IO0TnBMIVA05_fw-lG4QkIwF8Os-GA-U4iQI6H8n6CT3G5dqG-uXL5gokWiy0UE6YIlTrcH4NKB7fhMNrf9Ky5jSJ9N7Hen6i_dQAcMUu3F0uRGcdHPbLdnAcW8Dg1ee5xkjsgixb4BBLs6RbLWkevd4syqINx16zLwX2kITsN4",
+        Authorization: `Bearer ${token}`,
       },
     };
 
     const response = await fetch(
-      `https://api.spotify.com/v1/search?q=${input}&type=track`,
+      `https://api.spotify.com/v1/search?q=${input && input}&type=track`,
       option
     );
 
     const data = await response.json();
+    console.log(data);
 
     const status = response.status;
 
     if (status == 200) {
-      SetSongs(data);
+      SetSongs(data.tracks.items);
     }
   };
 
   return (
-    <input type="text" placeholder="Search" id="search" onKeyDown={search} />
+    <div className="delete-modal" id="delete-modal">
+      <div className="modal-text search-modal">
+        <a href="#" onClick={closeModal} className="close">
+          &times;
+        </a>
+        <div className="flex song-search">
+          <input
+            type="text"
+            placeholder="Type a song's name or artist"
+            id="search-input"
+            onChange={search}
+          />
+        </div>
+        {songs.map((song) => {
+          return (
+            <a
+              href="#"
+              key={song.id}
+              onClick={(e) => {
+                e.preventDefault();
+                chooseSong(song.external_urls.spotify);
+                hide();
+              }}
+            >
+              <div className="profile-notif flex">
+                <Image
+                  alt="song's cover"
+                  src={song.album.images[0].url}
+                  width={60}
+                  height={60}
+                />
+                <div className="song-info">
+                  <p>{song.name}</p>
+                  <p id="artist">
+                    {song.artists.map((artist, index, array) =>
+                      index == array.length - 1
+                        ? artist.name
+                        : `${artist.name} feat. `
+                    )}
+                  </p>
+                </div>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
   );
 };
 

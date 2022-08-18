@@ -15,6 +15,6 @@ module.exports = withPWA({
 
 module.exports = {
   images: {
-    domains: ["localhost", "alinavidi.ir"],
+    domains: ["localhost", "alinavidi.ir", "i.scdn.co"],
   },
 };
