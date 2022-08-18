@@ -65,7 +65,6 @@ const SearchSong = ({ hide, chooseSong }) => {
     );
 
     const data = await response.json();
-    console.log(data);
 
     const status = response.status;
 
