@@ -9,11 +9,7 @@ const LogOut = () => {
     router.push("/");
   }
 
-  return (
-    <a href="#" onClick={logOut}>
-      <button>Logout</button>
-    </a>
-  );
+  return <button onClick={logOut}>Logout</button>;
 };
 
 export default LogOut;
