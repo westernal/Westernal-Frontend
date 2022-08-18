@@ -23,7 +23,7 @@ const Setting = () => {
     e.preventDefault();
     SetLoader(true);
     const password = document.getElementById("password").value;
-    const rpassword = document.getElementById("rpassword").value;
+    const confirmPassword = document.getElementById("confirm-password").value;
     let username = document.getElementById("username");
     let bio = document.getElementById("bio");
     const Image = document.getElementById("image");
@@ -43,7 +43,7 @@ const Setting = () => {
       SetLoader(false);
     }
 
-    if (password !== rpassword) {
+    if (password !== confirmPassword) {
       toast.error("Password must be equal to repeat password!");
       SetLoader(false);
     } else
@@ -158,7 +158,7 @@ const Setting = () => {
               <input
                 type="password"
                 placeholder="Confirm Password"
-                id="rpassword"
+                id="confirm-password"
                 autoComplete="off"
               />
             </div>
