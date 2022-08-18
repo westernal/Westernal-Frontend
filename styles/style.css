@@ -4,11 +4,6 @@
   box-sizing: border-box;
 }
 
-@font-face {
-  font-family: megrim;
-  src: url("/Fonts/Megrim-Regular.ttf");
-}
-
 body {
   font-family: "Poppins", sans-serif;
   overflow-x: hidden;
@@ -53,7 +48,7 @@ a {
 .header a,
 .header p {
   color: white;
-  font-family: megrim;
+  font-family: "Megrim", sans-serif;
   font-size: 30px;
   font-weight: bolder;
   margin: 0;
@@ -244,6 +239,10 @@ hr {
   border-radius: 10px;
   margin: 20px;
   transition: 0.5s;
+}
+
+.follow-btn,
+.unfollow-btn {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
