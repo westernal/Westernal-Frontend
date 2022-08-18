@@ -7,10 +7,10 @@ import Link from "next/link";
 import Head from "next/head";
 import FollowSection from "./FollowUser/FollowSection";
 import Follow from "./FollowUser/Follow";
+import LogOut from "./logout";
 
 const UserInfo = ({ isUserSelf }) => {
   const router = useRouter();
-
   const [isFollowing, SetIsFollowing] = useState(false);
   const [user, SetUser] = useState({
     posts: [],
@@ -19,14 +19,7 @@ const UserInfo = ({ isUserSelf }) => {
     bio: "",
     image: "",
   });
-
   const host = "https://alinavidi.ir/";
-
-  function logOut(e) {
-    e.preventDefault();
-    localStorage.removeItem("token");
-    router.push("/");
-  }
 
   async function getUserInfo(id) {
     const option = {
@@ -79,7 +72,7 @@ const UserInfo = ({ isUserSelf }) => {
         </div>
         {isUserSelf && (
           <div className="flex">
-            <button onClick={logOut}>Logout</button>
+            <LogOut />
 
             <Link href={`/profile/${router.query.username}/setting`}>
               <a className="flex">

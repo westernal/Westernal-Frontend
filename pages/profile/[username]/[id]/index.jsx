@@ -6,11 +6,14 @@ import Post from "../../../../components/posts/Post";
 import API from "../../../../requests/API";
 import UserInfo from "../../../../components/user/userInfo";
 import jwt_decode from "jwt-decode";
+import CheckToken from "../../../../components/authentication/CheckToken";
 
 const Profile = () => {
   const router = useRouter();
   const [isUserSelf, SetIsUserSelf] = useState(false);
   const [posts, SetPosts] = useState();
+
+  CheckToken();
 
   async function getUserPosts(id) {
     const option = {

@@ -78,7 +78,7 @@ const SignUp = () => {
       <Head>
         <title>Signup - Westernal</title>
       </Head>
-      <div className="auth-form">
+      <div className="auth-form signup">
         <p id="login-logo">W</p>
         {loader && (
           <div className="flex">
@@ -128,7 +128,7 @@ const SignUp = () => {
         <div className="flex">
           <p>Have an account?</p>
           <Link href={"/"}>
-            <a aria-label="signup">login</a>
+            <a aria-label="login">login</a>
           </Link>
         </div>
       </div>

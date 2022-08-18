@@ -7,10 +7,13 @@ import { useState } from "react";
 import User from "../../components/User/users";
 import BackHeader from "../../components/layout/BackHeader";
 import Head from "next/head";
+import CheckToken from "../../components/authentication/CheckToken";
 
 const Likes = () => {
   const router = useRouter();
   const [users, SetUsers] = useState([]);
+
+  CheckToken();
 
   useEffect(() => {
     async function getPostLikes(id) {

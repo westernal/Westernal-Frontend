@@ -5,9 +5,12 @@ import API from "../../requests/API";
 import jwt_decode from "jwt-decode";
 import Link from "next/link";
 import Head from "next/head";
+import CheckToken from "../../components/authentication/CheckToken";
 
 const Notifications = () => {
   const [notifs, SetNotifs] = useState([]);
+
+  CheckToken();
 
   async function getNotifications() {
     let id = jwt_decode(localStorage.getItem("token")).userId;

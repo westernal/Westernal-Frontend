@@ -7,17 +7,19 @@ import BackHeader from "../../../components/layout/BackHeader";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Image from "next/image";
+import CheckToken from "../../../components/authentication/CheckToken";
 
 const Setting = () => {
   const [loader, SetLoader] = useState(false);
   const [image, SetImage] = useState("/Images/userIcon.png");
-
   const [user, SetUser] = useState({
     username: "Username",
     bio: "Bio",
   });
   const router = useRouter();
   const host = "https://alinavidi.ir/";
+
+  CheckToken();
 
   function checkInputs(e) {
     e.preventDefault();

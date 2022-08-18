@@ -6,10 +6,13 @@ import { useRouter } from "next/dist/client/router";
 import API from "../../../../requests/API";
 import User from "../../../../components/User/users";
 import Head from "next/head";
+import CheckToken from "../../../../components/authentication/CheckToken";
 
 const Followings = () => {
   const router = useRouter();
   const [followings, SetFollowings] = useState([]);
+
+  CheckToken();
 
   useEffect(() => {
     async function getFollowers() {

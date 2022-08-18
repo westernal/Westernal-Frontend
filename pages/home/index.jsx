@@ -6,10 +6,13 @@ import API from "../../requests/API";
 import jwt_decode from "jwt-decode";
 import Head from "next/head";
 import ContentLoader from "../../components/layout/ContentLoader";
+import CheckToken from "../../components/authentication/CheckToken";
 
 export default function Index() {
   const [posts, SetPosts] = useState();
   const [refresh, SetRefresh] = useState(false);
+
+  CheckToken();
 
   const onRefresh = () => {
     SetRefresh(!refresh);

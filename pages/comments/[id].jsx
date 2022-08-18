@@ -4,12 +4,15 @@ import CommentsList from "../../components/Posts/comments/CommentsList";
 import PostComment from "../../components/Posts/comments/PostComment";
 import Head from "next/head";
 import { useState } from "react";
+import CheckToken from "../../components/authentication/CheckToken";
 
 const Comments = () => {
   const router = useRouter();
   const [rerender, SetRerender] = useState(false);
   const [isReply, SetIsReply] = useState(false);
   const [repliedComment, SetRepliedComment] = useState("");
+
+  CheckToken();
 
   const onReply = (id) => {
     SetIsReply(true);

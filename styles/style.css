@@ -279,7 +279,8 @@ a {
   color: black;
 }
 
-.login a {
+.login a,
+.signup a {
   color: #9d38fc;
 }
 
