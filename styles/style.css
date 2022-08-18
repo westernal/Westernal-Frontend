@@ -231,7 +231,8 @@ hr {
 
 .btn,
 .follow-btn,
-.unfollow-btn {
+.unfollow-btn,
+.search-btn {
   padding: 10px 20px;
   font-family: "poppins", sans-serif;
   background-color: #9d38fc;
@@ -267,7 +268,8 @@ hr {
   color: white;
 }
 
-.btn:hover {
+.btn:hover,
+.search-btn:hover {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
@@ -688,6 +690,26 @@ canvas {
   word-break: break-all;
 }
 
+.song-url {
+  margin-bottom: 0 !important;
+}
+
+.search-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #9d38fc;
+  background-color: white;
+  gap: 5px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 0 10px;
+}
+
+.search-btn:hover {
+  background-color: #9d38fc;
+  color: white;
+}
+
 @media screen and (prefers-color-scheme: dark) {
   body {
     background-color: black;
@@ -701,6 +723,10 @@ canvas {
     80% {
       box-shadow: #9d38fc00 0 0 0 20px;
     }
+  }
+
+  .search-btn {
+    background-color: #5f5d5d;
   }
 
   .modal-content {

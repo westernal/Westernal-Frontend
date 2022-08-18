@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
-import API from "../requests/API";
+import API from "../../requests/API";
 import jwt_decode from "jwt-decode";
-import BackHeader from "../components/layout/BackHeader";
-import Footer from "../components/layout/Footer";
+import BackHeader from "../../components/layout/BackHeader";
+import Footer from "../../components/layout/Footer";
 import Head from "next/head";
-import Icons from "../components/posts/Icons";
+import Icons from "../../components/posts/Icons";
 import { useEffect } from "react";
+import Image from "next/dist/client/image";
 
 const NewPost = () => {
   const [loader, SetLoader] = useState(false);
@@ -90,7 +91,18 @@ const NewPost = () => {
           <form onSubmit={checkInputs}>
             <div className="form-inputs" autoComplete="off">
               <Icons />
-              <input type="text" id="song" placeholder="Song's URL" />
+              <div className="song-url flex">
+                <input type="text" id="song" placeholder="Song's URL" />
+                <button className="search-btn ">
+                  <Image
+                    src={"/Images/spotify.svg"}
+                    width={25}
+                    height={25}
+                    alt="spotify"
+                  />
+                  <p>Search</p>
+                </button>
+              </div>
               <input type="text" placeholder="Title" id="title" />
               <textarea placeholder="Description" id="description" />
             </div>
