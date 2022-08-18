@@ -10,6 +10,11 @@ body {
   margin: 0;
 }
 
+@font-face {
+  font-family: megrim;
+  src: url("../public/Fonts/Megrim-Regular.ttf");
+}
+
 a {
   text-decoration: none;
 }
@@ -48,7 +53,7 @@ a {
 .header a,
 .header p {
   color: white;
-  font-family: "Megrim", sans-serif;
+  font-family: megrim;
   font-size: 30px;
   font-weight: bolder;
   margin: 0;
