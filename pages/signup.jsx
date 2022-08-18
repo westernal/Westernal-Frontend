@@ -109,7 +109,7 @@ const SignUp = () => {
             />
             <input
               type="password"
-              placeholder="Repeat Password"
+              placeholder="Confirm Password"
               id="rpassword"
               autoComplete="off"
             />
