@@ -593,7 +593,7 @@ canvas {
   display: flex;
   align-items: center;
   gap: 10px;
-  width: 50vw;
+  width: 42vw;
   margin-top: -20px;
   margin-left: 20px;
 }
@@ -740,6 +740,20 @@ canvas {
   background-color: #ededed;
 }
 
+.password-options {
+  gap: 0;
+}
+
+.password-options a {
+  font-size: 14px;
+  margin-right: 20px;
+  margin-top: -20px;
+}
+
+#reset-text {
+  color: #9d38fc;
+}
+
 @media screen and (prefers-color-scheme: dark) {
   body {
     background-color: black;
@@ -883,6 +897,17 @@ canvas {
 
   .show-password {
     width: 70vw;
+  }
+
+  .password-options {
+    display: block;
+  }
+
+  .forgot-password {
+    display: block;
+    margin-left: 20px;
+    margin-top: -20px;
+    text-align: left;
   }
 
   .search-bar input {
