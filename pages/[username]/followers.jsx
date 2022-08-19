@@ -29,13 +29,14 @@ const Followers = () => {
         option,
         `api/users/followers/${router.query.username}`
       );
+      console.log(result);
 
       if (result.status == 200) {
         SetFollowers(result.data.followers);
       }
     }
 
-    if (router.query.id) {
+    if (router.query.username) {
       getFollowers();
     }
   }, [router.query, router]);

@@ -35,7 +35,7 @@ const Followings = () => {
       }
     }
 
-    if (router.query.id) {
+    if (router.query.username) {
       getFollowers();
     }
   }, [router.query, router]);
