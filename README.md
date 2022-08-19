@@ -47,8 +47,3 @@ It also supports dark mode!
 ## Source Code
  [Front-End](https://github.com/westernal/social-media-frontend) /
  [Back-End](https://github.com/westernal/social-media-backend)
-
-
-
-
-
