@@ -29,7 +29,6 @@ const Followings = () => {
         option,
         `api/users/following/${router.query.username}`
       );
-      console.log(result);
 
       if (result.status == 200) {
         SetFollowing(result.data.following);
