@@ -1,19 +1,24 @@
-import API from "../../requests/API";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import jwt_decode from "jwt-decode";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
 import FollowSection from "./followUser/FollowSection";
 import Follow from "./followUser/Follow";
 import LogOut from "./Logout";
+import jwtDecode from "jwt-decode";
 
 const UserInfo = ({ isUserSelf, user }) => {
   const router = useRouter();
   const [isFollowing, SetIsFollowing] = useState(false);
-
   const host = "https://alinavidi.ir/";
+
+  useEffect(() => {
+    const userId = jwtDecode(localStorage.getItem("token")).userId;
+    if (!isUserSelf && user.followers.includes(userId)) {
+      SetIsFollowing(true);
+    }
+  }, [user]);
 
   const changeIsFollowing = (followBoolean) => {
     SetIsFollowing(followBoolean);
