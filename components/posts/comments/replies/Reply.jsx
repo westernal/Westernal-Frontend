@@ -18,7 +18,7 @@ const Reply = ({ reply, onDelete }) => {
   return (
     <div className="comment reply flex" key={reply._id}>
       <div className="cm-main flex">
-        <Link href={`/profile/${reply.writer.username}/${reply.writer.id}`}>
+        <Link href={`/${reply.writer.username}`}>
           <a className="flex">
             <p id="cm-user">{reply.writer.username}:</p>
           </a>

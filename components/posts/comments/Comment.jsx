@@ -40,9 +40,7 @@ const Comment = ({ comment, onDelete, onReply }) => {
     <>
       <div className="comment flex" key={comment._id}>
         <div className="cm-main flex">
-          <Link
-            href={`/profile/${comment.writer.username}/${comment.writer.id}`}
-          >
+          <Link href={`/${comment.writer.username}`}>
             <a className="flex">
               <p id="cm-user">{comment.writer.username}:</p>
             </a>
