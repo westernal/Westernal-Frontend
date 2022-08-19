@@ -60,7 +60,9 @@ const SearchSong = ({ hide, chooseSong }) => {
     };
 
     const response = await fetch(
-      `https://api.spotify.com/v1/search?q=${input && input}&type=track`,
+      `https://api.spotify.com/v1/search?q=${
+        input && input
+      }&type=track&limit=10`,
       option
     );
 
