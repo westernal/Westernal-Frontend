@@ -50,7 +50,7 @@ const Notifications = () => {
           <div className="profile-notif flex" key={notif._id}>
             <div className="notif-main flex gap-5">
               {notif.user && (
-                <Link href={`/profile/${notif.user.username}`}>
+                <Link href={`/${notif.user.username}`}>
                   <a>
                     <p id="cm-user">{"@" + notif.user.username}</p>
                   </a>
