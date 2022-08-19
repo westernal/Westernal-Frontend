@@ -107,7 +107,7 @@ const Setting = () => {
     if (result.status == 200) {
       toast.success(`Information Edited!`);
       localStorage.setItem("token", result.data.token);
-      router.push(`/profile/${user.username}/${user._id}`);
+      router.push(`/${user.username}`);
     } else {
       SetLoader(false);
       toast.error(result.data.message);
@@ -155,7 +155,7 @@ const Setting = () => {
               <input type="text" placeholder={"Bio"} id="bio" />
               <input
                 type="password"
-                placeholder="Password"
+                placeholder="New password"
                 id="password"
                 autoComplete="off"
               />
