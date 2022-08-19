@@ -14,7 +14,7 @@ export default function Index() {
 
   useEffect(() => {
     async function startLoaderPreview() {
-      await sleep(1500);
+      await sleep(500);
       if (localStorage.getItem("token")) {
         await router.push("/home");
       } else if (document.getElementsByClassName("loader")[0] && localStorage) {
