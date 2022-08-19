@@ -2,8 +2,19 @@ import Footer from "../components/layout/Footer";
 import BackHeader from "../components/layout/BackHeader";
 import Image from "next/image";
 import Head from "next/head";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const Error = () => {
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      router.push("/");
+      return;
+    }
+  }, [router]);
+
   return (
     <div className="404">
       <Head>
