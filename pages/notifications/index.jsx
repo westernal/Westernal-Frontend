@@ -48,7 +48,7 @@ const Notifications = () => {
       {notifs &&
         notifs.map((notif) => (
           <div className="profile-notif flex" key={notif._id}>
-            <div className="notif-main flex">
+            <div className="notif-main flex gap-5">
               {notif.user && (
                 <Link href={`/profile/${notif.user.username}/${notif.user.id}`}>
                   <a>
