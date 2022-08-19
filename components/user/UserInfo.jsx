@@ -9,45 +9,11 @@ import FollowSection from "./followUser/FollowSection";
 import Follow from "./followUser/Follow";
 import LogOut from "./Logout";
 
-const UserInfo = ({ isUserSelf }) => {
+const UserInfo = ({ isUserSelf, user }) => {
   const router = useRouter();
   const [isFollowing, SetIsFollowing] = useState(false);
-  const [user, SetUser] = useState({
-    posts: [],
-    followers: [],
-    followings: [],
-    bio: "",
-    image: "",
-  });
+
   const host = "https://alinavidi.ir/";
-
-  async function getUserInfo(id) {
-    const option = {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-      },
-    };
-
-    var result = await API(option, `api/users/${id}`);
-
-    if (result.status == 200) {
-      SetUser(result.data.user);
-      if (
-        result.data.user.followers.includes(
-          jwt_decode(localStorage.getItem("token")).userId
-        )
-      ) {
-        SetIsFollowing(true);
-      }
-    }
-  }
-
-  useEffect(() => {
-    if (router.query.username) {
-      getUserInfo(router.query.id);
-    }
-  }, [router.query]);
 
   const changeIsFollowing = (followBoolean) => {
     SetIsFollowing(followBoolean);
@@ -56,11 +22,11 @@ const UserInfo = ({ isUserSelf }) => {
   return (
     <>
       <Head>
-        <title>{router.query.username} - Westernal</title>
+        <title>{user.username} - Westernal</title>
       </Head>
       <div className="header">
         <div className="flex username">
-          <p>{router.query.username}</p>
+          <p>{user.username}</p>
           {user.verified && (
             <Image
               src="/Images/verified.png"
@@ -74,7 +40,7 @@ const UserInfo = ({ isUserSelf }) => {
           <div className="flex">
             <LogOut />
 
-            <Link href={`/profile/${router.query.username}/setting`}>
+            <Link href={`/${router.query.username}/setting`}>
               <a className="flex">
                 <Image
                   src="/Images/setting.svg"

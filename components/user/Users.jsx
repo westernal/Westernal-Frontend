@@ -8,7 +8,7 @@ const User = ({ users }) => {
     <div className="user-list">
       {users.map((user) => (
         <div className="profile-notif flex" key={user._id}>
-          <Link href={`/profile/${user.username}/${user._id}`}>
+          <Link href={`/${user.username}`}>
             <a className="flex">
               {
                 <Image

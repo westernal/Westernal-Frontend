@@ -10,8 +10,8 @@ import ContentLoader from "../layout/ContentLoader";
 import DeletePost from "./DeletePost";
 import LikePost from "./LikePost";
 
-const Post = ({ details, onDelete, deletable = false }) => {
-  const [user, SetUser] = useState();
+const Post = ({ details, onDelete, deletable = false, creator }) => {
+  const [user, SetUser] = useState(creator);
   const [isSpotify, SetIsSpotify] = useState(false);
   const [error, SetError] = useState(false);
 
@@ -37,7 +37,9 @@ const Post = ({ details, onDelete, deletable = false }) => {
       }
     }
 
-    getPostCreator();
+    if (!creator) {
+      getPostCreator();
+    }
   }, [details]);
 
   const playerError = () => {
@@ -52,7 +54,7 @@ const Post = ({ details, onDelete, deletable = false }) => {
         {!user && <ContentLoader />}
         {user && (
           <>
-            <Link href={`/profile/${user.username}/${user._id}`}>
+            <Link href={`/${user.username}`}>
               <a>
                 <div className="post-user flex">
                   <Image

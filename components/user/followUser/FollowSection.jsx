@@ -5,7 +5,7 @@ const FollowSection = ({ user }) => {
     <div className="follow-section flex">
       <div className="followers">
         <p className="follow-name">Followers</p>
-        <Link href={`/profile/${user.username}/${user._id}/followers`}>
+        <Link href={`/${user.username}/followers`}>
           <a>
             <p className="followers-count flw-num">{user.followers.length}</p>
           </a>
@@ -13,7 +13,7 @@ const FollowSection = ({ user }) => {
       </div>
       <div className="followers">
         <p className="follow-name">Following</p>
-        <Link href={`/profile/${user.username}/${user._id}/following`}>
+        <Link href={`/${user.username}/following`}>
           <a>
             <p className="flw-num">{user.followings.length}</p>
           </a>

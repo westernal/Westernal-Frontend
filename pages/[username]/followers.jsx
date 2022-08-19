@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import BackHeader from "../../../../components/layout/BackHeader";
-import Footer from "../../../../components/layout/Footer";
+import BackHeader from "../../components/layout/BackHeader";
+import Footer from "../../components/layout/Footer";
 import { useRouter } from "next/dist/client/router";
-import API from "../../../../requests/API";
-import User from "../../../../components/user/Users";
+import API from "../../requests/API";
+import User from "../../components/user/Users";
 import Head from "next/head";
 
-const Followings = () => {
+const Followers = () => {
   const router = useRouter();
-  const [followings, SetFollowings] = useState([]);
+  const [followers, SetFollowers] = useState([]);
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {
@@ -25,10 +25,13 @@ const Followings = () => {
         },
       };
 
-      var result = await API(option, `api/users/followings/${router.query.id}`);
+      var result = await API(
+        option,
+        `api/users/followers/${router.query.username}`
+      );
 
       if (result.status == 200) {
-        SetFollowings(result.data.followings);
+        SetFollowers(result.data.followers);
       }
     }
 
@@ -39,11 +42,13 @@ const Followings = () => {
   return (
     <div className="followers">
       <Head>
-        <title>Following - Westernal</title>
+        <title>Followers - Westernal</title>
       </Head>
-      <BackHeader title="Following" />
+      <BackHeader title="Followers" />
 
-      <User users={followings} />
+      <div className="user-list">
+        <User users={followers} />
+      </div>
 
       <div className="mb-100"></div>
 
@@ -52,4 +57,4 @@ const Followings = () => {
   );
 };
 
-export default Followings;
+export default Followers;

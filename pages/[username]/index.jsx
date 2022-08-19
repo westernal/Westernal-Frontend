@@ -1,16 +1,23 @@
-import ContentLoader from "../../../../components/layout/ContentLoader";
+import ContentLoader from "../../components/layout/ContentLoader";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import Footer from "../../../../components/layout/Footer";
-import Post from "../../../../components/posts/Post";
-import API from "../../../../requests/API";
-import UserInfo from "../../../../components/user/UserInfo";
+import Footer from "../../components/layout/Footer";
+import Post from "../../components/posts/Post";
+import API from "../../requests/API";
+import UserInfo from "../../components/user/UserInfo";
 import jwt_decode from "jwt-decode";
 
 const Profile = () => {
   const router = useRouter();
   const [isUserSelf, SetIsUserSelf] = useState(false);
   const [posts, SetPosts] = useState();
+  const [user, SetUser] = useState({
+    username: "",
+    image: "userIcon",
+    followers: [],
+    followings: [],
+    verified: false,
+  });
 
   async function getUserPosts(id) {
     const option = {
@@ -20,10 +27,12 @@ const Profile = () => {
       },
     };
 
-    var result = await API(option, `api/posts/user/${router.query.id}`);
+    var result = await API(option, `api/posts/user/${router.query.username}`);
+    console.log(result);
 
     if (result.status == 200) {
       SetPosts(result.data.posts);
+      SetUser(result.data.creator[0]);
     }
   }
 
@@ -55,7 +64,7 @@ const Profile = () => {
 
   return (
     <div className="profile">
-      <UserInfo isUserSelf={isUserSelf} />
+      <UserInfo isUserSelf={isUserSelf} user={user} />
 
       {!posts &&
         [1, 2, 3].map((index) => {
