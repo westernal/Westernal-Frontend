@@ -1,14 +1,17 @@
 import API from "../../requests/API";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
+import { useState } from "react";
 import Head from "next/dist/shared/lib/head";
 import BackHeader from "../../components/layout/BackHeader";
 
 const ChangePassword = () => {
   const router = useRouter();
+  const [loader, SetLoader] = useState(false);
 
   const editPassword = async (e) => {
     e.preventDefault();
+    SetLoader(true);
 
     const password = document.getElementById("password").value;
     const confirmPassword = document.getElementById("confirm-password").value;
@@ -22,10 +25,6 @@ const ChangePassword = () => {
       toast.error("Password must be equal to repeat password!");
       SetLoader(false);
     }
-
-    let newBody = new FormData();
-
-    newBody.append("password", password);
 
     const option = {
       method: "POST",
@@ -43,9 +42,11 @@ const ChangePassword = () => {
 
     if (result.status == 200) {
       toast.success(`Password changed!`);
+      SetLoader(false);
       router.push(`/`);
     } else {
       toast.error(result.data.message);
+      SetLoader(false);
     }
   };
   return (
@@ -57,7 +58,13 @@ const ChangePassword = () => {
       <div className=" flex reset-password">
         <div className="auth-form">
           <p id="login-logo">W</p>
-
+          {loader && (
+            <div className="flex">
+              <div className="logo-loader flex">
+                <p id="loader">w</p>
+              </div>
+            </div>
+          )}
           <form onSubmit={editPassword}>
             <div className="form-inputs">
               <input

@@ -2,14 +2,19 @@ import Head from "next/head";
 import BackHeader from "../../components/layout/BackHeader";
 import { toast } from "react-toastify";
 import API from "../../requests/API";
+import { useState } from "react";
 
 const ForgotPassword = () => {
+  const [loader, SetLoader] = useState(false);
+
   const sendEmail = async (e) => {
     e.preventDefault();
+    SetLoader(true);
     const email = document.getElementById("email").value;
 
     if (!email) {
       toast.error("Enter your email");
+      SetLoader(false);
       return;
     }
 
@@ -31,8 +36,10 @@ const ForgotPassword = () => {
 
     if (result && result.status == 200) {
       toast.success("Email sent!");
+      SetLoader(false);
     } else {
       toast.error(result.data.message);
+      SetLoader(false);
     }
   };
   return (
@@ -44,6 +51,13 @@ const ForgotPassword = () => {
       <div className=" flex reset-password">
         <div className="auth-form">
           <p id="login-logo">W</p>
+          {loader && (
+            <div className="flex">
+              <div className="logo-loader flex">
+                <p id="loader">w</p>
+              </div>
+            </div>
+          )}
           <p id="reset-text">
             Enter your email so that we can send you a reset link!
           </p>
