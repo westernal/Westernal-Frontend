@@ -29,7 +29,10 @@ const ChangePassword = () => {
 
     const option = {
       method: "POST",
-      body: newBody,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        password: password,
+      }),
       redirect: "follow",
     };
 
