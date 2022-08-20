@@ -1,6 +1,7 @@
 import Head from "next/head";
 import BackHeader from "../../components/layout/BackHeader";
 import { toast } from "react-toastify";
+import API from "../../requests/API";
 
 const ForgotPassword = () => {
   const sendEmail = async (e) => {
@@ -25,13 +26,11 @@ const ForgotPassword = () => {
       var result = await API(option, "api/users/reset-password");
     } catch (error) {
       toast.error("Server Error! Please try again.");
+      return;
     }
-
-    console.log(result);
 
     if (result && result.status == 200) {
       toast.success("Email sent!");
-      router.push("/");
     } else {
       toast.error(result.data.message);
     }
