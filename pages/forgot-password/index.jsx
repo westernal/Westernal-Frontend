@@ -1,11 +1,46 @@
+import Head from "next/head";
 import BackHeader from "../../components/layout/BackHeader";
+import { toast } from "react-toastify";
 
 const ForgotPassword = () => {
   const sendEmail = async (e) => {
     e.preventDefault();
+    const email = document.getElementById("email").value;
+
+    if (!email) {
+      toast.error("Enter your email");
+      return;
+    }
+
+    const option = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: email,
+      }),
+      redirect: "follow",
+    };
+
+    try {
+      var result = await API(option, "api/users/reset-password");
+    } catch (error) {
+      toast.error("Server Error! Please try again.");
+    }
+
+    console.log(result);
+
+    if (result && result.status == 200) {
+      toast.success("Email sent!");
+      router.push("/");
+    } else {
+      toast.error(result.data.message);
+    }
   };
   return (
     <>
+      <Head>
+        <title>Reset Password - Westernal</title>
+      </Head>
       <BackHeader title="Reset Password" />
       <div className=" flex reset-password">
         <div className="auth-form">
