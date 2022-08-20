@@ -17,26 +17,28 @@ Westernal is a social media that you can share your songs with others it is also
 A user can easily signup and connect with people via following them and paste a song URL from Spotify, YouTube, SoundCloud and etc. (not the actual song itself because of copyright) or you can search a song inside app(Spotify search) to share with followers followers. you can like and comment on posts to interact with people.
 
 
-{% embed https://m.youtube.com/watch?v=Yjk-_oB4LBU %}
+ [youtube tutorial](https://m.youtube.com/watch?v=Yjk-_oB4LBU)
 
 
-![Spotify search](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/r6lgvy5duz1plaqjl9gn.png)
+<img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/r6lgvy5duz1plaqjl9gn.png" width=100% />
 
-![User](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/2gbei9vfx3sdsmhc34hn.jpeg) ![Post](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/bogqh3f0ljhzxy0svzpg.png)
-
+<span><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/2gbei9vfx3sdsmhc34hn.jpeg" width=230px height=400px/> </span>
+<span> <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/bogqh3f0ljhzxy0svzpg.png" width=230px height=400px/>
+</span>
 ## Download the app.
 Download the app through share button --> add to HomeScreen.
 
-
-![App](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/bky7y3ulqp4vvo0kvmxf.png)
+<span> <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/bky7y3ulqp4vvo0kvmxf.png" width=230px height=400px/>
+</span>
 
 ## Dark Mode / Light Mode
 It also supports dark mode!
 
 
-
-![Dark Mode](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/abso17kqqy9ubm4r17o7.png)
-![Light Mode](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/lk84xxutvb3x1igmx1pw.png)
+<span> <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/abso17kqqy9ubm4r17o7.png" width=230px height=400px/>
+</span>
+<span> <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/lk84xxutvb3x1igmx1pw.png" width=230px height=400px/>
+</span>
 
 
 ## Technologies
