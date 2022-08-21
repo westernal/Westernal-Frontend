@@ -77,7 +77,7 @@ const ForgotPassword = () => {
                 Send email
               </button>
             </div>
-            <p style={{ opacity: 0.5 }}>This link will be expired in 1 hour.</p>
+            <p style={{ opacity: 0.5 }}>This link will expire in 1 hour.</p>
           </form>
         </div>
       </div>

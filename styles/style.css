@@ -161,10 +161,6 @@ textarea:focus {
   font-size: 18px;
 }
 
-.back-header a {
-  height: 30px;
-}
-
 .post-user {
   justify-content: left;
 }
@@ -779,10 +775,6 @@ canvas {
 
 h1 {
   font-size: 25px;
-}
-
-#back-link {
-  height: 20px;
 }
 
 @media screen and (prefers-color-scheme: dark) {
