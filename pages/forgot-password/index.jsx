@@ -10,7 +10,7 @@ const ForgotPassword = () => {
   const sendEmail = async (e) => {
     e.preventDefault();
     SetLoader(true);
-    const email = document.getElementById("email").value;
+    const email = document.getElementById("email").value.toLowerCase();
 
     if (!email) {
       toast.error("Enter your email");
