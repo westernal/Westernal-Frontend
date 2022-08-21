@@ -132,7 +132,7 @@ const Setting = () => {
 
           <form onSubmit={checkInputs} autoComplete={"off"}>
             <div className="form-inputs">
-              <div className="flex">
+              <div className="flex image-setting">
                 <Image
                   width={50}
                   height={50}

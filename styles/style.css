@@ -882,6 +882,10 @@ h1 {
     width: 100%;
   }
 
+  .search-btn {
+    width: 80vw;
+  }
+
   .search-modal .profile-notif {
     flex-direction: row;
     align-items: center;
