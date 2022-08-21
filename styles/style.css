@@ -750,6 +750,10 @@ canvas {
   margin-top: -20px;
 }
 
+.setting .auth-form {
+  margin-bottom: 150px;
+}
+
 #reset-text {
   color: #9d38fc;
 }
