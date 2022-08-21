@@ -781,6 +781,10 @@ h1 {
   font-size: 25px;
 }
 
+#back-link {
+  height: 20px;
+}
+
 @media screen and (prefers-color-scheme: dark) {
   body {
     background-color: black;
