@@ -37,6 +37,7 @@ const ForgotPassword = () => {
     if (result && result.status == 200) {
       toast.success("Email sent!");
       SetLoader(false);
+      document.getElementById("email-btn").innerText = "Send again";
     } else {
       toast.error(result.data.message);
       SetLoader(false);
@@ -72,7 +73,7 @@ const ForgotPassword = () => {
             </div>
 
             <div className="flex">
-              <button className="btn" type="submit">
+              <button className="btn" type="submit" id="email-btn">
                 Send email
               </button>
             </div>
