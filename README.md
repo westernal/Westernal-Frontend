@@ -5,7 +5,7 @@ so I thought Westernal is a good idea.
 Just in case it is the first version and has a lot of bugs that I'm sorry for them already!
 
 ## Link
-[Website](https://social-media-westernal.vercel.app/)
+[https://www.westernal.net/](https://www.westernal.net/)
 
 ## What is Westernal?
 Westernal is a social media that you can share your songs with others it is also a PWA.
@@ -42,7 +42,7 @@ It also supports dark mode!
 ## Reset password
 If you forgot your password we will send you an email to reset your password!
 
-<img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/xqpjzjy36ici9mzwbid9.png" width=230px height=400px/>
+<img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/8ocimwhwi0f8r2svwgr4.png" width=230px height=400px/>
 
 
 ## Technologies
