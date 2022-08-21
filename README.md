@@ -44,6 +44,9 @@ If you forgot your password we will send you an email to reset your password!
 
 <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/8ocimwhwi0f8r2svwgr4.png" width=230px height=400px/>
 
+## Lighthouse scores
+
+![Lighthouse scores](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/gld7zs3byzxphdzuef8b.png)
 
 ## Technologies
 **Front-End:** Next.js /
