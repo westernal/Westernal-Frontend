@@ -40,6 +40,10 @@ export default function Index() {
           content="obTV1STSza2467gj0NbcnQ63napdJ3UUW5-lPidbe5E"
         />
         <meta
+          name="google-site-verification"
+          content="UfPIJU4aAZBTOrz6zWgJVzS5gc41FIo0X4Y1e8SBZkM"
+        />
+        <meta
           name="viewport"
           content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=5"
         />
