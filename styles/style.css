@@ -916,7 +916,7 @@ h1 {
   }
 
   .auth-form {
-    width: 80vw;
+    width: 90vw;
   }
 
   .form-inputs .flex {
@@ -926,12 +926,12 @@ h1 {
   .form-inputs input,
   .auth-form .flex input,
   .form-inputs textarea {
-    width: 70vw;
+    width: 80vw;
     -webkit-appearance: none;
   }
 
   .show-password {
-    width: 70vw;
+    width: 80vw;
   }
 
   .password-options {
@@ -940,7 +940,7 @@ h1 {
 
   .forgot-password {
     display: block;
-    margin-left: 20px;
+    margin-left: 15px;
     margin-top: -20px;
     text-align: left;
   }
