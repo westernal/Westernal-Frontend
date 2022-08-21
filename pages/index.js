@@ -22,7 +22,10 @@ export default function Index() {
         document.getElementsByClassName("login")[0].style.display = "flex";
         var x = window.matchMedia("(max-width: 922px)");
 
-        if (x.matches) {
+        if (
+          x.matches &&
+          !window.matchMedia("(display-mode: standalone)").matches
+        ) {
           document.getElementById("myModal").style.display = "block";
         }
       }
