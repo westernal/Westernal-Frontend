@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import Head from "next/dist/shared/lib/head";
 import BackHeader from "../../components/layout/BackHeader";
+import jwtDecode from "jwt-decode";
 
 const ChangePassword = () => {
   const router = useRouter();
@@ -12,6 +13,16 @@ const ChangePassword = () => {
   const editPassword = async (e) => {
     e.preventDefault();
     SetLoader(true);
+
+    let id;
+
+    try {
+      id = jwtDecode(router.query.token).userId;
+    } catch (error) {
+      toast.error("Link expired!");
+      router.push("/");
+      return;
+    }
 
     const password = document.getElementById("password").value;
     const confirmPassword = document.getElementById("confirm-password").value;
@@ -35,10 +46,7 @@ const ChangePassword = () => {
       redirect: "follow",
     };
 
-    var result = await API(
-      option,
-      `api/users/edit/password/${router.query.id}`
-    );
+    var result = await API(option, `api/users/edit/password/${id}`);
 
     if (result.status == 200) {
       toast.success(`Password changed!`);
