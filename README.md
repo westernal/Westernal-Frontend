@@ -12,6 +12,9 @@ Westernal is a social media that you can share your songs with others it is also
 
 
 ![Westernal's home page](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3xfnajylsv0glu9qv6n0.jpeg)
+<span><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/2gbei9vfx3sdsmhc34hn.jpeg" width=230px height=400px/> </span>
+<span> <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/bogqh3f0ljhzxy0svzpg.png" width=230px height=400px/>
+</span>
 
 ## How it works?
 A user can easily signup and connect with people via following them and paste a song URL from Spotify, YouTube, SoundCloud and etc. (not the actual song itself because of copyright) or you can search a song inside app(Spotify search) to share with followers followers. you can like and comment on posts to interact with people.
@@ -19,12 +22,8 @@ A user can easily signup and connect with people via following them and paste a 
 
  [youtube tutorial](https://m.youtube.com/watch?v=Yjk-_oB4LBU)
 
+<span><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ofgakp3e12hnjdsantat.png" width=230px height=400px/> </span>
 
-<img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/r6lgvy5duz1plaqjl9gn.png" width=100% />
-
-<span><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/2gbei9vfx3sdsmhc34hn.jpeg" width=230px height=400px/> </span>
-<span> <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/bogqh3f0ljhzxy0svzpg.png" width=230px height=400px/>
-</span>
 ## Download the app.
 Download the app through share button --> add to HomeScreen.
 
@@ -39,6 +38,11 @@ It also supports dark mode!
 </span>
 <span> <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/lk84xxutvb3x1igmx1pw.png" width=230px height=400px/>
 </span>
+
+## Reset password
+If you forgot your password we will send you an email to reset your password!
+
+<img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/xqpjzjy36ici9mzwbid9.png" width=230px height=400px/>
 
 
 ## Technologies
