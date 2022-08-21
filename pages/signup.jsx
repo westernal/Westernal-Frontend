@@ -70,7 +70,12 @@ const SignUp = () => {
       toast.error("Password must be equal to repeat password!");
       SetLoader(false);
       return;
-    } else signup(correctedUsername.toLowerCase(), email.value, password.value);
+    } else
+      signup(
+        correctedUsername.toLowerCase(),
+        email.value.toLowerCase(),
+        password.value
+      );
   }
 
   return (
