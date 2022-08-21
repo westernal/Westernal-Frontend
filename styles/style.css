@@ -278,8 +278,9 @@ hr {
   color: white;
 }
 
-.btn:hover,
-.search-btn:hover {
+.btn:hover {
+  background-color: white;
+  color: #9d38fc;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
@@ -455,7 +456,8 @@ textarea {
 }
 
 .header button:hover {
-  color: red;
+  background-color: #cf1a1a;
+  color: white;
 }
 
 #add-btn {
@@ -799,6 +801,12 @@ canvas {
     80% {
       box-shadow: #9d38fc00 0 0 0 20px;
     }
+  }
+
+  .btn:hover {
+    background-color: black;
+    color: #9d38fc;
+    box-shadow: none;
   }
 
   .modal-content {
