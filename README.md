@@ -12,7 +12,7 @@ Westernal is a social media that you can share your songs with others it is also
 
 
 ![Westernal's home page](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3xfnajylsv0glu9qv6n0.jpeg)
-<span><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/2gbei9vfx3sdsmhc34hn.jpeg" width=230px height=400px/> </span>
+<span><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/nromx3lsc9rfw9pk9uov.png" width=230px height=400px/> </span>
 <span> <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/bogqh3f0ljhzxy0svzpg.png" width=230px height=400px/>
 </span>
 
