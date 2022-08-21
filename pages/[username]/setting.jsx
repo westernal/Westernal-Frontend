@@ -144,7 +144,13 @@ const Setting = () => {
                   alt="user image"
                   id="edit-img"
                 />
-                <input type="file" id="image" name="image" accept="image/*" />
+                <input
+                  type="file"
+                  id="image"
+                  className="file-input"
+                  name="image"
+                  accept="image/*"
+                />
               </div>
               <input
                 type="text"
