@@ -43,7 +43,7 @@ export default function Index() {
     <div className="home">
       <Header refresh={onRefresh} />
       <Head>
-        <title>Westernal</title>
+        <title>Westernal: Let the songs talk</title>
       </Head>
 
       {!posts &&
