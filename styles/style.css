@@ -757,8 +757,12 @@ canvas {
   margin-top: -20px;
 }
 
-.setting .auth-form {
-  margin-bottom: 150px;
+.setting section {
+  text-align: center;
+}
+
+.setting section a {
+  color: #9d38fc;
 }
 
 #reset-text {

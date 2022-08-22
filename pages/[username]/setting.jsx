@@ -121,66 +121,69 @@ const Setting = () => {
       </Head>
       <BackHeader title={"Setting"} />
       <div className="setting flex">
-        <div className="auth-form">
-          {loader && (
-            <div className="flex">
-              <div className="logo-loader flex">
-                <p id="loader">w</p>
+        <section>
+          <div className="auth-form">
+            {loader && (
+              <div className="flex">
+                <div className="logo-loader flex">
+                  <p id="loader">w</p>
+                </div>
               </div>
-            </div>
-          )}
+            )}
 
-          <form onSubmit={checkInputs} autoComplete={"off"}>
-            <div className="form-inputs">
-              <div className="flex image-setting">
-                <Image
-                  width={50}
-                  height={50}
-                  src={
-                    !image.includes("userIcon")
-                      ? host + user.image
-                      : "/Images/user.svg"
-                  }
-                  alt="user image"
-                  id="edit-img"
+            <form onSubmit={checkInputs} autoComplete={"off"}>
+              <div className="form-inputs">
+                <div className="flex image-setting">
+                  <Image
+                    width={50}
+                    height={50}
+                    src={
+                      !image.includes("userIcon")
+                        ? host + user.image
+                        : "/Images/user.svg"
+                    }
+                    alt="user image"
+                    id="edit-img"
+                  />
+                  <input
+                    type="file"
+                    id="image"
+                    className="file-input"
+                    name="image"
+                    accept="image/*"
+                  />
+                </div>
+                <input
+                  type="text"
+                  placeholder={"Username"}
+                  id="username"
+                  autoComplete="off"
+                />
+                <input type="text" placeholder={"Bio"} id="bio" />
+                <input
+                  type="password"
+                  placeholder="New password"
+                  id="password"
+                  autoComplete="off"
                 />
                 <input
-                  type="file"
-                  id="image"
-                  className="file-input"
-                  name="image"
-                  accept="image/*"
+                  type="password"
+                  placeholder="Confirm Password"
+                  id="confirm-password"
+                  autoComplete="off"
                 />
               </div>
-              <input
-                type="text"
-                placeholder={"Username"}
-                id="username"
-                autoComplete="off"
-              />
-              <input type="text" placeholder={"Bio"} id="bio" />
-              <input
-                type="password"
-                placeholder="New password"
-                id="password"
-                autoComplete="off"
-              />
-              <input
-                type="password"
-                placeholder="Confirm Password"
-                id="confirm-password"
-                autoComplete="off"
-              />
-            </div>
 
-            <div className="flex">
-              <button className="btn" type="submit">
-                Edit
-              </button>
-            </div>
-          </form>
-        </div>
-        <div className="mb-100"></div>
+              <div className="flex">
+                <button className="btn" type="submit">
+                  Edit
+                </button>
+              </div>
+            </form>
+          </div>
+          <a href="mailto:support@westernal.net">Contact support</a>
+          <div className="mb-100"></div>
+        </section>
 
         <Footer />
       </div>
