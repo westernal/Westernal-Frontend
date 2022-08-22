@@ -715,6 +715,10 @@ canvas {
   margin: 11px 0;
 }
 
+.auth-form button {
+  font-size: 16px;
+}
+
 .search-btn:hover {
   background-color: #9d38fc;
   color: white;
