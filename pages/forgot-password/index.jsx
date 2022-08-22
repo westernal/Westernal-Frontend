@@ -78,7 +78,7 @@ const ForgotPassword = () => {
               </button>
             </div>
             <p style={{ opacity: 0.5 }}>
-              Don't see an email? Check your spam folder.
+              Don{"'"}t see an email? Check your spam folder.
             </p>
           </form>
         </div>
