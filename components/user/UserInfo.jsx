@@ -5,15 +5,19 @@ import Link from "next/link";
 import Head from "next/head";
 import FollowSection from "./followUser/FollowSection";
 import Follow from "./followUser/Follow";
-import LogOut from "./Logout";
 import jwtDecode from "jwt-decode";
 
 const UserInfo = ({ isUserSelf, user }) => {
   const router = useRouter();
   const [isFollowing, SetIsFollowing] = useState(false);
+  const [avatar, SetAvatar] = useState("");
   const host = "https://alinavidi.ir/";
 
   useEffect(() => {
+    if (user.image.includes("userIcon")) {
+      SetAvatar("/Images/user.svg");
+    } else SetAvatar(host + user.image);
+
     const userId = jwtDecode(localStorage.getItem("token")).userId;
     if (!isUserSelf && user.followers.includes(userId)) {
       SetIsFollowing(true);
@@ -63,16 +67,7 @@ const UserInfo = ({ isUserSelf, user }) => {
       <div className="profile-info">
         <div className="flex">
           <div className="profile-pic flex">
-            <Image
-              src={
-                !user.image.includes("userIcon")
-                  ? host + user.image
-                  : "/Images/user.svg"
-              }
-              alt="profile picture"
-              width={95}
-              height={95}
-            />
+            <Image src={avatar} alt="profile picture" width={95} height={95} />
           </div>
         </div>
         <p id="user-bio" dir="auto">
