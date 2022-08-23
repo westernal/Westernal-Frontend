@@ -12,6 +12,17 @@ class MyDocument extends Document {
             href="/Images/favicon.ico"
             type="image/x-icon"
           />
+          <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/Images/apple-touch-icon.png"
+          />
+          <link
+            rel="mask-icon"
+            href="/Images/safari-pinned-tab.svg"
+            color="#9d38fc"
+          />
+          <meta name="msapplication-TileColor" content="#9d38fc" />
           <link rel="icon" href="/Images/favicon.ico" type="image/x-icon" />
           <meta name="theme-color" content="#9d38fc" />
           <meta name="background-color" content="#FFFFF" />
