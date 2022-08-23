@@ -7,6 +7,7 @@ import BackHeader from "../../components/layout/BackHeader";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Image from "next/image";
+import Logout from "../../components/user/Logout";
 
 const Setting = () => {
   const [loader, SetLoader] = useState(false);
@@ -119,7 +120,7 @@ const Setting = () => {
       <Head>
         <title>Westernal - Setting</title>
       </Head>
-      <BackHeader title={"Setting"} showButton={true} />
+      <BackHeader title={"Setting"} />
       <div className="setting flex">
         <section>
           <div className="auth-form">
@@ -181,6 +182,8 @@ const Setting = () => {
               </div>
             </form>
           </div>
+
+          <Logout />
 
           <div className="mb-100"></div>
         </section>

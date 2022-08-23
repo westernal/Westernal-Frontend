@@ -328,7 +328,7 @@ a {
 }
 
 #delete-btn:hover {
-  fill: red;
+  fill: #ff3636;
 }
 
 .follow-section {
@@ -378,7 +378,7 @@ a {
 }
 
 .post-info svg:hover path {
-  fill: red;
+  fill: #ff3636;
 }
 
 #comments svg:hover path {
@@ -451,9 +451,16 @@ textarea {
   border: none;
 }
 
-#logout:hover {
-  background-color: #cf1a1a;
+#logout {
+  background-color: #ff3636;
   color: white;
+  width: 60vw;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+#logout:hover {
+  background-color: white;
+  color: #ff3636;
 }
 
 #add-btn {
@@ -567,7 +574,7 @@ canvas {
 }
 
 .liked {
-  fill: red !important;
+  fill: #ff3636 !important;
 }
 
 #user-bio {
@@ -640,12 +647,12 @@ canvas {
 }
 
 #confirm-delete {
-  background-color: #cf1a1a;
+  background-color: #ff3636;
   color: white;
 }
 
 #confirm-delete:hover {
-  background-color: red;
+  background-color: #ff3636;
 }
 
 #cancel-delete {
@@ -830,6 +837,17 @@ h1 {
     background-color: black;
   }
 
+  #logout {
+    background-color: #ff3636;
+    color: #101015;
+    width: 60vw;
+  }
+
+  #logout:hover {
+    background-color: #101015;
+    color: #ff3636;
+  }
+
   .modal-main {
     background-color: black;
     box-shadow: none;
@@ -909,6 +927,10 @@ h1 {
 
   .search-btn {
     width: 80vw;
+  }
+
+  #logout {
+    width: 90vw;
   }
 
   .search-modal .profile-notif {

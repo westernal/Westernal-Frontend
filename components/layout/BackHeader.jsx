@@ -1,8 +1,7 @@
 import { useRouter } from "next/router";
 import Image from "next/image";
-import LogOut from "../user/Logout";
 
-const BackHeader = ({ title, showButton = false }) => {
+const BackHeader = ({ title }) => {
   const router = useRouter();
   return (
     <div className="header back-header">
@@ -23,7 +22,6 @@ const BackHeader = ({ title, showButton = false }) => {
         />
       </a>
       <div className="flex">
-        {showButton && <LogOut />}
         <h1>{title}</h1>
       </div>
     </div>
