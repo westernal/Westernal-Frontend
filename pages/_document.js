@@ -13,11 +13,6 @@ class MyDocument extends Document {
             type="image/x-icon"
           />
           <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="/Images/apple-touch-icon.png"
-          />
-          <link
             rel="mask-icon"
             href="/Images/safari-pinned-tab.svg"
             color="#9d38fc"
