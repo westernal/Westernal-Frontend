@@ -23,7 +23,7 @@ const BackHeader = ({ title, showButton = false }) => {
         />
       </a>
       <div className="flex">
-        <LogOut />
+        {showButton && <LogOut />}
         <h1>{title}</h1>
       </div>
     </div>

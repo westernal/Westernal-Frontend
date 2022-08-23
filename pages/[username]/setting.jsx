@@ -119,7 +119,7 @@ const Setting = () => {
       <Head>
         <title>Westernal - Setting</title>
       </Head>
-      <BackHeader title={"Setting"} />
+      <BackHeader title={"Setting"} showButton={true} />
       <div className="setting flex">
         <section>
           <div className="auth-form">
