@@ -35,7 +35,7 @@ const Comments = () => {
   return (
     <div className="comments">
       <Head>
-        <title>Comments - Westernal</title>
+        <title>Westernal - Comments</title>
       </Head>
 
       <BackHeader title={"comments"} />

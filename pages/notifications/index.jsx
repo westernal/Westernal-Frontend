@@ -39,7 +39,7 @@ const Notifications = () => {
   return (
     <div className="notification">
       <Head>
-        <title>Notifications - Westernal</title>
+        <title>Westernal - Notifications</title>
       </Head>
       <div className="header">
         <p>Notifications</p>

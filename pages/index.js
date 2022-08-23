@@ -50,7 +50,7 @@ export default function Index() {
           name="viewport"
           content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=5"
         />
-        <title>Westernal</title>
+        <title>Westernal: Let the songs talk</title>
         <meta name="description" content="A social media" />
         <meta name="keywords" content="Westernal social media" />
       </Head>

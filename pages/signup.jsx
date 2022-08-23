@@ -81,7 +81,7 @@ const SignUp = () => {
   return (
     <div className="flex">
       <Head>
-        <title>Signup - Westernal</title>
+        <title>Westernal - Signup</title>
       </Head>
       <div className="auth-form signup">
         <p id="login-logo">W</p>

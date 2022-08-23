@@ -60,7 +60,7 @@ const ChangePassword = () => {
   return (
     <>
       <Head>
-        <title>Reset Password - Westernal</title>
+        <title>Westernal - Reset Password</title>
       </Head>
       <BackHeader title="Reset Password" />
       <div className=" flex reset-password">

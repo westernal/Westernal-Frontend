@@ -41,7 +41,7 @@ const Likes = () => {
   return (
     <div className="likes">
       <Head>
-        <title>Likes - Westernal</title>
+        <title>Westernal - Likes</title>
       </Head>
       <BackHeader title={"Likes"} />
 

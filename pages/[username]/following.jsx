@@ -42,7 +42,7 @@ const Followings = () => {
   return (
     <div className="followers">
       <Head>
-        <title>Following - Westernal</title>
+        <title>Westernal - Followeing</title>
       </Head>
       <BackHeader title="Following" />
 

@@ -49,7 +49,7 @@ const Search = () => {
   return (
     <div className="search">
       <Head>
-        <title>Search - Westernal</title>
+        <title>Westernal - Search</title>
       </Head>
       <div className="search-bar flex">
         <input

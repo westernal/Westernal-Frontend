@@ -117,7 +117,7 @@ const Setting = () => {
   return (
     <>
       <Head>
-        <title>Setting - Westernal</title>
+        <title>Westernal - Setting</title>
       </Head>
       <BackHeader title={"Setting"} />
       <div className="setting flex">

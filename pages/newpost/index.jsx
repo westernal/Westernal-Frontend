@@ -91,7 +91,7 @@ const NewPost = () => {
   return (
     <>
       <Head>
-        <title>New Post - Westernal</title>
+        <title>Westernal - New Post</title>
       </Head>
       <BackHeader title="New Post" />
       {showModal && <SearchSong hide={closeModal} chooseSong={chooseSong} />}
