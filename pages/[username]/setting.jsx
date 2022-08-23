@@ -181,7 +181,6 @@ const Setting = () => {
               </div>
             </form>
           </div>
-          <a href="mailto:support@westernal.net">Contact support</a>
           <div className="mb-100"></div>
         </section>
 
