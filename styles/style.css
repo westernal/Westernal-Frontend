@@ -888,14 +888,14 @@ h1 {
   #image {
     color: #5f5d5d;
   }
-}
 
-.search-modal .profile-notif {
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
+  .profile-pic {
+    background-color: #101015;
+  }
 
-.profile-pic {
-  background-color: #101015;
+  .search-modal .profile-notif {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
 }
 
 @media only screen and (max-width: 600px) {
