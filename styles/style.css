@@ -195,7 +195,11 @@ textarea:focus {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   width: 60vw;
   text-align: center;
-  margin: 50px 0;
+  margin: 50px;
+}
+
+.setting .auth-form {
+  margin: 50px 0 30px 0;
 }
 
 .google {
