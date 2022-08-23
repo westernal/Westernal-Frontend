@@ -175,7 +175,7 @@ const Setting = () => {
                 />
               </div>
 
-              <div className="flex">
+              <div className="flex setting-btn">
                 <button className="btn" type="submit">
                   Edit
                 </button>
