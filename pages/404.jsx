@@ -26,9 +26,9 @@ const Error = () => {
         <div className="auth-form">
           <Image src={"/Images/logo.png"} width={90} height={90} alt="logo" />
           <h1>404 - Page not found</h1>
-          <h2>
+          <p>
             Looks like the link you{"'"}re looking for doesn{"'"}t exist!
-          </h2>
+          </p>
         </div>
       </div>
 

@@ -925,6 +925,10 @@ h1 {
     width: 100%;
   }
 
+  .setting .auth-form {
+    margin: 30px 0;
+  }
+
   #logout {
     padding: 7px;
   }

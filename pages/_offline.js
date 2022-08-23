@@ -13,9 +13,8 @@ const Error = () => {
 
       <div className="flex">
         <div className="auth-form">
-          <Image src={"/Images/logo.png"} width={90} height={90} alt="logo" />
           <h1>Network Error</h1>
-          <h2>Please check your internet connection!</h2>
+          <p>Please check your internet connection!</p>
         </div>
       </div>
 
