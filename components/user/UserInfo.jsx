@@ -43,7 +43,9 @@ const UserInfo = ({ isUserSelf, user }) => {
         </div>
         {isUserSelf && (
           <div className="flex">
-            <LogOut />
+            <a href="mailto:support@westernal.net">
+              <button className="contact-btn">Contact Support</button>
+            </a>
 
             <Link href={`/${router.query.username}/setting`}>
               <a className="flex">

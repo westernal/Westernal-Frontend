@@ -439,7 +439,8 @@ textarea {
   border-radius: 50%;
 }
 
-.header button,
+#logout,
+.contact-btn,
 #confirm-delete,
 #cancel-delete {
   color: #9d38fc;
@@ -451,7 +452,7 @@ textarea {
   border: none;
 }
 
-.header button:hover {
+#logout:hover {
   background-color: #cf1a1a;
   color: white;
 }
@@ -790,6 +791,10 @@ h1 {
   font-size: 25px;
 }
 
+.contact-btn:hover {
+  background-color: #ededed;
+}
+
 @media screen and (prefers-color-scheme: dark) {
   body {
     background-color: black;
@@ -893,6 +898,10 @@ h1 {
 @media only screen and (max-width: 600px) {
   .cm-info {
     width: 100%;
+  }
+
+  #logout {
+    padding: 7px;
   }
 
   .search-btn {
