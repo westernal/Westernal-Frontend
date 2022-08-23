@@ -47,7 +47,7 @@ const UserInfo = ({ isUserSelf, user }) => {
         </div>
         {isUserSelf && (
           <div className="flex">
-            <a href="mailto:support@westernal.net">
+            <a href="mailto:support@contact.westernal.net">
               <button className="contact-btn">Contact Support</button>
             </a>
 
