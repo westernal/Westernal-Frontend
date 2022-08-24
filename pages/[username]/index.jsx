@@ -6,6 +6,7 @@ import Post from "../../components/posts/Post";
 import API from "../../requests/API";
 import UserInfo from "../../components/user/UserInfo";
 import jwt_decode from "jwt-decode";
+import { toast } from "react-toastify";
 
 const Profile = () => {
   const router = useRouter();
@@ -19,7 +20,7 @@ const Profile = () => {
     verified: false,
   });
 
-  async function getUserPosts(id) {
+  async function getUserPosts() {
     const option = {
       method: "GET",
       headers: {
@@ -28,10 +29,14 @@ const Profile = () => {
     };
 
     var result = await API(option, `api/posts/user/${router.query.username}`);
+    console.log(result);
 
     if (result.status == 200) {
       SetPosts(result.data.posts);
-      SetUser(result.data.creator[0]);
+      SetUser(result.data.creator);
+    } else if (result.status == 404) {
+      toast.error("User doesn't exist");
+      router.push("/404");
     }
   }
 
@@ -42,7 +47,7 @@ const Profile = () => {
     }
 
     if (router.query.username) {
-      getUserPosts(router.query.id);
+      getUserPosts();
     }
 
     function checkUser(userName) {
