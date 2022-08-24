@@ -39,16 +39,14 @@ const Comment = ({ comment, onDelete, onReply }) => {
   return (
     <>
       <div className="comment flex" key={comment._id}>
-        <div className="cm-main flex">
+        <p>
           <Link href={`/${comment.writer.username}`}>
-            <a className="flex">
-              <p id="cm-user">{comment.writer.username}:</p>
+            <a>
+              <span id="cm-user">{comment.writer.username}: </span>
             </a>
           </Link>
-          <p dir="auto" className="cm-text">
-            {comment.message}
-          </p>
-        </div>
+          <span>{comment.message}</span>
+        </p>
         <div className="cm-info">
           <div className="flex">
             <p id="date">{dateFormat(comment.date, "mmm d yyyy, HH:MM")}</p>

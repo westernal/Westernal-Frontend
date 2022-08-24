@@ -931,6 +931,7 @@ h1 {
 @media only screen and (max-width: 600px) {
   .cm-info {
     width: 100%;
+    margin-top: -20px;
   }
 
   .setting .auth-form {
