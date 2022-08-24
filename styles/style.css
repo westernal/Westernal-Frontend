@@ -511,10 +511,7 @@ audio {
 
 .modal-content {
   background-color: white;
-
-  padding: 20px;
   background: white;
-
   width: 100vw;
   height: 100vh;
 }
