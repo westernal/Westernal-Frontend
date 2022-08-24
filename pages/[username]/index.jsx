@@ -29,7 +29,6 @@ const Profile = () => {
     };
 
     var result = await API(option, `api/posts/user/${router.query.username}`);
-    console.log(result);
 
     if (result.status == 200) {
       SetPosts(result.data.posts);
