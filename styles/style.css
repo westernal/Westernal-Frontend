@@ -805,6 +805,10 @@ h1 {
   background-color: #ededed;
 }
 
+#logout {
+  font-size: 16px;
+}
+
 @media screen and (prefers-color-scheme: dark) {
   body {
     background-color: black;
