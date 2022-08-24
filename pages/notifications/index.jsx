@@ -48,15 +48,17 @@ const Notifications = () => {
       {notifs &&
         notifs.map((notif) => (
           <div className="profile-notif flex" key={notif._id}>
-            <div className="notif-main flex gap-5">
+            <div className="notif-main">
               {notif.user && (
-                <Link href={`/${notif.user.username}`}>
-                  <a>
-                    <p id="cm-user">{"@" + notif.user.username}</p>
-                  </a>
-                </Link>
+                <p>
+                  <Link href={`/${notif.user.username}`}>
+                    <a>
+                      <span id="cm-user">{"@" + notif.user.username} </span>
+                    </a>
+                  </Link>
+                  <span>{notif.message}</span>
+                </p>
               )}
-              <p>{notif.message}</p>
             </div>
             <p id="date">{dateFormat(notif.date, "mmm d yyyy, HH:MM")}</p>
           </div>

@@ -402,10 +402,6 @@ a {
   margin: 20px;
 }
 
-.profile-notif p {
-  font-weight: 600;
-}
-
 #userId {
   font-weight: 700;
   opacity: 0.7;
@@ -777,6 +773,10 @@ canvas {
 
 #reset-text {
   color: #9d38fc;
+}
+
+.m-10 {
+  margin: 10px;
 }
 
 .file-input::-webkit-file-upload-button {
