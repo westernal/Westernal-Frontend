@@ -51,8 +51,11 @@ export default function Index() {
           content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=5"
         />
         <title>Westernal: Let the songs talk</title>
-        <meta name="description" content="A social media" />
-        <meta name="keywords" content="Westernal social media" />
+        <meta
+          name="description"
+          content="Login to Westernal: a social media to share your feelings through songs and music."
+        />
+        <meta name="keywords" content="Westernal, social media, music, songs" />
       </Head>
       <Loader />
       <PWAModal />
