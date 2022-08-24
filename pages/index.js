@@ -56,6 +56,7 @@ export default function Index() {
           content="Login to Westernal: a social media to share your feelings through songs and music."
         />
         <meta name="keywords" content="Westernal, social media, music, songs" />
+        <meta name="robots" content="noodp,noydir" />
       </Head>
       <Loader />
       <PWAModal />
