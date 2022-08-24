@@ -96,23 +96,25 @@ const Login = () => {
               id="password"
               autoComplete="on"
             />
-            <div className="flex password-options">
-              <div className="flex ">
-                <div className="show-password">
-                  <div
-                    className="checkbox"
-                    onClick={showPassword}
-                    style={{ backgroundColor: "inherit" }}
-                  ></div>
-                  <p className="show">Show password</p>
+            <section className="flex">
+              <div className="flex password-options">
+                <div className="flex ">
+                  <div className="show-password">
+                    <div
+                      className="checkbox"
+                      onClick={showPassword}
+                      style={{ backgroundColor: "inherit" }}
+                    ></div>
+                    <p className="show">Show password</p>
+                  </div>
+                </div>
+                <div className="flex forgot-password">
+                  <Link href="/forgot-password">
+                    <a>Forgot password?</a>
+                  </Link>
                 </div>
               </div>
-              <div className="flex forgot-password">
-                <Link href="/forgot-password">
-                  <a>Forgot password?</a>
-                </Link>
-              </div>
-            </div>
+            </section>
           </div>
 
           <div className="flex">

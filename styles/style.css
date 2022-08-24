@@ -602,9 +602,8 @@ canvas {
   display: flex;
   align-items: center;
   gap: 10px;
-  width: 42vw;
+  width: 25vw;
   margin-top: -20px;
-  margin-left: 20px;
 }
 
 .show {
@@ -760,11 +759,11 @@ canvas {
 
 .password-options {
   gap: 0;
+  width: 50vw;
 }
 
 .password-options a {
   font-size: 14px;
-  margin-right: 20px;
   margin-top: -20px;
 }
 
@@ -806,7 +805,12 @@ h1 {
 }
 
 #logout {
-  font-size: 16px;
+  font-size: 14px;
+}
+
+.forgot-password a {
+  text-align: right;
+  width: 25vw;
 }
 
 @media screen and (prefers-color-scheme: dark) {
@@ -999,23 +1003,18 @@ h1 {
     -webkit-appearance: none;
   }
 
-  .show-password {
+  .search-bar input {
     width: 80vw;
   }
 
   .password-options {
-    display: block;
-  }
-
-  .forgot-password {
-    display: block;
-    margin-left: 15px;
-    margin-top: -20px;
-    text-align: left;
-  }
-
-  .search-bar input {
+    flex-direction: row !important;
     width: 80vw;
+  }
+
+  .forgot-password a,
+  .show-password {
+    width: 40vw;
   }
 
   .footer {
