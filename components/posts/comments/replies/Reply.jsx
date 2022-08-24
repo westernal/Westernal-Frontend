@@ -17,16 +17,15 @@ const Reply = ({ reply, onDelete }) => {
 
   return (
     <div className="comment reply flex" key={reply._id}>
-      <div className="cm-main flex">
+      <p>
         <Link href={`/${reply.writer.username}`}>
-          <a className="flex">
-            <p id="cm-user">{reply.writer.username}:</p>
+          <a>
+            <span id="cm-user">{reply.writer.username}: </span>
           </a>
         </Link>
-        <p dir="auto" className="cm-text">
-          {reply.message}
-        </p>
-      </div>
+        <span>{reply.message}</span>
+      </p>
+
       <div className="cm-info">
         <div className="flex">
           <p id="date">{dateFormat(reply.date, "mmm d, yyyy")}</p>
