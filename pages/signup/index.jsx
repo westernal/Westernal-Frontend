@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
-import API from "../requests/API";
+import API from "../../requests/API";
 import Head from "next/head";
 
 const SignUp = () => {
