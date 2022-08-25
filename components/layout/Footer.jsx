@@ -4,9 +4,32 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
 import { useRouter } from "next/router";
+import getNewNotification from "../../requests/getNewNotifications";
+import API from "../../requests/API";
 
 const Footer = () => {
   const router = useRouter();
+  const [notificationCount, SetNotificationCount] = useState(0);
+  const [repeat, SetRepeat] = useState(false);
+
+  function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  const repeatFunction = () => {
+    SetRepeat(!repeat);
+  };
+
+  useEffect(() => {
+    const getCount = async () => {
+      let count = await getNewNotification();
+      SetNotificationCount(count);
+      await sleep(60000);
+      repeatFunction();
+    };
+
+    getCount();
+  }, [repeatFunction]);
 
   function generateToken(e) {
     e.preventDefault();
@@ -14,6 +37,24 @@ const Footer = () => {
     const jwt = jwt_decode(token);
     router.push(`/${jwt.username}`);
   }
+
+  const clearNotification = async () => {
+    const option = {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+    };
+
+    var result = await API(
+      option,
+      `api/users/notification/clear/${
+        jwt_decode(localStorage.getItem("token")).userId
+      }`
+    );
+
+    SetNotificationCount(0);
+  };
 
   return (
     <div className="footer">
@@ -50,14 +91,19 @@ const Footer = () => {
       </Link>
 
       <Link href="/notifications">
-        <a aria-label="notification">
-          <Image
-            width={25}
-            height={25}
-            src="/Images/notification.svg"
-            alt="notification"
-            id="notif-icon"
-          />
+        <a aria-label="notification" onClick={clearNotification}>
+          <div className="notification-icon">
+            <Image
+              width={25}
+              height={25}
+              src="/Images/notification.svg"
+              alt="notification"
+              id="notif-icon"
+            />
+            {notificationCount != 0 && (
+              <div className="new-notif flex">{notificationCount}</div>
+            )}
+          </div>
         </a>
       </Link>
 

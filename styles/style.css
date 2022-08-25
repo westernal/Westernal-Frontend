@@ -810,6 +810,32 @@ h1 {
   width: 25vw;
 }
 
+.notification-icon {
+  position: relative;
+}
+
+.new-notif {
+  background-color: #ff3636;
+  color: white;
+  border-radius: 5px;
+  font-size: 13px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  animation: redPulse 1s infinite;
+}
+
+@keyframes redPulse {
+  0% {
+    box-shadow: #ff3636 0 0 0 0;
+  }
+  80% {
+    box-shadow: #9d38fc00 0 0 0 20px;
+  }
+}
+
 @media screen and (prefers-color-scheme: dark) {
   body {
     background-color: black;
