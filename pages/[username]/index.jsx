@@ -1,4 +1,4 @@
-import ContentLoader from "../../components/layout/ContentLoader";
+import ContentLoader from "../../components/layout/loader/ContentLoader";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Footer from "../../components/layout/Footer";

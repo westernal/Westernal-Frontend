@@ -9,7 +9,7 @@ import Head from "next/head";
 
 const Likes = () => {
   const router = useRouter();
-  const [users, SetUsers] = useState([]);
+  const [users, SetUsers] = useState();
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {

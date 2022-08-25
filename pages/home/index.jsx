@@ -5,7 +5,7 @@ import Post from "../../components/posts/Post";
 import API from "../../requests/API";
 import jwt_decode from "jwt-decode";
 import Head from "next/head";
-import ContentLoader from "../../components/layout/ContentLoader";
+import ContentLoader from "../../components/layout/loader/ContentLoader";
 import { useRouter } from "next/router";
 
 export default function Index() {

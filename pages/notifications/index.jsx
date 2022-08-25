@@ -6,9 +6,10 @@ import jwt_decode from "jwt-decode";
 import Link from "next/link";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import NotifLoader from "../../components/layout/loader/NotifLoader";
 
 const Notifications = () => {
-  const [notifs, SetNotifs] = useState([]);
+  const [notifs, SetNotifs] = useState();
   const router = useRouter();
 
   async function getNotifications() {
@@ -44,6 +45,15 @@ const Notifications = () => {
       <div className="header">
         <p>Notifications</p>
       </div>
+
+      {!notifs &&
+        [1, 2, 3, 4, 5, 6, 7].map((elem, index) => {
+          return (
+            <div className="profile-notif flex" key={index}>
+              <NotifLoader />
+            </div>
+          );
+        })}
 
       {notifs &&
         notifs.map((notif) => (

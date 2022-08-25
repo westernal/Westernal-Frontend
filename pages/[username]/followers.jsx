@@ -9,7 +9,7 @@ import Head from "next/head";
 
 const Followers = () => {
   const router = useRouter();
-  const [followers, SetFollowers] = useState([]);
+  const [followers, SetFollowers] = useState();
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {

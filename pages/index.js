@@ -1,4 +1,4 @@
-import Loader from "../components/layout/Loader";
+import Loader from "../components/layout/loader/Loader";
 import { useEffect } from "react";
 import Head from "next/head";
 import Login from "../components/authentication/Login";

@@ -5,7 +5,7 @@ import User from "../../components/user/Users";
 import Head from "next/head";
 
 const Search = () => {
-  const [users, SetUsers] = useState([]);
+  const [users, SetUsers] = useState();
   const [result, SetResult] = useState([]);
   const [isTyped, SetIstyped] = useState(false);
 
