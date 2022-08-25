@@ -6,7 +6,6 @@ import Head from "next/head";
 
 const Search = () => {
   const [users, SetUsers] = useState();
-  const [result, SetResult] = useState([]);
   const [isTyped, SetIstyped] = useState(false);
 
   useEffect(() => {
@@ -14,34 +13,22 @@ const Search = () => {
       router.push("/");
       return;
     }
-
-    async function getUsers(params) {
-      const option = {
-        method: "GET",
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-      };
-
-      var result = await API(option, "api/users");
-
-      if (result.status == 200) {
-        SetUsers(result.data.users);
-      }
-    }
-    getUsers();
   }, []);
 
-  function searchUsers(e) {
-    const searchInput = e.target.value.toUpperCase();
+  async function searchUsers(e) {
+    const searchInput = e.target.value.toLowerCase();
     SetIstyped(true);
-    SetResult(
-      users.filter((user) => {
-        if (user.username.toUpperCase().indexOf(searchInput) > -1) {
-          return user.username.toUpperCase().indexOf(searchInput) > -1;
-        }
-      })
-    );
+    const option = {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    };
+
+    var result = await API(option, `api/users/search/${searchInput}`);
+    console.log(result);
+
+    if (result.status == 200) {
+      SetUsers(result.data.users);
+    }
     if (searchInput === "") {
       SetIstyped(false);
     }
@@ -58,7 +45,7 @@ const Search = () => {
           onChange={searchUsers}
         />
       </div>
-      {isTyped && <User users={result} />}
+      {isTyped && <User users={users} />}
       <div className="mb-100"></div>
       <Footer />
     </div>
