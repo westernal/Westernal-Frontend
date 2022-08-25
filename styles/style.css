@@ -957,6 +957,10 @@ h1 {
     margin-top: -20px;
   }
 
+  .post-info svg:hover path {
+    fill: currentColor;
+  }
+
   .setting .auth-form {
     margin: 0 0 20px 0;
     padding-bottom: 5px;
