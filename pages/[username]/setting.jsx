@@ -28,7 +28,7 @@ const Setting = () => {
     let bio = document.getElementById("bio");
     const Image = document.getElementById("image");
 
-    if (bio.value === "") {
+    if (!bio.value) {
       bio.value = user.bio;
     }
 
@@ -85,7 +85,7 @@ const Setting = () => {
     }
 
     getToken();
-  }, [router]);
+  }, []);
 
   async function editUser(username, password, bio, image) {
     let newBody = new FormData();
@@ -108,7 +108,7 @@ const Setting = () => {
     if (result.status == 200) {
       toast.success(`Information Edited!`);
       localStorage.setItem("token", result.data.token);
-      router.push(`/${user.username}`);
+      router.push(`/${username}`);
     } else {
       SetLoader(false);
       toast.error(result.data.message);
