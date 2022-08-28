@@ -59,18 +59,14 @@ export default function Index() {
         <meta name="image" content="https://i.postimg.cc/fykmjgyZ/logo.png" />
         <meta name="robots" content="noodp,noydir" />
         <link rel="apple-touch-icon" href="/Images/icon-192x192.png" />
-        <link
-          rel="shortcut icon"
-          href="/Images/favicon.ico"
-          type="image/x-icon"
-        />
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
         <link
           rel="mask-icon"
           href="/Images/safari-pinned-tab.svg"
           color="#9d38fc"
         />
         <meta name="msapplication-TileColor" content="#9d38fc" />
-        <link rel="icon" href="/Images/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       </Head>
       <Loader />
       <PWAModal />
