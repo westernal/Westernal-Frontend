@@ -1,3 +1,9 @@
-User-Agent: *
+# *
+User-agent: *
 Allow: /
 
+# Host
+Host: https://westernal.net
+
+# Sitemaps
+Sitemap: https://westernal.net/sitemap.xml
