@@ -31,7 +31,7 @@ const UserInfo = ({ isUserSelf, user }) => {
   return (
     <>
       <Head>
-        <title>Westernal - @{user.username} </title>
+        <title key="title">Westernal - @{user.username} </title>
       </Head>
       <div className="header">
         <div className="flex username">
