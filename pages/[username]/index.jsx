@@ -19,6 +19,7 @@ const Profile = () => {
     followings: [],
     verified: false,
   });
+  const [isLoggedIn, SetIsLoggedIn] = useState(false);
 
   async function getUserPosts() {
     const option = {
@@ -40,17 +41,12 @@ const Profile = () => {
   }
 
   useEffect(() => {
-    if (!localStorage.getItem("token")) {
-      router.push("/");
-      return;
-    }
-
     if (router.query.username) {
       getUserPosts();
     }
 
-    function checkUser(userName) {
-      if (userName === router.query.username) {
+    function checkUser(username) {
+      if (username === router.query.username) {
         SetIsUserSelf(true);
       }
     }
@@ -62,12 +58,15 @@ const Profile = () => {
       checkUser(jwt.username);
     }
 
-    getToken();
+    if (localStorage.getItem("token")) {
+      SetIsLoggedIn(true);
+      getToken();
+    }
   }, [router.query, router]);
 
   return (
     <div className="profile">
-      <UserInfo isUserSelf={isUserSelf} user={user} />
+      <UserInfo isUserSelf={isUserSelf} user={user} isLoggedIn={isLoggedIn} />
 
       {!posts &&
         [1, 2, 3].map((index) => {
@@ -88,13 +87,14 @@ const Profile = () => {
               deletable={isUserSelf}
               onDelete={getUserPosts}
               key={post._id}
+              isLoggedIn={isLoggedIn}
             />
           );
         })}
 
       <div className="mb-100"></div>
 
-      <Footer />
+      {isLoggedIn && <Footer />}
     </div>
   );
 };

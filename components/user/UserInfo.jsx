@@ -7,7 +7,7 @@ import FollowSection from "./followUser/FollowSection";
 import Follow from "./followUser/Follow";
 import jwtDecode from "jwt-decode";
 
-const UserInfo = ({ isUserSelf, user }) => {
+const UserInfo = ({ isUserSelf, user, isLoggedIn }) => {
   const router = useRouter();
   const [isFollowing, SetIsFollowing] = useState(false);
   const [avatar, SetAvatar] = useState("");
@@ -18,9 +18,11 @@ const UserInfo = ({ isUserSelf, user }) => {
       SetAvatar("/Images/user.svg");
     } else SetAvatar(host + user.image);
 
-    const userId = jwtDecode(localStorage.getItem("token")).userId;
-    if (!isUserSelf && user.followers.includes(userId)) {
-      SetIsFollowing(true);
+    if (isLoggedIn) {
+      const userId = jwtDecode(localStorage.getItem("token")).userId;
+      if (!isUserSelf && user.followers.includes(userId)) {
+        SetIsFollowing(true);
+      }
     }
   }, [user]);
 
@@ -45,6 +47,13 @@ const UserInfo = ({ isUserSelf, user }) => {
             />
           )}
         </div>
+        {!isLoggedIn && (
+          <Link href="/">
+            <a>
+              <button className="contact-btn">Login</button>
+            </a>
+          </Link>
+        )}
         {isUserSelf && (
           <div className="flex">
             <a href="mailto:support@contact.westernal.net">
@@ -76,7 +85,7 @@ const UserInfo = ({ isUserSelf, user }) => {
 
         <FollowSection user={user} />
 
-        {!isUserSelf && (
+        {!isUserSelf && isLoggedIn && (
           <Follow
             isFollowing={isFollowing}
             SetIsFollowing={changeIsFollowing}

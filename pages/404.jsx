@@ -2,18 +2,16 @@ import Footer from "../components/layout/Footer";
 import BackHeader from "../components/layout/BackHeader";
 import Image from "next/image";
 import Head from "next/head";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Error = () => {
-  const router = useRouter();
+  const [isLoggedIn, SetIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    if (!localStorage.getItem("token")) {
-      router.push("/");
-      return;
+    if (localStorage.getItem("token")) {
+      SetIsLoggedIn(true);
     }
-  }, [router]);
+  }, []);
 
   return (
     <div className="404">
@@ -32,7 +30,7 @@ const Error = () => {
         </div>
       </div>
 
-      <Footer />
+      {isLoggedIn && <Footer />}
     </div>
   );
 };
