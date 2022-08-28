@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import API from "../../requests/API";
+import Image from "next/image";
 
 const Login = () => {
   const [loader, SetLoader] = useState(false);
@@ -73,7 +74,7 @@ const Login = () => {
   return (
     <div className="login flex">
       <div className="auth-form">
-        <p id="login-logo">W</p>
+        <Image src={"/Images/logo.png"} alt="logo" width={120} height={120} />
         {loader && (
           <div className="flex">
             <div className="logo-loader flex">
