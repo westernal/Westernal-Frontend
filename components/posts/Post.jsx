@@ -8,6 +8,7 @@ import ReactPlayer from "react-player";
 import SpotifyPlayer from "react-spotify-player";
 import DeletePost from "./DeletePost";
 import LikePost from "./LikePost";
+import PostError from "./PostError";
 
 const Post = ({
   details,
@@ -89,11 +90,7 @@ const Post = ({
 
         <div className="flex">
           <div className="post-image flex">
-            {error && (
-              <p id="post-error">
-                Sorry, looks like you don{"'"}t have access to this link!
-              </p>
-            )}
+            {error && <PostError />}
             {!isSpotify && !error && (
               <ReactPlayer
                 url={details.songUrl}

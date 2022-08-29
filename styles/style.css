@@ -359,8 +359,7 @@ a {
 #post-title,
 #post-description,
 .post-info,
-.post-user,
-#post-error {
+.post-user {
   margin-right: 10px;
   margin-left: 10px;
 }
@@ -825,6 +824,27 @@ h1 {
   top: -10px;
   right: -10px;
   animation: redPulse 1s infinite;
+}
+
+.post-error {
+  width: 100%;
+  height: 300px;
+  background-color: black;
+  flex-direction: column;
+  color: white;
+  text-align: center;
+  padding: 30px;
+  gap: 0;
+}
+
+.error-icon {
+  font-size: 35px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
 @keyframes redPulse {
