@@ -1,8 +1,6 @@
-I was always bad at talking and express my feelings and I thought what if I could express my feelings through songs, unfortunately i have a bad voice :)
+I was always bad at talking and express my feelings and I thought what if I could express my feelings through songs, unfortunately i have a bad voice :).
 
-so I thought Westernal is a good idea.
-
-Just in case it is the first version and has a lot of bugs that I'm sorry for them already!
+So I thought Westernal is a good idea.
 
 ## Link
 [https://www.westernal.net/](https://www.westernal.net/)
@@ -17,7 +15,7 @@ Westernal is a social media that you can share your songs with others it is also
 </span>
 
 ## How it works?
-A user can easily signup and connect with people via following them and paste a song URL from Spotify, YouTube, SoundCloud and etc. (not the actual song itself because of copyright) or you can search a song inside app(Spotify search) to share with followers followers. you can like and comment on posts to interact with people.
+A user can easily signup and connect with people via following them and paste a song URL from Spotify, YouTube, SoundCloud and etc. (not the actual song itself because of copyright) or search a song inside app (Spotify search) to share with followers followers. You can like and comment on posts to interact with people.
 
 
  [Youtube tutorial](https://youtu.be/iNav6lyYUR0)
