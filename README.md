@@ -2,8 +2,6 @@ I was always bad at talking and express my feelings and I thought what if I coul
 
 so I thought Westernal is a good idea.
 
-Just in case it is the first version and has a lot of bugs that I'm sorry for them already!
-
 ## Link
 [https://www.westernal.net/](https://www.westernal.net/)
 
