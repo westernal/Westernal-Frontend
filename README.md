@@ -44,7 +44,7 @@ If you forgot your password we will send you an email to reset your password!
 
 ## Lighthouse scores
 
-![Lighthouse scores](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/gld7zs3byzxphdzuef8b.png)
+![Lighthouse scores](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/4jrh8g4y77c7zpzgrfoh.png)
 
 ## Technologies
 **Front-End:** Next.js /
