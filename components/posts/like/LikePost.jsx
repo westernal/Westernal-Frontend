@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
-import API from "../../requests/API";
+import API from "../../../requests/API";
 import Link from "next/link";
 
 const LikePost = ({ id, likesCount, postLikes }) => {

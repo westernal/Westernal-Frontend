@@ -6,7 +6,7 @@ import jwt_decode from "jwt-decode";
 import BackHeader from "../../components/layout/BackHeader";
 import Footer from "../../components/layout/Footer";
 import Head from "next/head";
-import Icons from "../../components/posts/Icons";
+import Icons from "../../components/posts/icons/WebsiteIcons";
 import { useEffect } from "react";
 import Image from "next/dist/client/image";
 import SearchSong from "../../components/posts/search/SearchSong";

@@ -6,8 +6,8 @@ import Link from "next/link";
 import Image from "next/image";
 import ReactPlayer from "react-player";
 import SpotifyPlayer from "react-spotify-player";
-import PostError from "./PostError";
-import PostIcons from "./PostIcons.";
+import PostError from "./error/PostError";
+import PostIcons from "./icons/PostIcons.";
 
 const Post = ({
   details,

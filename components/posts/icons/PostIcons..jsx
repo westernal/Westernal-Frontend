@@ -1,5 +1,5 @@
-import DeletePost from "./DeletePost";
-import LikePost from "./LikePost";
+import DeletePost from "../delete/DeletePost";
+import LikePost from "../like/LikePost";
 import Link from "next/link";
 
 const PostIcons = ({ details, deletable, onDelete }) => {
