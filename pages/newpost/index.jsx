@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import API from "../../requests/API";
 import jwt_decode from "jwt-decode";
-import BackHeader from "../../components/layout/BackHeader";
+import BackHeader from "../../components/layout/header/BackHeader";
 import Footer from "../../components/layout/Footer";
 import Head from "next/head";
 import Icons from "../../components/posts/icons/WebsiteIcons";

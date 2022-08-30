@@ -1,5 +1,5 @@
 import Head from "next/head";
-import BackHeader from "../../components/layout/BackHeader";
+import BackHeader from "../../components/layout/header/BackHeader";
 import { toast } from "react-toastify";
 import API from "../../requests/API";
 import { useState } from "react";

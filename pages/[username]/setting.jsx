@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import API from "../../requests/API";
 import jwt_decode from "jwt-decode";
-import BackHeader from "../../components/layout/BackHeader";
+import BackHeader from "../../components/layout/header/BackHeader";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Image from "next/image";
-import Logout from "../../components/user/Logout";
+import Logout from "../../components/authentication/Logout";
 
 const Setting = () => {
   const [loader, SetLoader] = useState(false);

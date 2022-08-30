@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import User from "../../components/user/Users";
-import BackHeader from "../../components/layout/BackHeader";
+import BackHeader from "../../components/layout/header/BackHeader";
 import Head from "next/head";
 
 const Likes = () => {

@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import Head from "next/dist/shared/lib/head";
-import BackHeader from "../../components/layout/BackHeader";
+import BackHeader from "../../components/layout/header/BackHeader";
 import jwtDecode from "jwt-decode";
 
 const ChangePassword = () => {

@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import BackHeader from "../../components/layout/BackHeader";
+import BackHeader from "../../components/layout/header/BackHeader";
 import CommentsList from "../../components/posts/comments/CommentsList";
 import PostComment from "../../components/posts/comments/PostComment";
 import Head from "next/head";

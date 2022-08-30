@@ -1,6 +1,5 @@
 import Footer from "../components/layout/Footer";
-import BackHeader from "../components/layout/BackHeader";
-import Image from "next/image";
+import BackHeader from "../components/layout/header/BackHeader";
 import Head from "next/head";
 
 const Error = () => {

@@ -1,5 +1,5 @@
 import Footer from "../components/layout/Footer";
-import BackHeader from "../components/layout/BackHeader";
+import BackHeader from "../components/layout/header/BackHeader";
 import Image from "next/image";
 import Head from "next/head";
 import { useEffect, useState } from "react";

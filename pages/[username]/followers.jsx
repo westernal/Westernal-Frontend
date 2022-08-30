@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import BackHeader from "../../components/layout/BackHeader";
+import BackHeader from "../../components/layout/header/BackHeader";
 import Footer from "../../components/layout/Footer";
 import { useRouter } from "next/dist/client/router";
 import API from "../../requests/API";
