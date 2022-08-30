@@ -13,8 +13,8 @@
 /out/
 
 # production
-/build
-/public/*.js
+/build 
+public/*.js
 
 # misc
 .DS_Store
