@@ -345,7 +345,7 @@ a {
 
 .post {
   margin: 20px;
-  border-radius: 10px;
+  border-radius: 0.75rem;
   width: 550px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   word-wrap: break-word;
@@ -364,12 +364,9 @@ a {
   margin-left: 10px;
 }
 
-.post-image img {
-  border-radius: 20px;
-}
-
 .post-image {
   width: 100%;
+  padding: 0 10px;
 }
 
 .post-info {
@@ -854,6 +851,12 @@ h1 {
   80% {
     box-shadow: #9d38fc00 0 0 0 20px;
   }
+}
+
+iframe,
+.post-image,
+.post-error {
+  border-radius: 0.75rem;
 }
 
 @media screen and (prefers-color-scheme: dark) {
