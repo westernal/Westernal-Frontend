@@ -24,7 +24,6 @@ const Search = () => {
     };
 
     var result = await API(option, `api/users/search/${searchInput}`);
-    console.log(result);
 
     if (result.status == 200) {
       SetUsers(result.data.users);
