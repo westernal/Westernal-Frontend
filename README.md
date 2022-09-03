@@ -47,10 +47,10 @@ If you forgot your password we will send you an email to reset your password!
 ![Lighthouse scores](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/4jrh8g4y77c7zpzgrfoh.png)
 
 ## Technologies
-**Front-End:** Next.js /
-**Back-End:** Node.js, Express /
+**Front-End:** Next.js |
+**Back-End:** Node.js, Express |
 **Database:** MongoDB
 
 ## Source Code
- [Front-End](https://github.com/westernal/social-media-frontend) /
+ [Front-End](https://github.com/westernal/social-media-frontend) |
  [Back-End](https://github.com/westernal/social-media-backend)
