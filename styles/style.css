@@ -844,6 +844,10 @@ h1 {
   border-radius: 50%;
 }
 
+#error-text {
+  font-weight: 600;
+}
+
 @keyframes redPulse {
   0% {
     box-shadow: #ff3636 0 0 0 0;
