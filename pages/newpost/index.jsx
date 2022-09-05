@@ -10,6 +10,7 @@ import Icons from "../../components/posts/icons/WebsiteIcons";
 import { useEffect } from "react";
 import Image from "next/dist/client/image";
 import SearchSong from "../../components/posts/search/SearchSong";
+import ReactPlayer from "react-player";
 
 const NewPost = () => {
   const [loader, SetLoader] = useState(false);
@@ -84,6 +85,15 @@ const NewPost = () => {
 
     if (song.value === "") {
       toast.error("song's URL must be included!");
+      SetLoader(false);
+      return;
+    }
+
+    if (
+      !ReactPlayer.canPlay(song.value) &&
+      !song.value.toLowerCase().includes("spotify")
+    ) {
+      toast.error("Sorry, we don't support this link.");
       SetLoader(false);
     } else publish(song.value, title.value, description.value);
   }
