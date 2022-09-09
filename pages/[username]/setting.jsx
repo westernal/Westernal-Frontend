@@ -183,7 +183,13 @@ const Setting = () => {
             </form>
           </div>
 
-          <Logout />
+          <div className="setting-btns">
+            <a href="mailto:support@contact.westernal.net">
+              <button className="contact-btn">Contact Support</button>
+            </a>
+
+            <Logout />
+          </div>
 
           <div className="mb-100"></div>
         </section>

@@ -56,10 +56,6 @@ const UserInfo = ({ isUserSelf, user, isLoggedIn }) => {
         )}
         {isUserSelf && (
           <div className="flex">
-            <a href="mailto:support@contact.westernal.net">
-              <button className="contact-btn">Contact Support</button>
-            </a>
-
             <Link href={`/${router.query.username}/setting`}>
               <a className="flex">
                 <Image
