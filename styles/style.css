@@ -737,10 +737,14 @@ canvas {
 }
 
 .search-modal .profile-notif {
-  padding: 10px;
+  padding: 0 10px;
   justify-content: left;
   transition: 0.3s;
   margin: 15px;
+}
+
+#song-cover {
+  border-radius: 5px;
 }
 
 .search-modal .profile-notif:hover {

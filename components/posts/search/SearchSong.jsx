@@ -106,6 +106,7 @@ const SearchSong = ({ hide, chooseSong }) => {
                   src={song.album.images[0].url}
                   width={60}
                   height={60}
+                  id={"song-cover"}
                 />
                 <div className="song-info">
                   <p>{song.name}</p>
