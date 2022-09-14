@@ -455,6 +455,10 @@ textarea {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
+.header .contact-btn {
+  width: unset;
+}
+
 #logout:hover {
   background-color: white;
   color: #ff3636;
