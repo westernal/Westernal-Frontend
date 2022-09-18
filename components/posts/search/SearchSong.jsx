@@ -72,10 +72,10 @@ const SearchSong = ({ hide, chooseSong }) => {
           </a>
         </div>
         {!isArtist && (
-          <SearchTracks token chooseSong={chooseSong} hide={hide} />
+          <SearchTracks token={token} chooseSong={chooseSong} hide={hide} />
         )}
         {isArtist && (
-          <SearchArtists token chooseSong={chooseSong} hide={hide} />
+          <SearchArtists token={token} chooseSong={chooseSong} hide={hide} />
         )}
       </div>
     </div>

@@ -518,7 +518,7 @@ audio {
   height: 100vh;
 }
 
-.share-info {
+form div:not(.form-group) .share-info {
   display: flex;
   flex-direction: column;
   align-items: baseline;
