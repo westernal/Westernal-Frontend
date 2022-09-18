@@ -55,7 +55,7 @@ const SearchArtists = ({ token, chooseSong, hide }) => {
             <div className="profile-notif artist-info grid">
               <Image
                 alt="artist's cover"
-                src={artist.images[0].url}
+                src={artist.images[0] && artist.images[0].url}
                 width={60}
                 height={60}
                 id={"artist-cover"}
