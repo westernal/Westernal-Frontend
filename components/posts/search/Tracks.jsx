@@ -40,39 +40,41 @@ const SearchTracks = ({ token, chooseSong, hide }) => {
           onChange={search}
         />
       </div>
-      {songs.map((song) => {
-        return (
-          <a
-            href="#"
-            key={song.id}
-            onClick={(e) => {
-              e.preventDefault();
-              chooseSong(song.external_urls.spotify);
-              hide();
-            }}
-          >
-            <div className="profile-notif grid">
-              <Image
-                alt="song's cover"
-                src={song.album.images[0].url}
-                width={60}
-                height={60}
-                id={"song-cover"}
-              />
-              <div className="song-info">
-                <p>{song.name}</p>
-                <p id="artist">
-                  {song.artists.map((artist, index, array) =>
-                    index == array.length - 1
-                      ? artist.name
-                      : `${artist.name} feat. `
-                  )}
-                </p>
+      <div className="search-results">
+        {songs.map((song) => {
+          return (
+            <a
+              href="#"
+              key={song.id}
+              onClick={(e) => {
+                e.preventDefault();
+                chooseSong(song.external_urls.spotify);
+                hide();
+              }}
+            >
+              <div className="profile-notif grid">
+                <Image
+                  alt="song's cover"
+                  src={song.album.images[0].url}
+                  width={60}
+                  height={60}
+                  id={"song-cover"}
+                />
+                <div className="song-info">
+                  <p>{song.name}</p>
+                  <p id="artist">
+                    {song.artists.map((artist, index, array) =>
+                      index == array.length - 1
+                        ? artist.name
+                        : `${artist.name} feat. `
+                    )}
+                  </p>
+                </div>
               </div>
-            </div>
-          </a>
-        );
-      })}
+            </a>
+          );
+        })}
+      </div>
     </>
   );
 };

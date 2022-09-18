@@ -41,32 +41,34 @@ const SearchArtists = ({ token, chooseSong, hide }) => {
           onChange={search}
         />
       </div>
-      {artists.map((artist) => {
-        return (
-          <a
-            href="#"
-            key={artist.id}
-            onClick={(e) => {
-              e.preventDefault();
-              chooseSong(artist.external_urls.spotify);
-              hide();
-            }}
-          >
-            <div className="profile-notif artist-info grid">
-              <Image
-                alt="artist's cover"
-                src={artist.images[0] && artist.images[0].url}
-                width={60}
-                height={60}
-                id={"artist-cover"}
-              />
-              <div className="song-info">
-                <p>{artist.name}</p>
+      <div className="search-results">
+        {artists.map((artist) => {
+          return (
+            <a
+              href="#"
+              key={artist.id}
+              onClick={(e) => {
+                e.preventDefault();
+                chooseSong(artist.external_urls.spotify);
+                hide();
+              }}
+            >
+              <div className="profile-notif artist-info grid">
+                <Image
+                  alt="artist's cover"
+                  src={artist.images[0] && artist.images[0].url}
+                  width={60}
+                  height={60}
+                  id={"artist-cover"}
+                />
+                <div className="song-info">
+                  <p>{artist.name}</p>
+                </div>
               </div>
-            </div>
-          </a>
-        );
-      })}
+            </a>
+          );
+        })}
+      </div>
     </>
   );
 };
