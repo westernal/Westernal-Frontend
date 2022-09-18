@@ -891,6 +891,8 @@ iframe,
 
 .search-type a {
   transition: border-bottom 0.2s;
+  width: 100px;
+  text-align: center;
 }
 
 .search-type .active {
