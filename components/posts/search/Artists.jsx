@@ -36,7 +36,7 @@ const SearchArtists = ({ token, chooseSong, hide }) => {
       <div className="flex song-search">
         <input
           type="text"
-          placeholder="Search a song..."
+          placeholder="Search an artist..."
           id="search-input"
           onChange={search}
         />
