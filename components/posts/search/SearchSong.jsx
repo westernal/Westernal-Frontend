@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import Image from "next/dist/client/image";
+import SearchTracks from "./Tracks";
+import SearchArtists from "./Artists";
 
 const SearchSong = ({ hide, chooseSong }) => {
-  const [songs, SetSongs] = useState([]);
+  const [isArtist, SetIsArtist] = useState(false);
   const [token, SetToken] = useState("");
   const clientToken =
     "355a112f4a27485cbbb614e817d439c8:f12328b921684083802df0f82574a6ee";
@@ -32,7 +33,6 @@ const SearchSong = ({ hide, chooseSong }) => {
 
       if (status == 200) {
         SetToken(data.access_token);
-        search();
       }
     };
 
@@ -49,30 +49,12 @@ const SearchSong = ({ hide, chooseSong }) => {
       hide();
     }
   };
-  const search = async () => {
-    const input = document.getElementById("search-input").value;
-    const option = {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    };
 
-    const response = await fetch(
-      `https://api.spotify.com/v1/search?q=${
-        input && input
-      }&type=track&limit=10`,
-      option
-    );
-
-    const data = await response.json();
-
-    const status = response.status;
-
-    if (status == 200) {
-      SetSongs(data.tracks.items);
-    }
+  const categoryHandler = (e) => {
+    e.preventDefault();
+    document.getElementsByClassName("active")[0].classList.remove("active");
+    e.target.classList.add("active");
+    SetIsArtist(!isArtist);
   };
 
   return (
@@ -81,47 +63,20 @@ const SearchSong = ({ hide, chooseSong }) => {
         <a href="#" onClick={closeModal} className="close">
           &times;
         </a>
-        <div className="flex song-search">
-          <input
-            type="text"
-            placeholder="Search a song..."
-            id="search-input"
-            onChange={search}
-          />
+        <div className="search-type flex">
+          <a href="#" className="active" onClick={categoryHandler}>
+            Track
+          </a>
+          <a href="#" onClick={categoryHandler}>
+            Artist
+          </a>
         </div>
-        {songs.map((song) => {
-          return (
-            <a
-              href="#"
-              key={song.id}
-              onClick={(e) => {
-                e.preventDefault();
-                chooseSong(song.external_urls.spotify);
-                hide();
-              }}
-            >
-              <div className="profile-notif grid">
-                <Image
-                  alt="song's cover"
-                  src={song.album.images[0].url}
-                  width={60}
-                  height={60}
-                  id={"song-cover"}
-                />
-                <div className="song-info">
-                  <p>{song.name}</p>
-                  <p id="artist">
-                    {song.artists.map((artist, index, array) =>
-                      index == array.length - 1
-                        ? artist.name
-                        : `${artist.name} feat. `
-                    )}
-                  </p>
-                </div>
-              </div>
-            </a>
-          );
-        })}
+        {!isArtist && (
+          <SearchTracks token chooseSong={chooseSong} hide={hide} />
+        )}
+        {isArtist && (
+          <SearchArtists token chooseSong={chooseSong} hide={hide} />
+        )}
       </div>
     </div>
   );

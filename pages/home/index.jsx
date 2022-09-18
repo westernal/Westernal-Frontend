@@ -37,6 +37,7 @@ export default function Index() {
         SetPosts(result.data.posts);
       }
     }
+
     getPosts(jwt_decode(localStorage.getItem("token")).userId);
   }, [refresh, router]);
   return (
