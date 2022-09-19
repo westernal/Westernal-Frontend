@@ -14,7 +14,7 @@ import ReactPlayer from "react-player";
 
 const NewPost = () => {
   const [loader, SetLoader] = useState(false);
-  const [showModal, SetShowModal] = useState(false);
+  var searchModal;
   const router = useRouter();
 
   useEffect(() => {
@@ -22,6 +22,8 @@ const NewPost = () => {
       router.push("/");
       return;
     }
+
+    searchModal = document.getElementById("delete-modal");
   }, [router]);
 
   const chooseSong = (url) => {
@@ -31,11 +33,11 @@ const NewPost = () => {
 
   const openModal = (e) => {
     e.preventDefault();
-    SetShowModal(true);
+    searchModal.style.height = "100%";
   };
 
   const closeModal = () => {
-    SetShowModal(false);
+    searchModal.style.height = "0";
   };
 
   function generateToken() {
@@ -104,7 +106,7 @@ const NewPost = () => {
         <title>Westernal - New Post</title>
       </Head>
       <BackHeader title="New Post" />
-      {showModal && <SearchSong hide={closeModal} chooseSong={chooseSong} />}
+      <SearchSong hide={closeModal} chooseSong={chooseSong} />
       <div className="flex">
         <div className="auth-form">
           <p id="login-logo">W</p>

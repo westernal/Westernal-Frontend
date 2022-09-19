@@ -37,17 +37,17 @@ const SearchSong = ({ hide, chooseSong }) => {
     };
 
     getToken();
+
+    window.onclick = function (event) {
+      if (event.target == document.getElementById("delete-modal")) {
+        hide();
+      }
+    };
   }, []);
 
   const closeModal = (e) => {
     e.preventDefault();
     hide();
-  };
-
-  window.onclick = function (event) {
-    if (event.target == document.getElementById("delete-modal")) {
-      hide();
-    }
   };
 
   const categoryHandler = (e) => {
