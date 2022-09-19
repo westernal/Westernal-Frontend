@@ -1,11 +1,13 @@
 import { useState } from "react";
 import Image from "next/dist/client/image";
+import { toast } from "react-toastify";
 
 const SearchTracks = ({ token, chooseSong, hide }) => {
   const [songs, SetSongs] = useState([]);
 
   const search = async () => {
     const input = document.getElementById("search-input").value;
+    let response;
     const option = {
       method: "GET",
       headers: {
@@ -14,12 +16,17 @@ const SearchTracks = ({ token, chooseSong, hide }) => {
       },
     };
 
-    const response = await fetch(
-      `https://api.spotify.com/v1/search?q=${
-        input && input
-      }&type=track&limit=10`,
-      option
-    );
+    try {
+      response = await fetch(
+        `https://api.spotify.com/v1/search?q=${
+          input && input
+        }&type=track&limit=10`,
+        option
+      );
+    } catch (error) {
+      toast.error("Server error, please reload the page");
+      return;
+    }
 
     const data = await response.json();
 
@@ -27,7 +34,7 @@ const SearchTracks = ({ token, chooseSong, hide }) => {
 
     if (status == 200) {
       SetSongs(data.tracks.items);
-    }
+    } else toast.error(data.message);
   };
 
   return (
