@@ -117,6 +117,23 @@ textarea:focus {
   outline: none;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+  border-left: 1px solid #ededed;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9d38fc;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  opacity: 0.7;
+}
+
 .notification .header p,
 .profile .header p {
   font-family: "Poppins", sans-serif;
@@ -994,6 +1011,11 @@ iframe,
 
   .profile-info {
     border-bottom: 1px solid #101015;
+  }
+
+  ::-webkit-scrollbar-track {
+    box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+    border-left: 1px solid #5f5d5d;
   }
 
   .footer {
