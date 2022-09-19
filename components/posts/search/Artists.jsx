@@ -4,8 +4,13 @@ import { toast } from "react-toastify";
 
 const SearchArtists = ({ token, chooseSong, hide }) => {
   const [artists, setArtists] = useState([]);
+  const [loader, SetLoader] = useState(false);
 
   const search = async () => {
+    if (artists.length == 0) {
+      SetLoader(true);
+    }
+
     const input = document.getElementById("search-input").value;
     let response;
     const option = {
@@ -25,6 +30,7 @@ const SearchArtists = ({ token, chooseSong, hide }) => {
       );
     } catch (error) {
       toast.error("Server error, please reload the page");
+      SetLoader(false);
       return;
     }
 
@@ -34,7 +40,11 @@ const SearchArtists = ({ token, chooseSong, hide }) => {
 
     if (status == 200) {
       setArtists(data.artists.items);
-    } else toast.error(data.message);
+      SetLoader(false);
+    } else {
+      toast.error(data.message);
+      SetLoader(false);
+    }
   };
 
   return (
@@ -48,6 +58,13 @@ const SearchArtists = ({ token, chooseSong, hide }) => {
         />
       </div>
       <div className="search-results">
+        {loader && (
+          <div className="flex">
+            <div className="logo-loader flex">
+              <p id="loader">w</p>
+            </div>
+          </div>
+        )}
         {artists.map((artist) => {
           return (
             <a
