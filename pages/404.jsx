@@ -1,5 +1,5 @@
 import Footer from "../components/layout/Footer";
-import BackHeader from "../components/layout/header/BackHeader";
+import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
 import { useEffect, useState } from "react";
@@ -14,11 +14,10 @@ const Error = () => {
   }, []);
 
   return (
-    <div className="404">
+    <div className="error-page">
       <Head>
         <title>404 - Westernal</title>
       </Head>
-      <BackHeader title={"Error"} />
 
       <div className="flex">
         <div className="auth-form">
@@ -27,6 +26,11 @@ const Error = () => {
           <p>
             Looks like the link you{"'"}re looking for doesn{"'"}t exist!
           </p>
+          <Link href="/">
+            <a>
+              <button className="contact-btn">Go to home page</button>
+            </a>
+          </Link>
         </div>
       </div>
 

@@ -930,6 +930,10 @@ iframe,
   padding: 10px !important;
 }
 
+.error-page .contact-btn {
+  width: unset;
+}
+
 @media screen and (prefers-color-scheme: dark) {
   body {
     background-color: black;
