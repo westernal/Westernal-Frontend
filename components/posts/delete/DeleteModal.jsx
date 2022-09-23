@@ -1,8 +1,14 @@
 import { toast } from "react-toastify";
 import API from "../../../requests/API";
 import jwt_decode from "jwt-decode";
+import { useEffect } from "react";
 
 const DeleteModal = ({ id, hide, onDelete }) => {
+  useEffect(() => {
+    const deleteModal = document.getElementById("delete-modal");
+    deleteModal.style.height = "100%";
+  }, []);
+
   const closeModal = (e) => {
     e.preventDefault();
     hide();

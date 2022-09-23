@@ -1,25 +1,23 @@
-import { useEffect } from "react";
+import { useState } from "react";
 import DeleteModal from "./DeleteModal";
 
 const DeletePost = ({ onDelete, id }) => {
-  var deleteModal;
-
-  useEffect(() => {
-    deleteModal = document.getElementById("delete-modal");
-  }, []);
+  const [showModal, SetShowModal] = useState(false);
 
   const modalDisplay = (e) => {
     if (e) {
       e.preventDefault();
     }
-    if (deleteModal.style.height == "100%") {
-      deleteModal.style.height = "0";
-    } else deleteModal.style.height = "100%";
+    if (showModal) {
+      SetShowModal(false);
+    } else SetShowModal(true);
   };
 
   return (
     <>
-      <DeleteModal hide={modalDisplay} id={id} onDelete={onDelete} />
+      {showModal && (
+        <DeleteModal hide={modalDisplay} id={id} onDelete={onDelete} />
+      )}
 
       <a onClick={modalDisplay} href="#">
         <svg version="1.1" id="delete-btn" viewBox="0 0 59 59">
