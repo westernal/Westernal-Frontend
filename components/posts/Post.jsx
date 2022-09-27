@@ -8,6 +8,7 @@ import ReactPlayer from "react-player";
 import SpotifyPlayer from "react-spotify-player";
 import PostError from "./error/PostError";
 import PostIcons from "./icons/PostIcons.";
+import jwtDecode from "jwt-decode";
 
 const Post = ({
   details,
@@ -19,6 +20,7 @@ const Post = ({
   const [user, SetUser] = useState(creator);
   const [isSpotify, SetIsSpotify] = useState(false);
   const [error, SetError] = useState(false);
+  const [canDelete, SetCanDelete] = useState(deletable);
 
   useEffect(() => {
     if (details.songUrl) {
@@ -39,6 +41,12 @@ const Post = ({
 
       if (result.status == 200) {
         SetUser(result.data.user);
+      }
+
+      if (
+        result.data.user._id === jwtDecode(localStorage.getItem("token")).userId
+      ) {
+        SetCanDelete(true);
       }
     }
 
@@ -120,7 +128,7 @@ const Post = ({
             <PostIcons
               details={details}
               onDelete={onDelete}
-              deletable={deletable}
+              deletable={canDelete}
             />
           )}
           <p id="date">{dateFormat(details.date, "mmm d yyyy, HH:MM")}</p>
