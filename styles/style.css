@@ -666,10 +666,11 @@ canvas {
 #confirm-delete {
   background-color: #ff3636;
   color: white;
+  width: 200px;
 }
 
 #confirm-delete:hover {
-  background-color: #ff3636;
+  background-color: red;
 }
 
 #cancel-delete {
