@@ -17,25 +17,25 @@ export default function Index() {
     SetRefresh(!refresh);
   };
 
+  async function getPosts(userId) {
+    const option = {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    };
+
+    var result = await API(option, `api/posts/timeline/${userId}`);
+
+    if (result.status == 200) {
+      SetPosts(result.data.posts);
+    }
+  }
+
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       router.push("/");
       return;
-    }
-
-    async function getPosts(userId) {
-      const option = {
-        method: "GET",
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-      };
-
-      var result = await API(option, `api/posts/timeline/${userId}`);
-
-      if (result.status == 200) {
-        SetPosts(result.data.posts);
-      }
     }
 
     getPosts(jwt_decode(localStorage.getItem("token")).userId);
@@ -60,7 +60,7 @@ export default function Index() {
 
       {posts &&
         posts.map((post) => {
-          return <Post details={post} key={post._id} />;
+          return <Post details={post} key={post._id} onDelete={getPosts} />;
         })}
 
       <div className="mb-100"></div>

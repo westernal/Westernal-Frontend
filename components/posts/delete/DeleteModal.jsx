@@ -35,7 +35,7 @@ const DeleteModal = ({ id, hide, onDelete }) => {
       toast.success("Post deleted!");
       var token = localStorage.getItem("token");
       const jwt = jwt_decode(token);
-      onDelete(jwt);
+      onDelete(jwt.userId);
     }
   }
 
