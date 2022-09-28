@@ -139,12 +139,13 @@ textarea:focus {
 }
 
 ::-webkit-scrollbar-track {
-  box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-left: 1px solid #ededed;
 }
 
 ::-webkit-scrollbar-thumb {
   background: #9d38fc;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
