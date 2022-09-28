@@ -1245,6 +1245,6 @@ iframe,
   .notif-list,
   .cm-list,
   .setting .auth-form {
-    margin-top: 70px;
+    margin-top: 70px !important;
   }
 }
