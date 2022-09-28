@@ -4,7 +4,7 @@ import Head from "next/head";
 
 const Error = () => {
   return (
-    <div className="404">
+    <div className="error-page">
       <Head>
         <title>No internet - Westernal</title>
       </Head>

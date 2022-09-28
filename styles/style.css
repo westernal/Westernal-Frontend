@@ -55,7 +55,8 @@ a {
 .notif-list,
 .cm-list,
 .setting .auth-form,
-.add-post .auth-form {
+.add-post .auth-form,
+.error-page .auth-form {
   margin-top: 100px !important;
 }
 
