@@ -22,7 +22,7 @@ const UserLoader = () => {
       backgroundColor={bgColor}
       foregroundColor="#ecebeb"
     >
-      <rect x="20" y="15" rx="5" ry="5" width="300" height="10" />
+      <rect x="10" y="15" rx="5" ry="5" width="290" height="10" />
     </ContentLoader>
   );
 };
