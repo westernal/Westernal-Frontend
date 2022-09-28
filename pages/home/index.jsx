@@ -47,21 +47,23 @@ export default function Index() {
         <title>Westernal: Let the songs talk</title>
       </Head>
 
-      {!posts &&
-        [1, 2, 3].map((elem, index) => {
-          return (
-            <div className="flex" key={index}>
-              <div className="post">
-                <ContentLoader />
+      <div className="post-list">
+        {!posts &&
+          [1, 2, 3].map((elem, index) => {
+            return (
+              <div className="flex" key={index}>
+                <div className="post">
+                  <ContentLoader />
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
 
-      {posts &&
-        posts.map((post) => {
-          return <Post details={post} key={post._id} onDelete={getPosts} />;
-        })}
+        {posts &&
+          posts.map((post) => {
+            return <Post details={post} key={post._id} onDelete={getPosts} />;
+          })}
+      </div>
 
       <div className="mb-100"></div>
 

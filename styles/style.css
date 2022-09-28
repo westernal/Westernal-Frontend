@@ -43,7 +43,19 @@ a {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
+  top: 0;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.home .header,
+.profile .header {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+.home .post-list {
+  margin-top: 90px;
 }
 
 .header a,
@@ -324,7 +336,7 @@ a {
 
 .profile-info {
   text-align: center;
-  margin: 50px 10%;
+  margin: 100px 10% 20px 10%;
   border-bottom: 1px solid #ededed;
 }
 
