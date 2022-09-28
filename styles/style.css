@@ -54,7 +54,8 @@ a {
 .user-list,
 .notif-list,
 .cm-list,
-.setting .auth-form {
+.setting .auth-form,
+.add-post .auth-form {
   margin-top: 100px !important;
 }
 
@@ -1157,12 +1158,12 @@ iframe,
   .auth-form .flex input,
   .form-inputs textarea {
     width: 80vw;
+    padding: 5px 10px;
     -webkit-appearance: none;
   }
 
   .search-bar input {
     width: 80vw;
-    padding: 5px 10px;
   }
 
   .password-options {
@@ -1241,10 +1242,12 @@ iframe,
   }
 
   .home .post-list,
-  .user-list,
-  .notif-list,
-  .cm-list,
-  .setting .auth-form {
+  .notif-list {
     margin-top: 70px !important;
+  }
+
+  .user-list,
+  .cm-list {
+    margin-top: 90px !important;
   }
 }

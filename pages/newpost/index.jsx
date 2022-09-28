@@ -107,7 +107,7 @@ const NewPost = () => {
       </Head>
       <BackHeader title="New Post" />
       <SearchSong hide={closeModal} chooseSong={chooseSong} />
-      <div className="flex">
+      <div className="flex add-post">
         <div className="auth-form">
           <p id="login-logo">W</p>
           {loader && (
