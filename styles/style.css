@@ -1237,4 +1237,11 @@ iframe,
   .header {
     padding: 10px 20px;
   }
+
+  .home .post-list,
+  .user-list,
+  .notif-list,
+  .cm-list {
+    margin-top: 70px;
+  }
 }
