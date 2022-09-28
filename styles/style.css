@@ -37,9 +37,12 @@ a {
 }
 
 .header {
-  padding: 20px;
+  padding: 10px 20px;
   background-color: #9d38fc;
   display: flex;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
@@ -47,15 +50,15 @@ a {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-.home .header,
-.profile .header {
-  position: fixed;
-  width: 100%;
-  z-index: 1;
+.home .post-list,
+.user-list,
+.notif-list,
+.cm-list {
+  margin-top: 80px;
 }
 
-.home .post-list {
-  margin-top: 90px;
+.back-header h1 {
+  margin: 10px 0;
 }
 
 .header a,
@@ -80,6 +83,10 @@ a {
   z-index: 100;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   background-color: white;
+}
+
+.footer a {
+  height: 25px;
 }
 
 .footer img {
@@ -121,10 +128,6 @@ a {
 #search-input {
   width: 100%;
   margin: 0 15px;
-}
-
-.search .user-list {
-  margin-top: 90px;
 }
 
 .song-search {

@@ -46,33 +46,35 @@ const Notifications = () => {
         <p>Notifications</p>
       </div>
 
-      {!notifs &&
-        [1, 2, 3, 4, 5, 6, 7].map((elem, index) => {
-          return (
-            <div className="profile-notif flex" key={index}>
-              <NotifLoader />
-            </div>
-          );
-        })}
+      <div className="notif-list">
+        {!notifs &&
+          [1, 2, 3, 4, 5, 6, 7].map((elem, index) => {
+            return (
+              <div className="profile-notif flex" key={index}>
+                <NotifLoader />
+              </div>
+            );
+          })}
 
-      {notifs &&
-        notifs.map((notif) => (
-          <div className="profile-notif flex" key={notif._id}>
-            <div className="notif-main">
-              {notif.user && (
-                <p>
-                  <Link href={`/${notif.user.username}`}>
-                    <a>
-                      <span id="cm-user">{"@" + notif.user.username} </span>
-                    </a>
-                  </Link>
-                  <span>{notif.message}</span>
-                </p>
-              )}
+        {notifs &&
+          notifs.map((notif) => (
+            <div className="profile-notif flex" key={notif._id}>
+              <div className="notif-main">
+                {notif.user && (
+                  <p>
+                    <Link href={`/${notif.user.username}`}>
+                      <a>
+                        <span id="cm-user">{"@" + notif.user.username} </span>
+                      </a>
+                    </Link>
+                    <span>{notif.message}</span>
+                  </p>
+                )}
+              </div>
+              <p id="date">{dateFormat(notif.date, "mmm d yyyy, HH:MM")}</p>
             </div>
-            <p id="date">{dateFormat(notif.date, "mmm d yyyy, HH:MM")}</p>
-          </div>
-        ))}
+          ))}
+      </div>
 
       <div className="mb-100"></div>
 
