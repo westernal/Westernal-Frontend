@@ -87,6 +87,10 @@ a {
 
 .search-bar {
   background-color: #9d38fc;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  width: 100%;
   padding: 10px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
@@ -105,6 +109,10 @@ a {
 #search-input {
   width: 100%;
   margin: 0 15px;
+}
+
+.search .user-list {
+  margin-top: 90px;
 }
 
 .song-search {
