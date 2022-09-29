@@ -986,7 +986,7 @@ iframe,
   }
 
   .modal-content {
-    background-color: #101015;
+    background-color: #252525;
   }
 
   #logout {
@@ -998,21 +998,21 @@ iframe,
 
   #logout:hover {
     color: #ff3636;
-    background-color: #101015;
+    background-color: #252525;
   }
 
   .contact-btn {
-    background-color: #101015;
+    background-color: #252525;
     color: #9d38fc;
     box-shadow: none;
   }
 
   .contact-btn:hover {
-    background-color: #101015;
+    background-color: #252525;
   }
 
   .modal-main {
-    background-color: #101015;
+    background-color: #252525;
     box-shadow: none;
   }
 
@@ -1024,21 +1024,25 @@ iframe,
     color: white;
   }
 
+  .search-results .profile-notif:hover {
+    background-color: #101015;
+  }
+
   #like-count {
     color: white;
   }
 
   .modal {
-    background-color: #101015;
+    background-color: #252525;
   }
 
   .profile-info {
-    border-bottom: 1px solid #101015;
+    border-bottom: 1px solid #252525;
   }
 
   ::-webkit-scrollbar-track {
     box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
-    border-left: 1px solid #101015;
+    border-left: 1px solid #252525;
   }
 
   .footer {
@@ -1120,10 +1124,6 @@ iframe,
     flex-direction: row;
     align-items: center;
     gap: 10px;
-  }
-
-  .search-modal .profile-notif:hover {
-    background-color: #5f5d5d;
   }
 
   .comment-buttons {
