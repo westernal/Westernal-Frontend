@@ -324,7 +324,7 @@ hr {
 }
 
 a {
-  color: black;
+  color: #101015;
 }
 
 .login a,
@@ -672,7 +672,7 @@ canvas {
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: #101015;
   text-decoration: none;
   cursor: pointer;
 }
@@ -881,7 +881,7 @@ h1 {
 .post-error {
   width: 100%;
   height: 300px;
-  background-color: black;
+  background-color: #101015;
   flex-direction: column;
   color: white;
   text-align: center;
@@ -892,7 +892,7 @@ h1 {
 .error-icon {
   font-size: 35px;
   background-color: white;
-  color: black;
+  color: #101015;
   text-align: center;
   width: 50px;
   height: 50px;
@@ -955,12 +955,12 @@ iframe,
 
 @media screen and (prefers-color-scheme: dark) {
   body {
-    background-color: black;
+    background-color: #101015;
     color: white;
   }
 
   .file-input::-webkit-file-upload-button:hover {
-    background-color: black;
+    background-color: #101015;
     color: #9d38fc;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
@@ -980,13 +980,13 @@ iframe,
   }
 
   .btn:hover {
-    background-color: black;
+    background-color: #101015;
     color: #9d38fc;
     box-shadow: none;
   }
 
   .modal-content {
-    background-color: black;
+    background-color: #101015;
   }
 
   #logout {
@@ -1008,11 +1008,11 @@ iframe,
   }
 
   .contact-btn:hover {
-    background-color: black;
+    background-color: #101015;
   }
 
   .modal-main {
-    background-color: black;
+    background-color: #101015;
     box-shadow: none;
   }
 
@@ -1029,7 +1029,7 @@ iframe,
   }
 
   .modal {
-    background-color: black;
+    background-color: #101015;
   }
 
   .profile-info {
@@ -1042,9 +1042,10 @@ iframe,
   }
 
   .footer {
-    background-color: black;
+    background-color: #101015;
     box-shadow: none;
-    border: 1px solid #101015;
+    border: 1px solid #252525;
+
     border-bottom: unset;
   }
 
@@ -1053,7 +1054,8 @@ iframe,
   .profile-notif,
   .auth-form,
   .modal-text {
-    background-color: #101015;
+    background-color: #252525;
+
     box-shadow: none;
   }
 
