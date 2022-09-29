@@ -136,6 +136,7 @@ textarea:focus {
 
 ::-webkit-scrollbar {
   width: 10px;
+  transition: 0.3s;
 }
 
 ::-webkit-scrollbar-track {
@@ -1067,8 +1068,15 @@ iframe,
   .auth-form,
   .modal-text {
     background-color: #252525;
-
     box-shadow: none;
+  }
+
+  .search-modal {
+    background-color: #101015;
+  }
+
+  .search-modal input {
+    background-color: #252525;
   }
 
   .post-info svg path,
