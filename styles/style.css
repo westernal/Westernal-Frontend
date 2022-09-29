@@ -140,16 +140,16 @@ textarea:focus {
 
 ::-webkit-scrollbar-track {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  border-left: 1px solid #ededed;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #9d38fc;
+  background: #dedbdb;
   border-radius: 10px;
+  transition: 0.2s;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  opacity: 0.7;
+  background-color: #ededed;
 }
 
 .notification .header p,
@@ -1005,10 +1005,11 @@ iframe,
     background-color: #252525;
     color: #9d38fc;
     box-shadow: none;
+    border: 1px solid #252525;
   }
 
   .contact-btn:hover {
-    background-color: #252525;
+    background-color: #101015;
   }
 
   .modal-main {
@@ -1042,7 +1043,14 @@ iframe,
 
   ::-webkit-scrollbar-track {
     box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
-    border-left: 1px solid #252525;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #252525;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: black;
   }
 
   .footer {
@@ -1161,7 +1169,6 @@ iframe,
   .auth-form .flex input,
   .form-inputs textarea {
     width: 80vw;
-    padding: 5px 10px;
     -webkit-appearance: none;
   }
 
