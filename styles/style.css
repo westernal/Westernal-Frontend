@@ -8,6 +8,7 @@
 body {
   font-family: "Poppins", sans-serif;
   overflow-x: hidden;
+  overflow: overlay;
   margin: 0;
 }
 
@@ -135,22 +136,24 @@ textarea:focus {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 6px;
   transition: 0.3s;
+  background-color: transparent;
 }
 
 ::-webkit-scrollbar-track {
+  background-color: transparent;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #dedbdb;
+  background: gray;
   border-radius: 10px;
   transition: 0.2s;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #ededed;
+  background-color: #5f5d5d;
 }
 
 .notification .header p,
