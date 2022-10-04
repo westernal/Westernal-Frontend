@@ -669,14 +669,15 @@ canvas {
 }
 
 .close {
-  color: #aaa;
+  color: #5f5d5d;
+  transition: 0.3s;
   font-size: 28px;
   font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-  color: #101015;
+  color: black;
   text-decoration: none;
   cursor: pointer;
 }
