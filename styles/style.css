@@ -137,19 +137,11 @@ textarea:focus {
 
 ::-webkit-scrollbar {
   width: 6px;
-  transition: 0.3s;
-  background-color: transparent;
-}
-
-::-webkit-scrollbar-track {
-  background-color: transparent;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 ::-webkit-scrollbar-thumb {
   background: gray;
   border-radius: 10px;
-  transition: 0.2s;
 }
 
 ::-webkit-scrollbar-thumb:hover {
