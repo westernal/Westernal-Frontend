@@ -121,7 +121,7 @@ const NewPost = () => {
             <div className="form-inputs" autoComplete="off">
               <Icons />
               <div className="song-url flex">
-                <input type="url" id="song" placeholder="Song's URL" />
+                <input type="text" id="song" placeholder="Song's URL" />
                 OR
                 <button className="search-btn" onClick={openModal}>
                   <Image

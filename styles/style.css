@@ -462,7 +462,6 @@ a {
 input,
 textarea {
   font-size: 16px;
-  -webkit-appearance: none;
 }
 
 #avatar {
@@ -1177,7 +1176,6 @@ iframe,
   .auth-form .flex input,
   .form-inputs textarea {
     width: 80vw;
-    -webkit-appearance: none;
   }
 
   .search-bar input {
