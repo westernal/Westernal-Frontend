@@ -42,7 +42,7 @@ const SearchArtists = ({ token, chooseSong, hide }) => {
       setArtists(data.artists.items);
       SetLoader(false);
     } else {
-      toast.error(data.message);
+      toast.error("Server error, please reload the page");
       SetLoader(false);
     }
   };
