@@ -102,7 +102,7 @@ const SignUp = () => {
               autoComplete="off"
             />
             <input
-              type="email"
+              type="text"
               placeholder="Email"
               id="email"
               autoComplete="off"
