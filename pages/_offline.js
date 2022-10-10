@@ -1,17 +1,6 @@
-import Footer from "../components/layout/Footer";
 import Head from "next/head";
-import Image from "next/image";
-import { useEffect, useState } from "react";
 
 const Error = () => {
-  const [isLoggedIn, SetIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    if (localStorage.getItem("token")) {
-      SetIsLoggedIn(true);
-    }
-  }, []);
-
   const checkNetwork = (e) => {
     e.preventDefault();
     location.reload();
@@ -25,7 +14,7 @@ const Error = () => {
 
       <div className="flex">
         <div className="auth-form">
-          <Image src={"/Images/logo.png"} width={90} height={90} alt="logo" />
+          <p id="login-logo">W</p>
           <h1>Network Error</h1>
           <p>Please check your internet connection!</p>
           <button className="contact-btn" onClick={checkNetwork}>
@@ -33,8 +22,6 @@ const Error = () => {
           </button>
         </div>
       </div>
-
-      {isLoggedIn && <Footer />}
     </div>
   );
 };
