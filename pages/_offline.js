@@ -1,8 +1,12 @@
 import Footer from "../components/layout/Footer";
-import Link from "next/link";
 import Head from "next/head";
 
 const Error = () => {
+  const checkNetwork = (e) => {
+    e.preventDefault();
+    location.reload();
+  };
+
   return (
     <div className="error-page">
       <Head>
@@ -13,11 +17,9 @@ const Error = () => {
         <div className="auth-form">
           <h1>Network Error</h1>
           <p>Please check your internet connection!</p>
-          <Link href="/">
-            <a>
-              <button className="contact-btn">Check again</button>
-            </a>
-          </Link>
+          <a href="#" onClick={checkNetwork}>
+            <button className="contact-btn">Check again</button>
+          </a>
         </div>
       </div>
 
