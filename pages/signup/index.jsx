@@ -61,6 +61,12 @@ const SignUp = () => {
       return;
     }
 
+    if (!email.value.includes("@")) {
+      toast.error("Enter a valid Email!");
+      SetLoader(false);
+      return;
+    }
+
     if (password.value.length < 6) {
       toast.error("Password must be more than 6 characters!");
       SetLoader(false);
