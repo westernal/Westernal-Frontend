@@ -17,9 +17,9 @@ const Error = () => {
         <div className="auth-form">
           <h1>Network Error</h1>
           <p>Please check your internet connection!</p>
-          <a href="#" onClick={checkNetwork}>
-            <button className="contact-btn">Check again</button>
-          </a>
+          <button className="contact-btn" onClick={checkNetwork}>
+            Check again
+          </button>
         </div>
       </div>
 
