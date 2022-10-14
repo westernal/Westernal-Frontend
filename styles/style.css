@@ -952,6 +952,7 @@ iframe,
 
 .error-page .contact-btn {
   width: unset;
+  background-color: #101015;
 }
 
 @media screen and (prefers-color-scheme: dark) {
