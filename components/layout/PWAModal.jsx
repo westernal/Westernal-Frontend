@@ -28,7 +28,12 @@ const PWAModal = () => {
       <div className="modal-content flex">
         <div className="modal-main auth-form">
           <div className="flex">
-            <Image src={"/Images/logo.png"} alt="logo" width={80} height={80} />
+            <Image
+              src={"/Images/logo.png"}
+              alt="logo"
+              width={100}
+              height={100}
+            />
           </div>
           <div className="flex">
             <h3>Download the Westernal app and enjoy!</h3>

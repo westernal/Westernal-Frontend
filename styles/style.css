@@ -421,6 +421,14 @@ a {
   opacity: 0.5;
 }
 
+.share-info {
+  padding: 30px;
+}
+
+.share-info .grid {
+  justify-content: flex-start;
+}
+
 .profile-notif,
 .comment {
   border-radius: 10px;
