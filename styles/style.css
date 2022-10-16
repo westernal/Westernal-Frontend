@@ -421,10 +421,6 @@ a {
   opacity: 0.5;
 }
 
-.search .profile-notif {
-  padding: 20px;
-}
-
 .profile-notif,
 .comment {
   border-radius: 10px;
