@@ -950,15 +950,20 @@ iframe,
   padding: 10px !important;
 }
 
-.error-page .contact-btn {
-  width: unset;
-  background-color: #101015;
-}
-
 @media screen and (prefers-color-scheme: dark) {
   body {
     background-color: #101015;
     color: white;
+  }
+
+  .error-page .contact-btn {
+    width: unset;
+    background-color: #101015;
+  }
+
+  .error-page .contact-btn:hover {
+    background-color: #252525;
+    border: 1px solid black;
   }
 
   .file-input::-webkit-file-upload-button:hover {
