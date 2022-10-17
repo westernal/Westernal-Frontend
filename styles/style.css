@@ -968,6 +968,10 @@ iframe,
   padding: 10px !important;
 }
 
+.save-icon {
+  fill: black;
+}
+
 @media screen and (prefers-color-scheme: dark) {
   body {
     background-color: #101015;
@@ -982,10 +986,6 @@ iframe,
   .error-page .contact-btn:hover {
     background-color: #252525;
     border: 1px solid black;
-  }
-
-  .save-icon {
-    fill: white;
   }
 
   .file-input::-webkit-file-upload-button:hover {
