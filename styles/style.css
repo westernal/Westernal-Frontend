@@ -199,7 +199,8 @@ textarea:focus {
 
 #like-count,
 #like-btn,
-#delete-btn {
+#delete-btn,
+.save-icon {
   transition: 0.2s;
 }
 
