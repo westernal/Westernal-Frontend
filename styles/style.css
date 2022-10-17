@@ -425,6 +425,10 @@ a {
   padding: 30px;
 }
 
+#delete-link {
+  height: 27px;
+}
+
 .share-info .grid {
   justify-content: flex-start;
 }

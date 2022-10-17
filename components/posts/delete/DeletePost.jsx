@@ -19,7 +19,7 @@ const DeletePost = ({ onDelete, id }) => {
         <DeleteModal hide={modalDisplay} id={id} onDelete={onDelete} />
       )}
 
-      <a onClick={modalDisplay} href="#">
+      <a onClick={modalDisplay} href="#" id="delete-link">
         <svg version="1.1" id="delete-btn" viewBox="0 0 59 59">
           <g>
             <path
