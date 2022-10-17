@@ -9,7 +9,7 @@ import SpotifyPlayer from "react-spotify-player";
 import PostError from "./error/PostError";
 import PostIcons from "./icons/PostIcons.";
 import jwtDecode from "jwt-decode";
-import SavePost from "./save/savePost";
+import SavePost from "./save/SavePost";
 
 const Post = ({
   details,

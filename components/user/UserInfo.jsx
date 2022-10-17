@@ -66,6 +66,17 @@ const UserInfo = ({ isUserSelf, user, isLoggedIn }) => {
                 />
               </a>
             </Link>
+
+            <Link href={`/${router.query.username}/saved`}>
+              <a className="flex">
+                <Image
+                  src="/Images/save.svg"
+                  alt="saved posts"
+                  width={35}
+                  height={35}
+                />
+              </a>
+            </Link>
           </div>
         )}
       </div>
