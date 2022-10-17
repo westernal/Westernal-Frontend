@@ -56,17 +56,6 @@ const UserInfo = ({ isUserSelf, user, isLoggedIn }) => {
         )}
         {isUserSelf && (
           <div className="flex">
-            <Link href={`/${router.query.username}/setting`}>
-              <a className="flex">
-                <Image
-                  src="/Images/setting.svg"
-                  alt="setting"
-                  width={40}
-                  height={40}
-                />
-              </a>
-            </Link>
-
             <Link href={`/${router.query.username}/saved`}>
               <a className="flex">
                 <Image
@@ -74,6 +63,17 @@ const UserInfo = ({ isUserSelf, user, isLoggedIn }) => {
                   alt="saved posts"
                   width={35}
                   height={35}
+                />
+              </a>
+            </Link>
+
+            <Link href={`/${router.query.username}/setting`}>
+              <a className="flex">
+                <Image
+                  src="/Images/setting.svg"
+                  alt="setting"
+                  width={40}
+                  height={40}
                 />
               </a>
             </Link>
