@@ -9,6 +9,7 @@ import SpotifyPlayer from "react-spotify-player";
 import PostError from "./error/PostError";
 import PostIcons from "./icons/PostIcons.";
 import jwtDecode from "jwt-decode";
+import SavePost from "./save/savePost";
 
 const Post = ({
   details,
@@ -64,36 +65,41 @@ const Post = ({
   return (
     <div className="flex ">
       <div className="post ">
-        <Link href={`/${user && user.username}`}>
-          <a>
-            {user && (
-              <div className="post-user flex">
-                <Image
-                  src={
-                    !user.image.includes("userIcon")
-                      ? host + user.image
-                      : "/Images/user.svg"
-                  }
-                  alt="user avatar"
-                  id="avatar"
-                  width={40}
-                  height={40}
-                />
-                <p>{user.username}</p>
-                {user.verified && (
-                  <div className="verify">
-                    <Image
-                      src="/Images/verified (2).png"
-                      alt="verify"
-                      width={20}
-                      height={20}
-                    />
-                  </div>
-                )}
-              </div>
-            )}
-          </a>
-        </Link>
+        <div className="post-header flex">
+          <Link href={`/${user && user.username}`}>
+            <a>
+              {user && (
+                <div className="post-user flex">
+                  <Image
+                    src={
+                      !user.image.includes("userIcon")
+                        ? host + user.image
+                        : "/Images/user.svg"
+                    }
+                    alt="user avatar"
+                    id="avatar"
+                    width={40}
+                    height={40}
+                  />
+                  <p>{user.username}</p>
+                  {user.verified && (
+                    <div className="verify">
+                      <Image
+                        src="/Images/verified (2).png"
+                        alt="verify"
+                        width={20}
+                        height={20}
+                      />
+                    </div>
+                  )}
+                </div>
+              )}
+            </a>
+          </Link>
+          <div className="post-icons">
+            <SavePost id={details._id} />
+          </div>
+        </div>
 
         <div className="flex">
           <div className="post-image flex">

@@ -390,8 +390,7 @@ a {
 
 #post-title,
 #post-description,
-.post-info,
-.post-user {
+.post-info {
   margin-right: 10px;
   margin-left: 10px;
 }
@@ -425,7 +424,8 @@ a {
   padding: 30px;
 }
 
-#delete-link {
+#delete-link,
+.post-header .post-icons {
   height: 27px;
 }
 
@@ -617,6 +617,10 @@ canvas {
 
 .liked {
   fill: #ff3636 !important;
+}
+
+.saved {
+  fill: gold !important;
 }
 
 #user-bio {
@@ -938,6 +942,11 @@ iframe,
   background-color: white;
 }
 
+.post-header {
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
 .search-type {
   margin-bottom: 10px;
   margin-top: -25px !important;
@@ -962,6 +971,10 @@ iframe,
   body {
     background-color: #101015;
     color: white;
+  }
+
+  #save-icon {
+    fill: white;
   }
 
   .error-page .contact-btn {
