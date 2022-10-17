@@ -3,25 +3,42 @@ import jwtDecode from "jwt-decode";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
 
-const SavePost = ({ id, savedPosts }) => {
+const SavePost = ({ id }) => {
+  let userId;
+
   useEffect(() => {
-    if (savedPosts.includes(id)) {
-      document.getElementsByClassName(id)[0].classList.add("saved");
+    var token = localStorage.getItem("token");
+    userId = jwtDecode(token).userId;
+
+    checkUser();
+  }, []);
+
+  const checkUser = async () => {
+    const option = {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+      },
+    };
+
+    var result = await API(option, `api/users/${userId}`);
+
+    if (result.status == 200) {
+      if (result.data.user.saved_posts.includes(id)) {
+        document.getElementsByClassName(id)[0].classList.add("saved");
+      }
     }
-  }, [savedPosts]);
+  };
 
   const checkSavePost = (e) => {
     e.preventDefault();
 
-    var token = localStorage.getItem("token");
-    const userID = jwtDecode(token).userId;
-
     if (!document.getElementsByClassName(id)[0].classList.contains("saved")) {
-      save(userID);
-    } else unsave(userID);
+      save();
+    } else unsave();
   };
 
-  const save = async (userID) => {
+  const save = async () => {
     const option = {
       method: "POST",
       headers: {
@@ -29,7 +46,7 @@ const SavePost = ({ id, savedPosts }) => {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
       body: JSON.stringify({
-        userId: userID,
+        userId: userId,
       }),
       redirect: "follow",
     };
@@ -42,7 +59,7 @@ const SavePost = ({ id, savedPosts }) => {
     }
   };
 
-  const unsave = async (userID) => {
+  const unsave = async () => {
     const option = {
       method: "POST",
       headers: {
@@ -50,7 +67,7 @@ const SavePost = ({ id, savedPosts }) => {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
       body: JSON.stringify({
-        userId: userID,
+        userId: userId,
       }),
       redirect: "follow",
     };

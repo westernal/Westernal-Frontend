@@ -96,7 +96,7 @@ const Post = ({
               </a>
             </Link>
             <div className="post-icons">
-              <SavePost id={details._id} savedPosts={user.saved_posts} />
+              <SavePost id={details._id} />
             </div>
           </div>
         )}
