@@ -988,6 +988,10 @@ iframe,
     border: 1px solid black;
   }
 
+  .save-icon {
+    fill: white;
+  }
+
   .file-input::-webkit-file-upload-button:hover {
     background-color: #101015;
     color: #9d38fc;
