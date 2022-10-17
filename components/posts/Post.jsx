@@ -65,10 +65,10 @@ const Post = ({
   return (
     <div className="flex ">
       <div className="post ">
-        <div className="post-header flex">
-          <Link href={`/${user && user.username}`}>
-            <a>
-              {user && (
+        {user && (
+          <div className="post-header flex">
+            <Link href={`/${user && user.username}`}>
+              <a>
                 <div className="post-user flex">
                   <Image
                     src={
@@ -93,13 +93,13 @@ const Post = ({
                     </div>
                   )}
                 </div>
-              )}
-            </a>
-          </Link>
-          <div className="post-icons">
-            <SavePost id={details._id} />
+              </a>
+            </Link>
+            <div className="post-icons">
+              <SavePost id={details._id} savedPosts={user.saved_posts} />
+            </div>
           </div>
-        </div>
+        )}
 
         <div className="flex">
           <div className="post-image flex">

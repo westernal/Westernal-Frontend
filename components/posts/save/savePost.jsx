@@ -1,7 +1,15 @@
 import API from "../../../requests/API";
 import jwtDecode from "jwt-decode";
+import { useEffect } from "react";
+import { toast } from "react-toastify";
 
-const savePost = ({ id }) => {
+const savePost = ({ id, savedPosts }) => {
+  useEffect(() => {
+    if (savedPosts.includes(id)) {
+      document.getElementsByClassName(id)[0].classList.add("saved");
+    }
+  }, [savedPosts]);
+
   const checkSavePost = (e) => {
     e.preventDefault();
 
@@ -30,6 +38,7 @@ const savePost = ({ id }) => {
 
     if (result.status == 200) {
       document.getElementsByClassName(id)[0].classList.add("saved");
+      toast.success("Post saved!");
     }
   };
 
@@ -51,6 +60,7 @@ const savePost = ({ id }) => {
 
     if (result.status == 200) {
       document.getElementsByClassName(id)[0].classList.remove("saved");
+      toast.success("Post unsaved!");
     }
   };
 
