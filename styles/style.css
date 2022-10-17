@@ -972,6 +972,10 @@ iframe,
   fill: black;
 }
 
+.save-svg:hover .save-icon {
+  fill: gold;
+}
+
 @media screen and (prefers-color-scheme: dark) {
   body {
     background-color: #101015;
