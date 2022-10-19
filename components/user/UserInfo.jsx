@@ -61,8 +61,8 @@ const UserInfo = ({ isUserSelf, user, isLoggedIn }) => {
                 <Image
                   src="/Images/save.svg"
                   alt="saved posts"
-                  width={35}
-                  height={35}
+                  width={30}
+                  height={30}
                 />
               </a>
             </Link>
