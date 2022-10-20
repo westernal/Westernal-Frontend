@@ -86,7 +86,7 @@ const NewPost = () => {
     const description = document.getElementById("description");
 
     if (song.value === "") {
-      toast.error("song's URL must be included!");
+      toast.error("Song's URL must be included!");
       SetLoader(false);
       return;
     }
