@@ -204,6 +204,10 @@ textarea:focus {
   transition: 0.2s;
 }
 
+.Toastify__toast {
+  background: #9d38fc !important;
+}
+
 @keyframes pulse {
   0% {
     box-shadow: #9d38fc 0 0 0 0;
