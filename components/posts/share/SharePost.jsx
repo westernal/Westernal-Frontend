@@ -1,9 +1,12 @@
 import { toast } from "react-toastify";
 
 const SharePost = (id) => {
-  const copyLink = () => {
+  const copyLink = (e) => {
+    e.preventDefault();
+
     let Link = `https://www.westernal.net/post/${id.id}`;
     navigator.clipboard.writeText(Link);
+
     toast.success("Link copied!");
   };
 
