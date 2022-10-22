@@ -32,7 +32,7 @@ const Post = () => {
       <BackHeader title={"Post"} />
       <Post
         details={post}
-        key={post._id}
+        key={post.id}
         onDelete={() => {
           router.push("/");
         }}

@@ -10,6 +10,7 @@ import PostError from "./error/PostError";
 import PostIcons from "./icons/PostIcons.";
 import jwtDecode from "jwt-decode";
 import SavePost from "./save/SavePost";
+import SharePost from "./share/SharePost";
 
 const Post = ({
   details,
@@ -95,7 +96,8 @@ const Post = ({
                 </div>
               </a>
             </Link>
-            <div className="post-icons">
+            <div className="post-icons flex">
+              <SharePost id={details._id} />
               <SavePost id={details._id} />
             </div>
           </div>
