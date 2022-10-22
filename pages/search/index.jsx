@@ -6,7 +6,7 @@ import Head from "next/head";
 
 const Search = () => {
   const [users, SetUsers] = useState();
-  const [isTyped, SetIstyped] = useState(false);
+  const [isTyped, SetIsTyped] = useState(false);
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {
@@ -17,7 +17,7 @@ const Search = () => {
 
   async function searchUsers(e) {
     const searchInput = e.target.value.toLowerCase();
-    SetIstyped(true);
+    SetIsTyped(true);
     const option = {
       method: "GET",
       headers: { "Content-Type": "application/json" },
@@ -29,7 +29,7 @@ const Search = () => {
       SetUsers(result.data.users);
     }
     if (searchInput === "") {
-      SetIstyped(false);
+      SetIsTyped(false);
     }
   }
   return (
