@@ -2,10 +2,10 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { useEffect } from "react";
 import Footer from "../../components/layout/Footer";
-import BackHeader from "../../components/layout/header/BackHeader";
 import API from "../../requests/API";
 import Head from "next/head";
 import Post from "../../components/posts/Post";
+import BackHeader from "../../components/layout/header/BackHeader";
 
 const PostPage = () => {
   const router = useRouter();
@@ -26,13 +26,11 @@ const PostPage = () => {
       };
 
       var result = await API(option, `api/posts/${router.query.id}`);
-      console.log(result);
 
       if (result.status == 200) {
         SetPost(result.data.post);
       }
     };
-    console.log(router.query);
 
     if (router.query.id) {
       getPost();
@@ -40,22 +38,27 @@ const PostPage = () => {
   }, [router.query]);
 
   return (
-    <div className="post-page">
+    <div className="post-page home">
       <Head>
         <title>Westernal - Post</title>
       </Head>
-      <BackHeader title={"Post"} />
-      {post && (
-        <Post
-          details={post}
-          key={post._id}
-          onDelete={() => {
-            router.push("/");
-          }}
-          isLoggedIn={isLoggedIn}
-        />
-      )}
-      <Footer />
+
+      <BackHeader title={"Post"} returnHome={true} />
+
+      <div className="post-list">
+        {post && (
+          <Post
+            details={post}
+            key={post._id}
+            onDelete={() => {
+              router.push("/");
+            }}
+            isLoggedIn={isLoggedIn}
+          />
+        )}
+      </div>
+      <div className="mb-100"></div>
+      {isLoggedIn && <Footer />}
     </div>
   );
 };

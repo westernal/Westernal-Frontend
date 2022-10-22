@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import Image from "next/image";
 
-const BackHeader = ({ title }) => {
+const BackHeader = ({ title, returnHome = false }) => {
   const router = useRouter();
   return (
     <div className="header back-header">
@@ -11,7 +11,9 @@ const BackHeader = ({ title }) => {
         aria-label="add"
         onClick={(e) => {
           e.preventDefault();
-          router.back();
+          if (!returnHome) {
+            router.back();
+          } else router.push("/");
         }}
       >
         <Image
