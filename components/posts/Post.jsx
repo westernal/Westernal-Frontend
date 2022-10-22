@@ -45,10 +45,13 @@ const Post = ({
         SetUser(result.data.user);
       }
 
-      if (
-        result.data.user._id === jwtDecode(localStorage.getItem("token")).userId
-      ) {
-        SetCanDelete(true);
+      if (isLoggedIn) {
+        if (
+          result.data.user._id ===
+          jwtDecode(localStorage.getItem("token")).userId
+        ) {
+          SetCanDelete(true);
+        }
       }
     }
 
@@ -98,7 +101,7 @@ const Post = ({
             </Link>
             <div className="post-icons flex">
               <SharePost id={details._id} />
-              <SavePost id={details._id} />
+              {isLoggedIn && <SavePost id={details._id} />}
             </div>
           </div>
         )}
