@@ -5,8 +5,9 @@ import Footer from "../../components/layout/Footer";
 import BackHeader from "../../components/layout/header/BackHeader";
 import API from "../../requests/API";
 import Head from "next/head";
+import Post from "../../components/posts/Post";
 
-const Post = () => {
+const PostPage = () => {
   const router = useRouter();
   const [post, SetPost] = useState();
   const [isLoggedIn, SetIsLoggedIn] = useState(false);
@@ -59,4 +60,4 @@ const Post = () => {
   );
 };
 
-export default Post;
+export default PostPage;
