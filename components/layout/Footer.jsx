@@ -1,42 +1,28 @@
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import jwt_decode from "jwt-decode";
 import { useRouter } from "next/router";
-import getNewNotification from "../../requests/getNewNotifications";
 import API from "../../requests/API";
+import { io } from "socket.io-client";
+import { useEffect } from "react";
 
 const Footer = () => {
-  const router = useRouter();
+  const socket = io("https://alinavidi.ir/");
   const [notificationCount, SetNotificationCount] = useState(0);
-  const [repeat, SetRepeat] = useState(false);
+  let token;
+  const [jwt, Setjwt] = useState({ username: "" });
 
-  function sleep(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-  }
-
-  const repeatFunction = () => {
-    SetRepeat(!repeat);
-  };
+  socket.emit("get id", jwt.userId);
+  socket.on("send notification", (Count) => {
+    SetNotificationCount(Count);
+  });
 
   useEffect(() => {
-    const getCount = async () => {
-      let count = await getNewNotification();
-      SetNotificationCount(count);
-      await sleep(60000);
-      repeatFunction();
-    };
-
-    getCount();
-  }, [repeatFunction]);
-
-  function generateToken(e) {
-    e.preventDefault();
-    var token = localStorage.getItem("token");
-    const jwt = jwt_decode(token);
-    router.push(`/${jwt.username}`);
-  }
+    token = localStorage.getItem("token");
+    Setjwt(jwt_decode(token));
+  }, []);
 
   const clearNotification = async () => {
     const option = {
@@ -48,9 +34,7 @@ const Footer = () => {
 
     var result = await API(
       option,
-      `api/users/notification/clear/${
-        jwt_decode(localStorage.getItem("token")).userId
-      }`
+      `api/users/notification/clear/${jwt.userId}`
     );
 
     SetNotificationCount(0);
@@ -107,15 +91,17 @@ const Footer = () => {
         </a>
       </Link>
 
-      <a aria-label="profile" href="#" onClick={generateToken}>
-        <Image
-          width={33}
-          height={33}
-          src="/Images/user.svg"
-          alt="profile"
-          id="user-icon"
-        />
-      </a>
+      <Link href={`/${jwt.username}`}>
+        <a aria-label="profile">
+          <Image
+            width={33}
+            height={33}
+            src="/Images/user.svg"
+            alt="profile"
+            id="user-icon"
+          />
+        </a>
+      </Link>
     </div>
   );
 };
