@@ -3,25 +3,35 @@ import Image from "next/image";
 import Head from "next/head";
 import { useState } from "react";
 import jwt_decode from "jwt-decode";
-import { useRouter } from "next/router";
 import API from "../../requests/API";
-import { io } from "socket.io-client";
 import { useEffect } from "react";
 
 const Footer = () => {
-  const socket = io("https://alinavidi.ir/");
   const [notificationCount, SetNotificationCount] = useState(0);
   let token;
   const [jwt, Setjwt] = useState({ username: "" });
 
-  socket.emit("get id", jwt.userId);
-  socket.on("send notification", (Count) => {
-    SetNotificationCount(Count);
-  });
+  const getCount = async (userId) => {
+    console.log(userId);
+    const option = {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+      },
+    };
+
+    var result = await API(option, `api/users/notification/${userId}`);
+    console.log(result);
+
+    if (result.status == 200) {
+      SetNotificationCount(result.data.notifications);
+    }
+  };
 
   useEffect(() => {
     token = localStorage.getItem("token");
     Setjwt(jwt_decode(token));
+    getCount(jwt_decode(token).userId);
   }, []);
 
   const clearNotification = async () => {
