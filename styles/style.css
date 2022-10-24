@@ -993,8 +993,7 @@ iframe,
   }
 
   .error-page .contact-btn:hover {
-    background-color: #252525;
-    border: 1px solid black;
+    background-color: #5f5d5d;
   }
 
   .save-icon {
