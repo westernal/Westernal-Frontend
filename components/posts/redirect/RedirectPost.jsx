@@ -1,10 +1,17 @@
-import Link from "next/link";
+import { useRouter } from "next/router";
 
 const RedirectPost = ({ id, hide }) => {
+  const router = useRouter();
+
+  const handleRedirect = (e) => {
+    e.preventDefault();
+    hide();
+    router.push(`/post/${id}`);
+  };
   return (
-    <Link href={`/post/${id}`}>
-      <a onClick={hide}>Go to the post</a>
-    </Link>
+    <a onClick={handleRedirect} href="#">
+      Go to the post
+    </a>
   );
 };
 
