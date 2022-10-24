@@ -4,7 +4,7 @@ const SharePost = ({ id, hide }) => {
   const copyLink = (e) => {
     e.preventDefault();
 
-    let Link = `https://www.westernal.net/post/${id.id}`;
+    let Link = `https://www.westernal.net/post/${id}`;
     navigator.clipboard.writeText(Link);
     hide();
     toast.success("Link copied!");
