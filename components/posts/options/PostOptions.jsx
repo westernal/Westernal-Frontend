@@ -3,7 +3,7 @@ import RedirectPost from "../redirect/RedirectPost";
 import SavePost from "../save/SavePost";
 import SharePost from "../share/SharePost";
 
-const PostOptions = ({ onDelete, isLoggedIn, deletable, id }) => {
+const PostOptions = ({ onDelete, isLoggedIn, deletable, id, onUnsave }) => {
   const openMenu = (e) => {
     const menu = document.getElementById(id);
     e.preventDefault();
@@ -27,7 +27,9 @@ const PostOptions = ({ onDelete, isLoggedIn, deletable, id }) => {
       </a>
       <div className="post-menu" id={id}>
         <SharePost id={id} hide={closeMenu} />
-        {isLoggedIn && <SavePost id={id} hide={closeMenu} />}
+        {isLoggedIn && (
+          <SavePost id={id} hide={closeMenu} onUnsave={onUnsave} />
+        )}
         <RedirectPost id={id} hide={closeMenu} />
         {deletable && (
           <DeletePost onDelete={onDelete} id={id} hide={closeMenu} />

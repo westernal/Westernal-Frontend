@@ -4,18 +4,17 @@ import { useEffect } from "react";
 import { toast } from "react-toastify";
 import { useState } from "react";
 
-const SavePost = ({ id, hide }) => {
-  let userId;
+const SavePost = ({ id, hide, onUnsave }) => {
   const [isSaved, SetIsSaved] = useState(false);
 
   useEffect(() => {
-    var token = localStorage.getItem("token");
-    userId = jwtDecode(token).userId;
-
     checkUser();
   }, []);
 
   const checkUser = async () => {
+    var token = localStorage.getItem("token");
+    const userId = jwtDecode(token).userId;
+
     const option = {
       method: "GET",
       headers: {
@@ -41,6 +40,9 @@ const SavePost = ({ id, hide }) => {
   };
 
   const save = async () => {
+    var token = localStorage.getItem("token");
+    const userId = jwtDecode(token).userId;
+
     const option = {
       method: "POST",
       headers: {
@@ -54,6 +56,7 @@ const SavePost = ({ id, hide }) => {
     };
 
     var result = await API(option, `api/posts/save/${id}`);
+    console.log(result);
 
     if (result.status == 200) {
       SetIsSaved(true);
@@ -66,6 +69,9 @@ const SavePost = ({ id, hide }) => {
   };
 
   const unsave = async () => {
+    var token = localStorage.getItem("token");
+    const userId = jwtDecode(token).userId;
+
     const option = {
       method: "POST",
       headers: {
@@ -79,9 +85,13 @@ const SavePost = ({ id, hide }) => {
     };
 
     var result = await API(option, `api/posts/unsave/${id}`);
+    console.log(result);
 
     if (result.status == 200) {
       SetIsSaved(false);
+      if (onUnsave) {
+        onUnsave();
+      }
       hide();
       toast.success("Post unsaved!");
     } else {

@@ -17,6 +17,7 @@ const Post = ({
   deletable = false,
   creator,
   isLoggedIn = true,
+  onUnsave,
 }) => {
   const [user, SetUser] = useState(creator);
   const [isSpotify, SetIsSpotify] = useState(false);
@@ -103,6 +104,7 @@ const Post = ({
               deletable={canDelete}
               id={details._id}
               isLoggedIn={isLoggedIn}
+              onUnsave={onUnsave}
             />
           </div>
         )}

@@ -12,6 +12,9 @@ const Saved = () => {
   const [posts, SetPosts] = useState();
 
   const getSavedPosts = async (userId) => {
+    var token = localStorage.getItem("token");
+    const userID = jwtDecode(token).userId;
+
     const option = {
       method: "GET",
       headers: {
@@ -19,7 +22,7 @@ const Saved = () => {
       },
     };
 
-    var result = await API(option, `api/users/saved-posts/${userId}`);
+    var result = await API(option, `api/users/saved-posts/${userID}`);
 
     if (result.status == 200) {
       SetPosts(result.data.posts);
@@ -32,10 +35,7 @@ const Saved = () => {
       return;
     }
 
-    var token = localStorage.getItem("token");
-    const userID = jwtDecode(token).userId;
-
-    getSavedPosts(userID);
+    getSavedPosts();
   }, []);
 
   return (
@@ -66,6 +66,7 @@ const Saved = () => {
                 deletable={true}
                 onDelete={getSavedPosts}
                 key={post._id}
+                onUnsave={getSavedPosts}
               />
             );
           })}
