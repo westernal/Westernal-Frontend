@@ -430,9 +430,12 @@ a {
   padding: 30px;
 }
 
-#delete-link,
 .post-header .post-icons {
   height: 27px;
+}
+
+#delete-link {
+  color: #ff3636;
 }
 
 .share-info .grid {
@@ -661,7 +664,6 @@ canvas {
 
 .delete-modal {
   position: fixed;
-  z-index: 1;
   left: 0;
   top: 0;
   width: 100%;
@@ -981,10 +983,52 @@ iframe,
   fill: gold;
 }
 
+#more {
+  font-size: 40px;
+  margin-top: -20px;
+}
+
+.post-options {
+  position: relative;
+}
+
+.post-menu {
+  position: absolute;
+  overflow: hidden;
+  top: 10px;
+  right: 0;
+  border-radius: 10px;
+  background-color: #ededed;
+  flex-direction: column;
+  width: 180px;
+  height: 0px;
+  display: flex;
+  transition: 0.3s;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.post-menu a {
+  padding: 10px 30px;
+  transition: 0.3s;
+  border-radius: 10px;
+}
+
+.post-menu a:hover {
+  background-color: white;
+}
+
 @media screen and (prefers-color-scheme: dark) {
   body {
     background-color: #101015;
     color: white;
+  }
+
+  .post-menu {
+    background-color: #101015;
+  }
+
+  .post-menu a:hover {
+    background-color: #252525;
   }
 
   .error-page .contact-btn {

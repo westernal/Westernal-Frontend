@@ -9,8 +9,7 @@ import SpotifyPlayer from "react-spotify-player";
 import PostError from "./error/PostError";
 import PostIcons from "./icons/PostIcons.";
 import jwtDecode from "jwt-decode";
-import SavePost from "./save/SavePost";
-import SharePost from "./share/SharePost";
+import PostOptions from "./options/PostOptions";
 
 const Post = ({
   details,
@@ -99,10 +98,12 @@ const Post = ({
                 </div>
               </a>
             </Link>
-            <div className="post-icons flex">
-              <SharePost id={details._id} />
-              {isLoggedIn && <SavePost id={details._id} />}
-            </div>
+            <PostOptions
+              onDelete={onDelete}
+              deletable={canDelete}
+              id={details._id}
+              isLoggedIn={isLoggedIn}
+            />
           </div>
         )}
 
@@ -135,13 +136,7 @@ const Post = ({
         </p>
 
         <div className="post-info flex">
-          {isLoggedIn && (
-            <PostIcons
-              details={details}
-              onDelete={onDelete}
-              deletable={canDelete}
-            />
-          )}
+          {isLoggedIn && <PostIcons details={details} />}
           <p id="date">{dateFormat(details.date, "mmm d yyyy, HH:MM")}</p>
         </div>
       </div>

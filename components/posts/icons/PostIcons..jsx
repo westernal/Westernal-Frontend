@@ -1,8 +1,7 @@
-import DeletePost from "../delete/DeletePost";
 import LikePost from "../like/LikePost";
 import Link from "next/link";
 
-const PostIcons = ({ details, deletable, onDelete }) => {
+const PostIcons = ({ details }) => {
   return (
     <div className="post-icons flex">
       <LikePost
@@ -37,7 +36,6 @@ const PostIcons = ({ details, deletable, onDelete }) => {
           <p id="like-count">{details.comments_length}</p>
         </a>
       </Link>
-      {deletable && <DeletePost onDelete={onDelete} id={details._id} />}
     </div>
   );
 };
