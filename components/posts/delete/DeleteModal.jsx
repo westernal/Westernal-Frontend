@@ -42,9 +42,9 @@ const DeleteModal = ({ id, hide, onDelete }) => {
   return (
     <div className="delete-modal" id="delete-modal">
       <div className="modal-text">
-        <a href="#" onClick={closeModal} className="close">
+        <div onClick={closeModal} className="close">
           &times;
-        </a>
+        </div>
         <p>Are you sure you want to delete your post?</p>
         <div className="flex">
           <button id="cancel-delete" onClick={closeModal}>
