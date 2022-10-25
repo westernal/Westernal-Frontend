@@ -18,33 +18,31 @@ const User = ({ users }) => {
       {users &&
         users.map((user) => (
           <div className="profile-notif flex" key={user._id}>
-            <Link href={`/${user.username}`}>
-              <a className="flex">
-                {
+            <Link href={`/${user.username}`} className="flex">
+              {
+                <Image
+                  src={
+                    !user.image.includes("userIcon")
+                      ? host + user.image
+                      : "/Images/user.svg"
+                  }
+                  width={50}
+                  height={50}
+                  style={{ borderRadius: "50%" }}
+                  alt="user avatar"
+                />
+              }
+              <span id="userId">{user.username} </span>
+              {user.verified && (
+                <div className="verify">
                   <Image
-                    src={
-                      !user.image.includes("userIcon")
-                        ? host + user.image
-                        : "/Images/user.svg"
-                    }
-                    width={50}
-                    height={50}
-                    style={{ borderRadius: "50%" }}
-                    alt="user avatar"
+                    src="/Images/verified (2).png"
+                    alt="verify"
+                    width={20}
+                    height={20}
                   />
-                }
-                <span id="userId">{user.username} </span>
-                {user.verified && (
-                  <div className="verify">
-                    <Image
-                      src="/Images/verified (2).png"
-                      alt="verify"
-                      width={20}
-                      height={20}
-                    />
-                  </div>
-                )}
-              </a>
+                </div>
+              )}
             </Link>
           </div>
         ))}

@@ -13,15 +13,13 @@ const Header = () => {
       >
         westernal
       </a>
-      <Link href={"/newpost"}>
-        <a aria-label="add" id="add-btn">
-          <Image
-            src={"/Images/add.svg"}
-            width={25}
-            height={25}
-            alt="add button"
-          />
-        </a>
+      <Link href={"/newpost"} id="add-btn">
+        <Image
+          src={"/Images/add.svg"}
+          width={25}
+          height={25}
+          alt="add button"
+        />
       </Link>
     </div>
   );

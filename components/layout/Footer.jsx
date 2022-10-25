@@ -61,56 +61,48 @@ const Footer = () => {
         />
       </Head>
       <Link href="/home">
-        <a aria-label="home">
-          <Image
-            width={28}
-            height={28}
-            src="/Images/home.png"
-            alt="home"
-            id="home-icon"
-          />
-        </a>
+        <Image
+          width={28}
+          height={28}
+          src="/Images/home.png"
+          alt="home"
+          id="home-icon"
+        />
       </Link>
 
       <Link href="/search">
-        <a aria-label="search">
-          <Image
-            width={28}
-            height={28}
-            src="/Images/search.svg"
-            alt="search"
-            id="search-icon"
-          />
-        </a>
+        <Image
+          width={28}
+          height={28}
+          src="/Images/search.svg"
+          alt="search"
+          id="search-icon"
+        />
       </Link>
 
-      <Link href="/notifications">
-        <a aria-label="notification" onClick={clearNotification}>
-          <div className="notification-icon">
-            <Image
-              width={25}
-              height={25}
-              src="/Images/notification.svg"
-              alt="notification"
-              id="notif-icon"
-            />
-            {notificationCount != 0 && (
-              <div className="new-notif flex">{notificationCount}</div>
-            )}
-          </div>
-        </a>
+      <Link href="/notifications" onClick={clearNotification}>
+        <div className="notification-icon">
+          <Image
+            width={25}
+            height={25}
+            src="/Images/notification.svg"
+            alt="notification"
+            id="notif-icon"
+          />
+          {notificationCount != 0 && (
+            <div className="new-notif flex">{notificationCount}</div>
+          )}
+        </div>
       </Link>
 
       <Link href={`/${jwt.username}`}>
-        <a aria-label="profile">
-          <Image
-            width={33}
-            height={33}
-            src="/Images/user.svg"
-            alt="profile"
-            id="user-icon"
-          />
-        </a>
+        <Image
+          width={33}
+          height={33}
+          src="/Images/user.svg"
+          alt="profile"
+          id="user-icon"
+        />
       </Link>
     </div>
   );

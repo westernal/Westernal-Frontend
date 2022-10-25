@@ -27,9 +27,7 @@ const Error = () => {
             Looks like the link you{"'"}re looking for doesn{"'"}t exist!
           </p>
           <Link href="/">
-            <a>
-              <button className="contact-btn">Go to home page</button>
-            </a>
+            <button className="contact-btn">Go to home page</button>
           </Link>
         </div>
       </div>

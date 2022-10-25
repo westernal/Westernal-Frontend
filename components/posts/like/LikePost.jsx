@@ -90,9 +90,7 @@ const LikePost = ({ id, likesCount, postLikes }) => {
         </svg>
       </a>
       <Link href={`/likes/${id}`}>
-        <a>
-          <p id="like-count">{likes}</p>
-        </a>
+        <p id="like-count">{likes}</p>
       </Link>
     </div>
   );

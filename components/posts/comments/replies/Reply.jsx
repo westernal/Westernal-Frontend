@@ -19,9 +19,7 @@ const Reply = ({ reply, onDelete }) => {
     <div className="comment reply flex" key={reply._id}>
       <p>
         <Link href={`/${reply.writer.username}`}>
-          <a>
-            <span id="cm-user">{reply.writer.username}: </span>
-          </a>
+          <span id="cm-user">{reply.writer.username}: </span>
         </Link>
         <span>{reply.message}</span>
       </p>

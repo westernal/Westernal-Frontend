@@ -110,9 +110,7 @@ const Login = () => {
                   </div>
                 </div>
                 <div className="flex forgot-password">
-                  <Link href="/forgot-password">
-                    <a>Forgot password?</a>
-                  </Link>
+                  <Link href="/forgot-password">Forgot password?</Link>
                 </div>
               </div>
             </section>
@@ -131,9 +129,7 @@ const Login = () => {
 
         <div className="flex">
           <p>Don{"'"}t have an account?</p>
-          <Link href={"/signup"}>
-            <a aria-label="signup">signup</a>
-          </Link>
+          <Link href={"/signup"}>signup</Link>
         </div>
       </div>
     </div>

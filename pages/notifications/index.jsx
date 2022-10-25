@@ -63,17 +63,13 @@ const Notifications = () => {
                 {notif.user && (
                   <p>
                     <Link href={`/${notif.user.username}`}>
-                      <a>
-                        <span id="cm-user">{"@" + notif.user.username} </span>
-                      </a>
+                      <span id="cm-user">{"@" + notif.user.username} </span>
                     </Link>
                     {notif.postId ? (
                       <Link
                         href={`https://www.westernal.net/post/${notif.postId}`}
                       >
-                        <a>
-                          <span>{notif.message}</span>
-                        </a>
+                        <span>{notif.message}</span>
                       </Link>
                     ) : (
                       <span>{notif.message}</span>

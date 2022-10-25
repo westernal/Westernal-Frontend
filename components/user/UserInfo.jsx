@@ -49,33 +49,27 @@ const UserInfo = ({ isUserSelf, user, isLoggedIn }) => {
         </div>
         {!isLoggedIn && (
           <Link href="/">
-            <a>
-              <button className="contact-btn">Login</button>
-            </a>
+            <button className="contact-btn">Login</button>
           </Link>
         )}
         {isUserSelf && (
           <div className="flex">
-            <Link href={`/${router.query.username}/saved`}>
-              <a className="flex">
-                <Image
-                  src="/Images/save.svg"
-                  alt="saved posts"
-                  width={30}
-                  height={30}
-                />
-              </a>
+            <Link href={`/${router.query.username}/saved`} className="flex">
+              <Image
+                src="/Images/save.svg"
+                alt="saved posts"
+                width={30}
+                height={30}
+              />
             </Link>
 
-            <Link href={`/${router.query.username}/setting`}>
-              <a className="flex">
-                <Image
-                  src="/Images/setting.svg"
-                  alt="setting"
-                  width={40}
-                  height={40}
-                />
-              </a>
+            <Link href={`/${router.query.username}/setting`} className="flex">
+              <Image
+                src="/Images/setting.svg"
+                alt="setting"
+                width={40}
+                height={40}
+              />
             </Link>
           </div>
         )}

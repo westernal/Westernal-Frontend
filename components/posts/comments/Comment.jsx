@@ -41,9 +41,7 @@ const Comment = ({ comment, onDelete, onReply }) => {
       <div className="comment flex" key={comment._id}>
         <p>
           <Link href={`/${comment.writer.username}`}>
-            <a>
-              <span id="cm-user">{comment.writer.username}: </span>
-            </a>
+            <span id="cm-user">{comment.writer.username}: </span>
           </Link>
           <span>{comment.message}</span>
         </p>
