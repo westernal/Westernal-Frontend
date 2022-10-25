@@ -1274,6 +1274,10 @@ iframe,
     -webkit-appearance: none;
   }
 
+  #search-input {
+    -webkit-appearance: none;
+  }
+
   .password-options {
     flex-direction: row !important;
     width: 80vw;
