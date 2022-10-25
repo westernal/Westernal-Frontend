@@ -1024,7 +1024,7 @@ iframe,
 }
 
 .pwa .modal-main {
-  margin: 50px 0;
+  margin: 20px 0;
 }
 
 .pwa .auth-form .flex {
@@ -1032,7 +1032,7 @@ iframe,
 }
 
 .pwa .auth-form {
-  padding: 0;
+  padding: 20px;
 }
 
 @media screen and (prefers-color-scheme: dark) {
