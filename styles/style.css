@@ -1216,6 +1216,10 @@ iframe,
     width: 90vw;
   }
 
+  .error-page .contact-btn {
+    width: unset;
+  }
+
   .search-btn {
     width: 80vw;
   }
@@ -1267,6 +1271,7 @@ iframe,
 
   .search-bar input {
     width: 80vw;
+    -webkit-appearance: none;
   }
 
   .password-options {
