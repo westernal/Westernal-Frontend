@@ -560,6 +560,7 @@ audio {
   width: 100%;
   height: 100%;
   overflow: auto;
+  overflow-x: hidden;
   border: none;
 }
 
@@ -1017,6 +1018,18 @@ iframe,
   background-color: white;
 }
 
+.pwa .modal-main {
+  margin: 50px 0;
+}
+
+.pwa .auth-form .flex {
+  margin-bottom: 0;
+}
+
+.pwa .auth-form {
+  padding: 0;
+}
+
 @media screen and (prefers-color-scheme: dark) {
   body {
     background-color: #101015;
@@ -1071,7 +1084,7 @@ iframe,
   }
 
   .modal-content {
-    background-color: #252525;
+    background-color: #101015;
   }
 
   #logout {
@@ -1119,7 +1132,7 @@ iframe,
   }
 
   .modal {
-    background-color: #252525;
+    background-color: #101015;
   }
 
   .profile-info {
