@@ -874,6 +874,10 @@ h1 {
   background-color: #ededed;
 }
 
+.error-page .contact-btn {
+  width: unset;
+}
+
 #logout,
 .contact-btn {
   font-size: 14px;
