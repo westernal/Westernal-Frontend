@@ -105,25 +105,25 @@ const SignUp = () => {
               type="text"
               placeholder="Username"
               id="username"
-              autoComplete="off"
+              autoComplete="new-password"
             />
             <input
               type="text"
               placeholder="Email"
               id="email"
-              autoComplete="off"
+              autoComplete="new-password"
             />
             <input
               type="password"
               placeholder="Password"
               id="password"
-              autoComplete="off"
+              autoComplete="new-password"
             />
             <input
               type="password"
               placeholder="Confirm Password"
               id="confirm-password"
-              autoComplete="off"
+              autoComplete="new-password"
             />
           </div>
           <div className="flex">
