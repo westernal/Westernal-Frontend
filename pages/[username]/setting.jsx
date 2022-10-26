@@ -22,9 +22,9 @@ const Setting = () => {
   function checkInputs(e) {
     e.preventDefault();
     SetLoader(true);
-    const password = document.getElementById("password").value;
+    const password = document.getElementById("changePassword").value;
     const confirmPassword = document.getElementById("confirm-password").value;
-    let username = document.getElementById("username");
+    let username = document.getElementById("changeUsername");
     let bio = document.getElementById("bio");
     const Image = document.getElementById("image");
 
@@ -157,14 +157,14 @@ const Setting = () => {
                 <input
                   type="text"
                   placeholder={"Username"}
-                  id="username"
+                  id="changeUsername"
                   autoComplete="off"
                 />
                 <input type="text" placeholder={"Bio"} id="bio" />
                 <input
                   type="password"
                   placeholder="New password"
-                  id="password"
+                  id="changePassword"
                   autoComplete="off"
                 />
                 <input
