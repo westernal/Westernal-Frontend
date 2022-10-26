@@ -32,7 +32,7 @@ const SignUp = () => {
     if (result && result.status == 201) {
       localStorage.setItem("token", result.data.token);
       toast.success(`Welcome, ${username}!`);
-      router.push("/home");
+      router.push("/home/timeline");
     } else {
       SetLoader(false);
       toast.error(result.data.message);
