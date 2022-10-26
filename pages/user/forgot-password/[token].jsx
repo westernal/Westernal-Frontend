@@ -1,4 +1,4 @@
-import API from "../../requests/API";
+import API from "../../../requests/API";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 import { useState } from "react";
