@@ -110,7 +110,7 @@ const Login = () => {
                   </div>
                 </div>
                 <div className="flex forgot-password">
-                  <Link href="/forgot-password">Forgot password?</Link>
+                  <Link href="/user/forgot-password">Forgot password?</Link>
                 </div>
               </div>
             </section>
@@ -129,7 +129,7 @@ const Login = () => {
 
         <div className="flex">
           <p>Don{"'"}t have an account?</p>
-          <Link href={"/signup"}>signup</Link>
+          <Link href={"/user/signup"}>signup</Link>
         </div>
       </div>
     </div>

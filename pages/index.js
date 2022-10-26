@@ -16,7 +16,7 @@ export default function Index() {
     async function startLoaderPreview() {
       await sleep(500);
       if (localStorage.getItem("token")) {
-        await router.push("/home");
+        await router.push("/home/timeline");
       } else if (document.getElementsByClassName("loader")[0] && localStorage) {
         document.getElementsByClassName("loader")[0].style.display = "none";
         document.getElementsByClassName("login")[0].style.display = "flex";

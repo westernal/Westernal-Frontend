@@ -58,7 +58,7 @@ const Footer = () => {
           content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=5"
         />
       </Head>
-      <Link href="/home">
+      <Link href="/home/timeline">
         <Image
           width={28}
           height={28}
@@ -68,7 +68,7 @@ const Footer = () => {
         />
       </Link>
 
-      <Link href="/search">
+      <Link href="/user/search">
         <Image
           width={28}
           height={28}
@@ -78,7 +78,7 @@ const Footer = () => {
         />
       </Link>
 
-      <Link href="/notifications" onClick={clearNotification}>
+      <Link href="/user/notifications" onClick={clearNotification}>
         <div className="notification-icon">
           <Image
             width={25}

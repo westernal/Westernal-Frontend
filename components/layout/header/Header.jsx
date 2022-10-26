@@ -13,7 +13,7 @@ const Header = () => {
       >
         westernal
       </a>
-      <Link href={"/newpost"} id="add-btn">
+      <Link href={"/post/new"} id="add-btn">
         <Image
           src={"/Images/add.svg"}
           width={25}
