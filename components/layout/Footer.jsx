@@ -12,7 +12,6 @@ const Footer = () => {
   const [jwt, Setjwt] = useState({ username: "" });
 
   const getCount = async (userId) => {
-    console.log(userId);
     const option = {
       method: "GET",
       headers: {
@@ -21,7 +20,6 @@ const Footer = () => {
     };
 
     var result = await API(option, `api/users/notification/${userId}`);
-    console.log(result);
 
     if (result.status == 200) {
       SetNotificationCount(result.data.notifications);
