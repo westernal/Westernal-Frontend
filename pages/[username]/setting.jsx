@@ -158,14 +158,14 @@ const Setting = () => {
                   type="text"
                   placeholder={"Username"}
                   id="changeUsername"
-                  autoComplete="off"
+                  autoComplete="new-password"
                 />
                 <input type="text" placeholder={"Bio"} id="bio" />
                 <input
                   type="password"
                   placeholder="New password"
                   id="changePassword"
-                  autoComplete="off"
+                  autoComplete="new-password"
                 />
                 <input
                   type="password"
