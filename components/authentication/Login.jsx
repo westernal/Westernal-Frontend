@@ -44,7 +44,7 @@ const Login = () => {
     if (result && result.status == 200) {
       localStorage.setItem("token", result.data.token);
       toast.success(`Welcome, ${username}!`);
-      router.push("/home");
+      router.push("/home/timeline");
     } else {
       SetLoader(false);
       toast.error(result.data.message);
