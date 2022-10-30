@@ -11,7 +11,7 @@ const SearchTracks = ({ token, chooseSong, hide }) => {
       SetLoader(true);
     }
 
-    const input = document.getElementById("search-input").value;
+    const input = document.getElementById("search-input");
     let response;
     const option = {
       method: "GET",
@@ -24,12 +24,13 @@ const SearchTracks = ({ token, chooseSong, hide }) => {
     try {
       response = await fetch(
         `https://api.spotify.com/v1/search?q=${
-          input && input
+          input.value && input.value
         }&type=track&limit=10`,
         option
       );
     } catch (error) {
-      toast.error("Server error, please reload the page");
+      input.blur();
+      toast.error("Server error, please try again!");
       SetLoader(false);
       return;
     }
@@ -42,7 +43,8 @@ const SearchTracks = ({ token, chooseSong, hide }) => {
       SetSongs(data.tracks.items);
       SetLoader(false);
     } else {
-      toast.error("Server error, please reload the page");
+      input.blur();
+      toast.error("Server error, please try again!");
       SetLoader(false);
     }
   };
