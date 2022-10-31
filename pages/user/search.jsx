@@ -3,6 +3,7 @@ import Footer from "../../components/layout/Footer";
 import API from "../../requests/API";
 import User from "../../components/user/Users";
 import Head from "next/head";
+import { toast } from "react-toastify";
 
 const Search = () => {
   const [users, SetUsers] = useState();
@@ -23,7 +24,11 @@ const Search = () => {
       headers: { "Content-Type": "application/json" },
     };
 
-    var result = await API(option, `api/users/search/${searchInput}`);
+    try {
+      var result = await API(option, `api/users/search/${searchInput}`);
+    } catch (error) {
+      toast.error("Server error, please try again!");
+    }
 
     if (result.status == 200) {
       SetUsers(result.data.users);
