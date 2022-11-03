@@ -28,6 +28,7 @@ const Search = () => {
       var result = await API(option, `api/users/search/${searchInput}`);
     } catch (error) {
       toast.error("Server error, please try again!");
+      e.target.blur();
     }
 
     if (result.status == 200) {
