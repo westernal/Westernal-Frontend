@@ -34,10 +34,6 @@ const Search = () => {
 
     if (result.status == 200) {
       SetUsers(result.data.users);
-    } else {
-      toast.error("Server error, please try again!");
-      e.target.blur();
-      SetIsTyped(false);
     }
 
     if (searchInput === "") {
