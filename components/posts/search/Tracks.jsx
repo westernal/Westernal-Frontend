@@ -42,10 +42,6 @@ const SearchTracks = ({ token, chooseSong, hide }) => {
     if (status == 200) {
       SetSongs(data.tracks.items);
       SetLoader(false);
-    } else {
-      input.blur();
-      toast.error("Server error, please try again!");
-      SetLoader(false);
     }
   };
 

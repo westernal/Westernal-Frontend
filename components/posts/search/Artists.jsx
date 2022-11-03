@@ -42,10 +42,6 @@ const SearchArtists = ({ token, chooseSong, hide }) => {
     if (status == 200) {
       setArtists(data.artists.items);
       SetLoader(false);
-    } else {
-      input.blur();
-      toast.error("Server error, please try again!");
-      SetLoader(false);
     }
   };
 
