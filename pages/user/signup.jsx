@@ -55,11 +55,11 @@ const SignUp = () => {
     const email = document.getElementById("email");
 
     let correctedUsername = username.value.replace(/\s+/g, "");
-    setRefreshReCaptcha((r) => !r);
 
     if (!userVerified) {
       toast.error("Recaptcha failed, please try again!");
       SetLoader(false);
+      setRefreshReCaptcha(!refreshReCaptcha);
       return;
     }
 

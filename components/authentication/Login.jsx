@@ -64,11 +64,10 @@ const Login = () => {
     const password = document.getElementById("password");
     const username = document.getElementById("username");
 
-    setRefreshReCaptcha((r) => !r);
-
     if (!userVerified) {
       toast.error("Recaptcha failed, please try again!");
       SetLoader(false);
+      setRefreshReCaptcha(!refreshReCaptcha);
       return;
     }
 
