@@ -65,7 +65,7 @@ const Login = () => {
     const username = document.getElementById("username");
 
     if (!userVerified) {
-      toast.error("reCaptcha failed!");
+      toast.error("Recaptcha failed!");
       SetLoader(false);
       return;
     }
