@@ -9,6 +9,7 @@ import ReCaptcha from "../../components/authentication/reCaptcha";
 
 const SignUp = () => {
   const [loader, SetLoader] = useState(false);
+  const [refreshReCaptcha, setRefreshReCaptcha] = useState(false);
   const router = useRouter();
   let userVerified = false;
 
@@ -54,6 +55,7 @@ const SignUp = () => {
     const email = document.getElementById("email");
 
     let correctedUsername = username.value.replace(/\s+/g, "");
+    setRefreshReCaptcha((r) => !r);
 
     if (!userVerified) {
       toast.error("Recaptcha failed, please try again!");
@@ -138,7 +140,10 @@ const SignUp = () => {
               autoComplete="new-password"
             />
           </div>
-          <ReCaptcha verifyUser={verifyUser} />
+          <ReCaptcha
+            verifyUser={verifyUser}
+            refreshReCaptcha={refreshReCaptcha}
+          />
           <div className="flex">
             <button className="btn" type="submit">
               Signup

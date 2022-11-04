@@ -5,7 +5,7 @@ import {
   GoogleReCaptcha,
 } from "react-google-recaptcha-v3";
 
-const ReCaptcha = ({ verifyUser }) => {
+const ReCaptcha = ({ verifyUser, refreshReCaptcha }) => {
   const [theme, SetTheme] = useState("light");
   const key = "6Ldehd0iAAAAALIpW0BqIaAcjd3zBvRe5MyvcryZ";
 
@@ -21,7 +21,10 @@ const ReCaptcha = ({ verifyUser }) => {
   return (
     <div className="recaptcha flex">
       <GoogleReCaptchaProvider reCaptchaKey={key}>
-        <GoogleReCaptcha onVerify={verifyUser} />
+        <GoogleReCaptcha
+          onVerify={verifyUser}
+          refreshReCaptcha={refreshReCaptcha}
+        />
       </GoogleReCaptchaProvider>
     </div>
   );

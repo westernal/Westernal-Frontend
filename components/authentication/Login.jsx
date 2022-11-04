@@ -5,10 +5,10 @@ import { toast } from "react-toastify";
 import API from "../../requests/API";
 import Image from "next/image";
 import ReCaptcha from "./reCaptcha";
-import { useRef } from "react";
 
 const Login = () => {
   const [loader, SetLoader] = useState(false);
+  const [refreshReCaptcha, setRefreshReCaptcha] = useState(false);
   const router = useRouter();
   let userVerified = false;
 
@@ -63,6 +63,8 @@ const Login = () => {
     SetLoader(true);
     const password = document.getElementById("password");
     const username = document.getElementById("username");
+
+    setRefreshReCaptcha((r) => !r);
 
     if (!userVerified) {
       toast.error("Recaptcha failed, please try again!");
@@ -128,7 +130,10 @@ const Login = () => {
             </section>
           </div>
 
-          <ReCaptcha verifyUser={verifyUser} />
+          <ReCaptcha
+            verifyUser={verifyUser}
+            refreshReCaptcha={refreshReCaptcha}
+          />
 
           <div className="flex">
             <button className="btn" type="submit">
