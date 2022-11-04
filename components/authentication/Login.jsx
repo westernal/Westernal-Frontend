@@ -4,13 +4,16 @@ import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import API from "../../requests/API";
 import Image from "next/image";
+import ReCaptcha from "./reCaptcha";
+import { useRef } from "react";
 
 const Login = () => {
   const [loader, SetLoader] = useState(false);
   const router = useRouter();
 
+  const recaptchaRef = useRef();
+
   const showPassword = (e) => {
-    console.log(e.target.style.backgroundColor);
     if (e.target.style.backgroundColor === "inherit") {
       e.target.style.backgroundColor = "#5f5d5d";
     } else e.target.style.backgroundColor = "inherit";
@@ -57,6 +60,9 @@ const Login = () => {
     SetLoader(true);
     const password = document.getElementById("password");
     const username = document.getElementById("username");
+
+    const recaptchaValue = recaptchaRef.current.getValue();
+    console.log(recaptchaValue);
 
     if (username.value == "") {
       toast.error("Username must be included!");
@@ -115,6 +121,8 @@ const Login = () => {
               </div>
             </section>
           </div>
+
+          <ReCaptcha ref={recaptchaRef} />
 
           <div className="flex">
             <button className="btn" type="submit">
