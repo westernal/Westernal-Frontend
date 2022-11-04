@@ -71,7 +71,7 @@ const NewPost = () => {
 
     if (result.status == 201) {
       toast.success(`Post created!`);
-      router.push("/home");
+      router.push("/home/timeline");
     } else {
       toast.error(result.data.message);
       SetLoader(false);
