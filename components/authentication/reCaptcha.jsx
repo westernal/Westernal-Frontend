@@ -1,9 +1,13 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import ReCAPTCHA from "react-google-recaptcha";
+import {
+  GoogleReCaptchaProvider,
+  GoogleReCaptcha,
+} from "react-google-recaptcha-v3";
 
-const ReCaptcha = ({ ref }) => {
+const ReCaptcha = ({ verifyUser }) => {
   const [theme, SetTheme] = useState("light");
+  const key = "6Ldehd0iAAAAALIpW0BqIaAcjd3zBvRe5MyvcryZ";
 
   useEffect(() => {
     if (
@@ -16,11 +20,9 @@ const ReCaptcha = ({ ref }) => {
 
   return (
     <div className="recaptcha flex">
-      <ReCAPTCHA
-        sitekey="6Ldehd0iAAAAALIpW0BqIaAcjd3zBvRe5MyvcryZ"
-        theme={theme}
-        ref={ref}
-      />
+      <GoogleReCaptchaProvider reCaptchaKey={key}>
+        <GoogleReCaptcha onVerify={verifyUser} />
+      </GoogleReCaptchaProvider>
     </div>
   );
 };

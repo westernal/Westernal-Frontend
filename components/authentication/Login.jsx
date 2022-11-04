@@ -10,8 +10,11 @@ import { useRef } from "react";
 const Login = () => {
   const [loader, SetLoader] = useState(false);
   const router = useRouter();
+  let userVerified = false;
 
-  const recaptchaRef = useRef();
+  const verifyUser = () => {
+    userVerified = true;
+  };
 
   const showPassword = (e) => {
     if (e.target.style.backgroundColor === "inherit") {
@@ -61,8 +64,11 @@ const Login = () => {
     const password = document.getElementById("password");
     const username = document.getElementById("username");
 
-    const recaptchaValue = recaptchaRef.current.getValue();
-    console.log(recaptchaValue);
+    if (!userVerified) {
+      toast.error("reCaptcha failed!");
+      SetLoader(false);
+      return;
+    }
 
     if (username.value == "") {
       toast.error("Username must be included!");
@@ -122,7 +128,7 @@ const Login = () => {
             </section>
           </div>
 
-          <ReCaptcha ref={recaptchaRef} />
+          <ReCaptcha verifyUser={verifyUser} />
 
           <div className="flex">
             <button className="btn" type="submit">
