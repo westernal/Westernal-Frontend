@@ -56,7 +56,7 @@ const SignUp = () => {
     let correctedUsername = username.value.replace(/\s+/g, "");
 
     if (!userVerified) {
-      toast.error("Recaptcha failed!");
+      toast.error("Recaptcha failed, please try again!");
       SetLoader(false);
       return;
     }
