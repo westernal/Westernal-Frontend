@@ -5,10 +5,16 @@ import { toast } from "react-toastify";
 import API from "../../requests/API";
 import Head from "next/head";
 import Image from "next/image";
+import ReCaptcha from "../../components/authentication/reCaptcha";
 
 const SignUp = () => {
   const [loader, SetLoader] = useState(false);
   const router = useRouter();
+  let userVerified = false;
+
+  const verifyUser = () => {
+    userVerified = true;
+  };
 
   async function signup(username, email, password) {
     const option = {
@@ -48,6 +54,12 @@ const SignUp = () => {
     const email = document.getElementById("email");
 
     let correctedUsername = username.value.replace(/\s+/g, "");
+
+    if (!userVerified) {
+      toast.error("reCaptcha failed!");
+      SetLoader(false);
+      return;
+    }
 
     if (username.value == "") {
       toast.error("Username must be included!");
@@ -126,6 +138,7 @@ const SignUp = () => {
               autoComplete="new-password"
             />
           </div>
+          <ReCaptcha verifyUser={verifyUser} />
           <div className="flex">
             <button className="btn" type="submit">
               Signup
