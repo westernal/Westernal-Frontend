@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import API from "../../requests/API";
 import Head from "next/head";
 import Image from "next/image";
-import SignupForm from "../../components/authentication/form/SignUpForm";
+import SignupForm from "../../components/authentication/form/SignupForm";
 import FormLoader from "../../components/layout/loader/FormLoader";
 
 const SignUp = () => {
