@@ -28,7 +28,7 @@ const UserInfo = ({ isUserSelf, user, isLoggedIn }) => {
 
     if (user.personal_link) {
       let domain = new URL(user.personal_link);
-      domain = domain.hostname.replace("www.", "");
+      domain = domain.hostname.replace("www.", "") + domain.pathname;
       SetLink(domain);
     }
   }, [user]);
@@ -93,7 +93,7 @@ const UserInfo = ({ isUserSelf, user, isLoggedIn }) => {
           </p>
         )}
         {user.personal_link && (
-          <a href={link} id="user-link">
+          <a href={user.personal_link} id="user-link">
             {link}
           </a>
         )}

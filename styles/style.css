@@ -1039,6 +1039,10 @@ iframe,
   color: #9d38fc;
 }
 
+#user-link:hover {
+  text-decoration: underline;
+}
+
 @media screen and (prefers-color-scheme: dark) {
   body {
     background-color: #101015;
