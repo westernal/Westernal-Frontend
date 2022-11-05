@@ -4,23 +4,11 @@ import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import API from "../../requests/API";
 import Image from "next/image";
+import LoginForm from "./form/LoginForm";
 
 const Login = () => {
   const [loader, SetLoader] = useState(false);
   const router = useRouter();
-
-  const showPassword = (e) => {
-    if (e.target.style.backgroundColor === "inherit") {
-      e.target.style.backgroundColor = "#5f5d5d";
-    } else e.target.style.backgroundColor = "inherit";
-
-    var password = document.getElementById("password");
-    if (password.type === "password") {
-      password.type = "text";
-    } else {
-      password.type = "password";
-    }
-  };
 
   async function login(username, password) {
     const option = {
@@ -50,25 +38,13 @@ const Login = () => {
     }
   }
 
-  function checkInputs(e) {
-    e.preventDefault();
-
-    SetLoader(true);
-    const password = document.getElementById("password");
-    const username = document.getElementById("username");
-
-    if (username.value == "") {
-      toast.error("Username must be included!");
+  const changeLoader = (loader) => {
+    if (loader === "off") {
       SetLoader(false);
-      return;
+    } else if (loader === "on") {
+      SetLoader(true);
     }
-
-    if (password.value.length < 6) {
-      toast.error("Password must be more than 6 characters!");
-      SetLoader(false);
-      return;
-    } else login(username.value.toLowerCase(), password.value);
-  }
+  };
 
   return (
     <div className="login flex">
@@ -81,46 +57,8 @@ const Login = () => {
             </div>
           </div>
         )}
-        <form onSubmit={checkInputs}>
-          <div className="form-inputs">
-            <input
-              type="text"
-              placeholder="Username"
-              id="username"
-              autoComplete="on"
-            />
 
-            <input
-              type="password"
-              placeholder="Password"
-              id="password"
-              autoComplete="on"
-            />
-            <section className="flex">
-              <div className="flex password-options">
-                <div className="flex ">
-                  <div className="show-password">
-                    <div
-                      className="checkbox"
-                      onClick={showPassword}
-                      style={{ backgroundColor: "inherit" }}
-                    ></div>
-                    <p className="show">Show password</p>
-                  </div>
-                </div>
-                <div className="flex forgot-password">
-                  <Link href="/user/forgot-password">Forgot password?</Link>
-                </div>
-              </div>
-            </section>
-          </div>
-
-          <div className="flex">
-            <button className="btn" type="submit">
-              Login
-            </button>
-          </div>
-        </form>
+        <LoginForm login={login} changeLoader={changeLoader} />
 
         <div className="flex">
           <hr /> OR <hr />

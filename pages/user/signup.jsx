@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import API from "../../requests/API";
 import Head from "next/head";
 import Image from "next/image";
+import SignupForm from "../../components/authentication/form/SignUpForm";
 
 const SignUp = () => {
   const [loader, SetLoader] = useState(false);
@@ -39,51 +40,13 @@ const SignUp = () => {
     }
   }
 
-  function checkInputs(e) {
-    e.preventDefault();
-    SetLoader(true);
-    const password = document.getElementById("password");
-    const confirmPassword = document.getElementById("confirm-password");
-    const username = document.getElementById("username");
-    const email = document.getElementById("email");
-
-    let correctedUsername = username.value.replace(/\s+/g, "");
-
-    if (username.value == "") {
-      toast.error("Username must be included!");
+  const changeLoader = (loader) => {
+    if (loader === "off") {
       SetLoader(false);
-      return;
+    } else if (loader === "on") {
+      SetLoader(true);
     }
-
-    if (email.value == "") {
-      toast.error("Email must be included!");
-      SetLoader(false);
-      return;
-    }
-
-    if (!email.value.includes("@")) {
-      toast.error("Enter a valid Email!");
-      SetLoader(false);
-      return;
-    }
-
-    if (password.value.length < 6) {
-      toast.error("Password must be more than 6 characters!");
-      SetLoader(false);
-      return;
-    }
-
-    if (password.value !== confirmPassword.value) {
-      toast.error("Password must be equal to repeat password!");
-      SetLoader(false);
-      return;
-    } else
-      signup(
-        correctedUsername.toLowerCase(),
-        email.value.toLowerCase(),
-        password.value
-      );
-  }
+  };
 
   return (
     <div className="flex">
@@ -99,40 +62,8 @@ const SignUp = () => {
             </div>
           </div>
         )}
-        <form onSubmit={checkInputs} autoComplete="off">
-          <div className="form-inputs">
-            <input
-              type="text"
-              placeholder="Username"
-              id="username"
-              autoComplete="new-password"
-            />
-            <input
-              type="text"
-              placeholder="Email"
-              id="email"
-              autoComplete="new-password"
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              id="password"
-              autoComplete="new-password"
-            />
-            <input
-              type="password"
-              placeholder="Confirm Password"
-              id="confirm-password"
-              autoComplete="new-password"
-            />
-          </div>
 
-          <div className="flex">
-            <button className="btn" type="submit">
-              Signup
-            </button>
-          </div>
-        </form>
+        <SignupForm signup={signup} changeLoader={changeLoader} />
 
         <div className="flex">
           <hr /> OR <hr />
