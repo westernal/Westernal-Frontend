@@ -7,7 +7,7 @@ import Image from "next/image";
 import ReactPlayer from "react-player";
 import SpotifyPlayer from "react-spotify-player";
 import PostError from "./error/PostError";
-import PostIcons from "./icons/PostIcons.";
+import PostIcons from "./icons/PostIcons";
 import jwtDecode from "jwt-decode";
 import PostOptions from "./options/PostOptions";
 

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Image from "next/dist/client/image";
 import { toast } from "react-toastify";
+import FormLoader from "../../layout/loader/FormLoader";
 
 const SearchArtists = ({ token, chooseSong, hide }) => {
   const [artists, setArtists] = useState([]);
@@ -56,13 +57,7 @@ const SearchArtists = ({ token, chooseSong, hide }) => {
         />
       </div>
       <div className="search-results">
-        {loader && (
-          <div className="flex">
-            <div className="logo-loader flex">
-              <p id="loader">w</p>
-            </div>
-          </div>
-        )}
+        {loader && <FormLoader />}
         {artists.map((artist) => {
           return (
             <a

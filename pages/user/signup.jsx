@@ -6,6 +6,7 @@ import API from "../../requests/API";
 import Head from "next/head";
 import Image from "next/image";
 import SignupForm from "../../components/authentication/form/SignUpForm";
+import FormLoader from "../../components/layout/loader/FormLoader";
 
 const SignUp = () => {
   const [loader, SetLoader] = useState(false);
@@ -55,13 +56,8 @@ const SignUp = () => {
       </Head>
       <div className="auth-form signup">
         <Image src={"/Images/logo.png"} alt="logo" width={120} height={120} />
-        {loader && (
-          <div className="flex">
-            <div className="logo-loader flex">
-              <p id="loader">w</p>
-            </div>
-          </div>
-        )}
+
+        {loader && <FormLoader />}
 
         <SignupForm signup={signup} changeLoader={changeLoader} />
 

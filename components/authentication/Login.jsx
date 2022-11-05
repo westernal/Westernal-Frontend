@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import API from "../../requests/API";
 import Image from "next/image";
 import LoginForm from "./form/LoginForm";
+import FormLoader from "../layout/loader/FormLoader";
 
 const Login = () => {
   const [loader, SetLoader] = useState(false);
@@ -50,13 +51,8 @@ const Login = () => {
     <div className="login flex">
       <div className="auth-form">
         <Image src={"/Images/logo.png"} alt="logo" width={120} height={120} />
-        {loader && (
-          <div className="flex">
-            <div className="logo-loader flex">
-              <p id="loader">w</p>
-            </div>
-          </div>
-        )}
+
+        {loader && <FormLoader />}
 
         <LoginForm login={login} changeLoader={changeLoader} />
 

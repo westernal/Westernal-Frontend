@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import Image from "next/image";
 import Logout from "../../components/authentication/Logout";
+import FormLoader from "../../components/layout/loader/FormLoader";
 
 const Setting = () => {
   const [loader, SetLoader] = useState(false);
@@ -124,13 +125,7 @@ const Setting = () => {
       <div className="setting flex">
         <section>
           <div className="auth-form">
-            {loader && (
-              <div className="flex">
-                <div className="logo-loader flex">
-                  <p id="loader">w</p>
-                </div>
-              </div>
-            )}
+            {loader && <FormLoader />}
 
             <form onSubmit={checkInputs} autoComplete={"off"}>
               <div className="form-inputs">
