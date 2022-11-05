@@ -60,11 +60,12 @@ const Setting = () => {
     }
   };
 
-  async function editUser(username, password, bio, image) {
+  async function editUser(username, password, bio, image, link) {
     let newBody = new FormData();
     newBody.append("username", username);
     newBody.append("bio", bio);
     newBody.append("image", image);
+    newBody.append("link", link);
     if (password.length !== 0) {
       newBody.append("password", password);
     }

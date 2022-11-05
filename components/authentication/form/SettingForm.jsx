@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { toast } from "react-toastify";
+import isURL from "validator/lib/isURL";
 
 const SettingForm = ({ user, editUser, changeLoader, image }) => {
   const host = "https://alinavidi.ir/";
@@ -13,9 +14,20 @@ const SettingForm = ({ user, editUser, changeLoader, image }) => {
     let username = document.getElementById("changeUsername");
     let bio = document.getElementById("bio");
     const Image = document.getElementById("image");
+    const link = document.getElementById("link");
 
     if (!bio.value) {
       bio.value = user.bio;
+    }
+
+    if (link.value && !isURL(link.value)) {
+      toast.error("Personal link is invalid.");
+      changeLoader("off");
+      return;
+    }
+
+    if (!link.value) {
+      link.value = user.personal_link;
     }
 
     if (!username.value) {
@@ -27,17 +39,20 @@ const SettingForm = ({ user, editUser, changeLoader, image }) => {
     if (password.length < 6 && password.length !== 0) {
       toast.error("Password must be more than 6 characters!");
       changeLoader("off");
+      return;
     }
 
     if (password !== confirmPassword) {
       toast.error("Password must be equal to repeat password!");
       changeLoader("off");
+      return;
     } else
       editUser(
         correctedUsername.toLowerCase(),
         password,
         bio.value,
-        Image.files[0]
+        Image.files[0],
+        link.value
       );
   }
 
@@ -71,6 +86,7 @@ const SettingForm = ({ user, editUser, changeLoader, image }) => {
           autoComplete="new-password"
         />
         <input type="text" placeholder={"Bio"} id="bio" />
+        <input type="text" placeholder={"Personal link"} id="link" />
         <input
           type="password"
           placeholder="New password"
@@ -79,7 +95,7 @@ const SettingForm = ({ user, editUser, changeLoader, image }) => {
         />
         <input
           type="password"
-          placeholder="Confirm Password"
+          placeholder="Confirm password"
           id="confirm-password"
           autoComplete="off"
         />

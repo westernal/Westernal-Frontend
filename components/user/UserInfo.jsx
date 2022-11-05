@@ -80,9 +80,16 @@ const UserInfo = ({ isUserSelf, user, isLoggedIn }) => {
             <Image src={avatar} alt="profile picture" width={95} height={95} />
           </div>
         </div>
-        <p id="user-bio" dir="auto">
-          {user.bio}
-        </p>
+        {user.bio && (
+          <p id="user-bio" dir="auto">
+            {user.bio}
+          </p>
+        )}
+        {user.personal_link && (
+          <a href={user.personal_link} id="user-link">
+            {user.personal_link}
+          </a>
+        )}
 
         <FollowSection user={user} />
 

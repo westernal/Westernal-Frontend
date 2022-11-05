@@ -1035,6 +1035,10 @@ iframe,
   padding: 20px;
 }
 
+#user-link {
+  color: #9d38fc;
+}
+
 @media screen and (prefers-color-scheme: dark) {
   body {
     background-color: #101015;
