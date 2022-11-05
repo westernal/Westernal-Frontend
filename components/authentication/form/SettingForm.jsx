@@ -1,9 +1,20 @@
 import Image from "next/image";
 import { toast } from "react-toastify";
-import isURL from "validator/lib/isURL";
 
 const SettingForm = ({ user, editUser, changeLoader, image }) => {
   const host = "https://alinavidi.ir/";
+
+  const isURL = (link) => {
+    let url;
+
+    try {
+      url = new URL(link);
+    } catch (error) {
+      return false;
+    }
+
+    return true;
+  };
 
   function checkInputs(e) {
     e.preventDefault();
@@ -52,7 +63,7 @@ const SettingForm = ({ user, editUser, changeLoader, image }) => {
         password,
         bio.value,
         Image.files[0],
-        link.value
+        link.value.toLowerCase()
       );
   }
 
