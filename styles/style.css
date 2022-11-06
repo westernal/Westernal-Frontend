@@ -1262,6 +1262,10 @@ iframe,
     width: 80vw;
   }
 
+  .setting-btn {
+    flex-direction: column;
+  }
+
   .search-modal .profile-notif {
     flex-direction: row;
     align-items: center;
