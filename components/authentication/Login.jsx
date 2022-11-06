@@ -33,6 +33,10 @@ const Login = () => {
       localStorage.setItem("token", result.data.token);
       toast.success(`Welcome, ${username}!`);
       router.push("/home/timeline");
+    } else if (result.status === 403) {
+      router.push("/user/forgot-password");
+      SetLoader(false);
+      toast.error(result.data.message);
     } else {
       SetLoader(false);
       toast.error(result.data.message);
