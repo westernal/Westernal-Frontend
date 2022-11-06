@@ -10,7 +10,7 @@ import jwtDecode from "jwt-decode";
 const UserInfo = ({ isUserSelf, user, isLoggedIn }) => {
   const router = useRouter();
   const [isFollowing, SetIsFollowing] = useState(false);
-  const [avatar, SetAvatar] = useState("");
+  const [avatar, SetAvatar] = useState("/Images/user.svg");
   const host = "https://alinavidi.ir/";
   const [link, SetLink] = useState();
 
