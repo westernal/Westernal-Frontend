@@ -777,6 +777,10 @@ canvas {
   font-size: 16px;
 }
 
+.setting .search-btn {
+  padding: 10px;
+}
+
 .search-btn p {
   margin: 11px 0;
 }
@@ -1035,12 +1039,20 @@ iframe,
   padding: 20px;
 }
 
+.user-link {
+  margin-top: 10px;
+}
+
 #user-link {
   color: #9d38fc;
 }
 
 #user-link:hover {
   text-decoration: underline;
+}
+
+.form-inputs p {
+  font-weight: 600;
 }
 
 @media screen and (prefers-color-scheme: dark) {

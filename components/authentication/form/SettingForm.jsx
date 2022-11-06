@@ -1,8 +1,16 @@
 import Image from "next/image";
+import Link from "next/link";
+import { useEffect } from "react";
+import { useState } from "react";
 import { toast } from "react-toastify";
 
 const SettingForm = ({ user, editUser, changeLoader, image }) => {
   const host = "https://alinavidi.ir/";
+  const [token, SetToken] = useState("");
+
+  useEffect(() => {
+    SetToken(localStorage.getItem("token"));
+  }, []);
 
   const isURL = (link) => {
     let url;
@@ -20,16 +28,10 @@ const SettingForm = ({ user, editUser, changeLoader, image }) => {
     e.preventDefault();
     changeLoader("on");
 
-    const password = document.getElementById("changePassword").value;
-    const confirmPassword = document.getElementById("confirm-password").value;
     let username = document.getElementById("changeUsername");
     let bio = document.getElementById("bio");
     const Image = document.getElementById("image");
     const link = document.getElementById("link");
-
-    if (!bio.value) {
-      bio.value = user.bio;
-    }
 
     if (link.value && !isURL(link.value)) {
       toast.error("Personal link is invalid.");
@@ -37,39 +39,25 @@ const SettingForm = ({ user, editUser, changeLoader, image }) => {
       return;
     }
 
-    if (!link.value) {
-      link.value = user.personal_link;
-    }
-
     if (!username.value) {
-      username.value = user.username;
+      toast.error("Please choose a username!");
+      return;
     }
 
     let correctedUsername = username.value.replace(/\s+/g, "");
 
-    if (password.length < 6 && password.length !== 0) {
-      toast.error("Password must be more than 6 characters!");
-      changeLoader("off");
-      return;
-    }
-
-    if (password !== confirmPassword) {
-      toast.error("Password must be equal to repeat password!");
-      changeLoader("off");
-      return;
-    } else
-      editUser(
-        correctedUsername.toLowerCase(),
-        password,
-        bio.value,
-        Image.files[0],
-        link.value.toLowerCase()
-      );
+    editUser(
+      correctedUsername.toLowerCase(),
+      bio.value,
+      Image.files[0],
+      link.value.toLowerCase()
+    );
   }
 
   return (
     <form onSubmit={checkInputs} autoComplete={"off"}>
       <div className="form-inputs">
+        <p>Image</p>
         <div className="flex image-setting">
           <Image
             width={50}
@@ -90,29 +78,32 @@ const SettingForm = ({ user, editUser, changeLoader, image }) => {
             accept="image/*"
           />
         </div>
+        <p>Username</p>
         <input
           type="text"
-          placeholder={"Username"}
+          defaultValue={user && user.username}
           id="changeUsername"
           autoComplete="new-password"
         />
-        <input type="text" placeholder={"Bio"} id="bio" />
-        <input type="text" placeholder={"Personal link"} id="link" />
+        <p>Bio</p>
         <input
-          type="password"
-          placeholder="New password"
-          id="changePassword"
-          autoComplete="new-password"
+          type="text"
+          defaultValue={user && user.bio && user.bio}
+          id="bio"
         />
+        <p>Personal link</p>
         <input
-          type="password"
-          placeholder="Confirm password"
-          id="confirm-password"
-          autoComplete="off"
+          type="text"
+          defaultValue={user && user.personal_link && user.personal_link}
+          id="link"
         />
       </div>
 
       <div className="flex setting-btn">
+        <Link href={`/user/forgot-password/${token}`}>
+          {" "}
+          <button className="search-btn ">Change password</button>
+        </Link>
         <button className="btn" type="submit">
           Edit
         </button>

@@ -26,8 +26,13 @@ const UserInfo = ({ isUserSelf, user, isLoggedIn }) => {
       }
     }
 
-    if (user.personal_link) {
-      let domain = new URL(user.personal_link);
+    if (user.personal_link || user.personal_link != " ") {
+      let domain;
+      try {
+        domain = new URL(user.personal_link);
+      } catch (error) {
+        return;
+      }
       domain = domain.hostname.replace("www.", "") + domain.pathname;
       SetLink(domain);
     }
@@ -93,9 +98,11 @@ const UserInfo = ({ isUserSelf, user, isLoggedIn }) => {
           </p>
         )}
         {user.personal_link && (
-          <a href={user.personal_link} id="user-link">
-            {link}
-          </a>
+          <div className="user-link">
+            <a href={user.personal_link} id="user-link">
+              {link}
+            </a>
+          </div>
         )}
 
         <FollowSection user={user} />
