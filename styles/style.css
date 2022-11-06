@@ -277,6 +277,10 @@ hr {
   margin-bottom: 20px;
 }
 
+.setting .auth-form .flex {
+  margin-bottom: 30px;
+}
+
 .btn,
 .follow-btn,
 .unfollow-btn,
@@ -779,7 +783,6 @@ canvas {
 
 .setting .search-btn {
   padding: 10px;
-  margin: 20px;
 }
 
 .search-btn p {
@@ -1056,6 +1059,14 @@ iframe,
   font-weight: 600;
 }
 
+.setting .btn {
+  margin-top: 50px;
+}
+
+.setting .search-btn {
+  width: 50vw !important;
+}
+
 @media screen and (prefers-color-scheme: dark) {
   body {
     background-color: #101015;
@@ -1259,12 +1270,9 @@ iframe,
     width: unset;
   }
 
-  .search-btn {
-    width: 80vw;
-  }
-
-  .setting-btn {
-    flex-direction: column;
+  .search-btn,
+  .setting .search-btn {
+    width: 80vw !important;
   }
 
   .search-modal .profile-notif {

@@ -97,15 +97,22 @@ const SettingForm = ({ user, editUser, changeLoader, image }) => {
           defaultValue={user && user.personal_link && user.personal_link}
           id="link"
         />
+        <p>Password</p>
+        <Link
+          href={`/user/forgot-password/${token}`}
+          className="flex change-password"
+        >
+          <input
+            type="button"
+            className="search-btn "
+            value={" Change password"}
+          />
+        </Link>
       </div>
 
       <div className="flex setting-btn">
-        <Link href={`/user/forgot-password/${token}`}>
-          {" "}
-          <button className="search-btn ">Change password</button>
-        </Link>
         <button className="btn" type="submit">
-          Edit
+          Save
         </button>
       </div>
     </form>
