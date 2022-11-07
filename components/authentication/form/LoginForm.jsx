@@ -29,7 +29,7 @@ const LoginForm = ({ login, changeLoader }) => {
     const username = document.getElementById("username");
 
     if (!isRecaptchasucceed) {
-      toast.error("Please complete reCaptcha");
+      toast.error("Please complete reCaptcha.");
       changeLoader("off");
       return;
     }
@@ -100,6 +100,9 @@ const LoginForm = ({ login, changeLoader }) => {
           sitekey="6Lc3lOkiAAAAALbL2C0Nm29wMEchKw9nD-W3KYX9"
           onChange={recaptchaSuccess}
           theme={theme}
+          onError={() => {
+            location.reload();
+          }}
         />
       </div>
 
