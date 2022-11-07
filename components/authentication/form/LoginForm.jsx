@@ -19,6 +19,7 @@ const LoginForm = ({ login, changeLoader }) => {
 
   const recaptchaSuccess = (value) => {
     recaptchaSuccess = true;
+    console.log(value + "and" + recaptchaSuccess);
   };
 
   function checkInputs(e) {
