@@ -100,7 +100,7 @@ const LoginForm = ({ login, changeLoader }) => {
           sitekey="6Lc3lOkiAAAAALbL2C0Nm29wMEchKw9nD-W3KYX9"
           onChange={recaptchaSuccess}
           theme={theme}
-          onError={() => {
+          onErrored={() => {
             location.reload();
           }}
         />
