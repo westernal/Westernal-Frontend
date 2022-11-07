@@ -40,7 +40,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <ToastContainer
         position="bottom-left"
-        autoClose={1500}
+        autoClose={2000}
         style={{ marginBottom: "50px" }}
         hideProgressBar={false}
         newestOnTop={false}
