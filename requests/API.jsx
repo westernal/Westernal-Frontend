@@ -7,7 +7,7 @@ export default async function API(options, address) {
 
   const status = response.status;
 
-  var ret = { status, data };
+  var requestResult = { status, data };
 
-  return ret;
+  return requestResult;
 }
