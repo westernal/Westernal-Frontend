@@ -101,7 +101,7 @@ const SavePost = ({ id, hide, onUnsave }) => {
   };
 
   return (
-    <a href="#" onClick={checkSavePost}>
+    <a href="#" onClick={checkSavePost} id="save-post">
       {isSaved ? "Unsave post" : "Save post"}
     </a>
   );
