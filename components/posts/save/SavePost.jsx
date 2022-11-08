@@ -56,7 +56,6 @@ const SavePost = ({ id, hide, onUnsave }) => {
     };
 
     var result = await API(option, `api/posts/save/${id}`);
-    console.log(result);
 
     if (result.status == 200) {
       SetIsSaved(true);
@@ -85,7 +84,6 @@ const SavePost = ({ id, hide, onUnsave }) => {
     };
 
     var result = await API(option, `api/posts/unsave/${id}`);
-    console.log(result);
 
     if (result.status == 200) {
       SetIsSaved(false);
