@@ -3,13 +3,17 @@ describe("comment on a post.", () => {
     let message = 1000 * Math.random();
     //login
     cy.visit("/");
-    cy.findByPlaceholderText(/username/i).type("westernal");
-    cy.findByPlaceholderText(/password/i).type("13791379al");
+    cy.findByPlaceholderText(/username/i).type("cypress");
+    cy.findByPlaceholderText(/password/i).type("11111111");
     cy.findByRole("button", { name: /login/i }).click();
+    cy.wait(5000);
+
+    //go to profile
+    cy.findByRole("img", { name: /profile/i }).click({ force: true });
     cy.wait(2000);
 
     //click on comment button
-    cy.get("#comment-icon").click();
+    cy.get("#comments").click();
     cy.wait(500);
 
     //post a comment

@@ -2,17 +2,17 @@ describe("create post and delete.", () => {
   it("user can create post and delete it.", async () => {
     //login
     cy.visit("/");
-    cy.findByPlaceholderText(/username/i).type("westernal");
-    cy.findByPlaceholderText(/password/i).type("13791379al");
+    cy.findByPlaceholderText(/username/i).type("cypress");
+    cy.findByPlaceholderText(/password/i).type("11111111");
     cy.findByRole("button", { name: /login/i }).click();
-    cy.wait(1000);
+    cy.wait(2000);
 
     //click on + button
-    cy.findByRole("link", { name: "add" }).click();
+    cy.get("#add-btn").click();
 
     //create post
-    cy.findByLabelText(/song/i).selectFile(
-      "C:/Users/ASUS/Desktop/Folders/Ebi - Khaali.mp3"
+    cy.get("#song").type(
+      "https://open.spotify.com/track/0V3wPSX9ygBnCm8psDIegu"
     );
     cy.findByPlaceholderText(/title/i).type("new post");
     cy.findByPlaceholderText(/description/i).type("new post arrived");
@@ -21,13 +21,15 @@ describe("create post and delete.", () => {
 
     //go to profile
     cy.findByRole("img", { name: /profile/i }).click({ force: true });
-    cy.wait(1000);
+    cy.wait(2000);
 
     //verify if post was made
     cy.findByText("new post").should("be.visible");
 
     //delete the post
-    cy.get("#delete-btn").click();
+    cy.get("#more").click();
+    cy.get("#delete-link").click();
+    cy.get("#confirm-delete").click();
     cy.wait(1000);
 
     //check if post deleted
