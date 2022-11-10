@@ -20,7 +20,7 @@ describe("Edit user", () => {
     );
     // cy.get("#changeUsername").clear().type("cypress");
     cy.get("#bio").clear().type("cypress test");
-    cy.get("#link").clear().type("https://www.westernal.net/cypress/setting");
+    cy.get("#link").clear().type("https://www.westernal.net/cypress");
     cy.findByRole("button", { name: /save/i }).click();
   });
 });
