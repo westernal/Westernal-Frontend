@@ -9,7 +9,7 @@ const PostOptions = ({ onDelete, isLoggedIn, deletable, id, onUnsave }) => {
     const menu = document.getElementById(id);
     e.preventDefault();
     if (deletable) {
-      menu.style.height = "220px";
+      menu.style.height = "275px";
     } else menu.style.height = "175px";
   };
 
@@ -31,7 +31,7 @@ const PostOptions = ({ onDelete, isLoggedIn, deletable, id, onUnsave }) => {
         {isLoggedIn && (
           <SavePost id={id} hide={closeMenu} onUnsave={onUnsave} />
         )}
-        {isLoggedIn && <Link href={`/post/edit/${id}`}>Edit post</Link>}
+        {deletable && <Link href={`/post/edit/${id}`}>Edit post</Link>}
         <RedirectPost id={id} hide={closeMenu} />
         {deletable && (
           <DeletePost onDelete={onDelete} id={id} hide={closeMenu} />
