@@ -1,3 +1,4 @@
+import Link from "next/link";
 import DeletePost from "../delete/DeletePost";
 import RedirectPost from "../redirect/RedirectPost";
 import SavePost from "../save/SavePost";
@@ -30,6 +31,7 @@ const PostOptions = ({ onDelete, isLoggedIn, deletable, id, onUnsave }) => {
         {isLoggedIn && (
           <SavePost id={id} hide={closeMenu} onUnsave={onUnsave} />
         )}
+        {isLoggedIn && <Link href={`/post/edit/${id}`}>Edit post</Link>}
         <RedirectPost id={id} hide={closeMenu} />
         {deletable && (
           <DeletePost onDelete={onDelete} id={id} hide={closeMenu} />
