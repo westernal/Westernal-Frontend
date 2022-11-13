@@ -9,7 +9,7 @@ const PostOptions = ({ onDelete, isLoggedIn, deletable, id, onUnsave }) => {
     const menu = document.getElementById(id);
     e.preventDefault();
     if (deletable) {
-      menu.style.height = "275px";
+      menu.style.height = "270px";
     } else menu.style.height = "175px";
   };
 
