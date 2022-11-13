@@ -14,14 +14,14 @@ const EditPost = ({ post, router }) => {
 
     const option = {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
       body: JSON.stringify({
         title: title,
         description: description,
       }),
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
     };
 
     try {
@@ -32,9 +32,11 @@ const EditPost = ({ post, router }) => {
       return;
     }
 
+    console.log(result);
+
     if (result.status == 200) {
       toast.success(`Post edited!!`);
-      router.push(`/post/${post._id}`);
+      //   router.push(`/post/${post._id}`);
       SetLoader(false);
     } else {
       toast.error(result.data.message);
