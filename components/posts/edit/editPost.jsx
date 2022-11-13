@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import API from "../../../requests/API";
 import EditPostForm from "../../authentication/form/EditPostForm";
 import BackHeader from "../../layout/header/BackHeader";
+import FormLoader from "../../layout/loader/FormLoader";
 
 const EditPost = ({ post, router }) => {
   const [loader, SetLoader] = useState(false);
@@ -49,6 +50,7 @@ const EditPost = ({ post, router }) => {
       <BackHeader title={"Edit Post"} />
 
       <div className="auth-form">
+        {loader && <FormLoader />}
         <EditPostForm post={post} editPost={edit} />
       </div>
     </div>
