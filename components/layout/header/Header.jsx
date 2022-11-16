@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <div className="header">
+    <header className="header">
       <a
         href="#"
         onClick={(e) => {
@@ -21,7 +21,7 @@ const Header = () => {
           alt="add button"
         />
       </Link>
-    </div>
+    </header>
   );
 };
 

@@ -49,7 +49,7 @@ const Footer = () => {
   };
 
   return (
-    <div className="footer">
+    <footer className="footer">
       <Head>
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -102,7 +102,7 @@ const Footer = () => {
           id="user-icon"
         />
       </Link>
-    </div>
+    </footer>
   );
 };
 
