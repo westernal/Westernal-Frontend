@@ -8,12 +8,13 @@ const SearchArtists = ({ token, chooseSong, hide }) => {
   const [loader, SetLoader] = useState(false);
 
   const search = async () => {
+    const input = document.getElementById("search-input");
+    let response;
+
     if (artists.length == 0) {
       SetLoader(true);
     }
 
-    const input = document.getElementById("search-input");
-    let response;
     const option = {
       method: "GET",
       headers: {
@@ -22,19 +23,12 @@ const SearchArtists = ({ token, chooseSong, hide }) => {
       },
     };
 
-    try {
-      response = await fetch(
-        `https://api.spotify.com/v1/search?q=${
-          input.value && input.value
-        }&type=artist&limit=10`,
-        option
-      );
-    } catch (error) {
-      toast.error("Server error, please try again!");
-      input.blur();
-      SetLoader(false);
-      return;
-    }
+    response = await fetch(
+      `https://api.spotify.com/v1/search?q=${
+        input.value && input.value
+      }&type=artist&limit=10`,
+      option
+    );
 
     const data = await response.json();
 

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import SearchTracks from "./Tracks";
 import SearchArtists from "./Artists";
+import { toast } from "react-toastify";
 
 const SearchSong = ({ hide, chooseSong }) => {
   const [isArtist, SetIsArtist] = useState(false);
@@ -11,6 +12,8 @@ const SearchSong = ({ hide, chooseSong }) => {
 
   useEffect(() => {
     const getToken = async () => {
+      let response;
+
       const option = {
         method: "POST",
         headers: {
@@ -22,10 +25,15 @@ const SearchSong = ({ hide, chooseSong }) => {
         json: true,
       };
 
-      const response = await fetch(
-        `https://accounts.spotify.com/api/token`,
-        option
-      );
+      try {
+        response = await fetch(
+          `https://accounts.spotify.com/api/token`,
+          option
+        );
+      } catch (error) {
+        toast.error("Server error, please try again later!");
+        return;
+      }
 
       const data = await response.json();
 
