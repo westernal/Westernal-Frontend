@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Image from "next/dist/client/image";
-import { toast } from "react-toastify";
 import FormLoader from "../../layout/loader/FormLoader";
 
 const SearchTracks = ({ token, chooseSong, hide }) => {
