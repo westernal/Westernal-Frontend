@@ -30,6 +30,7 @@ const SearchTracks = ({ token, chooseSong, hide }) => {
     );
 
     const data = await response.json();
+    console.log(data);
 
     const status = response.status;
 
