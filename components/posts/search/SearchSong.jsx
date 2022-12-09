@@ -2,14 +2,11 @@ import { useEffect } from "react";
 import { useState } from "react";
 import SearchTracks from "./Tracks";
 import SearchArtists from "./Artists";
-import { toast } from "react-toastify";
 import getSpotifyToken from "../../../requests/getSpotifyToken";
 
 const SearchSong = ({ hide, chooseSong }) => {
   const [isArtist, SetIsArtist] = useState(false);
   const [token, SetToken] = useState("");
-  const clientToken =
-    "355a112f4a27485cbbb614e817d439c8:f12328b921684083802df0f82574a6ee";
 
   useEffect(() => {
     const getToken = async () => {

@@ -5,7 +5,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import ReactPlayer from "react-player";
-import SpotifyPlayer from "../player/SpotifyPlayer";
+import SpotifyPlayer from "react-spotify-player";
 import PostError from "./error/PostError";
 import PostIcons from "./icons/PostIcons";
 import jwtDecode from "jwt-decode";
@@ -118,7 +118,13 @@ const Post = ({
                 pip={true}
               />
             )}
-            {isSpotify && !error && <SpotifyPlayer url={details.songUrl} />}
+            {isSpotify && !error && (
+              <SpotifyPlayer
+                uri={details.songUrl}
+                view="coverart"
+                theme="black"
+              />
+            )}
           </div>
         </div>
 

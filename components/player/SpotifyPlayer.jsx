@@ -15,8 +15,7 @@ const SpotifyPlayer = ({ url }) => {
     const options = {
       method: "GET",
       headers: {
-        "content-type": "application/json",
-        Authorization: `Bearer ${token}`,
+        "content-type": "application/json+oembed",
       },
     };
 
