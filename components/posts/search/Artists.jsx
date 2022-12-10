@@ -31,6 +31,7 @@ const SearchArtists = ({ token, chooseSong, hide }) => {
     );
 
     const data = await response.json();
+    console.log(data);
 
     const status = response.status;
 
@@ -63,16 +64,18 @@ const SearchArtists = ({ token, chooseSong, hide }) => {
                 hide();
               }}
             >
-              <div className="profile-notif artist-info grid">
-                <Image
-                  alt="artist's cover"
-                  src={artist.images[0] && artist.images[0].url}
-                  width={60}
-                  height={60}
-                  id={"artist-cover"}
-                />
-                <div className="song-info">
-                  <p>{artist.name}</p>
+              <div className="profile-notif artist-info">
+                <div className="searched-song">
+                  <Image
+                    alt="artist's cover"
+                    src={artist.images[0] && artist.images[0].url}
+                    width={60}
+                    height={60}
+                    id={"artist-cover"}
+                  />
+                  <div className="song-info">
+                    <p>{artist.name}</p>
+                  </div>
                 </div>
               </div>
             </a>
