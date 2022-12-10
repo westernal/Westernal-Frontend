@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Image from "next/dist/client/image";
 import FormLoader from "../../layout/loader/FormLoader";
+import SearchItems from "./Items/SearchItems";
 
 const SearchTracks = ({ token, chooseSong, hide }) => {
   const [songs, SetSongs] = useState([]);
@@ -54,35 +54,7 @@ const SearchTracks = ({ token, chooseSong, hide }) => {
         {loader && <FormLoader />}
         {songs.map((song) => {
           return (
-            <a
-              href="#"
-              key={song.id}
-              onClick={(e) => {
-                e.preventDefault();
-                chooseSong(song.external_urls.spotify);
-                hide();
-              }}
-            >
-              <div className="profile-notif grid">
-                <Image
-                  alt="song's cover"
-                  src={song.album.images[0].url}
-                  width={60}
-                  height={60}
-                  id={"song-cover"}
-                />
-                <div className="song-info">
-                  <p>{song.name}</p>
-                  <p id="artist">
-                    {song.artists.map((artist, index, array) =>
-                      index == array.length - 1
-                        ? artist.name
-                        : `${artist.name} feat. `
-                    )}
-                  </p>
-                </div>
-              </div>
-            </a>
+            <SearchItems song={song} chooseSong={chooseSong} hide={hide} />
           );
         })}
       </div>
