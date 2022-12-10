@@ -40,7 +40,7 @@ const SearchItems = ({ song, chooseSong, hide }) => {
           />
         ) : (
           <Image
-            src={"/Images/Pause button.svg"}
+            src={"/Images/Pause Button.svg"}
             alt={"Pause Button"}
             width={25}
             height={30}

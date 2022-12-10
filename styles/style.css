@@ -1317,6 +1317,10 @@ h1 {
     padding-bottom: 10px;
   }
 
+  .song-btns {
+    margin-top: 10px;
+  }
+
   .comment-buttons {
     grid-template-columns: auto;
   }
