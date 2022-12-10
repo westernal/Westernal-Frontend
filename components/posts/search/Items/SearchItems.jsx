@@ -1,9 +1,7 @@
 import Image from "next/image";
-import { useState } from "react";
+import SongButtons from "./SongButtons";
 
 const SearchItems = ({ song, chooseSong, hide }) => {
-  const [isPlaying, SetIsPlaying] = useState(false);
-
   return (
     <div className="profile-notif ">
       <div className="searched-song">
@@ -25,48 +23,8 @@ const SearchItems = ({ song, chooseSong, hide }) => {
           </p>
         </div>
       </div>
-      <div className="song-btns">
-        {!isPlaying ? (
-          <Image
-            src={"/Images/Play button.svg"}
-            alt={"Play Button"}
-            width={27}
-            height={30}
-            onClick={(e) => {
-              e.preventDefault();
-              document.getElementById(song.id).play();
-              SetIsPlaying(true);
-            }}
-          />
-        ) : (
-          <Image
-            src={"/Images/Pause Button.svg"}
-            alt={"Pause Button"}
-            width={25}
-            height={30}
-            onClick={(e) => {
-              e.preventDefault();
-              document.getElementById(song.id).pause();
-              SetIsPlaying(false);
-            }}
-          />
-        )}
-        <a
-          href="#"
-          className="choose-song btn"
-          onClick={(e) => {
-            e.preventDefault();
-            chooseSong(song.external_urls.spotify);
-            hide();
-          }}
-        >
-          Select
-        </a>
-      </div>
 
-      <div className="song-preview">
-        <audio src={song.preview_url} id={song.id}></audio>
-      </div>
+      <SongButtons song={song} chooseSong={chooseSong} hide={hide} />
     </div>
   );
 };

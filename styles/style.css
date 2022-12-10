@@ -1087,7 +1087,7 @@ h1 {
   z-index: 2;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
   margin-right: 30px;
 }
 
@@ -1103,6 +1103,10 @@ h1 {
 .search-modal .btn:hover {
   background-color: #9d38fc;
   color: white;
+}
+
+#pause-btn {
+  margin-right: 3px;
 }
 
 @media screen and (prefers-color-scheme: dark) {
