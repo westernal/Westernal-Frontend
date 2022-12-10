@@ -30,7 +30,6 @@ const SearchTracks = ({ token, chooseSong, hide }) => {
     );
 
     const data = await response.json();
-    console.log(data);
 
     const status = response.status;
 
@@ -54,7 +53,12 @@ const SearchTracks = ({ token, chooseSong, hide }) => {
         {loader && <FormLoader />}
         {songs.map((song) => {
           return (
-            <SearchItems song={song} chooseSong={chooseSong} hide={hide} />
+            <SearchItems
+              song={song}
+              chooseSong={chooseSong}
+              hide={hide}
+              key={song.id}
+            />
           );
         })}
       </div>

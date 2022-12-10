@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { useEffect } from "react";
-import getSpotifyToken from "../../requests/getSpotifyToken";
 
 const SpotifyPlayer = ({ url, height = "360px" }) => {
   const [link, SetLink] = useState(new URL(url));
