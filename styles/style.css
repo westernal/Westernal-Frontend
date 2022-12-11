@@ -1102,7 +1102,16 @@ h1 {
 
 .search-modal .btn:hover {
   background-color: #9d38fc;
+  opacity: 0.8;
   color: white;
+}
+
+.song-btns img {
+  transition: 0.3s;
+}
+
+.song-btns img:hover {
+  opacity: 0.8;
 }
 
 #pause-btn {
