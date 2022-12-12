@@ -421,7 +421,8 @@ a {
   justify-content: space-between;
 }
 
-.post-info svg path {
+.post-info svg path,
+.song-btns img {
   transition: 0.3s;
 }
 
@@ -1100,18 +1101,11 @@ h1 {
   padding: 5px 10px;
 }
 
-.search-modal .btn:hover {
+.search-modal .btn:hover,
+.song-btns img:hover {
   background-color: #9d38fc;
   filter: contrast(2);
   color: white;
-}
-
-.song-btns img {
-  transition: 0.3s;
-}
-
-.song-btns img:hover {
-  filter: contrast(2);
 }
 
 #pause-btn {
