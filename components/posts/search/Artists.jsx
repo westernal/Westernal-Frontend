@@ -49,6 +49,7 @@ const SearchArtists = ({ token, chooseSong, hide }) => {
           placeholder="Search an artist..."
           id="search-input"
           onChange={search}
+          autoComplete={"off"}
         />
       </div>
       <div className="search-results">
