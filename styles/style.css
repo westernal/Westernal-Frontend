@@ -1103,12 +1103,12 @@ h1 {
 
 .search-modal .btn:hover {
   background-color: #9d38fc;
-  filter: contrast(0.5);
+  filter: contrast(0.7);
   color: white;
 }
 
 .song-btns img:hover {
-  filter: contrast(0.5);
+  filter: contrast(0.7);
 }
 
 #pause-btn {
