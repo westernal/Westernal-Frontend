@@ -684,7 +684,7 @@ canvas {
   transition: 0.5s;
   z-index: 101;
   overflow: auto;
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(2px);
   background-color: rgba(0, 0, 0, 0.4);
 }
 
