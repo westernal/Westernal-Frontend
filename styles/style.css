@@ -1101,11 +1101,14 @@ h1 {
   padding: 5px 10px;
 }
 
-.search-modal .btn:hover,
-.song-btns img:hover {
+.search-modal .btn:hover {
   background-color: #9d38fc;
-  filter: contrast(2);
+  filter: contrast(0.5);
   color: white;
+}
+
+.song-btns img:hover {
+  filter: contrast(0.5);
 }
 
 #pause-btn {
