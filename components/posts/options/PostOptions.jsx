@@ -6,8 +6,10 @@ import SharePost from "../share/SharePost";
 
 const PostOptions = ({ onDelete, isLoggedIn, deletable, id, onUnsave }) => {
   const openMenu = (e) => {
-    const menu = document.getElementById(id);
     e.preventDefault();
+
+    const menu = document.getElementById(id);
+
     if (deletable) {
       menu.style.height = "270px";
     } else menu.style.height = "175px";
@@ -15,9 +17,11 @@ const PostOptions = ({ onDelete, isLoggedIn, deletable, id, onUnsave }) => {
 
   const closeMenu = (e) => {
     const menu = document.getElementById(id);
+
     if (e) {
       e.preventDefault();
     }
+
     menu.style.height = "0px";
   };
 

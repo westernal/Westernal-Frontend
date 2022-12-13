@@ -5,20 +5,26 @@ const DeletePost = ({ onDelete, id, hide }) => {
   const [showModal, SetShowModal] = useState(false);
 
   const modalDisplay = (e) => {
+    const deleteModal = document.getElementById("delete-modal");
+
     hide();
+
     if (e) {
       e.preventDefault();
     }
+
     if (showModal) {
+      deleteModal.style.height = "0";
       SetShowModal(false);
-    } else SetShowModal(true);
+    } else {
+      deleteModal.style.height = "100%";
+      SetShowModal(true);
+    }
   };
 
   return (
     <>
-      {showModal && (
-        <DeleteModal hide={modalDisplay} id={id} onDelete={onDelete} />
-      )}
+      <DeleteModal hide={modalDisplay} id={id} onDelete={onDelete} />
 
       <a onClick={modalDisplay} href="#" id="delete-link">
         Delete post
