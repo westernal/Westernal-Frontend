@@ -6,18 +6,28 @@ const SongButtons = ({ song }) => {
   const [isPlaying, SetIsPlaying] = useState(false);
   const { closeModal, chooseSong, playSong, pauseSong } = useSearchContext();
 
+  const pauseButtonClicked = (e) => {
+    e.preventDefault();
+    pauseSong(song.id);
+    SetIsPlaying(false);
+  };
+
+  const playButtonClicked = (e) => {
+    e.preventDefault();
+    playSong(song.id);
+    SetIsPlaying(true);
+  };
+
+  const selectButtonClicked = (e) => {
+    e.preventDefault();
+    chooseSong(song.external_urls.spotify);
+    closeModal();
+  };
+
   return (
     <div className="song-btns">
       {!isPlaying ? (
-        <a
-          href="#"
-          onClick={(e) => {
-            e.preventDefault();
-            playSong(song.id);
-            SetIsPlaying(true);
-          }}
-          style={{ height: "25px" }}
-        >
+        <a href="#" onClick={playButtonClicked} style={{ height: "25px" }}>
           <Image
             src={"/Images/Play button.svg"}
             alt={"Play Button"}
@@ -26,15 +36,7 @@ const SongButtons = ({ song }) => {
           />
         </a>
       ) : (
-        <a
-          href="#"
-          onClick={(e) => {
-            e.preventDefault();
-            pauseSong(song.id);
-            SetIsPlaying(false);
-          }}
-          style={{ height: "25px" }}
-        >
+        <a href="#" onClick={pauseButtonClicked} style={{ height: "25px" }}>
           <Image
             src={"/Images/Pause Button.svg"}
             alt={"Pause Button"}
@@ -44,15 +46,7 @@ const SongButtons = ({ song }) => {
           />
         </a>
       )}
-      <a
-        href="#"
-        className="choose-song btn"
-        onClick={(e) => {
-          e.preventDefault();
-          chooseSong(song.external_urls.spotify);
-          closeModal();
-        }}
-      >
+      <a href="#" className="choose-song btn" onClick={selectButtonClicked}>
         Select
       </a>
       <div className="song-preview">
