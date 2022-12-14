@@ -36,7 +36,7 @@ const SearchSong = () => {
       <div className="modal-text search-modal">
         <a
           href="#"
-          onClick={() => {
+          onClick={(e) => {
             e.preventDefault();
             closeModal();
           }}

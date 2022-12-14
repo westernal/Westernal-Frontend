@@ -57,30 +57,34 @@ const SearchArtists = ({ token }) => {
         {loader && <FormLoader />}
         {artists.map((artist) => {
           return (
-            <a
-              href="#"
-              key={artist.id}
-              onClick={(e) => {
-                e.preventDefault();
-                chooseSong(artist.external_urls.spotify);
-                closeModal();
-              }}
-            >
-              <div className="profile-notif artist-info">
-                <div className="searched-song">
-                  <Image
-                    alt="artist's cover"
-                    src={artist.images[0] && artist.images[0].url}
-                    width={60}
-                    height={60}
-                    id={"artist-cover"}
-                  />
-                  <div className="song-info">
-                    <p>{artist.name}</p>
-                  </div>
+            <div className="profile-notif artist-info" key={artist.id}>
+              <div className="searched-song">
+                <Image
+                  alt="artist's cover"
+                  src={artist.images[0] && artist.images[0].url}
+                  width={60}
+                  height={60}
+                  id={"artist-cover"}
+                />
+                <div className="song-info">
+                  <p>{artist.name}</p>
                 </div>
               </div>
-            </a>
+
+              <div className="song-btns">
+                <a
+                  href="#"
+                  className="choose-song btn"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    chooseSong(artist.external_urls.spotify);
+                    closeModal();
+                  }}
+                >
+                  Select
+                </a>
+              </div>
+            </div>
           );
         })}
       </div>
