@@ -3,10 +3,12 @@ import { useState } from "react";
 import SearchTracks from "./Tracks";
 import SearchArtists from "./Artists";
 import getSpotifyToken from "../../../requests/getSpotifyToken";
+import { useSearchContext } from "../../../context/searchMusicContext";
 
-const SearchSong = ({ hide, chooseSong }) => {
+const SearchSong = () => {
   const [isArtist, SetIsArtist] = useState(false);
   const [token, SetToken] = useState("");
+  const { closeModal } = useSearchContext();
 
   useEffect(() => {
     const getToken = async () => {
@@ -17,15 +19,10 @@ const SearchSong = ({ hide, chooseSong }) => {
 
     window.onclick = function (event) {
       if (event.target == document.getElementById("delete-modal")) {
-        hide();
+        modalFunctions.closeModal();
       }
     };
   }, []);
-
-  const closeModal = (e) => {
-    e.preventDefault();
-    hide();
-  };
 
   const categoryHandler = (e) => {
     e.preventDefault();
@@ -37,7 +34,14 @@ const SearchSong = ({ hide, chooseSong }) => {
   return (
     <div className="delete-modal" id="delete-modal">
       <div className="modal-text search-modal">
-        <a href="#" onClick={closeModal} className="close">
+        <a
+          href="#"
+          onClick={() => {
+            e.preventDefault();
+            closeModal();
+          }}
+          className="close"
+        >
           &times;
         </a>
         <div className="search-type flex">
@@ -48,12 +52,8 @@ const SearchSong = ({ hide, chooseSong }) => {
             Artist
           </a>
         </div>
-        {!isArtist && (
-          <SearchTracks token={token} chooseSong={chooseSong} hide={hide} />
-        )}
-        {isArtist && (
-          <SearchArtists token={token} chooseSong={chooseSong} hide={hide} />
-        )}
+        {!isArtist && <SearchTracks token={token} />}
+        {isArtist && <SearchArtists token={token} />}
       </div>
     </div>
   );

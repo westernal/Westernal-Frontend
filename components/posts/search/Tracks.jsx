@@ -2,7 +2,7 @@ import { useState } from "react";
 import FormLoader from "../../layout/loader/FormLoader";
 import SearchItems from "./Items/SearchItems";
 
-const SearchTracks = ({ token, chooseSong, hide }) => {
+const SearchTracks = ({ token }) => {
   const [songs, SetSongs] = useState([]);
   const [loader, SetLoader] = useState(false);
 
@@ -53,14 +53,7 @@ const SearchTracks = ({ token, chooseSong, hide }) => {
       <div className="search-results">
         {loader && <FormLoader />}
         {songs.map((song) => {
-          return (
-            <SearchItems
-              song={song}
-              chooseSong={chooseSong}
-              hide={hide}
-              key={song.id}
-            />
-          );
+          return <SearchItems song={song} key={song.id} />;
         })}
       </div>
     </>

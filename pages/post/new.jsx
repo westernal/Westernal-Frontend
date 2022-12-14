@@ -10,34 +10,20 @@ import { useEffect } from "react";
 import SearchSong from "../../components/posts/search/SearchSong";
 import FormLoader from "../../components/layout/loader/FormLoader";
 import PostForm from "../../components/authentication/form/PostForm";
+import { SearchMusicProvider } from "../../context/searchMusicContext";
 
 const NewPost = () => {
   const [loader, SetLoader] = useState(false);
-  var searchModal;
   const router = useRouter();
+  var searchModal;
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       router.push("/");
       return;
     }
-
     searchModal = document.getElementById("delete-modal");
   }, [router]);
-
-  const chooseSong = (url) => {
-    const song = document.getElementById("song");
-    song.value = url;
-  };
-
-  const openModal = (e) => {
-    e.preventDefault();
-    searchModal.style.height = "100%";
-  };
-
-  const closeModal = () => {
-    searchModal.style.height = "0";
-  };
 
   function generateToken() {
     var token = localStorage.getItem("token");
@@ -85,6 +71,11 @@ const NewPost = () => {
     }
   };
 
+  const openModal = (e) => {
+    e.preventDefault();
+    searchModal.style.height = "100%";
+  };
+
   return (
     <>
       <Head>
@@ -93,7 +84,9 @@ const NewPost = () => {
 
       <BackHeader title="New Post" />
 
-      <SearchSong hide={closeModal} chooseSong={chooseSong} />
+      <SearchMusicProvider>
+        <SearchSong />
+      </SearchMusicProvider>
 
       <div className="flex add-post">
         <div className="auth-form">

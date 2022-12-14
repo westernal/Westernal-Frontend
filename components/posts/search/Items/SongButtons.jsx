@@ -1,8 +1,11 @@
 import { useState } from "react";
 import Image from "next/image";
+import { useContext } from "react";
+import { useSearchContext } from "../../../../context/searchMusicContext";
 
-const SongButtons = ({ song, chooseSong, hide }) => {
+const SongButtons = ({ song }) => {
   const [isPlaying, SetIsPlaying] = useState(false);
+  const { closeModal, chooseSong } = useSearchContext();
 
   return (
     <div className="song-btns">
@@ -48,7 +51,7 @@ const SongButtons = ({ song, chooseSong, hide }) => {
         onClick={(e) => {
           e.preventDefault();
           chooseSong(song.external_urls.spotify);
-          hide();
+          closeModal();
         }}
       >
         Select

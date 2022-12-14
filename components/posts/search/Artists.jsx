@@ -1,11 +1,12 @@
 import { useState } from "react";
 import Image from "next/dist/client/image";
-import { toast } from "react-toastify";
 import FormLoader from "../../layout/loader/FormLoader";
+import { useSearchContext } from "../../../context/searchMusicContext";
 
-const SearchArtists = ({ token, chooseSong, hide }) => {
+const SearchArtists = ({ token }) => {
   const [artists, setArtists] = useState([]);
   const [loader, SetLoader] = useState(false);
+  const { closeModal, chooseSong } = useSearchContext();
 
   const search = async () => {
     const input = document.getElementById("search-input");
@@ -62,7 +63,7 @@ const SearchArtists = ({ token, chooseSong, hide }) => {
               onClick={(e) => {
                 e.preventDefault();
                 chooseSong(artist.external_urls.spotify);
-                hide();
+                closeModal();
               }}
             >
               <div className="profile-notif artist-info">

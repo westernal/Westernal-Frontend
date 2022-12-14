@@ -1,7 +1,7 @@
 import Image from "next/image";
 import SongButtons from "./SongButtons";
 
-const SearchItems = ({ song, chooseSong, hide }) => {
+const SearchItems = ({ song }) => {
   return (
     <div className="profile-notif ">
       <div className="searched-song">
@@ -24,7 +24,7 @@ const SearchItems = ({ song, chooseSong, hide }) => {
         </div>
       </div>
 
-      <SongButtons song={song} chooseSong={chooseSong} hide={hide} />
+      <SongButtons song={song} />
     </div>
   );
 };
