@@ -1,11 +1,10 @@
 import { useState } from "react";
 import Image from "next/image";
-import { useContext } from "react";
 import { useSearchContext } from "../../../../context/searchMusicContext";
 
 const SongButtons = ({ song }) => {
   const [isPlaying, SetIsPlaying] = useState(false);
-  const { closeModal, chooseSong } = useSearchContext();
+  const { closeModal, chooseSong, playSong, pauseSong } = useSearchContext();
 
   return (
     <div className="song-btns">
@@ -14,7 +13,7 @@ const SongButtons = ({ song }) => {
           href="#"
           onClick={(e) => {
             e.preventDefault();
-            document.getElementById(song.id).play();
+            playSong(song.id);
             SetIsPlaying(true);
           }}
           style={{ height: "25px" }}
@@ -31,7 +30,7 @@ const SongButtons = ({ song }) => {
           href="#"
           onClick={(e) => {
             e.preventDefault();
-            document.getElementById(song.id).pause();
+            pauseSong(song.id);
             SetIsPlaying(false);
           }}
           style={{ height: "25px" }}
@@ -60,7 +59,11 @@ const SongButtons = ({ song }) => {
         <audio
           src={song.preview_url}
           id={song.id}
+          className="audio-player"
           onEnded={() => {
+            SetIsPlaying(false);
+          }}
+          onPause={() => {
             SetIsPlaying(false);
           }}
         ></audio>

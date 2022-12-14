@@ -24,8 +24,29 @@ export const SearchMusicProvider = ({ children }) => {
     searchModal.style.height = "0";
   };
 
+  const playSong = (id) => {
+    const song = document.getElementById(id);
+
+    pauseOtherSongs();
+    song.play();
+  };
+
+  const pauseSong = (id) => {
+    const song = document.getElementById(id);
+    song.pause();
+  };
+
+  const pauseOtherSongs = () => {
+    const songs = document.querySelectorAll(".audio-player");
+    songs.forEach((song) => {
+      pauseSong(song.id);
+    });
+  };
+
   return (
-    <SearchMusicContext.Provider value={{ closeModal, chooseSong }}>
+    <SearchMusicContext.Provider
+      value={{ closeModal, chooseSong, playSong, pauseSong }}
+    >
       {children}
     </SearchMusicContext.Provider>
   );
