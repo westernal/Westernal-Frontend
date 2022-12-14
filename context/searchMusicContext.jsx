@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { createContext } from "react";
-import { useEffect } from "react";
 
 export const SearchMusicContext = createContext();
 
@@ -9,18 +8,13 @@ export const useSearchContext = () => {
 };
 
 export const SearchMusicProvider = ({ children }) => {
-  var searchModal;
-
-  useEffect(() => {
-    searchModal = document.getElementById("delete-modal");
-  }, []);
-
   const chooseSong = (url) => {
     const song = document.getElementById("song");
     song.value = url;
   };
 
   const closeModal = () => {
+    const searchModal = document.getElementById("delete-modal");
     searchModal.style.height = "0";
   };
 
