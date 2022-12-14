@@ -15,14 +15,12 @@ import { SearchMusicProvider } from "../../context/searchMusicContext";
 const NewPost = () => {
   const [loader, SetLoader] = useState(false);
   const router = useRouter();
-  var searchModal;
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       router.push("/");
       return;
     }
-    searchModal = document.getElementById("delete-modal");
   }, [router]);
 
   function generateToken() {
@@ -73,6 +71,7 @@ const NewPost = () => {
 
   const openModal = (e) => {
     e.preventDefault();
+    const searchModal = document.getElementById("delete-modal");
     searchModal.style.height = "100%";
   };
 
