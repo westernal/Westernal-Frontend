@@ -2,7 +2,6 @@ import "../styles/style.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Head from "next/head";
-import { UserContextProvider } from "../context/userContext.";
 
 function MyApp({ Component, pageProps }) {
   return (
