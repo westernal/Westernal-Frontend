@@ -1,5 +1,4 @@
 import API from "../../requests/API";
-import dateFormat from "dateformat";
 import { useEffect } from "react";
 import { useState } from "react";
 import Link from "next/link";
@@ -10,6 +9,7 @@ import PostError from "./error/PostError";
 import PostIcons from "./icons/PostIcons";
 import jwtDecode from "jwt-decode";
 import PostOptions from "./options/PostOptions";
+import formatDate from "../../Functions/formatDate";
 
 const Post = ({
   details,
@@ -130,7 +130,7 @@ const Post = ({
 
         <div className="post-info flex">
           {isLoggedIn && <PostIcons details={details} />}
-          <p id="date">{dateFormat(details.date, "mmm d yyyy, HH:MM")}</p>
+          <p id="date">{formatDate(details.date)}</p>
         </div>
       </div>
     </div>

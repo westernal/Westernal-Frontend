@@ -11,7 +11,6 @@
     "cypress": "cypress open"
   },
   "dependencies": {
-    "dateformat": "^5.0.3",
     "jwt-decode": "^3.1.2",
     "next": "^13.0.2",
     "next-pwa": "^5.6.0",
