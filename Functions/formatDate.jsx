@@ -24,5 +24,8 @@ export default function formatDate(date) {
   if (interval > 1) {
     return Math.floor(interval) + " minutes ago";
   }
+  if (interval <= 0) {
+    return "Just now";
+  }
   return Math.floor(seconds) + " seconds ago";
 }
