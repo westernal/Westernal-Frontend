@@ -31,34 +31,33 @@ const Post = ({
       }
     }
 
-    async function getPostCreator() {
-      const option = {
-        method: "GET",
-        headers: {
-          "content-type": "application/json",
-        },
-      };
-
-      var result = await API(option, `api/users/${details.creator}`);
-
-      if (result.status == 200) {
-        SetUser(result.data.user);
-      }
-
-      if (isLoggedIn) {
-        if (
-          result.data.user._id ===
-          jwtDecode(localStorage.getItem("token")).userId
-        ) {
-          SetCanDelete(true);
-        }
-      }
-    }
-
     if (!creator) {
       getPostCreator();
     }
   }, [details]);
+
+  async function getPostCreator() {
+    const option = {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+      },
+    };
+
+    var result = await API(option, `api/users/${details.creator}`);
+
+    if (result.status == 200) {
+      SetUser(result.data.user);
+    }
+
+    if (isLoggedIn) {
+      if (
+        result.data.user._id === jwtDecode(localStorage.getItem("token")).userId
+      ) {
+        SetCanDelete(true);
+      }
+    }
+  }
 
   const playerError = () => {
     SetError(true);
@@ -68,7 +67,7 @@ const Post = ({
 
   return (
     <div className="flex ">
-      <div className="post ">
+      <div className="post" id={`post${details._id}`}>
         {user && (
           <div className="post-header flex">
             <Link href={`/${user && user.username}`}>
