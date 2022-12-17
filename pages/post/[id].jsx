@@ -43,7 +43,7 @@ const PostPage = () => {
         <title>Westernal - Post</title>
       </Head>
 
-      <BackHeader title={"Post"} returnHome={true} />
+      <BackHeader title={"Post"} />
 
       <div className="post-list">
         {post && (
