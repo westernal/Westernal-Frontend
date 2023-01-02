@@ -33,6 +33,8 @@ const Footer = () => {
   }, []);
 
   const clearNotification = async () => {
+    SetNotificationCount(0);
+
     const option = {
       method: "POST",
       headers: {
@@ -44,8 +46,6 @@ const Footer = () => {
       option,
       `api/users/notification/clear/${jwt.userId}`
     );
-
-    SetNotificationCount(0);
   };
 
   return (
