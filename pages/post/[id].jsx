@@ -29,7 +29,7 @@ const PostPage = () => {
 
       if (result.status == 200) {
         SetPost(result.data.post);
-      }
+      } else router.push("/404");
     };
 
     if (router.query.id) {

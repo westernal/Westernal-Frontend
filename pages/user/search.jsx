@@ -4,10 +4,12 @@ import API from "../../requests/API";
 import User from "../../components/user/Users";
 import Head from "next/head";
 import { toast } from "react-toastify";
+import { useRouter } from "next/router";
 
 const Search = () => {
   const [users, SetUsers] = useState();
   const [isTyped, SetIsTyped] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {

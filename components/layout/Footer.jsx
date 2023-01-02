@@ -28,8 +28,10 @@ const Footer = () => {
 
   useEffect(() => {
     token = localStorage.getItem("token");
-    Setjwt(jwt_decode(token));
-    getCount(jwt_decode(token).userId);
+    if (token) {
+      Setjwt(jwt_decode(token));
+      getCount(jwt_decode(token).userId);
+    }
   }, []);
 
   const clearNotification = async () => {
