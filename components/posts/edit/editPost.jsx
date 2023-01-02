@@ -36,7 +36,7 @@ const EditPost = ({ post, router }) => {
 
     if (result.status == 200) {
       toast.success(`Post edited!!`);
-      //   router.push(`/post/${post._id}`);
+      router.push(`/post/${post._id}`);
       SetLoader(false);
     } else {
       toast.error(result.data.message);
