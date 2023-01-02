@@ -20,6 +20,7 @@ const SongButtons = ({ song }) => {
 
   const selectButtonClicked = (e) => {
     e.preventDefault();
+    pauseSong(song.id);
     chooseSong(song.external_urls.spotify);
     closeModal();
   };
