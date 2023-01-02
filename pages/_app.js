@@ -2,8 +2,16 @@ import "../styles/style.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Head from "next/head";
+import { useEffect } from "react";
 
 function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const loader = document.getElementById("splash-screen");
+      if (loader) loader.style.display = "none";
+    }
+  }, []);
+
   return (
     <>
       <Head>

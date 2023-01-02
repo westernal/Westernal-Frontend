@@ -1,4 +1,3 @@
-import Loader from "../components/layout/loader/Loader";
 import { useEffect } from "react";
 import Head from "next/head";
 import Login from "../components/authentication/Login";
@@ -8,17 +7,11 @@ import PWAModal from "../components/layout/PWAModal";
 export default function Index() {
   const router = useRouter();
 
-  function sleep(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-  }
-
   useEffect(() => {
     async function startLoaderPreview() {
-      await sleep(500);
       if (localStorage.getItem("token")) {
         await router.push("/home/timeline");
-      } else if (document.getElementsByClassName("loader")[0] && localStorage) {
-        document.getElementsByClassName("loader")[0].style.display = "none";
+      } else if (localStorage) {
         document.getElementsByClassName("login")[0].style.display = "flex";
         var x = window.matchMedia("(max-width: 922px)");
 
@@ -38,7 +31,6 @@ export default function Index() {
       <Head>
         <title>Westernal: Let the songs talk</title>
       </Head>
-      <Loader />
       <PWAModal />
       <Login />
     </div>
