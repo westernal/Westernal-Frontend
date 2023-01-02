@@ -19,7 +19,7 @@ const EditPostPage = () => {
 
     if (result.status == 200) {
       SetPost(result.data.post);
-    }
+    } else router.push("/404");
   };
 
   useEffect(() => {
