@@ -5,7 +5,7 @@ const DeletePost = ({ onDelete, id, hide }) => {
   const [showModal, SetShowModal] = useState(false);
 
   const modalDisplay = (e) => {
-    const deleteModal = document.getElementById("delete-modal");
+    const deleteModal = document.getElementById(`delete-modal${id}`);
 
     hide();
 

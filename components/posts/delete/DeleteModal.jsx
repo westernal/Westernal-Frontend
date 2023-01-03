@@ -34,7 +34,7 @@ const DeleteModal = ({ id, hide, onDelete }) => {
   }
 
   return (
-    <div className="delete-modal" id="delete-modal">
+    <div className="delete-modal" id={`delete-modal${id}`}>
       <div className="modal-text">
         <div onClick={closeModal} className="close">
           &times;
