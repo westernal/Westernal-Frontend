@@ -1294,6 +1294,10 @@ h1 {
     margin-top: -20px;
   }
 
+  .search-type a {
+    width: 70px;
+  }
+
   .post-info svg:hover path {
     fill: currentColor;
   }
