@@ -30,7 +30,6 @@ const SearchTracks = ({ token }) => {
     );
 
     const data = await response.json();
-
     const status = response.status;
 
     if (status == 200) {

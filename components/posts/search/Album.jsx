@@ -3,8 +3,8 @@ import Image from "next/dist/client/image";
 import FormLoader from "../../layout/loader/FormLoader";
 import { useSearchContext } from "../../../context/searchMusicContext";
 
-const SearchArtists = ({ token }) => {
-  const [artists, setArtists] = useState([]);
+const SearchAlbum = ({ token }) => {
+  const [albums, setAlbums] = useState([]);
   const [loader, SetLoader] = useState(false);
   const { closeModal, chooseSong } = useSearchContext();
 
@@ -12,7 +12,7 @@ const SearchArtists = ({ token }) => {
     const input = document.getElementById("search-input");
     let response;
 
-    if (artists.length == 0) {
+    if (albums.length == 0) {
       SetLoader(true);
     }
 
@@ -27,7 +27,7 @@ const SearchArtists = ({ token }) => {
     response = await fetch(
       `https://api.spotify.com/v1/search?q=${
         input.value && input.value
-      }&type=artist&limit=10`,
+      }&type=album&limit=10`,
       option
     );
 
@@ -35,7 +35,7 @@ const SearchArtists = ({ token }) => {
     const status = response.status;
 
     if (status == 200) {
-      setArtists(data.artists.items);
+      setAlbums(data.albums.items);
       SetLoader(false);
     }
   };
@@ -45,7 +45,7 @@ const SearchArtists = ({ token }) => {
       <div className="flex song-search">
         <input
           type="text"
-          placeholder="Search an artist..."
+          placeholder="Search an album..."
           id="search-input"
           onChange={search}
           autoComplete={"off"}
@@ -53,19 +53,26 @@ const SearchArtists = ({ token }) => {
       </div>
       <div className="search-results">
         {loader && <FormLoader />}
-        {artists.map((artist) => {
+        {albums.map((album) => {
           return (
-            <div className="profile-notif artist-info" key={artist.id}>
+            <div className="profile-notif artist-info" key={album.id}>
               <div className="searched-song">
                 <Image
                   alt="artist's cover"
-                  src={artist.images[0] && artist.images[0].url}
+                  src={album.images[0] && album.images[0].url}
                   width={60}
                   height={60}
                   id={"artist-cover"}
                 />
                 <div className="song-info">
-                  <p>{artist.name}</p>
+                  <p>{album.name}</p>
+                  <p id="artist">
+                    {album.artists.map((artist, index, array) =>
+                      index == array.length - 1
+                        ? artist.name
+                        : `${artist.name} feat. `
+                    )}
+                  </p>
                 </div>
               </div>
 
@@ -75,7 +82,7 @@ const SearchArtists = ({ token }) => {
                   className="choose-song btn"
                   onClick={(e) => {
                     e.preventDefault();
-                    chooseSong(artist.external_urls.spotify);
+                    chooseSong(album.external_urls.spotify);
                     closeModal();
                   }}
                 >
@@ -90,4 +97,4 @@ const SearchArtists = ({ token }) => {
   );
 };
 
-export default SearchArtists;
+export default SearchAlbum;

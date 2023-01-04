@@ -4,9 +4,10 @@ import SearchTracks from "./Tracks";
 import SearchArtists from "./Artists";
 import getSpotifyToken from "../../../requests/getSpotifyToken";
 import { useSearchContext } from "../../../context/searchMusicContext";
+import SearchAlbum from "./Album";
 
 const SearchSong = () => {
-  const [isArtist, SetIsArtist] = useState(false);
+  const [category, SetCategory] = useState("Track");
   const [token, SetToken] = useState("");
   const { closeModal } = useSearchContext();
 
@@ -28,7 +29,7 @@ const SearchSong = () => {
     e.preventDefault();
     document.getElementsByClassName("active")[0].classList.remove("active");
     e.target.classList.add("active");
-    SetIsArtist(!isArtist);
+    SetCategory(e.target.innerText);
   };
 
   return (
@@ -49,11 +50,15 @@ const SearchSong = () => {
             Track
           </a>
           <a href="#" onClick={categoryHandler}>
+            Album
+          </a>
+          <a href="#" onClick={categoryHandler}>
             Artist
           </a>
         </div>
-        {!isArtist && <SearchTracks token={token} />}
-        {isArtist && <SearchArtists token={token} />}
+        {category == "Track" && <SearchTracks token={token} />}
+        {category == "Artist" && <SearchArtists token={token} />}
+        {category == "Album" && <SearchAlbum token={token} />}
       </div>
     </div>
   );
