@@ -8,12 +8,12 @@ import Image from "next/image";
 const PWAModal = () => {
   useEffect(() => {
     var modal = document.getElementById("myModal");
-
     var span = document.getElementsByClassName("close1")[0];
 
     if (modal != null) {
       span.addEventListener("click", function () {
         modal.style.display = "none";
+        document.getElementsByClassName("login")[0].style.display = "flex";
       });
     }
   }, []);
