@@ -39,7 +39,7 @@ export const SearchMusicProvider = ({ children }) => {
 
   return (
     <SearchMusicContext.Provider
-      value={{ closeModal, chooseSong, playSong, pauseSong }}
+      value={{ closeModal, chooseSong, playSong, pauseSong, pauseOtherSongs }}
     >
       {children}
     </SearchMusicContext.Provider>

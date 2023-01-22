@@ -9,7 +9,7 @@ import SearchAlbum from "./Album";
 const SearchSong = () => {
   const [category, SetCategory] = useState("Track");
   const [token, SetToken] = useState("");
-  const { closeModal, pauseSong } = useSearchContext();
+  const { closeModal, pauseOtherSongs } = useSearchContext();
 
   useEffect(() => {
     const getToken = async () => {
@@ -40,7 +40,7 @@ const SearchSong = () => {
           onClick={(e) => {
             e.preventDefault();
             closeModal();
-            pauseSong();
+            pauseOtherSongs();
           }}
           className="close"
         >
