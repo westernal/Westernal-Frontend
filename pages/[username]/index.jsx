@@ -86,7 +86,6 @@ const Profile = () => {
               details={post}
               deletable={isUserSelf}
               onDelete={getUserPosts}
-              creator={user}
               key={post._id}
               isLoggedIn={isLoggedIn}
             />

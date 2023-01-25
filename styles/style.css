@@ -457,10 +457,18 @@ a {
 .profile-notif,
 .comment {
   border-radius: 10px;
-  padding: 10px 20px;
+  padding: 0 20px;
+  flex-direction: column;
+  justify-content: left;
+  align-items: baseline;
+  gap: 0;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   justify-content: space-between;
   margin: 20px;
+}
+
+.comment-main {
+  padding-top: 15px;
 }
 
 #userId {
@@ -1010,6 +1018,10 @@ h1 {
   fill: black;
 }
 
+.underline-notif {
+  text-decoration: underline;
+}
+
 .save-svg:hover .save-icon {
   fill: gold;
 }
@@ -1113,6 +1125,10 @@ h1 {
 
 #pause-btn {
   margin-right: 3px;
+}
+
+.comment-message {
+  word-break: break-word;
 }
 
 @media screen and (prefers-color-scheme: dark) {
@@ -1421,6 +1437,12 @@ h1 {
   .cm-text {
     word-break: break-all;
     text-align: left;
+  }
+
+  .comment-main {
+    flex-direction: column;
+    padding: 10px 0;
+    align-items: baseline;
   }
 
   .profile .header p {

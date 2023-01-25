@@ -6,10 +6,12 @@ import ReplyComment from "./replies/ReplyComment";
 import API from "../../../requests/API";
 import Replies from "./replies/Replies";
 import formatDate from "../../../Functions/formatDate";
+import Image from "next/image";
 
 const Comment = ({ comment, onDelete, onReply }) => {
   const [deletable, SetDeletable] = useState(false);
   const [replies, SetReplies] = useState([]);
+  const host = "https://alinavidi.ir/";
 
   useEffect(() => {
     const getReplies = async () => {
@@ -39,12 +41,38 @@ const Comment = ({ comment, onDelete, onReply }) => {
   return (
     <>
       <div className="comment flex" key={comment._id}>
-        <p>
-          <Link href={`/${comment.writer.username}`}>
-            <span id="cm-user">{comment.writer.username}: </span>
+        <div className="flex comment-main ">
+          <Link href={`/${comment.writer.username}`} className=" flex">
+            <span>
+              <Image
+                src={
+                  !comment.writer.avatar.includes("userIcon")
+                    ? host + comment.writer.avatar
+                    : "/Images/user.svg"
+                }
+                alt="user avatar"
+                id="avatar"
+                width={40}
+                height={40}
+              />
+            </span>
+            <div id="cm-user" className="flex">
+              {comment.writer.username}
+              {comment.writer.verified && (
+                <div className="verify">
+                  <Image
+                    src="/Images/verified (2).png"
+                    alt="verify"
+                    width={20}
+                    height={20}
+                  />
+                </div>
+              )}
+            </div>
           </Link>
-          <span>{comment.message}</span>
-        </p>
+          <span className="comment-message">{comment.message}</span>
+        </div>
+
         <div className="cm-info">
           <div className="flex">
             <p id="date">{formatDate(comment.date)}</p>

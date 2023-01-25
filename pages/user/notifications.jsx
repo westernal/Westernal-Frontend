@@ -7,10 +7,12 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import NotifLoader from "../../components/layout/loader/NotifLoader";
 import formatDate from "../../Functions/formatDate";
+import Image from "next/image";
 
 const Notifications = () => {
   const [notifs, SetNotifs] = useState();
   const router = useRouter();
+  const host = "https://alinavidi.ir/";
 
   async function getNotifications() {
     let id = jwt_decode(localStorage.getItem("token")).userId;
@@ -61,20 +63,44 @@ const Notifications = () => {
             <div className="profile-notif flex" key={notif._id}>
               <div className="notif-main">
                 {notif.user && (
-                  <p>
-                    <Link href={`/${notif.user.username}`}>
-                      <span id="cm-user">{"@" + notif.user.username} </span>
+                  <div className="flex comment-main">
+                    <Link href={`/${notif.user.username}`} className="flex">
+                      <span>
+                        <Image
+                          src={
+                            !notif.user.image.includes("userIcon")
+                              ? host + notif.user.image
+                              : "/Images/user.svg"
+                          }
+                          alt="user avatar"
+                          id="avatar"
+                          width={40}
+                          height={40}
+                        />
+                      </span>
+                      <span id="cm-user">{notif.user.username} </span>
+                      {notif.user.verified && (
+                        <div className="verify">
+                          <Image
+                            src="/Images/verified (2).png"
+                            alt="verify"
+                            width={20}
+                            height={20}
+                          />
+                        </div>
+                      )}
                     </Link>
                     {notif.postId ? (
                       <Link
-                        href={`https://www.westernal.net/post/${notif.postId}`}
+                        href={`/post/${notif.postId}`}
+                        className="underline-notif"
                       >
                         <span>{notif.message}</span>
                       </Link>
                     ) : (
                       <span>{notif.message}</span>
                     )}
-                  </p>
+                  </div>
                 )}
               </div>
               <p id="date">{formatDate(notif.date)}</p>
