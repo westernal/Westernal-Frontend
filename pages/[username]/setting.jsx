@@ -1,17 +1,14 @@
 import Footer from "../../components/layout/Footer";
 import { useState, useEffect } from "react";
-import { toast } from "react-toastify";
 import API from "../../requests/API";
 import jwt_decode from "jwt-decode";
 import BackHeader from "../../components/layout/header/BackHeader";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Logout from "../../components/authentication/Logout";
-import FormLoader from "../../components/layout/loader/FormLoader";
 import SettingForm from "../../components/authentication/form/SettingForm";
 
 const Setting = () => {
-  const [loader, SetLoader] = useState(false);
   const [image, SetImage] = useState("/Images/userIcon.png");
   const [user, SetUser] = useState();
   const router = useRouter();
@@ -49,40 +46,6 @@ const Setting = () => {
     getToken();
   }, []);
 
-  const changeLoader = (loader) => {
-    if (loader === "off") {
-      SetLoader(false);
-    } else if (loader === "on") {
-      SetLoader(true);
-    }
-  };
-
-  async function editUser(username, bio = "", image, link = "") {
-    let newBody = new FormData();
-    newBody.append("username", username);
-    newBody.append("bio", bio);
-    newBody.append("image", image);
-    newBody.append("link", link);
-
-    const option = {
-      method: "POST",
-      headers: { Authorization: "Bearer " + localStorage.getItem("token") },
-      body: newBody,
-      redirect: "follow",
-    };
-
-    var result = await API(option, `api/users/edit/${user._id}`);
-
-    if (result.status == 200) {
-      toast.success(`Information Edited!`);
-      localStorage.setItem("token", result.data.token);
-      router.push(`/${username}`);
-    } else {
-      SetLoader(false);
-      toast.error(result.data.message);
-    }
-  }
-
   return (
     <>
       <Head>
@@ -92,14 +55,7 @@ const Setting = () => {
       <div className="setting flex">
         <section>
           <div className="auth-form">
-            {loader && <FormLoader />}
-
-            <SettingForm
-              user={user}
-              editUser={editUser}
-              changeLoader={changeLoader}
-              image={image}
-            />
+            <SettingForm user={user} image={image} />
           </div>
 
           <div className="setting-btns">

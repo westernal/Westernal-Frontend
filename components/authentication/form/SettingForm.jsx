@@ -3,10 +3,15 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import FormLoader from "../../layout/loader/FormLoader";
+import API from "../../../requests/API";
+import { useRouter } from "next/router";
 
-const SettingForm = ({ user, editUser, changeLoader, image }) => {
+const SettingForm = ({ user, image }) => {
   const host = "https://alinavidi.ir/";
   const [token, SetToken] = useState("");
+  const [loader, SetLoader] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     SetToken(localStorage.getItem("token"));
@@ -26,7 +31,7 @@ const SettingForm = ({ user, editUser, changeLoader, image }) => {
 
   function checkInputs(e) {
     e.preventDefault();
-    changeLoader("on");
+    SetLoader(true);
 
     let username = document.getElementById("changeUsername");
     let bio = document.getElementById("bio");
@@ -35,7 +40,7 @@ const SettingForm = ({ user, editUser, changeLoader, image }) => {
 
     if (link.value && !isURL(link.value)) {
       toast.error("Personal link is invalid.");
-      changeLoader("off");
+      SetLoader(false);
       return;
     }
 
@@ -52,6 +57,32 @@ const SettingForm = ({ user, editUser, changeLoader, image }) => {
       Image.files[0],
       link.value.toLowerCase()
     );
+  }
+
+  async function editUser(username, bio = "", image, link = "") {
+    let newBody = new FormData();
+    newBody.append("username", username);
+    newBody.append("bio", bio);
+    newBody.append("image", image);
+    newBody.append("link", link);
+
+    const option = {
+      method: "POST",
+      headers: { Authorization: "Bearer " + localStorage.getItem("token") },
+      body: newBody,
+      redirect: "follow",
+    };
+
+    var result = await API(option, `api/users/edit/${user._id}`);
+
+    if (result.status == 200) {
+      toast.success(`Information Edited!`);
+      localStorage.setItem("token", result.data.token);
+      router.push(`/${username}`);
+    } else {
+      SetLoader(false);
+      toast.error(result.data.message);
+    }
   }
 
   return (
@@ -109,6 +140,8 @@ const SettingForm = ({ user, editUser, changeLoader, image }) => {
           />
         </Link>
       </div>
+
+      {loader && <FormLoader />}
 
       <div className="flex setting-btn">
         <button className="btn" type="submit">
