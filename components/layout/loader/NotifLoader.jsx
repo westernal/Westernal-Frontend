@@ -17,12 +17,15 @@ const UserLoader = () => {
     <ContentLoader
       speed={2}
       width={"500"}
-      height={"40"}
-      viewBox="0 0 500 40"
+      height={"100"}
+      viewBox="0 0 500 100"
       backgroundColor={bgColor}
       foregroundColor="#ecebeb"
     >
-      <rect x="10" y="15" rx="5" ry="5" width="290" height="10" />
+      <rect x="10" y="15" rx="5" ry="5" width="100" height="10" />
+      <rect x="10" y="40" rx="5" ry="5" width="200" height="10" />
+      <rect x="10" y="70" rx="5" ry="5" width="30" height="10" />
+      <rect x="50" y="70" rx="5" ry="5" width="30" height="10" />
     </ContentLoader>
   );
 };
