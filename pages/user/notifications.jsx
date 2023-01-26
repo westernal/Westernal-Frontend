@@ -63,7 +63,7 @@ const Notifications = () => {
             <div className="profile-notif flex" key={notif._id}>
               <div className="notif-main">
                 {notif.user && (
-                  <div className="flex comment-main">
+                  <div className="flex ">
                     <Link href={`/${notif.user.username}`} className="flex">
                       <span>
                         <Image
@@ -90,20 +90,18 @@ const Notifications = () => {
                         </div>
                       )}
                     </Link>
-                    {notif.postId ? (
-                      <Link
-                        href={`/post/${notif.postId}`}
-                        className="underline-notif"
-                      >
-                        <span>{notif.message}</span>
-                      </Link>
-                    ) : (
-                      <span>{notif.message}</span>
-                    )}
+                    <span>{notif.message}</span>
                   </div>
                 )}
               </div>
-              <p id="date">{formatDate(notif.date)}</p>
+              <div className="flex">
+                <p id="date">{formatDate(notif.date)}</p>
+                {notif.postId && (
+                  <Link href={`/post/${notif.postId}`}>
+                    <button className="choose-song btn">View post</button>
+                  </Link>
+                )}
+              </div>
             </div>
           ))}
       </div>

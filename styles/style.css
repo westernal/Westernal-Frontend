@@ -461,14 +461,10 @@ a {
   flex-direction: column;
   justify-content: left;
   align-items: baseline;
-  gap: 0;
+  gap: 5px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   justify-content: space-between;
   margin: 20px;
-}
-
-.comment-main {
-  padding-top: 15px;
 }
 
 #userId {
@@ -1136,6 +1132,22 @@ h1 {
   word-break: break-word;
 }
 
+.comment-main {
+  padding-top: 15px;
+}
+
+.notif-main .btn {
+  margin: 0;
+}
+
+.notif-main {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  padding-top: 15px;
+}
+
 @media screen and (prefers-color-scheme: dark) {
   body {
     background-color: #101015;
@@ -1433,6 +1445,7 @@ h1 {
   .notif-main {
     margin-bottom: -20px;
     align-items: baseline;
+    flex-direction: column;
   }
 
   .cm-text {
