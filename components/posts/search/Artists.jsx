@@ -41,7 +41,7 @@ const SearchArtists = ({ token }) => {
   };
 
   return (
-    <>
+    <section>
       <div className="flex song-search">
         <input
           type="text"
@@ -86,7 +86,7 @@ const SearchArtists = ({ token }) => {
           );
         })}
       </div>
-    </>
+    </section>
   );
 };
 

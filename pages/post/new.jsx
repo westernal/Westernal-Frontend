@@ -87,7 +87,7 @@ const NewPost = () => {
         <SearchSong />
       </SearchMusicProvider>
 
-      <div className="flex add-post">
+      <main className="flex add-post">
         <div className="auth-form">
           <p id="login-logo">W</p>
 
@@ -99,9 +99,7 @@ const NewPost = () => {
             openModal={openModal}
           />
         </div>
-      </div>
-
-      <div className="mb-100"></div>
+      </main>
       <Footer />
     </>
   );

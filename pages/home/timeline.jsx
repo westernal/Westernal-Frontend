@@ -36,33 +36,31 @@ export default function Index() {
     getPosts(jwt_decode(localStorage.getItem("token")).userId);
   }, [router]);
   return (
-    <div className="home">
+    <>
       <Header showLogo={true} />
       <Head>
         <title>Westernal: Let the songs talk</title>
       </Head>
-
-      <section className="post-list">
-        {!posts &&
-          [1, 2, 3].map((elem, index) => {
-            return (
-              <div className="flex" key={index}>
-                <div className="post">
-                  <ContentLoader />
+      <main className="home">
+        <section className="post-list flex">
+          {!posts &&
+            [1, 2, 3].map((elem, index) => {
+              return (
+                <div className="flex" key={index}>
+                  <div className="post">
+                    <ContentLoader />
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
 
-        {posts &&
-          posts.map((post) => {
-            return <Post details={post} key={post._id} onDelete={getPosts} />;
-          })}
-      </section>
-
-      <div className="mb-100"></div>
-
+          {posts &&
+            posts.map((post) => {
+              return <Post details={post} key={post._id} onDelete={getPosts} />;
+            })}
+        </section>
+      </main>
       <Footer />
-    </div>
+    </>
   );
 }

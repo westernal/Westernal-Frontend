@@ -33,29 +33,29 @@ const Comments = () => {
   };
 
   return (
-    <div className="comments">
+    <>
       <Head>
         <title>Westernal - Comments</title>
       </Head>
-
       <BackHeader title={"comments"} />
+      <main className="comments">
+        <CommentsList
+          postId={router.query.id}
+          rerender={rerender}
+          onReply={onReply}
+        />
 
-      <CommentsList
-        postId={router.query.id}
-        rerender={rerender}
-        onReply={onReply}
-      />
+        <div className="mb-100"></div>
 
-      <div className="mb-100"></div>
-
-      <PostComment
-        postId={router.query.id}
-        onPost={render}
-        isReply={isReply}
-        repliedComment={repliedComment}
-        onCancelReply={onCancelReply}
-      />
-    </div>
+        <PostComment
+          postId={router.query.id}
+          onPost={render}
+          isReply={isReply}
+          repliedComment={repliedComment}
+          onCancelReply={onCancelReply}
+        />
+      </main>
+    </>
   );
 };
 

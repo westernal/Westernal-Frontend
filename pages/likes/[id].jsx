@@ -39,18 +39,18 @@ const Likes = () => {
   }, [router.query, router]);
 
   return (
-    <div className="likes">
+    <>
       <Head>
         <title>Westernal - Likes</title>
       </Head>
       <BackHeader title={"Likes"} />
 
-      <User users={users} />
-
-      <div className="mb-100"></div>
+      <main className="likes">
+        <User users={users} />
+      </main>
 
       <Footer />
-    </div>
+    </>
   );
 };
 

@@ -26,7 +26,7 @@ const PostOptions = ({ onDelete, isLoggedIn, deletable, id, onUnsave }) => {
   };
 
   return (
-    <div className="post-options flex">
+    <section className="post-options flex">
       <a id="more" className="flex" href="#" onClick={openMenu}>
         ...
       </a>
@@ -44,7 +44,7 @@ const PostOptions = ({ onDelete, isLoggedIn, deletable, id, onUnsave }) => {
           Cancel
         </a>
       </div>
-    </div>
+    </section>
   );
 };
 

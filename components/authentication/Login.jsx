@@ -52,8 +52,8 @@ const Login = () => {
   };
 
   return (
-    <div className="login flex">
-      <div className="auth-form">
+    <main className="login flex">
+      <section className="auth-form">
         <Image src={"/Images/logo.png"} alt="logo" width={120} height={120} />
 
         {loader && <FormLoader />}
@@ -68,8 +68,8 @@ const Login = () => {
           <p>Don{"'"}t have an account?</p>
           <Link href={"/user/signup"}>signup</Link>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
 

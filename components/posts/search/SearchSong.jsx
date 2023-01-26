@@ -33,7 +33,7 @@ const SearchSong = () => {
   };
 
   return (
-    <div className="delete-modal" id="delete-modal">
+    <section className="delete-modal" id="delete-modal">
       <div className="modal-text search-modal">
         <a
           href="#"
@@ -61,7 +61,7 @@ const SearchSong = () => {
         {category == "Artist" && <SearchArtists token={token} />}
         {category == "Album" && <SearchAlbum token={token} />}
       </div>
-    </div>
+    </section>
   );
 };
 

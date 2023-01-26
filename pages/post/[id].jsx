@@ -38,28 +38,28 @@ const PostPage = () => {
   }, [router.query]);
 
   return (
-    <div className="post-page home">
+    <>
       <Head>
         <title>Westernal - Post</title>
       </Head>
 
       <BackHeader title={"Post"} />
-
-      <div className="post-list">
-        {post && (
-          <Post
-            details={post}
-            key={post._id}
-            onDelete={() => {
-              router.push("/");
-            }}
-            isLoggedIn={isLoggedIn}
-          />
-        )}
-      </div>
-      <div className="mb-100"></div>
+      <main className="post-page home">
+        <section className="post-list flex">
+          {post && (
+            <Post
+              details={post}
+              key={post._id}
+              onDelete={() => {
+                router.push("/");
+              }}
+              isLoggedIn={isLoggedIn}
+            />
+          )}
+        </section>
+      </main>
       {isLoggedIn && <Footer />}
-    </div>
+    </>
   );
 };
 

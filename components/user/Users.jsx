@@ -6,7 +6,7 @@ const User = ({ users }) => {
   const host = "https://alinavidi.ir/";
 
   return (
-    <div className="user-list">
+    <section className="user-list">
       {!users &&
         [1, 2, 3, 4, 5, 6, 7].map((elem, index) => {
           return (
@@ -46,7 +46,7 @@ const User = ({ users }) => {
             </Link>
           </div>
         ))}
-    </div>
+    </section>
   );
 };
 

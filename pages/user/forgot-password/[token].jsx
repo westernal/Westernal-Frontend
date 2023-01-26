@@ -63,8 +63,8 @@ const ChangePassword = () => {
         <title>Westernal - Reset Password</title>
       </Head>
       <BackHeader title="Reset Password" />
-      <div className=" flex reset-password">
-        <div className="auth-form">
+      <main className=" flex reset-password">
+        <section className="auth-form">
           <p id="login-logo">W</p>
           {loader && (
             <div className="flex">
@@ -95,8 +95,8 @@ const ChangePassword = () => {
               </button>
             </div>
           </form>
-        </div>
-      </div>
+        </section>
+      </main>
     </>
   );
 };

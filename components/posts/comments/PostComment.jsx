@@ -94,7 +94,7 @@ const PostComment = ({
   };
 
   return (
-    <div className="post-comment flex">
+    <section className="post-comment flex">
       <input
         type="text"
         placeholder={`Write a ${isReply ? "reply" : "comment"}...`}
@@ -111,7 +111,7 @@ const PostComment = ({
           </button>
         )}
       </div>
-    </div>
+    </section>
   );
 };
 

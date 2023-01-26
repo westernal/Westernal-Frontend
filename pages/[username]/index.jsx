@@ -67,30 +67,31 @@ const Profile = () => {
   return (
     <div className="profile">
       <UserInfo isUserSelf={isUserSelf} user={user} isLoggedIn={isLoggedIn} />
-
-      {!posts &&
-        [1, 2, 3].map((index) => {
-          return (
-            <div className="flex" key={index}>
-              <div className="post">
-                <ContentLoader />
+      <section className="flex post-list">
+        {!posts &&
+          [1, 2, 3].map((index) => {
+            return (
+              <div className="flex" key={index}>
+                <div className="post">
+                  <ContentLoader />
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
 
-      {posts &&
-        posts.map((post) => {
-          return (
-            <Post
-              details={post}
-              deletable={isUserSelf}
-              onDelete={getUserPosts}
-              key={post._id}
-              isLoggedIn={isLoggedIn}
-            />
-          );
-        })}
+        {posts &&
+          posts.map((post) => {
+            return (
+              <Post
+                details={post}
+                deletable={isUserSelf}
+                onDelete={getUserPosts}
+                key={post._id}
+                isLoggedIn={isLoggedIn}
+              />
+            );
+          })}
+      </section>
 
       <div className="mb-100"></div>
 

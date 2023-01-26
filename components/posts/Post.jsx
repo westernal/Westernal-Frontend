@@ -36,70 +36,68 @@ const Post = ({
   const host = "https://alinavidi.ir/";
 
   return (
-    <div className="flex ">
-      <div className="post" id={`post${details._id}`}>
-        <div className="post-header flex">
-          <Link href={`/${details.author.username}`}>
-            <div className="post-user flex">
-              <Image
-                src={
-                  !details.author.image.includes("userIcon")
-                    ? host + details.author.image
-                    : "/Images/user.svg"
-                }
-                alt="user avatar"
-                id="avatar"
-                width={40}
-                height={40}
-              />
-              <p>{details.author.username}</p>
-              {details.author.verified && (
-                <div className="verify">
-                  <Image
-                    src="/Images/verified (2).png"
-                    alt="verify"
-                    width={20}
-                    height={20}
-                  />
-                </div>
-              )}
-            </div>
-          </Link>
-          <PostOptions
-            onDelete={onDelete}
-            deletable={canDelete}
-            id={details._id}
-            isLoggedIn={isLoggedIn}
-            onUnsave={onUnsave}
-          />
-        </div>
-
-        <div className="flex">
-          <div className="post-image flex">
-            {error && <PostError />}
-            {!isSpotify && !error && (
-              <ReactPlayer
-                url={details.songUrl}
-                onError={playerError}
-                controls={true}
-                pip={true}
-              />
+    <div className="post" id={`post${details._id}`}>
+      <div className="post-header flex">
+        <Link href={`/${details.author.username}`}>
+          <div className="post-user flex">
+            <Image
+              src={
+                !details.author.image.includes("userIcon")
+                  ? host + details.author.image
+                  : "/Images/user.svg"
+              }
+              alt="user avatar"
+              id="avatar"
+              width={40}
+              height={40}
+            />
+            <p>{details.author.username}</p>
+            {details.author.verified && (
+              <div className="verify">
+                <Image
+                  src="/Images/verified (2).png"
+                  alt="verify"
+                  width={20}
+                  height={20}
+                />
+              </div>
             )}
-            {isSpotify && !error && <SpotifyPlayer url={details.songUrl} />}
           </div>
-        </div>
+        </Link>
+        <PostOptions
+          onDelete={onDelete}
+          deletable={canDelete}
+          id={details._id}
+          isLoggedIn={isLoggedIn}
+          onUnsave={onUnsave}
+        />
+      </div>
 
-        <p id="post-title" dir="auto">
-          {details.title}
-        </p>
-        <p id="post-description" dir="auto">
-          {details.description}
-        </p>
-
-        <div className="post-info flex">
-          {isLoggedIn && <PostIcons details={details} />}
-          <p id="date">{formatDate(details.date)}</p>
+      <div className="flex">
+        <div className="post-image flex">
+          {error && <PostError />}
+          {!isSpotify && !error && (
+            <ReactPlayer
+              url={details.songUrl}
+              onError={playerError}
+              controls={true}
+              pip={true}
+            />
+          )}
+          {isSpotify && !error && <SpotifyPlayer url={details.songUrl} />}
         </div>
+      </div>
+
+      <p id="post-title" dir="auto">
+        {details.title}
+      </p>
+      <p id="post-description" dir="auto">
+        {details.description}
+      </p>
+
+      <div className="post-info flex">
+        {isLoggedIn && <PostIcons details={details} />}
+        <p id="date">{formatDate(details.date)}</p>
       </div>
     </div>
   );

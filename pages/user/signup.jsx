@@ -50,11 +50,11 @@ const SignUp = () => {
   };
 
   return (
-    <div className="flex">
+    <main className="flex">
       <Head>
         <title>Westernal - Signup</title>
       </Head>
-      <div className="auth-form signup">
+      <section className="auth-form signup">
         <Image src={"/Images/logo.png"} alt="logo" width={120} height={120} />
 
         {loader && <FormLoader />}
@@ -69,8 +69,8 @@ const SignUp = () => {
           <p>Have an account?</p>
           <Link href={"/"}>login</Link>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
 

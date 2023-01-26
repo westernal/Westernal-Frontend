@@ -39,7 +39,7 @@ const SearchTracks = ({ token }) => {
   };
 
   return (
-    <>
+    <section>
       <div className="flex song-search">
         <input
           type="text"
@@ -55,7 +55,7 @@ const SearchTracks = ({ token }) => {
           return <SearchItems song={song} key={song.id} />;
         })}
       </div>
-    </>
+    </section>
   );
 };
 

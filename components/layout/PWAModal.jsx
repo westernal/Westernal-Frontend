@@ -19,7 +19,7 @@ const PWAModal = () => {
   }, []);
   return (
     <div className="pwa">
-      <div id="myModal" className="modal">
+      <section id="myModal" className="modal">
         <div className="modal-content flex">
           <div className="modal-main auth-form">
             <div className="flex">
@@ -57,7 +57,7 @@ const PWAModal = () => {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 };

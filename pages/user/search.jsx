@@ -43,21 +43,22 @@ const Search = () => {
     }
   }
   return (
-    <div className="search">
+    <>
       <Head>
         <title>Westernal - Search</title>
       </Head>
-      <div className="search-bar flex">
-        <input
-          type="text"
-          placeholder="Search users..."
-          onChange={searchUsers}
-        />
-      </div>
-      {isTyped && <User users={users} />}
-      <div className="mb-100"></div>
+      <main className="search">
+        <div className="search-bar flex">
+          <input
+            type="text"
+            placeholder="Search users..."
+            onChange={searchUsers}
+          />
+        </div>
+        {isTyped && <User users={users} />}
+      </main>
       <Footer />
-    </div>
+    </>
   );
 };
 

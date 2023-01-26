@@ -44,18 +44,19 @@ const EditPost = ({ post, router }) => {
     }
   };
   return (
-    <div className="edit-post setting flex">
+    <>
       <Head>
         <title>Westernal - Edit Post</title>
       </Head>
 
       <BackHeader title={"Edit Post"} />
-
-      <div className="auth-form">
-        {loader && <FormLoader />}
-        <EditPostForm post={post} editPost={edit} />
-      </div>
-    </div>
+      <main className="edit-post setting flex">
+        <section className="auth-form">
+          {loader && <FormLoader />}
+          <EditPostForm post={post} editPost={edit} />
+        </section>
+      </main>
+    </>
   );
 };
 

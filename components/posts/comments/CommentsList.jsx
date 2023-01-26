@@ -32,7 +32,7 @@ const CommentsList = ({ postId, rerender, onReply }) => {
     }
   }, [rerender, postId, deleted]);
   return (
-    <div className="cm-list">
+    <section className="cm-list">
       {!comments &&
         [1, 2, 3, 4, 5, 6, 7].map((elem, index) => {
           return (
@@ -50,7 +50,7 @@ const CommentsList = ({ postId, rerender, onReply }) => {
             onReply={onReply}
           />
         ))}
-    </div>
+    </section>
   );
 };
 

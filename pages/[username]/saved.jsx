@@ -39,43 +39,40 @@ const Saved = () => {
   }, []);
 
   return (
-    <div className="saved-posts">
+    <>
       <Head>
         <title>Westernal - Saved Posts</title>
       </Head>
-
       <BackHeader title={"Saved Posts"} />
-
-      <div className="post-list">
-        {!posts &&
-          [1, 2, 3].map((index) => {
-            return (
-              <div className="flex" key={index}>
-                <div className="post">
-                  <PostLoader />
+      <main className="saved-posts">
+        <section className="post-list flex">
+          {!posts &&
+            [1, 2, 3].map((index) => {
+              return (
+                <div className="flex" key={index}>
+                  <div className="post">
+                    <PostLoader />
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
 
-        {posts &&
-          posts.map((post) => {
-            return (
-              <Post
-                details={post}
-                deletable={true}
-                onDelete={getSavedPosts}
-                key={post._id}
-                onUnsave={getSavedPosts}
-              />
-            );
-          })}
-      </div>
-
-      <div className="mb-100"></div>
-
+          {posts &&
+            posts.map((post) => {
+              return (
+                <Post
+                  details={post}
+                  deletable={true}
+                  onDelete={getSavedPosts}
+                  key={post._id}
+                  onUnsave={getSavedPosts}
+                />
+              );
+            })}
+        </section>
+      </main>
       <Footer />
-    </div>
+    </>
   );
 };
 

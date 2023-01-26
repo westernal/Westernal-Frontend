@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Head from "next/head";
 import FollowSection from "./followUser/FollowSection";
-import Follow from "./followUser/Follow";
+import Follow from "./followUser/FollowSection";
 import jwtDecode from "jwt-decode";
 import UserHeader from "../layout/header/UserHeader";
+import FollowDetails from "./followUser/FollowDetails";
 
 const UserInfo = ({ isUserSelf, user, isLoggedIn }) => {
   const [isFollowing, SetIsFollowing] = useState(false);
@@ -70,10 +71,10 @@ const UserInfo = ({ isUserSelf, user, isLoggedIn }) => {
           </div>
         )}
 
-        <FollowSection user={user} />
+        <FollowDetails user={user} />
 
         {!isUserSelf && isLoggedIn && (
-          <Follow
+          <FollowSection
             isFollowing={isFollowing}
             SetIsFollowing={changeIsFollowing}
           />

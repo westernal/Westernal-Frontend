@@ -4,7 +4,7 @@ import BackHeader from "../../components/layout/header/BackHeader";
 import Footer from "../../components/layout/Footer";
 import { useRouter } from "next/dist/client/router";
 import API from "../../requests/API";
-import User from "../../components/user/Users";
+import Users from "../../components/user/Users";
 import Head from "next/head";
 
 const Followers = () => {
@@ -40,20 +40,18 @@ const Followers = () => {
     }
   }, [router.query, router]);
   return (
-    <div className="followers">
+    <>
       <Head>
         <title>Westernal - Followers</title>
       </Head>
       <BackHeader title="Followers" />
 
-      <div className="user-list">
-        <User users={followers} />
-      </div>
-
-      <div className="mb-100"></div>
+      <main className="followers">
+        <Users users={followers} />
+      </main>
 
       <Footer />
-    </div>
+    </>
   );
 };
 

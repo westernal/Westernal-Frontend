@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const PostIcons = ({ details }) => {
   return (
-    <div className="post-icons flex">
+    <section className="post-icons flex">
       <LikePost
         id={details._id}
         likesCount={details.likes.length}
@@ -38,7 +38,7 @@ const PostIcons = ({ details }) => {
 
         <p id="like-count">{details.comments_length}</p>
       </Link>
-    </div>
+    </section>
   );
 };
 

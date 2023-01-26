@@ -28,11 +28,7 @@ const EditPostPage = () => {
     }
   }, [router.query]);
 
-  return (
-    <div className="edit-post">
-      <EditPost post={post} router={router} />
-    </div>
-  );
+  return <EditPost post={post} router={router} />;
 };
 
 export default EditPostPage;

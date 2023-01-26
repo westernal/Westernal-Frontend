@@ -63,6 +63,10 @@ header {
   margin-top: 100px !important;
 }
 
+.post-list {
+  flex-direction: column;
+}
+
 header a,
 header p {
   color: white;
@@ -477,7 +481,8 @@ a {
   padding-left: 5px;
 }
 
-.mb-100 {
+.mb-100,
+main {
   margin-bottom: 100px;
 }
 
@@ -1147,6 +1152,10 @@ h1 {
 .profile-notif p,
 .comment p {
   margin: 0;
+}
+
+.comments {
+  margin-bottom: 0;
 }
 
 @media screen and (prefers-color-scheme: dark) {

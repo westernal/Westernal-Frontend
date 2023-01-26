@@ -26,7 +26,7 @@ const SongButtons = ({ song }) => {
   };
 
   return (
-    <div className="song-btns">
+    <section className="song-btns">
       {!isPlaying ? (
         <a href="#" onClick={playButtonClicked} style={{ height: "25px" }}>
           <Image
@@ -63,7 +63,7 @@ const SongButtons = ({ song }) => {
           }}
         ></audio>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Icons = () => {
   return (
-    <div className="icons">
+    <section className="icons">
       <Image src={"/Images/spotify.svg"} width={27} height={27} alt="spotify" />
       <Image
         src={"/Images/soundcloud.svg"}
@@ -19,7 +19,7 @@ const Icons = () => {
         alt="facebook"
       />
       <Image src={"/Images/vimeo.svg"} width={27} height={27} alt="vimeo" />
-    </div>
+    </section>
   );
 };
 

@@ -28,12 +28,12 @@ export default function Index() {
     startLoaderPreview();
   }, [router]);
   return (
-    <div>
+    <>
       <Head>
         <title>Westernal: Let the songs talk</title>
       </Head>
       <PWAModal />
       <Login />
-    </div>
+    </>
   );
 }

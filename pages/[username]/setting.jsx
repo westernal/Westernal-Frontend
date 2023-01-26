@@ -52,27 +52,24 @@ const Setting = () => {
         <title>Westernal - Setting</title>
       </Head>
       <BackHeader title={"Setting"} />
-      <div className="setting flex">
-        <section>
-          <div className="auth-form">
-            <SettingForm user={user} image={image} />
-          </div>
 
-          <div className="setting-btns">
-            <a href="mailto:support@contact.westernal.net">
-              <button className="contact-btn" type="button">
-                Contact Support
-              </button>
-            </a>
-
-            <Logout />
-          </div>
-
-          <div className="mb-100"></div>
+      <main className="setting flex">
+        <section className="auth-form">
+          <SettingForm user={user} image={image} />
         </section>
 
-        <Footer />
-      </div>
+        <div className="setting-btns">
+          <a href="mailto:support@contact.westernal.net">
+            <button className="contact-btn" type="button">
+              Contact Support
+            </button>
+          </a>
+
+          <Logout />
+        </div>
+      </main>
+
+      <Footer />
     </>
   );
 };
