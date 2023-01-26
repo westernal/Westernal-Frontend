@@ -8,7 +8,7 @@
 body {
   font-family: "Poppins", sans-serif;
   overflow-x: hidden;
-  overflow: overlay;
+  overflow-y: overlay;
   margin: 0;
 }
 
