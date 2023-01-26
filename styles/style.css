@@ -1437,7 +1437,7 @@ h1 {
     flex-direction: column;
     justify-content: left;
     align-items: baseline;
-    gap: 0;
+    gap: 5px;
     padding: 0 20px;
   }
 
