@@ -25,7 +25,7 @@ const Header = ({ showLogo = false, title = "" }) => {
           </Link>
         </>
       ) : (
-        <p>{title}</p>
+        <p className="notification-header">{title}</p>
       )}
     </header>
   );
