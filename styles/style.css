@@ -1379,11 +1379,6 @@ h1 {
     height: 25px;
   }
 
-  .comment,
-  .profile-notif {
-    font-size: 14px;
-  }
-
   .post-info svg:hover {
     fill: currentColor;
   }
