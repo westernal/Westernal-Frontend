@@ -1429,12 +1429,6 @@ h1 {
     padding: 20px 10%;
   }
 
-  .notif-main {
-    margin-bottom: -20px;
-    align-items: baseline;
-    flex-direction: column;
-  }
-
   .cm-text {
     word-break: break-all;
     text-align: left;
