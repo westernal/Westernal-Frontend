@@ -405,11 +405,6 @@ a {
   word-wrap: break-word;
 }
 
-#post-title {
-  font-size: 20px;
-  font-weight: 700;
-}
-
 #post-title,
 #post-description,
 .post-info {
@@ -417,13 +412,20 @@ a {
   margin-left: 10px;
 }
 
-.post-image {
+.post-song {
   width: 100%;
   padding: 0 10px;
+  margin-bottom: 10px;
+}
+
+#like-count {
+  height: 24px;
+  margin: 0;
 }
 
 .post-info {
   justify-content: space-between;
+  margin-top: -5px;
 }
 
 .post-info svg path,
@@ -629,10 +631,6 @@ canvas {
   margin-top: 10px;
 }
 
-#post-description {
-  margin-top: -20px;
-}
-
 .verify {
   margin-left: -5px;
   height: 20px;
@@ -746,6 +744,8 @@ canvas {
 #post-description,
 #post-title {
   text-align: left;
+  margin-top: 0px;
+  margin-bottom: 10px;
 }
 
 #reply-a {
@@ -976,7 +976,7 @@ h1 {
 }
 
 .post iframe,
-.post-image,
+.post-song,
 .post-error {
   border-radius: 0.37rem;
 }

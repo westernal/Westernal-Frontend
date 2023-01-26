@@ -36,7 +36,7 @@ const Post = ({
   const host = "https://alinavidi.ir/";
 
   return (
-    <div className="post" id={`post${details._id}`}>
+    <section className="post" id={`post${details._id}`}>
       <div className="post-header flex">
         <Link href={`/${details.author.username}`}>
           <div className="post-user flex">
@@ -73,33 +73,35 @@ const Post = ({
         />
       </div>
 
-      <div className="flex">
-        <div className="post-image flex">
-          {error && <PostError />}
-          {!isSpotify && !error && (
-            <ReactPlayer
-              url={details.songUrl}
-              onError={playerError}
-              controls={true}
-              pip={true}
-            />
-          )}
-          {isSpotify && !error && <SpotifyPlayer url={details.songUrl} />}
-        </div>
+      <div className="post-song flex">
+        {error && <PostError />}
+        {!isSpotify && !error && (
+          <ReactPlayer
+            url={details.songUrl}
+            onError={playerError}
+            controls={true}
+            pip={true}
+          />
+        )}
+        {isSpotify && !error && <SpotifyPlayer url={details.songUrl} />}
       </div>
 
-      <p id="post-title" dir="auto">
-        {details.title}
-      </p>
-      <p id="post-description" dir="auto">
-        {details.description}
-      </p>
+      {details.title && (
+        <strong id="post-title" dir="auto">
+          {details.title}
+        </strong>
+      )}
+      {details.description && (
+        <p id="post-description" dir="auto">
+          {details.description}
+        </p>
+      )}
 
       <div className="post-info flex">
         {isLoggedIn && <PostIcons details={details} />}
         <p id="date">{formatDate(details.date)}</p>
       </div>
-    </div>
+    </section>
   );
 };
 
