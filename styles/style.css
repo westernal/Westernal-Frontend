@@ -1110,10 +1110,6 @@ h1 {
   padding: 5px 10px;
 }
 
-.user-list .profile-notif {
-  padding: 20px;
-}
-
 .search-modal .btn:hover {
   background-color: #9d38fc;
   filter: contrast(0.7);
@@ -1413,7 +1409,8 @@ h1 {
     -webkit-appearance: none;
   }
 
-  #search-input {
+  #search-input,
+  #comment-text {
     -webkit-appearance: none;
   }
 
