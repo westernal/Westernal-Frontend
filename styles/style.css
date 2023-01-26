@@ -38,7 +38,7 @@ a {
   opacity: 0.6;
 }
 
-.header {
+header {
   padding: 20px;
   background-color: #9d38fc;
   display: flex;
@@ -63,8 +63,8 @@ a {
   margin-top: 100px !important;
 }
 
-.header a,
-.header p {
+header a,
+header p {
   color: white;
   font-family: "Megrim";
   font-size: 30px;
@@ -155,8 +155,8 @@ textarea:focus {
   background-color: #5f5d5d;
 }
 
-.notification .header p,
-.profile .header p {
+.notification header p,
+.profile header p {
   font-family: "Poppins", sans-serif;
   font-size: 1.5rem;
 }
@@ -485,7 +485,7 @@ a {
   border-radius: 50%;
 }
 
-.header h1 {
+header h1 {
   color: white;
 }
 
@@ -523,7 +523,7 @@ textarea {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-.header .contact-btn {
+header .contact-btn {
   width: unset;
 }
 
@@ -1429,7 +1429,7 @@ h1 {
     text-align: left;
   }
 
-  .profile .header p {
+  .profile header p {
     font-family: "Poppins", sans-serif;
     font-size: 1.5rem;
     max-width: 250px;
@@ -1442,8 +1442,8 @@ h1 {
   }
 
   h1,
-  .notification .header p,
-  .profile .header p {
+  .notification header p,
+  .profile header p {
     font-size: 20px;
   }
 
@@ -1461,7 +1461,7 @@ h1 {
     margin: 10px 0;
   }
 
-  .header {
+  header {
     padding: 10px 20px;
   }
 

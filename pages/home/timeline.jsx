@@ -10,12 +10,7 @@ import { useRouter } from "next/router";
 
 export default function Index() {
   const [posts, SetPosts] = useState();
-  const [refresh, SetRefresh] = useState(false);
   const router = useRouter();
-
-  const onRefresh = () => {
-    SetRefresh(!refresh);
-  };
 
   async function getPosts(userId) {
     const option = {
@@ -39,15 +34,15 @@ export default function Index() {
     }
 
     getPosts(jwt_decode(localStorage.getItem("token")).userId);
-  }, [refresh, router]);
+  }, [router]);
   return (
     <div className="home">
-      <Header refresh={onRefresh} />
+      <Header showLogo={true} />
       <Head>
         <title>Westernal: Let the songs talk</title>
       </Head>
 
-      <div className="post-list">
+      <section className="post-list">
         {!posts &&
           [1, 2, 3].map((elem, index) => {
             return (
@@ -63,7 +58,7 @@ export default function Index() {
           posts.map((post) => {
             return <Post details={post} key={post._id} onDelete={getPosts} />;
           })}
-      </div>
+      </section>
 
       <div className="mb-100"></div>
 

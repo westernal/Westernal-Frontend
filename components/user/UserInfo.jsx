@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 import Image from "next/image";
-import Link from "next/link";
 import Head from "next/head";
 import FollowSection from "./followUser/FollowSection";
 import Follow from "./followUser/Follow";
 import jwtDecode from "jwt-decode";
+import UserHeader from "../layout/header/UserHeader";
 
 const UserInfo = ({ isUserSelf, user, isLoggedIn }) => {
-  const router = useRouter();
   const [isFollowing, SetIsFollowing] = useState(false);
   const [avatar, SetAvatar] = useState("/Images/user.svg");
   const host = "https://alinavidi.ir/";
@@ -47,50 +45,13 @@ const UserInfo = ({ isUserSelf, user, isLoggedIn }) => {
       <Head>
         <title key="title">Westernal - @{user.username} </title>
       </Head>
-      <div className="header">
-        <div className="flex username">
-          <p>{user.username}</p>
-          {user.verified && (
-            <Image
-              src="/Images/verified.png"
-              alt="verified"
-              width={25}
-              height={25}
-            />
-          )}
-        </div>
-        {!isLoggedIn && (
-          <Link href="/">
-            <button className="contact-btn">Login</button>
-          </Link>
-        )}
-        {isUserSelf && (
-          <div className="flex">
-            <Link
-              href={`/${router.query.username}/saved`}
-              className="flex"
-              id="saved-posts"
-            >
-              <Image
-                src="/Images/save.svg"
-                alt="saved posts"
-                width={30}
-                height={30}
-              />
-            </Link>
-
-            <Link href={`/${router.query.username}/setting`} className="flex">
-              <Image
-                src="/Images/setting.svg"
-                alt="setting"
-                width={40}
-                height={40}
-              />
-            </Link>
-          </div>
-        )}
-      </div>
-      <div className="profile-info">
+      <UserHeader
+        username={user.username}
+        isVerified={user.verified}
+        isLoggedIn={isLoggedIn}
+        isUserSelf={isUserSelf}
+      />
+      <section className="profile-info">
         <div className="flex">
           <div className="profile-pic flex">
             <Image src={avatar} alt="profile picture" width={95} height={95} />
@@ -117,7 +78,7 @@ const UserInfo = ({ isUserSelf, user, isLoggedIn }) => {
             SetIsFollowing={changeIsFollowing}
           />
         )}
-      </div>
+      </section>
     </>
   );
 };

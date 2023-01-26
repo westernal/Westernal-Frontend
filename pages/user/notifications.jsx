@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 import NotifLoader from "../../components/layout/loader/NotifLoader";
 import formatDate from "../../Functions/formatDate";
 import Image from "next/image";
+import Header from "../../components/layout/header/Header";
 
 const Notifications = () => {
   const [notifs, SetNotifs] = useState();
@@ -44,11 +45,8 @@ const Notifications = () => {
       <Head>
         <title>Westernal - Notifications</title>
       </Head>
-      <div className="header">
-        <p>Notifications</p>
-      </div>
-
-      <div className="notif-list">
+      <Header title={"Notifications"} />
+      <section className="notif-list">
         {!notifs &&
           [1, 2, 3, 4, 5, 6, 7].map((elem, index) => {
             return (
@@ -103,7 +101,7 @@ const Notifications = () => {
               </div>
             </div>
           ))}
-      </div>
+      </section>
 
       <div className="mb-100"></div>
 

@@ -4,7 +4,7 @@ import Image from "next/image";
 const BackHeader = ({ title }) => {
   const router = useRouter();
   return (
-    <header className="header back-header">
+    <header className="back-header">
       <a
         href="#"
         id="back-link"
@@ -21,7 +21,7 @@ const BackHeader = ({ title }) => {
           height={20}
         />
       </a>
-      <div className="flex">
+      <div className="title flex">
         <h1>{title}</h1>
       </div>
     </header>
