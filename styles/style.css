@@ -1429,15 +1429,6 @@ h1 {
     padding: 20px 10%;
   }
 
-  .comment,
-  .profile-notif {
-    flex-direction: column;
-    justify-content: left;
-    align-items: baseline;
-    gap: 5px;
-    padding: 0 20px;
-  }
-
   .notif-main {
     margin-bottom: -20px;
     align-items: baseline;
