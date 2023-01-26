@@ -1437,6 +1437,11 @@ h1 {
     padding: 0 20px;
   }
 
+  .profile-notif .flex,
+  .comment .flex {
+    gap: 5px;
+  }
+
   .cm-main,
   .notif-main {
     margin-bottom: -20px;
