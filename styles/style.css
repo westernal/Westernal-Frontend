@@ -457,7 +457,7 @@ a {
 .profile-notif,
 .comment {
   border-radius: 10px;
-  padding: 0 20px;
+  padding: 10px 20px;
   flex-direction: column;
   justify-content: left;
   align-items: baseline;
@@ -1132,16 +1132,25 @@ h1 {
   word-break: break-word;
 }
 
-.comment-main {
+.comment-main,
+.notif-main {
+  flex-direction: column;
+  align-items: baseline;
+  gap: 5px;
+}
+
+.profile-notif button {
+  margin: 0 0 0 15px;
+}
+
+.notif-info,
+.cm-info {
   padding-top: 15px;
 }
 
-.notif-main {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  align-items: center;
-  padding-top: 15px;
+.profile-notif p,
+.comment p {
+  margin: 0;
 }
 
 @media screen and (prefers-color-scheme: dark) {
@@ -1318,11 +1327,6 @@ h1 {
 }
 
 @media only screen and (max-width: 600px) {
-  .cm-info {
-    width: 100%;
-    margin-top: -20px;
-  }
-
   .search-type a {
     width: 70px;
   }
@@ -1437,12 +1441,6 @@ h1 {
     padding: 0 20px;
   }
 
-  .profile-notif .flex,
-  .comment .flex {
-    gap: 5px;
-  }
-
-  .cm-main,
   .notif-main {
     margin-bottom: -20px;
     align-items: baseline;
@@ -1452,12 +1450,6 @@ h1 {
   .cm-text {
     word-break: break-all;
     text-align: left;
-  }
-
-  .comment-main {
-    flex-direction: column;
-    padding: 10px 0;
-    align-items: baseline;
   }
 
   .profile .header p {
