@@ -54,7 +54,7 @@ export default function Index() {
 
           {posts &&
             posts.map((post) => {
-              return <Post details={post} key={post._id} onDelete={getPosts} />;
+              return <Post post={post} key={post._id} onDelete={getPosts} />;
             })}
         </section>
       </main>

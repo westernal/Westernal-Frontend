@@ -59,8 +59,7 @@ const Saved = () => {
             posts.map((post) => {
               return (
                 <Post
-                  details={post}
-                  deletable={true}
+                  post={post}
                   onDelete={getSavedPosts}
                   key={post._id}
                   onUnsave={getSavedPosts}

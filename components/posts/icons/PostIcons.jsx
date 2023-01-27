@@ -1,19 +1,15 @@
 import LikePost from "../like/LikePost";
 import Link from "next/link";
 
-const PostIcons = ({ details }) => {
+const PostIcons = ({ post }) => {
   return (
     <section className="post-icons flex">
       <LikePost
-        id={details._id}
-        likesCount={details.likes.length}
-        postLikes={details.likes}
+        id={post._id}
+        likesCount={post.likes.length}
+        postLikes={post.likes}
       />
-      <Link
-        href={`/comments/${details._id}`}
-        id="comments"
-        className="flex gap-5"
-      >
+      <Link href={`/comments/${post._id}`} id="comments" className="flex gap-5">
         <svg viewBox="0 0 24 24">
           <g id="Icons" stroke="none" fill="none">
             <g id="Rounded" transform="translate(-680.000000, -2060.000000)">
@@ -36,7 +32,7 @@ const PostIcons = ({ details }) => {
           </g>
         </svg>
 
-        <p id="like-count">{details.comments_length}</p>
+        <p id="like-count">{post.comments_length}</p>
       </Link>
     </section>
   );

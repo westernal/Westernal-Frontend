@@ -81,8 +81,7 @@ const Profile = () => {
           posts.map((post) => {
             return (
               <Post
-                details={post}
-                deletable={isUserSelf}
+                post={post}
                 onDelete={getUserPosts}
                 key={post._id}
                 isLoggedIn={isLoggedIn}

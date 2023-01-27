@@ -1,4 +1,3 @@
-import API from "../../requests/API";
 import { useEffect } from "react";
 import { useState } from "react";
 import Link from "next/link";
@@ -9,25 +8,26 @@ import PostError from "./error/PostError";
 import PostIcons from "./icons/PostIcons";
 import PostOptions from "./options/PostOptions";
 import formatDate from "../../Functions/formatDate";
+import jwtDecode from "jwt-decode";
 
-const Post = ({
-  details,
-  onDelete,
-  deletable = false,
-  isLoggedIn = true,
-  onUnsave,
-}) => {
+const Post = ({ post, onDelete, isLoggedIn = true, onUnsave }) => {
   const [isSpotify, SetIsSpotify] = useState(false);
   const [error, SetError] = useState(false);
-  const [canDelete, SetCanDelete] = useState(deletable);
+  const [canDelete, SetCanDelete] = useState(false);
 
   useEffect(() => {
-    if (details.songUrl) {
-      if (details.songUrl.toLowerCase().includes("spotify")) {
+    if (post.songUrl) {
+      if (post.songUrl.toLowerCase().includes("spotify")) {
         SetIsSpotify(true);
       }
     }
-  }, [details]);
+
+    if (
+      post.author.username === jwtDecode(localStorage.getItem("token")).username
+    ) {
+      SetCanDelete(true);
+    }
+  }, [post]);
 
   const playerError = () => {
     SetError(true);
@@ -36,14 +36,14 @@ const Post = ({
   const host = "https://alinavidi.ir/";
 
   return (
-    <div className="post" id={`post${details._id}`}>
+    <div className="post" id={`post${post._id}`}>
       <div className="post-header flex">
-        <Link href={`/${details.author.username}`}>
+        <Link href={`/${post.author.username}`}>
           <div className="post-user flex">
             <Image
               src={
-                !details.author.image.includes("userIcon")
-                  ? host + details.author.image
+                !post.author.image.includes("userIcon")
+                  ? host + post.author.image
                   : "/Images/user.svg"
               }
               alt="user avatar"
@@ -51,8 +51,8 @@ const Post = ({
               width={40}
               height={40}
             />
-            <p>{details.author.username}</p>
-            {details.author.verified && (
+            <p>{post.author.username}</p>
+            {post.author.verified && (
               <div className="verify">
                 <Image
                   src="/Images/verified (2).png"
@@ -67,7 +67,7 @@ const Post = ({
         <PostOptions
           onDelete={onDelete}
           deletable={canDelete}
-          id={details._id}
+          id={post._id}
           isLoggedIn={isLoggedIn}
           onUnsave={onUnsave}
         />
@@ -77,29 +77,29 @@ const Post = ({
         {error && <PostError />}
         {!isSpotify && !error && (
           <ReactPlayer
-            url={details.songUrl}
+            url={post.songUrl}
             onError={playerError}
             controls={true}
             pip={true}
           />
         )}
-        {isSpotify && !error && <SpotifyPlayer url={details.songUrl} />}
+        {isSpotify && !error && <SpotifyPlayer url={post.songUrl} />}
       </div>
 
-      {details.title && (
+      {post.title && (
         <strong id="post-title" dir="auto">
-          {details.title}
+          {post.title}
         </strong>
       )}
-      {details.description && (
+      {post.description && (
         <p id="post-description" dir="auto">
-          {details.description}
+          {post.description}
         </p>
       )}
 
       <div className="post-info flex">
-        {isLoggedIn && <PostIcons details={details} />}
-        <p id="date">{formatDate(details.date)}</p>
+        {isLoggedIn && <PostIcons post={post} />}
+        <p id="date">{formatDate(post.date)}</p>
       </div>
     </div>
   );
