@@ -29,7 +29,7 @@ const NewPost = () => {
     return jwt;
   }
 
-  async function publish(song, title, description) {
+  async function publish(song, caption) {
     const jwt = generateToken();
 
     const option = {
@@ -39,10 +39,9 @@ const NewPost = () => {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
       body: JSON.stringify({
-        title: title,
-        description: description,
-        creator: jwt.userId,
-        song: song,
+        caption: caption,
+        authorID: jwt.userId,
+        songURL: song,
       }),
     };
 

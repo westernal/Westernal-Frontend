@@ -8,8 +8,7 @@ const PostForm = ({ publish, changeLoader, openModal }) => {
     e.preventDefault();
     changeLoader("on");
     const song = document.getElementById("song");
-    const title = document.getElementById("title");
-    const description = document.getElementById("description");
+    const caption = document.getElementById("caption");
 
     if (song.value === "") {
       toast.error("Song's URL must be included!");
@@ -23,7 +22,7 @@ const PostForm = ({ publish, changeLoader, openModal }) => {
     ) {
       toast.error("Sorry, we don't support this link.");
       changeLoader("off");
-    } else publish(song.value, title.value, description.value);
+    } else publish(song.value, caption.value);
   }
 
   return (
@@ -43,8 +42,8 @@ const PostForm = ({ publish, changeLoader, openModal }) => {
             <p>Search</p>
           </button>
         </div>
-        <input type="text" placeholder="Title" id="title" />
-        <textarea placeholder="Description" id="description" />
+
+        <textarea placeholder="Caption" id="caption" />
       </div>
       <div className="flex">
         <button className="btn" type="submit">
