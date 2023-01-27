@@ -3,6 +3,7 @@ import BackHeader from "../../../components/layout/header/BackHeader";
 import { toast } from "react-toastify";
 import API from "../../../requests/API";
 import { useState } from "react";
+import FormLoader from "../../../components/layout/loader/FormLoader";
 
 const ForgotPassword = () => {
   const [loader, SetLoader] = useState(false);
@@ -52,27 +53,21 @@ const ForgotPassword = () => {
       <main className=" flex reset-password">
         <section className="auth-form">
           <p id="login-logo">W</p>
-          {loader && (
-            <div className="flex">
-              <div className="logo-loader flex">
-                <p id="loader">w</p>
-              </div>
-            </div>
-          )}
+          {loader && <FormLoader />}
           <p id="reset-text">
             Enter your email so that we can send you a reset link!
           </p>
           <form onSubmit={sendEmail}>
-            <div className="form-inputs">
+            <section className="form-inputs">
               <input
                 type="email"
                 placeholder="Email"
                 id="email"
                 autoComplete="on"
               />
-            </div>
+            </section>
 
-            <div className="flex">
+            <div className="flex form-button">
               <button className="btn" type="submit" id="email-btn">
                 Send email
               </button>
