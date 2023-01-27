@@ -48,7 +48,7 @@ const PostPage = () => {
         <section className="post-list flex">
           {post && (
             <Post
-              details={post}
+              post={post}
               key={post._id}
               onDelete={() => {
                 router.push("/");

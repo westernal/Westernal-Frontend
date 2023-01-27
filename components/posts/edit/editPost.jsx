@@ -9,7 +9,7 @@ import FormLoader from "../../layout/loader/FormLoader";
 const EditPost = ({ post, router }) => {
   const [loader, SetLoader] = useState(false);
 
-  const edit = async (title = "", description = "") => {
+  const edit = async (caption = "") => {
     SetLoader(true);
 
     const option = {
@@ -19,8 +19,7 @@ const EditPost = ({ post, router }) => {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
       body: JSON.stringify({
-        title: title,
-        description: description,
+        caption: caption,
       }),
     };
 
@@ -31,8 +30,6 @@ const EditPost = ({ post, router }) => {
       SetLoader(false);
       return;
     }
-
-    console.log(result);
 
     if (result.status == 200) {
       toast.success(`Post edited!!`);

@@ -2,26 +2,19 @@ const EditPostForm = ({ post, editPost }) => {
   const checkInputs = (e) => {
     e.preventDefault();
 
-    const title = document.getElementById("title").value;
-    const description = document.getElementById("description").value;
+    const caption = document.getElementById("caption").value;
 
-    editPost(title, description);
+    editPost(caption);
   };
   return (
     <form onSubmit={checkInputs} autoComplete={"off"}>
       <div className="form-inputs">
-        <p>Title</p>
+        <label htmlFor="caption">Caption</label>
         <input
           type="text"
-          defaultValue={post && post.title && post.title}
-          id="title"
+          defaultValue={post && post.caption && post.caption}
+          id="caption"
           autoComplete="new-password"
-        />
-        <p>Description</p>
-        <input
-          type="text"
-          defaultValue={post && post.description && post.description}
-          id="description"
         />
       </div>
 
