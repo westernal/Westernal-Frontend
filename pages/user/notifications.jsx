@@ -60,37 +60,35 @@ const Notifications = () => {
           {notifs &&
             notifs.map((notif) => (
               <div className="profile-notif flex" key={notif._id}>
-                {notif.user && (
-                  <div className="flex notif-main ">
-                    <Link href={`/${notif.user.username}`} className="flex">
-                      <span>
+                <div className="flex notif-main ">
+                  <Link href={`/${notif.user.username}`} className="flex">
+                    <span>
+                      <Image
+                        src={
+                          !notif.user.image.includes("userIcon")
+                            ? host + notif.user.image
+                            : "/Images/user.svg"
+                        }
+                        alt="user avatar"
+                        id="avatar"
+                        width={40}
+                        height={40}
+                      />
+                    </span>
+                    <span id="cm-user">{notif.user.username} </span>
+                    {notif.user.verified && (
+                      <div className="verify">
                         <Image
-                          src={
-                            !notif.user.image.includes("userIcon")
-                              ? host + notif.user.image
-                              : "/Images/user.svg"
-                          }
-                          alt="user avatar"
-                          id="avatar"
-                          width={40}
-                          height={40}
+                          src="/Images/verified (2).png"
+                          alt="verify"
+                          width={20}
+                          height={20}
                         />
-                      </span>
-                      <span id="cm-user">{notif.user.username} </span>
-                      {notif.user.verified && (
-                        <div className="verify">
-                          <Image
-                            src="/Images/verified (2).png"
-                            alt="verify"
-                            width={20}
-                            height={20}
-                          />
-                        </div>
-                      )}
-                    </Link>
-                    <span>{notif.message}</span>
-                  </div>
-                )}
+                      </div>
+                    )}
+                  </Link>
+                  <span>{notif.message}</span>
+                </div>
 
                 <div className="flex notif-info">
                   <p id="date">{formatDate(notif.date)}</p>

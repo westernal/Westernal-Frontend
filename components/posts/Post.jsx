@@ -87,15 +87,10 @@ const Post = ({ post, onDelete, isLoggedIn = true, onUnsave }) => {
       </section>
 
       <section className="post-title">
-        {post.title && (
+        {post.caption && (
           <strong id="post-title" dir="auto">
-            {post.title}
+            {post.caption}
           </strong>
-        )}
-        {post.description && (
-          <p id="post-description" dir="auto">
-            {post.description}
-          </p>
         )}
       </section>
 
