@@ -405,8 +405,7 @@ a {
   word-wrap: break-word;
 }
 
-#post-title,
-#post-description,
+#post-caption,
 .post-info {
   margin-right: 10px;
   margin-left: 10px;
@@ -627,10 +626,6 @@ canvas {
   border-radius: 10px;
 }
 
-#post-title {
-  margin-top: 10px;
-}
-
 .verify {
   margin-left: -5px;
   height: 20px;
@@ -741,8 +736,7 @@ canvas {
   background-color: #ededed;
 }
 
-#post-description,
-#post-title {
+#post-caption {
   text-align: left;
   margin-top: 0px;
   margin-bottom: 10px;

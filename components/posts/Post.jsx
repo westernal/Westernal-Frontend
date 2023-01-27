@@ -86,11 +86,11 @@ const Post = ({ post, onDelete, isLoggedIn = true, onUnsave }) => {
         {isSpotify && !error && <SpotifyPlayer url={post.songUrl} />}
       </section>
 
-      <section className="post-title">
+      <section className="post-caption">
         {post.caption && (
-          <strong id="post-title" dir="auto">
+          <p id="post-caption" dir="auto">
             {post.caption}
-          </strong>
+          </p>
         )}
       </section>
 
