@@ -60,14 +60,15 @@ const Login = () => {
 
         <LoginForm login={login} changeLoader={changeLoader} />
 
-        <div className="flex">
-          <hr /> OR <hr />
-        </div>
-
-        <div className="flex">
-          <p>Don{"'"}t have an account?</p>
-          <Link href={"/user/signup"}>signup</Link>
-        </div>
+        <section id="signup-link">
+          <div className="flex">
+            <hr /> OR <hr />
+          </div>
+          <div className="flex">
+            <p>Don{"'"}t have an account?</p>
+            <Link href={"/user/signup"}>signup</Link>
+          </div>
+        </section>
       </section>
     </main>
   );

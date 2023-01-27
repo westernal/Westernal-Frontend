@@ -61,14 +61,16 @@ const SignUp = () => {
 
         <SignupForm signup={signup} changeLoader={changeLoader} />
 
-        <div className="flex">
-          <hr /> OR <hr />
-        </div>
+        <section id="login-link">
+          <div className="flex">
+            <hr /> OR <hr />
+          </div>
 
-        <div className="flex">
-          <p>Have an account?</p>
-          <Link href={"/"}>login</Link>
-        </div>
+          <div className="flex">
+            <p>Have an account?</p>
+            <Link href={"/"}>login</Link>
+          </div>
+        </section>
       </section>
     </main>
   );
