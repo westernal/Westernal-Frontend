@@ -46,10 +46,8 @@ export default function Index() {
           {!posts &&
             [1, 2, 3].map((elem, index) => {
               return (
-                <div className="flex" key={index}>
-                  <div className="post">
-                    <ContentLoader />
-                  </div>
+                <div className="post" key={index}>
+                  <ContentLoader />
                 </div>
               );
             })}

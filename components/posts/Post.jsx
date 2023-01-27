@@ -36,7 +36,7 @@ const Post = ({
   const host = "https://alinavidi.ir/";
 
   return (
-    <section className="post" id={`post${details._id}`}>
+    <div className="post" id={`post${details._id}`}>
       <div className="post-header flex">
         <Link href={`/${details.author.username}`}>
           <div className="post-user flex">
@@ -101,7 +101,7 @@ const Post = ({
         {isLoggedIn && <PostIcons details={details} />}
         <p id="date">{formatDate(details.date)}</p>
       </div>
-    </section>
+    </div>
   );
 };
 

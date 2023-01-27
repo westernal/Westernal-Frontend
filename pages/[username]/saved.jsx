@@ -49,10 +49,8 @@ const Saved = () => {
           {!posts &&
             [1, 2, 3].map((index) => {
               return (
-                <div className="flex" key={index}>
-                  <div className="post">
-                    <PostLoader />
-                  </div>
+                <div className="post" key={index}>
+                  <PostLoader />
                 </div>
               );
             })}
