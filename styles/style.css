@@ -373,6 +373,10 @@ a {
   height: 27px;
 }
 
+.post-icons {
+  gap: 20px;
+}
+
 #like-btn,
 #a-like {
   width: 23px;
