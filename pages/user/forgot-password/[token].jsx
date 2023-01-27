@@ -5,6 +5,7 @@ import { useState } from "react";
 import Head from "next/dist/shared/lib/head";
 import BackHeader from "../../../components/layout/header/BackHeader";
 import jwtDecode from "jwt-decode";
+import FormLoader from "../../../components/layout/loader/FormLoader";
 
 const ChangePassword = () => {
   const router = useRouter();
@@ -66,15 +67,9 @@ const ChangePassword = () => {
       <main className=" flex reset-password">
         <section className="auth-form">
           <p id="login-logo">W</p>
-          {loader && (
-            <div className="flex">
-              <div className="logo-loader flex">
-                <p id="loader">w</p>
-              </div>
-            </div>
-          )}
+          {loader && <FormLoader />}
           <form onSubmit={editPassword}>
-            <div className="form-inputs">
+            <section className="form-inputs">
               <input
                 type="password"
                 placeholder="New password"
@@ -87,9 +82,9 @@ const ChangePassword = () => {
                 id="confirm-password"
                 autoComplete="off"
               />
-            </div>
+            </section>
 
-            <div className="flex">
+            <div className="flex form-button">
               <button className="btn" type="submit">
                 Change password
               </button>
