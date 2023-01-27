@@ -36,7 +36,7 @@ const Post = ({ post, onDelete, isLoggedIn = true, onUnsave }) => {
   const host = "https://alinavidi.ir/";
 
   return (
-    <div className="post" id={`post${post._id}`}>
+    <article className="post" id={`post${post._id}`}>
       <div className="post-header flex">
         <Link href={`/${post.author.username}`}>
           <div className="post-user flex">
@@ -101,7 +101,7 @@ const Post = ({ post, onDelete, isLoggedIn = true, onUnsave }) => {
         {isLoggedIn && <PostIcons post={post} />}
         <p id="date">{formatDate(post.date)}</p>
       </div>
-    </div>
+    </article>
   );
 };
 
