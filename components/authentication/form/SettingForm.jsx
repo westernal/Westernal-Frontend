@@ -33,7 +33,7 @@ const SettingForm = ({ user, image }) => {
     e.preventDefault();
     SetLoader(true);
 
-    let username = document.getElementById("changeUsername");
+    let username = document.getElementById("username");
     let bio = document.getElementById("bio");
     const Image = document.getElementById("image");
     const link = document.getElementById("link");
@@ -88,7 +88,7 @@ const SettingForm = ({ user, image }) => {
   return (
     <form onSubmit={checkInputs} autoComplete={"off"}>
       <div className="form-inputs">
-        <p>Image</p>
+        <label htmlFor="image">Image</label>
         <div className="flex image-setting">
           <Image
             width={50}
@@ -109,26 +109,26 @@ const SettingForm = ({ user, image }) => {
             accept="image/*"
           />
         </div>
-        <p>Username</p>
+        <label htmlFor="username">Username</label>
         <input
           type="text"
           defaultValue={user && user.username}
-          id="changeUsername"
+          id="username"
           autoComplete="new-password"
         />
-        <p>Bio</p>
+        <label htmlFor="bio">Bio</label>
         <input
           type="text"
           defaultValue={user && user.bio && user.bio}
           id="bio"
         />
-        <p>Personal link</p>
+        <label htmlFor="link">Personal link</label>
         <input
           type="text"
           defaultValue={user && user.personal_link && user.personal_link}
           id="link"
         />
-        <p>Password</p>
+        <label htmlFor="password">Password</label>
         <Link
           href={`/user/forgot-password/${token}`}
           className="flex change-password"
@@ -137,6 +137,7 @@ const SettingForm = ({ user, image }) => {
             type="button"
             className="search-btn "
             value={" Change password"}
+            id="password"
           />
         </Link>
       </div>
