@@ -86,16 +86,18 @@ const Post = ({ post, onDelete, isLoggedIn = true, onUnsave }) => {
         {isSpotify && !error && <SpotifyPlayer url={post.songUrl} />}
       </section>
 
-      {post.title && (
-        <strong id="post-title" dir="auto">
-          {post.title}
-        </strong>
-      )}
-      {post.description && (
-        <p id="post-description" dir="auto">
-          {post.description}
-        </p>
-      )}
+      <section className="post-title">
+        {post.title && (
+          <strong id="post-title" dir="auto">
+            {post.title}
+          </strong>
+        )}
+        {post.description && (
+          <p id="post-description" dir="auto">
+            {post.description}
+          </p>
+        )}
+      </section>
 
       <section className="post-info flex">
         {isLoggedIn && <PostIcons post={post} />}
