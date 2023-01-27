@@ -37,7 +37,7 @@ const Post = ({ post, onDelete, isLoggedIn = true, onUnsave }) => {
 
   return (
     <article className="post" id={`post${post._id}`}>
-      <div className="post-header flex">
+      <section className="post-header flex">
         <Link href={`/${post.author.username}`}>
           <div className="post-user flex">
             <Image
@@ -71,9 +71,9 @@ const Post = ({ post, onDelete, isLoggedIn = true, onUnsave }) => {
           isLoggedIn={isLoggedIn}
           onUnsave={onUnsave}
         />
-      </div>
+      </section>
 
-      <div className="post-song flex">
+      <section className="post-song flex">
         {error && <PostError />}
         {!isSpotify && !error && (
           <ReactPlayer
@@ -84,7 +84,7 @@ const Post = ({ post, onDelete, isLoggedIn = true, onUnsave }) => {
           />
         )}
         {isSpotify && !error && <SpotifyPlayer url={post.songUrl} />}
-      </div>
+      </section>
 
       {post.title && (
         <strong id="post-title" dir="auto">
@@ -97,10 +97,10 @@ const Post = ({ post, onDelete, isLoggedIn = true, onUnsave }) => {
         </p>
       )}
 
-      <div className="post-info flex">
+      <section className="post-info flex">
         {isLoggedIn && <PostIcons post={post} />}
         <p id="date">{formatDate(post.date)}</p>
-      </div>
+      </section>
     </article>
   );
 };
