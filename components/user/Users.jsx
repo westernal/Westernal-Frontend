@@ -32,7 +32,7 @@ const User = ({ users }) => {
                   alt="user avatar"
                 />
               }
-              <span id="userId">{user.username} </span>
+              <strong id="userId">{user.username} </strong>
               {user.verified && (
                 <div className="verify">
                   <Image

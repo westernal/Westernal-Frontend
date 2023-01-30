@@ -62,20 +62,19 @@ const Notifications = () => {
               <div className="profile-notif flex" key={notif._id}>
                 <div className="flex notif-main ">
                   <Link href={`/${notif.user.username}`} className="flex">
-                    <span>
-                      <Image
-                        src={
-                          !notif.user.image.includes("userIcon")
-                            ? host + notif.user.image
-                            : "/Images/user.svg"
-                        }
-                        alt="user avatar"
-                        id="avatar"
-                        width={40}
-                        height={40}
-                      />
-                    </span>
-                    <span id="cm-user">{notif.user.username} </span>
+                    <Image
+                      src={
+                        !notif.user.image.includes("userIcon")
+                          ? host + notif.user.image
+                          : "/Images/user.svg"
+                      }
+                      alt="user avatar"
+                      id="avatar"
+                      width={40}
+                      height={40}
+                    />
+
+                    <strong id="cm-user">{notif.user.username} </strong>
                     {notif.user.verified && (
                       <div className="verify">
                         <Image

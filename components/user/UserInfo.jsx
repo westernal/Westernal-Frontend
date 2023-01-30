@@ -59,9 +59,9 @@ const UserInfo = ({ isUserSelf, user, isLoggedIn }) => {
           </div>
         </div>
         {user.bio && (
-          <p id="user-bio" dir="auto">
+          <strong id="user-bio" dir="auto">
             {user.bio}
-          </p>
+          </strong>
         )}
         {user.personal_link && (
           <div className="user-link">
