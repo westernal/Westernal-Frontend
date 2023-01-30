@@ -1,12 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Megrim");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Montserrat", sans-serif;
   overflow-x: hidden;
   overflow-y: overlay;
   margin: 0;
@@ -125,7 +126,7 @@ header p {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   padding: 10px 20px;
   width: 70%;
-  font-family: "Poppins", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 #search-input {
@@ -162,7 +163,7 @@ textarea:focus {
 
 .notification-header,
 .profile header p {
-  font-family: "Poppins", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 1.5rem;
 }
 
@@ -275,7 +276,7 @@ hr {
   border: none;
   border-radius: 10px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  font-family: "poppins", sans-serif;
+  font-family: "Montserrat", sans-serif;
   margin-bottom: 20px;
 }
 
@@ -297,7 +298,7 @@ hr {
 .unfollow-btn,
 .search-btn {
   padding: 10px 20px;
-  font-family: "poppins", sans-serif;
+  font-family: "Montserrat", sans-serif;
   background-color: #9d38fc;
   color: white;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -422,7 +423,7 @@ a {
 }
 
 #like-count {
-  height: 24px;
+  height: 20px;
   margin: 0;
 }
 
@@ -498,10 +499,12 @@ main {
 
 header h1 {
   color: white;
+  margin: 0;
+  font-size: 1.5rem;
 }
 
-.back-header {
-  padding: 0 20px;
+#website-name {
+  font-size: 30px;
 }
 
 input,
@@ -522,7 +525,7 @@ textarea {
   transition: 0.5s;
   border-radius: 10px;
   padding: 10px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Montserrat", sans-serif;
   border: none;
 }
 
@@ -880,7 +883,7 @@ canvas {
 }
 
 .file-input::-webkit-file-upload-button {
-  font-family: "poppins", sans-serif;
+  font-family: "Montserrat", sans-serif;
   background-color: #9d38fc;
   color: white;
   border: none;

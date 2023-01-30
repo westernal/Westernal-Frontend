@@ -5,7 +5,7 @@ const UserHeader = ({ username, isVerified, isLoggedIn, isUserSelf }) => {
   return (
     <header>
       <div className="flex username">
-        <p>{username}</p>
+        <h1>{username}</h1>
         {isVerified && (
           <Image
             src="/Images/verified.png"

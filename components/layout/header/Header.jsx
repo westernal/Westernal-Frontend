@@ -13,7 +13,7 @@ const Header = ({ showLogo = false, title = "" }) => {
               location.reload();
             }}
           >
-            westernal
+            <h1 id="website-name">westernal</h1>
           </a>
           <Link href={"/post/new"} id="add-btn">
             <Image
@@ -25,7 +25,7 @@ const Header = ({ showLogo = false, title = "" }) => {
           </Link>
         </>
       ) : (
-        <p className="notification-header">{title}</p>
+        <h1 className="notification-header">{title}</h1>
       )}
     </header>
   );
