@@ -88,9 +88,9 @@ const Post = ({ post, onDelete, isLoggedIn = true, onUnsave }) => {
 
       <section className="post-caption">
         {post.caption && (
-          <p id="post-caption" dir="auto">
+          <strong id="post-caption" dir="auto">
             {post.caption}
-          </p>
+          </strong>
         )}
       </section>
 
