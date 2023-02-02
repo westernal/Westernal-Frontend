@@ -1033,7 +1033,7 @@ h1 {
 }
 
 .post-menu a {
-  padding: 10px 30px;
+  padding: 10px 20px;
   transition: 0.3s;
   border-radius: 10px;
 }
@@ -1113,7 +1113,6 @@ h1 {
 .notif-main {
   flex-direction: column;
   align-items: baseline;
-  gap: 5px;
 }
 
 .profile-notif button {
