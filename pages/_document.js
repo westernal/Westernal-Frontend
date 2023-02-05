@@ -66,7 +66,7 @@ class MyDocument extends Document {
             rel="apple-touch-startup-image"
           />
           <link
-            href="/Images/splashscreens/ipadpro2_splash.png"
+            href="/Images/splashscreens/iphonexr_splash.png"
             media="(device-width: 390px) and (device-height: 844) and (-webkit-device-pixel-ratio: 3)"
             rel="apple-touch-startup-image"
           />
