@@ -67,7 +67,7 @@ class MyDocument extends Document {
           />
           <link
             href="/Images/splashscreens/ipadpro2_splash.png"
-            media="(device-width: 1170px) and (device-height: 2532) and (-webkit-device-pixel-ratio: 3)"
+            media="(device-width: 390px) and (device-height: 844) and (-webkit-device-pixel-ratio: 3)"
             rel="apple-touch-startup-image"
           />
           <meta name="msapplication-TileColor" content="#9d38fc" />
