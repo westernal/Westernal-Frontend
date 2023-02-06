@@ -1,6 +1,8 @@
-I was always bad at talking and express my feelings and I thought what if I could express my feelings through songs, unfortunately i have a bad voice :).
 
-So I thought Westernal is a good idea.
+<p align="center"> <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ast2p3i2zthwnz5skluw.png" width=300px height=300px  /> </p>
+
+## Demo
+![20230206205608 - Trim](https://user-images.githubusercontent.com/79543272/217045314-1e2c2afd-85de-4d63-a588-86d2c5166729.gif)
 
 ## Link
 [https://www.westernal.net/](https://www.westernal.net/)
