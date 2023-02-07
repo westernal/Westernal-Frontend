@@ -11,9 +11,8 @@
 Westernal is a social media that you can share your songs with others it is also a PWA.
 
 
-![Westernal's home page](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3xfnajylsv0glu9qv6n0.jpeg)
-<span><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/nromx3lsc9rfw9pk9uov.png" width=230px height=400px/> </span>
-<span> <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/bogqh3f0ljhzxy0svzpg.png" width=230px height=400px/>
+<span><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/dq9mn10t7oaj4z5uepwa.png" width=180px height=388.8px/> </span>
+<span> <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/k3pxp3n46g3zn4z4jbhu.png" width=180px height=388.8px/>
 </span>
 
 ## How it works?
@@ -22,7 +21,7 @@ A user can easily signup and connect with people via following them and paste a 
 
  [Youtube tutorial](https://youtu.be/iNav6lyYUR0)
 
-<span><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ofgakp3e12hnjdsantat.png" width=230px height=400px/> </span>
+<span><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/5xxesj4mvc8uqo0zplux.png" width=180px height=388.8px/> </span>
 
 ## Download the app.
 Download the app through share button --> add to HomeScreen.
@@ -34,9 +33,9 @@ Download the app through share button --> add to HomeScreen.
 It also supports dark mode!
 
 
-<span> <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/abso17kqqy9ubm4r17o7.png" width=230px height=400px/>
+<span> <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/kfe76y9f5jkiarfzap3i.png" width=180px height=388.8px/>
 </span>
-<span> <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/lk84xxutvb3x1igmx1pw.png" width=230px height=400px/>
+<span> <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/pgi5eorm3i88ysjv55bc.png" width=180px height=388.8px/>
 </span>
 
 ## Reset password
