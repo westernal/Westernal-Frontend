@@ -2,8 +2,11 @@ import ReactPlayer from "react-player";
 import Image from "next/dist/client/image";
 import Icons from "../../posts/icons/WebsiteIcons";
 import { toast } from "react-toastify";
+import { useState } from "react";
 
 const PostForm = ({ publish, changeLoader, openModal }) => {
+  const [captionValue, SetCaptionValue] = useState("");
+
   function checkInputs(e) {
     e.preventDefault();
     changeLoader("on");
@@ -43,7 +46,17 @@ const PostForm = ({ publish, changeLoader, openModal }) => {
           </button>
         </div>
 
-        <textarea placeholder="Caption" id="caption" />
+        <textarea
+          placeholder="Caption"
+          id="caption"
+          value={captionValue}
+          onChange={(e) => SetCaptionValue(e.target.value)}
+          rows={
+            /\n/.test(captionValue)
+              ? Number(captionValue.match(/\n/g)?.length) + 1
+              : 1
+          }
+        />
       </div>
       <div className="flex">
         <button className="btn" type="submit">
