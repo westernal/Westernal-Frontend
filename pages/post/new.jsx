@@ -88,7 +88,7 @@ const NewPost = () => {
 
       <main className="flex add-post">
         <div className="auth-form">
-          <p id="login-logo">W</p>
+          <Image src={"/Images/logo.png"} alt="logo" width={120} height={120} />
 
           {loader && <FormLoader />}
 
