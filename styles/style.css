@@ -69,7 +69,8 @@ header {
 }
 
 header a,
-header p {
+header p,
+#website-name {
   color: white;
   font-family: "Megrim";
   font-size: 30px;
@@ -1146,6 +1147,27 @@ h1 {
   font-weight: 600;
 }
 
+.login,
+.signup {
+  gap: 50px;
+  padding: 75px;
+}
+
+.login .auth-form,
+.signup .auth-form {
+  margin: 0;
+}
+
+.app-description {
+  text-align: center;
+  flex-direction: column;
+}
+
+.app-description #website-name {
+  color: #9d38fc;
+  font-size: 35px;
+}
+
 @media screen and (prefers-color-scheme: dark) {
   body {
     background-color: #101015;
@@ -1316,6 +1338,14 @@ h1 {
 
   .search-modal .profile-notif {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .login,
+  .signup {
+    flex-direction: column;
+    padding: 20px;
   }
 }
 

@@ -7,6 +7,8 @@ import Head from "next/head";
 import Image from "next/image";
 import SignupForm from "../../components/authentication/form/SignupForm";
 import FormLoader from "../../components/layout/loader/FormLoader";
+import Lottie from "react-lottie-player";
+import jsonFile from "../../public/Images/lf20_2gB0PZ.json";
 
 const SignUp = () => {
   const [loader, SetLoader] = useState(false);
@@ -50,11 +52,21 @@ const SignUp = () => {
   };
 
   return (
-    <main className="flex">
+    <main className="flex signup">
       <Head>
         <title>Westernal - Signup</title>
       </Head>
-      <section className="auth-form signup">
+      <section className="app-description flex">
+        <h1 id="website-name">westernal</h1>
+        <h1>A social media to share your feelings through music.</h1>
+        <Lottie
+          loop
+          animationData={jsonFile}
+          play
+          style={{ width: 300, height: 300 }}
+        />
+      </section>
+      <section className="auth-form ">
         <Image src={"/Images/logo.png"} alt="logo" width={120} height={120} />
 
         {loader && <FormLoader />}
