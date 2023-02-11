@@ -1419,7 +1419,7 @@ h1 {
   }
 
   .song-url {
-    flex-direction: column-reverse;
+    flex-direction: column-reverse !important;
   }
 
   .form-inputs input,
