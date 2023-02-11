@@ -58,7 +58,7 @@ const SignUp = () => {
       </Head>
       <section className="app-description flex">
         <h1 id="website-name">westernal</h1>
-        <h1>A social media to share your feelings through music.</h1>
+        <h2>A social media to share your feelings through music.</h2>
         <Lottie
           loop
           animationData={jsonFile}
