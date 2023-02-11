@@ -1418,6 +1418,10 @@ h1 {
     flex-direction: column;
   }
 
+  .song-url {
+    flex-direction: column-reverse;
+  }
+
   .form-inputs input,
   .auth-form .flex input,
   .form-inputs textarea {
