@@ -7,6 +7,7 @@ import BackHeader from "../../components/layout/header/BackHeader";
 import Footer from "../../components/layout/Footer";
 import Head from "next/head";
 import { useEffect } from "react";
+import Image from "next/image";
 import SearchSong from "../../components/posts/search/SearchSong";
 import FormLoader from "../../components/layout/loader/FormLoader";
 import PostForm from "../../components/authentication/form/PostForm";
