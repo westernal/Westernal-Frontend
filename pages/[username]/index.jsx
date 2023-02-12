@@ -7,7 +7,7 @@ import API from "../../requests/API";
 import UserInfo from "../../components/user/UserInfo";
 import jwt_decode from "jwt-decode";
 import { toast } from "react-toastify";
-import BackToTopButton from "../../components/layout/buttons/backToTopButton";
+import BackToTopButton from "../../components/layout/buttons/BackToTopButton";
 
 const Profile = () => {
   const router = useRouter();

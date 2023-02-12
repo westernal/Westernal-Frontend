@@ -7,7 +7,7 @@ import jwt_decode from "jwt-decode";
 import Head from "next/head";
 import ContentLoader from "../../components/layout/loader/ContentLoader";
 import { useRouter } from "next/router";
-import BackToTopButton from "../../components/layout/buttons/backToTopButton";
+import BackToTopButton from "../../components/layout/buttons/BackToTopButton";
 
 export default function Index() {
   const [posts, SetPosts] = useState();

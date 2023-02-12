@@ -7,7 +7,7 @@ import Post from "../../components/posts/Post";
 import Footer from "../../components/layout/Footer";
 import Head from "next/head";
 import PostLoader from "../../components/layout/loader/ContentLoader";
-import BackToTopButton from "../../components/layout/buttons/backToTopButton";
+import BackToTopButton from "../../components/layout/buttons/BackToTopButton";
 
 const Saved = () => {
   const [posts, SetPosts] = useState();
