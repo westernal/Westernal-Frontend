@@ -25,6 +25,11 @@ a {
   gap: 10px;
 }
 
+.center {
+  display: grid;
+  place-items: center;
+}
+
 .grid {
   grid-template-columns: auto auto;
   justify-content: center;
