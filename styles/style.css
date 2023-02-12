@@ -933,14 +933,15 @@ h1 {
   color: white;
   text-align: center;
   padding: 30px;
-  gap: 0;
+  gap: 1;
 }
 
 .error-icon {
   font-size: 35px;
   background-color: white;
   color: #101015;
-  text-align: center;
+  display: grid;
+  place-items: center;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -1168,6 +1169,32 @@ h1 {
   font-size: 35px;
 }
 
+#top-button {
+  display: grid;
+  align-items: center;
+  place-items: center;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background-color: #9d38fc;
+  color: white;
+  position: fixed;
+  right: 20px;
+  font-size: 18px;
+  bottom: 100px;
+  transform: rotate(-90deg) translateY(150px);
+  transition: 0.4s ease;
+  z-index: 4;
+}
+
+#top-button.active {
+  transform: rotate(-90deg) translateY(0);
+}
+
+#top-button:hover {
+  opacity: 0.8;
+}
+
 @media screen and (prefers-color-scheme: dark) {
   body {
     background-color: #101015;
@@ -1352,6 +1379,12 @@ h1 {
 @media only screen and (max-width: 600px) {
   .search-type a {
     width: 70px;
+  }
+
+  #top-button {
+    width: 50px;
+    height: 50px;
+    font-size: 15px;
   }
 
   .post-info svg:hover path {

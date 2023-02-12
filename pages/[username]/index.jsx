@@ -7,6 +7,7 @@ import API from "../../requests/API";
 import UserInfo from "../../components/user/UserInfo";
 import jwt_decode from "jwt-decode";
 import { toast } from "react-toastify";
+import BackToTopButton from "../../components/layout/buttons/backToTopButton";
 
 const Profile = () => {
   const router = useRouter();
@@ -65,35 +66,35 @@ const Profile = () => {
   }, [router.query, router]);
 
   return (
-    <div className="profile">
-      <UserInfo isUserSelf={isUserSelf} user={user} isLoggedIn={isLoggedIn} />
-      <section className="flex post-list">
-        {!posts &&
-          [1, 2, 3].map((index) => {
-            return (
-              <div className="post" key={index}>
-                <ContentLoader />
-              </div>
-            );
-          })}
+    <>
+      <main className="profile">
+        <UserInfo isUserSelf={isUserSelf} user={user} isLoggedIn={isLoggedIn} />
+        <section className="flex post-list">
+          {!posts &&
+            [1, 2, 3].map((index) => {
+              return (
+                <div className="post" key={index}>
+                  <ContentLoader />
+                </div>
+              );
+            })}
 
-        {posts &&
-          posts.map((post) => {
-            return (
-              <Post
-                post={post}
-                onDelete={getUserPosts}
-                key={post._id}
-                isLoggedIn={isLoggedIn}
-              />
-            );
-          })}
-      </section>
-
-      <div className="mb-100"></div>
-
+          {posts &&
+            posts.map((post) => {
+              return (
+                <Post
+                  post={post}
+                  onDelete={getUserPosts}
+                  key={post._id}
+                  isLoggedIn={isLoggedIn}
+                />
+              );
+            })}
+        </section>
+        <BackToTopButton />
+      </main>
       {isLoggedIn && <Footer />}
-    </div>
+    </>
   );
 };
 

@@ -7,6 +7,7 @@ import jwt_decode from "jwt-decode";
 import Head from "next/head";
 import ContentLoader from "../../components/layout/loader/ContentLoader";
 import { useRouter } from "next/router";
+import BackToTopButton from "../../components/layout/buttons/backToTopButton";
 
 export default function Index() {
   const [posts, SetPosts] = useState();
@@ -57,6 +58,7 @@ export default function Index() {
               return <Post post={post} key={post._id} onDelete={getPosts} />;
             })}
         </section>
+        <BackToTopButton />
       </main>
       <Footer />
     </>
