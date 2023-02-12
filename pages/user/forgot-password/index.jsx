@@ -32,6 +32,7 @@ const ForgotPassword = () => {
       var result = await API(option, "api/users/reset-password");
     } catch (error) {
       toast.error("Server Error! Please try again.");
+      SetLoader(false);
       return;
     }
 
