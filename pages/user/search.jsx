@@ -1,15 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Footer from "../../components/layout/Footer";
 import API from "../../requests/API";
 import User from "../../components/user/Users";
 import Head from "next/head";
-import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 
 const Search = () => {
   const [users, SetUsers] = useState();
   const [isTyped, SetIsTyped] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
   const router = useRouter();
+  const controllerRef = useRef();
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {
@@ -18,30 +19,44 @@ const Search = () => {
     }
   }, []);
 
-  async function searchUsers(e) {
-    const searchInput = e.target.value.toLowerCase();
-    SetIsTyped(true);
-    const option = {
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-    };
+  useEffect(() => {
+    async function searchUsers(e) {
+      if (controllerRef.current) {
+        controllerRef.current.abort();
+      }
 
-    try {
-      var result = await API(option, `api/users/search/${searchInput}`);
-    } catch (error) {
-      toast.error("Server error, please try again!");
-      e.target.blur();
-      SetIsTyped(false);
+      const searchInput = document.getElementById("searchInput");
+      const controller = new AbortController();
+      controllerRef.current = controller;
+      SetIsTyped(true);
+
+      const option = {
+        signal: controllerRef.current?.signal,
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      };
+
+      try {
+        var result = await API(option, `api/users/search/${searchTerm}`);
+      } catch (error) {
+        return;
+      }
+
+      if (result.status == 200) {
+        SetUsers(result.data.users);
+        controllerRef.current = null;
+      }
+
+      if (searchTerm === "") {
+        SetIsTyped(false);
+      }
     }
 
-    if (result.status == 200) {
-      SetUsers(result.data.users);
+    if (searchTerm) {
+      searchUsers();
     }
+  }, [searchTerm]);
 
-    if (searchInput === "") {
-      SetIsTyped(false);
-    }
-  }
   return (
     <>
       <Head>
@@ -52,7 +67,10 @@ const Search = () => {
           <input
             type="text"
             placeholder="Search users..."
-            onChange={searchUsers}
+            onChange={(event) => {
+              setSearchTerm(event.target.value);
+            }}
+            id="searchInput"
           />
         </div>
         {isTyped && <User users={users} />}
