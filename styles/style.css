@@ -153,6 +153,10 @@ textarea:focus {
   outline: none;
 }
 
+button {
+  cursor: pointer;
+}
+
 ::-webkit-scrollbar {
   width: 6px;
 }
