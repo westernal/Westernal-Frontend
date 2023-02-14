@@ -463,7 +463,7 @@ a {
 }
 
 .share-info {
-  padding: 30px;
+  padding-top: 10px;
 }
 
 .post-header .post-icons {
@@ -584,7 +584,6 @@ audio {
 
 .modal {
   display: none;
-  color: #9d38fc;
   position: fixed;
   z-index: 101;
   left: 0;
@@ -597,8 +596,7 @@ audio {
 }
 
 .modal-content {
-  background-color: white;
-  background: white;
+  backdrop-filter: blur(5px);
   width: 100vw;
   height: 100vh;
 }
@@ -1054,7 +1052,48 @@ h1 {
 }
 
 .pwa .modal-main {
-  margin: 20px 0;
+  position: absolute;
+  bottom: 0;
+  background-color: white;
+  margin: 0;
+  width: 100%;
+  border-radius: 30px 30px 0 0;
+}
+
+.install-header {
+  justify-content: space-between;
+  color: black;
+}
+
+.install-header button {
+  border: 0;
+  background-color: inherit;
+  font-size: 30px;
+}
+
+.app-info {
+  justify-content: left;
+  background-color: #ededed;
+  border-radius: 10px;
+  padding: 10px;
+  color: black;
+  margin-top: 10px;
+}
+
+.app-logo {
+  background-color: white;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 0;
+  border-radius: 5px;
+}
+
+.app-name p {
+  margin: 5px;
+  font-size: 14px;
+}
+
+.app-link {
+  opacity: 0.7;
 }
 
 .pwa .auth-form .flex {

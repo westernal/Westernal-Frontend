@@ -21,19 +21,27 @@ const PWAModal = () => {
     <div className="pwa">
       <section id="myModal" className="modal">
         <div className="modal-content flex">
-          <div className="modal-main auth-form">
-            <div className="flex">
-              <Image
-                src={"/Images/logo.png"}
-                alt="logo"
-                width={150}
-                height={150}
-              />
+          <section className="modal-main auth-form">
+            <div className="flex install-header">
+              <p>Install the app</p>
+              <button className="close1">&times;</button>
             </div>
-            <div className="flex">
-              <h3>Download the Westernal app and enjoy!</h3>
-            </div>
-            <div className="share-info">
+            <section className="flex app-info">
+              <div className="app-logo">
+                <Image
+                  src={"/Images/logo.png"}
+                  alt="logo"
+                  width={50}
+                  height={50}
+                />
+              </div>
+              <div className="app-name">
+                <p>Westernal</p>
+                <p className="app-link">westernal.net</p>
+              </div>
+            </section>
+
+            <section className="share-info">
               <div className="grid">
                 <Image width={35} height={35} src={share1.src} alt="share" />
                 <p>Click on share button.</p>
@@ -51,11 +59,8 @@ const PWAModal = () => {
                 <Image width={35} height={35} src={share3.src} alt="Add" />
                 <p>Click Add.</p>
               </div>
-            </div>
-            <div className="flex">
-              <button className="btn close1">Got it</button>
-            </div>
-          </div>
+            </section>
+          </section>
         </div>
       </section>
     </div>

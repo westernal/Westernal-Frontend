@@ -20,7 +20,6 @@ export default function Index() {
           !window.matchMedia("(display-mode: standalone)").matches
         ) {
           document.getElementById("myModal").style.display = "block";
-          document.getElementsByClassName("login")[0].style.display = "none";
         }
       }
     }
