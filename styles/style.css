@@ -1052,7 +1052,7 @@ h1 {
 }
 
 .pwa .modal-main {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   background-color: white;
   margin: 0;
@@ -1062,7 +1062,6 @@ h1 {
 
 .install-header {
   justify-content: space-between;
-  color: black;
 }
 
 .install-header button {
@@ -1076,7 +1075,6 @@ h1 {
   background-color: #ededed;
   border-radius: 10px;
   padding: 10px;
-  color: black;
   margin-top: 10px;
 }
 
@@ -1249,6 +1247,10 @@ h1 {
     color: white;
   }
 
+  .pwa .modal-main {
+    color: black;
+  }
+
   .post-menu {
     background-color: #101015;
   }
@@ -1296,10 +1298,6 @@ h1 {
     box-shadow: none;
   }
 
-  .modal-content {
-    background-color: #101015;
-  }
-
   #logout {
     color: #101015;
     background-color: #ff3636;
@@ -1323,11 +1321,6 @@ h1 {
     background-color: #101015;
   }
 
-  .modal-main {
-    background-color: #252525;
-    box-shadow: none;
-  }
-
   #delete-btn {
     fill: white;
   }
@@ -1342,10 +1335,6 @@ h1 {
 
   #like-count {
     color: white;
-  }
-
-  .modal {
-    background-color: #101015;
   }
 
   .profile-info {
