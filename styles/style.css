@@ -1180,7 +1180,7 @@ h1 {
 
 #top-button {
   display: grid;
-  align-items: center;
+  border: 0;
   place-items: center;
   width: 55px;
   height: 55px;

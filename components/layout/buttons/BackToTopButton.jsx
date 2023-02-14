@@ -21,9 +21,9 @@ const BackToTopButton = () => {
   };
 
   return (
-    <a href="#" id="top-button" onClick={goToTop}>
+    <button id="top-button" onClick={goToTop}>
       &#10095;
-    </a>
+    </button>
   );
 };
 
