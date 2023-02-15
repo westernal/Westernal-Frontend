@@ -11,34 +11,35 @@ import checkPermission from "../../Functions/checkPermission";
 const Followings = () => {
   const router = useRouter();
   const [following, SetFollowing] = useState();
+  const [render, setRender] = useState(false);
+
+  async function getFollowing() {
+    const option = {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+      },
+    };
+
+    var result = await API(
+      option,
+      `api/users/following/${router.query.username}`
+    );
+
+    if (result.status == 200) {
+      SetFollowing(result.data.following);
+    }
+  }
 
   useEffect(() => {
-    checkPermission(router);
+    setRender(checkPermission(router));
   }, []);
 
   useEffect(() => {
-    async function getFollowing() {
-      const option = {
-        method: "GET",
-        headers: {
-          "content-type": "application/json",
-        },
-      };
-
-      var result = await API(
-        option,
-        `api/users/following/${router.query.username}`
-      );
-
-      if (result.status == 200) {
-        SetFollowing(result.data.following);
-      }
-    }
-
-    if (router.query.username) {
+    if (router.query.username && render) {
       getFollowing();
     }
-  }, [router.query, router]);
+  }, [router.query, router, render]);
   return (
     <>
       <Head>
@@ -50,7 +51,7 @@ const Followings = () => {
         <Users users={following} />
       </main>
 
-      <Footer />
+      {render && <Footer />}
     </>
   );
 };

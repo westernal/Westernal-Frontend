@@ -13,6 +13,7 @@ import { useRouter } from "next/router";
 
 const Saved = () => {
   const [posts, SetPosts] = useState();
+  const [render, setRender] = useState(false);
   const router = useRouter();
 
   const getSavedPosts = async (userId) => {
@@ -34,9 +35,14 @@ const Saved = () => {
   };
 
   useEffect(() => {
-    checkPermission(router, true);
-    getSavedPosts();
-  }, []);
+    setRender(checkPermission(router, true));
+  }, [router.query]);
+
+  useEffect(() => {
+    if (render) {
+      getSavedPosts();
+    }
+  }, [render]);
 
   return (
     <>
@@ -69,7 +75,7 @@ const Saved = () => {
         </section>
         <BackToTopButton />
       </main>
-      <Footer />
+      {render && <Footer />}
     </>
   );
 };

@@ -7,6 +7,7 @@ import checkPermission from "../../../Functions/checkPermission";
 const EditPostPage = () => {
   const router = useRouter();
   const [post, SetPost] = useState([]);
+  const [render, setRender] = useState(false);
 
   const getPost = async (id) => {
     const option = {
@@ -24,14 +25,14 @@ const EditPostPage = () => {
   };
 
   useEffect(() => {
-    checkPermission(router);
+    setRender(checkPermission(router));
   }, []);
 
   useEffect(() => {
-    if (router.query.id) {
+    if (router.query.id && render) {
       getPost(router.query.id);
     }
-  }, [router.query]);
+  }, [router.query, render]);
 
   return <EditPost post={post} router={router} />;
 };

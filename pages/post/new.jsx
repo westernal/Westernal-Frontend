@@ -16,10 +16,11 @@ import checkPermission from "../../Functions/checkPermission";
 
 const NewPost = () => {
   const [loader, SetLoader] = useState(false);
+  const [render, setRender] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
-    checkPermission(router);
+    setRender(checkPermission(router));
   }, []);
 
   function generateToken() {
@@ -98,7 +99,7 @@ const NewPost = () => {
           />
         </div>
       </main>
-      <Footer />
+      {render && <Footer />}
     </>
   );
 };

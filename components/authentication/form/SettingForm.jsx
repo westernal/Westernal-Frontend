@@ -17,6 +17,13 @@ const SettingForm = ({ user, image }) => {
     SetToken(localStorage.getItem("token"));
   }, []);
 
+  useEffect(() => {
+    if (user) {
+      const button = document.getElementById("submit-btn");
+      button.disabled = false;
+    }
+  }, [user]);
+
   const isURL = (link) => {
     let url;
 
@@ -145,7 +152,7 @@ const SettingForm = ({ user, image }) => {
       {loader && <FormLoader />}
 
       <div className="flex setting-btn">
-        <button className="btn" type="submit">
+        <button className="btn" disabled type="submit" id="submit-btn">
           Save
         </button>
       </div>

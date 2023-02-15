@@ -12,6 +12,7 @@ import checkPermission from "../../Functions/checkPermission";
 const Setting = () => {
   const [image, SetImage] = useState("/Images/userIcon.png");
   const [user, SetUser] = useState();
+  const [render, setRender] = useState(false);
   const router = useRouter();
   const host = "https://alinavidi.ir/";
 
@@ -31,20 +32,22 @@ const Setting = () => {
     }
   }
 
-  useEffect(() => {
-    checkPermission(router, true);
-  }, []);
+  function getToken() {
+    var token = localStorage.getItem("token");
+    const jwt = jwt_decode(token);
+
+    getUserInfo(jwt.userId);
+  }
 
   useEffect(() => {
-    function getToken() {
-      var token = localStorage.getItem("token");
-      const jwt = jwt_decode(token);
+    setRender(checkPermission(router, true));
+  }, [router.query]);
 
-      getUserInfo(jwt.userId);
+  useEffect(() => {
+    if (render) {
+      getToken();
     }
-
-    getToken();
-  }, []);
+  }, [render]);
 
   return (
     <>
@@ -69,7 +72,7 @@ const Setting = () => {
         </div>
       </main>
 
-      <Footer />
+      {render && <Footer />}
     </>
   );
 };

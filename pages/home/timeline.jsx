@@ -12,6 +12,7 @@ import checkPermission from "../../Functions/checkPermission";
 
 export default function Index() {
   const [posts, SetPosts] = useState();
+  const [render, setRender] = useState(false);
   const router = useRouter();
 
   async function getPosts(userId) {
@@ -30,12 +31,15 @@ export default function Index() {
   }
 
   useEffect(() => {
-    checkPermission(router);
+    setRender(checkPermission(router));
   }, []);
 
   useEffect(() => {
-    getPosts(jwt_decode(localStorage.getItem("token")).userId);
-  }, []);
+    if (render) {
+      const userId = jwt_decode(localStorage.getItem("token")).userId;
+      getPosts(userId);
+    }
+  }, [render]);
   return (
     <>
       <Header showLogo={true} />
@@ -60,7 +64,7 @@ export default function Index() {
         </section>
         <BackToTopButton />
       </main>
-      <Footer />
+      {render && <Footer />}
     </>
   );
 }

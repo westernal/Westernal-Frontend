@@ -104,7 +104,7 @@ const Notifications = () => {
             ))}
         </section>
       </main>
-      <Footer />
+      {render && <Footer />}
     </>
   );
 };

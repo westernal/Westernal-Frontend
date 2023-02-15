@@ -11,32 +11,33 @@ import checkPermission from "../../Functions/checkPermission";
 const Likes = () => {
   const router = useRouter();
   const [users, SetUsers] = useState();
+  const [render, setRender] = useState(false);
+
+  async function getPostLikes(id) {
+    const option = {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    };
+
+    var result = await API(option, `api/posts/like/${router.query.id}`);
+
+    if (result.status == 200) {
+      SetUsers(result.data.likes);
+    }
+  }
 
   useEffect(() => {
-    checkPermission(router);
+    setRender(checkPermission(router));
   }, []);
 
   useEffect(() => {
-    async function getPostLikes(id) {
-      const option = {
-        method: "GET",
-        headers: {
-          "content-type": "application/json",
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-      };
-
-      var result = await API(option, `api/posts/like/${router.query.id}`);
-
-      if (result.status == 200) {
-        SetUsers(result.data.likes);
-      }
-    }
-
-    if (router.query.id) {
+    if (router.query.id && render) {
       getPostLikes();
     }
-  }, [router.query, router]);
+  }, [router.query, router, render]);
 
   return (
     <>
@@ -49,7 +50,7 @@ const Likes = () => {
         <User users={users} />
       </main>
 
-      <Footer />
+      {render && <Footer />}
     </>
   );
 };

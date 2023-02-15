@@ -11,10 +11,11 @@ const Comments = () => {
   const router = useRouter();
   const [rerender, SetRerender] = useState(false);
   const [isReply, SetIsReply] = useState(false);
+  const [firstRender, setFirstRender] = useState(false);
   const [repliedComment, SetRepliedComment] = useState("");
 
   useEffect(() => {
-    checkPermission(router);
+    setFirstRender(checkPermission(router));
   }, []);
 
   const onReply = (id) => {
@@ -37,11 +38,13 @@ const Comments = () => {
       </Head>
       <BackHeader title={"comments"} />
       <main className="comments">
-        <CommentsList
-          postId={router.query.id}
-          rerender={rerender}
-          onReply={onReply}
-        />
+        {firstRender && (
+          <CommentsList
+            postId={router.query.id}
+            rerender={rerender}
+            onReply={onReply}
+          />
+        )}
 
         <div className="mb-100"></div>
 

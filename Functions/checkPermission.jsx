@@ -1,6 +1,6 @@
 import jwtDecode from "jwt-decode";
 
-export default async function checkPermission(router, checkUser = false) {
+export default function checkPermission(router, checkUser = false) {
   const token = localStorage.getItem("token");
 
   if (!token) {
@@ -9,7 +9,10 @@ export default async function checkPermission(router, checkUser = false) {
   }
 
   if (checkUser) {
-    if (router.query.username !== jwtDecode(token).username) {
+    if (
+      router.query.username &&
+      router.query.username !== jwtDecode(token).username
+    ) {
       router.push(`/${jwtDecode(token).username}`);
       return false;
     }
