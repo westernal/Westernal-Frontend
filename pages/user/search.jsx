@@ -23,7 +23,6 @@ const Search = () => {
         controllerRef.current.abort();
       }
 
-      const searchInput = document.getElementById("searchInput");
       const controller = new AbortController();
       controllerRef.current = controller;
       SetIsTyped(true);

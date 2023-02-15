@@ -23,6 +23,7 @@ const Post = ({ post, onDelete, isLoggedIn = true, onUnsave }) => {
     }
 
     if (
+      isLoggedIn &&
       post.author.username === jwtDecode(localStorage.getItem("token")).username
     ) {
       SetCanDelete(true);

@@ -13,6 +13,7 @@ import checkPermission from "../../Functions/checkPermission";
 
 const Notifications = () => {
   const [notifs, SetNotifs] = useState();
+  const [render, setRender] = useState(false);
   const router = useRouter();
   const host = "https://alinavidi.ir/";
 
@@ -33,12 +34,14 @@ const Notifications = () => {
   }
 
   useEffect(() => {
-    checkPermission(router);
+    setRender(checkPermission(router));
   }, []);
 
   useEffect(() => {
-    getNotifications();
-  }, []);
+    if (render) {
+      getNotifications();
+    }
+  }, [render]);
 
   return (
     <>

@@ -5,13 +5,15 @@ export default async function checkPermission(router, checkUser = false) {
 
   if (!token) {
     router.push("/");
-    return;
+    return false;
   }
 
   if (checkUser) {
     if (router.query.username !== jwtDecode(token).username) {
       router.push(`/${jwtDecode(token).username}`);
-      return;
+      return false;
     }
   }
+
+  return true;
 }
