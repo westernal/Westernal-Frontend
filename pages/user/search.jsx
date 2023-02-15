@@ -4,6 +4,7 @@ import API from "../../requests/API";
 import User from "../../components/user/Users";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import checkPermission from "../../Functions/checkPermission";
 
 const Search = () => {
   const [users, SetUsers] = useState();
@@ -13,10 +14,7 @@ const Search = () => {
   const controllerRef = useRef();
 
   useEffect(() => {
-    if (!localStorage.getItem("token")) {
-      router.push("/");
-      return;
-    }
+    checkPermission(router);
   }, []);
 
   useEffect(() => {

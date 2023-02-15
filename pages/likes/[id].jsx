@@ -6,17 +6,17 @@ import { useState } from "react";
 import User from "../../components/user/Users";
 import BackHeader from "../../components/layout/header/BackHeader";
 import Head from "next/head";
+import checkPermission from "../../Functions/checkPermission";
 
 const Likes = () => {
   const router = useRouter();
   const [users, SetUsers] = useState();
 
   useEffect(() => {
-    if (!localStorage.getItem("token")) {
-      router.push("/");
-      return;
-    }
+    checkPermission(router);
+  }, []);
 
+  useEffect(() => {
     async function getPostLikes(id) {
       const option = {
         method: "GET",

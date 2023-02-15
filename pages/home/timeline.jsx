@@ -8,6 +8,7 @@ import Head from "next/head";
 import ContentLoader from "../../components/layout/loader/ContentLoader";
 import { useRouter } from "next/router";
 import BackToTopButton from "../../components/layout/buttons/BackToTopButton";
+import checkPermission from "../../Functions/checkPermission";
 
 export default function Index() {
   const [posts, SetPosts] = useState();
@@ -29,13 +30,12 @@ export default function Index() {
   }
 
   useEffect(() => {
-    if (!localStorage.getItem("token")) {
-      router.push("/");
-      return;
-    }
+    checkPermission(router);
+  }, []);
 
+  useEffect(() => {
     getPosts(jwt_decode(localStorage.getItem("token")).userId);
-  }, [router]);
+  }, []);
   return (
     <>
       <Header showLogo={true} />

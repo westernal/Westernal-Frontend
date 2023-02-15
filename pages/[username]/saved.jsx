@@ -8,9 +8,12 @@ import Footer from "../../components/layout/Footer";
 import Head from "next/head";
 import PostLoader from "../../components/layout/loader/ContentLoader";
 import BackToTopButton from "../../components/layout/buttons/BackToTopButton";
+import checkPermission from "../../Functions/checkPermission";
+import { useRouter } from "next/router";
 
 const Saved = () => {
   const [posts, SetPosts] = useState();
+  const router = useRouter();
 
   const getSavedPosts = async (userId) => {
     var token = localStorage.getItem("token");
@@ -31,11 +34,7 @@ const Saved = () => {
   };
 
   useEffect(() => {
-    if (!localStorage.getItem("token")) {
-      router.push("/");
-      return;
-    }
-
+    checkPermission(router, true);
     getSavedPosts();
   }, []);
 

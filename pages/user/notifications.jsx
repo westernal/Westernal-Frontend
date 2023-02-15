@@ -9,6 +9,7 @@ import NotifLoader from "../../components/layout/loader/NotifLoader";
 import formatDate from "../../Functions/formatDate";
 import Image from "next/image";
 import Header from "../../components/layout/header/Header";
+import checkPermission from "../../Functions/checkPermission";
 
 const Notifications = () => {
   const [notifs, SetNotifs] = useState();
@@ -32,13 +33,12 @@ const Notifications = () => {
   }
 
   useEffect(() => {
-    if (!localStorage.getItem("token")) {
-      router.push("/");
-      return;
-    }
+    checkPermission(router);
+  }, []);
 
+  useEffect(() => {
     getNotifications();
-  }, [router]);
+  }, []);
 
   return (
     <>

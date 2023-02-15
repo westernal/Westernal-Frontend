@@ -12,17 +12,15 @@ import SearchSong from "../../components/posts/search/SearchSong";
 import FormLoader from "../../components/layout/loader/FormLoader";
 import PostForm from "../../components/authentication/form/PostForm";
 import { SearchMusicProvider } from "../../context/searchMusicContext";
+import checkPermission from "../../Functions/checkPermission";
 
 const NewPost = () => {
   const [loader, SetLoader] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
-    if (!localStorage.getItem("token")) {
-      router.push("/");
-      return;
-    }
-  }, [router]);
+    checkPermission(router);
+  }, []);
 
   function generateToken() {
     var token = localStorage.getItem("token");

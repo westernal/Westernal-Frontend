@@ -5,6 +5,7 @@ import PostComment from "../../components/posts/comments/PostComment";
 import Head from "next/head";
 import { useState } from "react";
 import { useEffect } from "react";
+import checkPermission from "../../Functions/checkPermission";
 
 const Comments = () => {
   const router = useRouter();
@@ -13,11 +14,8 @@ const Comments = () => {
   const [repliedComment, SetRepliedComment] = useState("");
 
   useEffect(() => {
-    if (!localStorage.getItem("token")) {
-      router.push("/");
-      return;
-    }
-  }, [router]);
+    checkPermission(router);
+  }, []);
 
   const onReply = (id) => {
     SetIsReply(true);

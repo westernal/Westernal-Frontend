@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import EditPost from "../../../components/posts/edit/editPost";
 import { useState, useEffect } from "react";
 import API from "../../../requests/API";
+import checkPermission from "../../../Functions/checkPermission";
 
 const EditPostPage = () => {
   const router = useRouter();
@@ -21,6 +22,10 @@ const EditPostPage = () => {
       SetPost(result.data.post);
     } else router.push("/404");
   };
+
+  useEffect(() => {
+    checkPermission(router);
+  }, []);
 
   useEffect(() => {
     if (router.query.id) {

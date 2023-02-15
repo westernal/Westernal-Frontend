@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import Logout from "../../components/authentication/Logout";
 import SettingForm from "../../components/authentication/form/SettingForm";
+import checkPermission from "../../Functions/checkPermission";
 
 const Setting = () => {
   const [image, SetImage] = useState("/Images/userIcon.png");
@@ -31,11 +32,10 @@ const Setting = () => {
   }
 
   useEffect(() => {
-    if (!localStorage.getItem("token")) {
-      router.push("/");
-      return;
-    }
+    checkPermission(router, true);
+  }, []);
 
+  useEffect(() => {
     function getToken() {
       var token = localStorage.getItem("token");
       const jwt = jwt_decode(token);

@@ -12,6 +12,7 @@ import jsonFile from "../../public/Images/lf20_2gB0PZ.json";
 const Login = () => {
   const [loader, SetLoader] = useState(false);
   const router = useRouter();
+  let result;
 
   async function login(username, password) {
     const option = {
@@ -25,13 +26,14 @@ const Login = () => {
     };
 
     try {
-      var result = await API(option, "api/users/login");
+      result = await API(option, "api/users/login");
     } catch (error) {
       toast.error("Server Error! Please try again.");
       SetLoader(false);
+      return;
     }
 
-    if (result && result.status == 200) {
+    if (result.status == 200) {
       localStorage.setItem("token", result.data.token);
       toast.success(`Welcome, ${username}!`);
       router.push("/home/timeline");

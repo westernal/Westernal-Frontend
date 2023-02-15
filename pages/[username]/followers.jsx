@@ -6,17 +6,17 @@ import { useRouter } from "next/dist/client/router";
 import API from "../../requests/API";
 import Users from "../../components/user/Users";
 import Head from "next/head";
+import checkPermission from "../../Functions/checkPermission";
 
 const Followers = () => {
   const router = useRouter();
   const [followers, SetFollowers] = useState();
 
   useEffect(() => {
-    if (!localStorage.getItem("token")) {
-      router.push("/");
-      return;
-    }
+    checkPermission(router);
+  }, []);
 
+  useEffect(() => {
     async function getFollowers() {
       const option = {
         method: "GET",
