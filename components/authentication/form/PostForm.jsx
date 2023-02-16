@@ -30,7 +30,7 @@ const PostForm = ({ publish, changeLoader, openModal }) => {
 
   return (
     <form onSubmit={checkInputs}>
-      <div className="form-inputs" autoComplete="off">
+      <section className="form-inputs" autoComplete="off">
         <Icons />
         <div className="song-url flex">
           <input
@@ -62,7 +62,7 @@ const PostForm = ({ publish, changeLoader, openModal }) => {
               : 1
           }
         />
-      </div>
+      </section>
       <div className="flex">
         <button className="btn" type="submit">
           Post

@@ -48,7 +48,7 @@ const SignupForm = ({ signup, changeLoader }) => {
   }
   return (
     <form onSubmit={checkInputs} autoComplete="off">
-      <div className="form-inputs">
+      <section className="form-inputs">
         <input
           type="text"
           placeholder="Username"
@@ -73,7 +73,7 @@ const SignupForm = ({ signup, changeLoader }) => {
           id="confirm-password"
           autoComplete={"off"}
         />
-      </div>
+      </section>
 
       <div className="flex">
         <button className="btn" type="submit">

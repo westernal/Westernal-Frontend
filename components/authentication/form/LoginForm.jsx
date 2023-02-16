@@ -37,7 +37,7 @@ const LoginForm = ({ login, changeLoader }) => {
 
   return (
     <form onSubmit={checkInputs}>
-      <div className="form-inputs">
+      <section className="form-inputs">
         <input
           type="text"
           placeholder="Username"
@@ -68,7 +68,7 @@ const LoginForm = ({ login, changeLoader }) => {
             </div>
           </div>
         </section>
-      </div>
+      </section>
 
       <div className="flex">
         <button className="btn" type="submit">

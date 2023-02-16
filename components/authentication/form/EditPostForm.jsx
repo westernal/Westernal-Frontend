@@ -8,7 +8,7 @@ const EditPostForm = ({ post, editPost }) => {
   };
   return (
     <form onSubmit={checkInputs} autoComplete={"off"}>
-      <div className="form-inputs">
+      <section className="form-inputs">
         <label htmlFor="caption">Caption</label>
         <input
           type="text"
@@ -16,7 +16,7 @@ const EditPostForm = ({ post, editPost }) => {
           id="caption"
           autoComplete={"off"}
         />
-      </div>
+      </section>
 
       <div className="flex setting-btn">
         <button className="btn" type="submit">

@@ -94,7 +94,7 @@ const SettingForm = ({ user, image }) => {
 
   return (
     <form onSubmit={checkInputs} autoComplete={"off"}>
-      <div className="form-inputs">
+      <section className="form-inputs">
         <label htmlFor="image">Image</label>
         <div className="flex image-setting">
           <Image
@@ -142,14 +142,11 @@ const SettingForm = ({ user, image }) => {
           href={`/user/forgot-password/${token}`}
           className="flex change-password"
         >
-          <input
-            type="button"
-            className="search-btn "
-            value={" Change password"}
-            id="password"
-          />
+          <button className="search-btn " id="password">
+            Change password
+          </button>
         </Link>
-      </div>
+      </section>
 
       {loader && <FormLoader />}
 
