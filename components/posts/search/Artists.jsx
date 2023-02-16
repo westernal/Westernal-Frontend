@@ -10,46 +10,47 @@ const SearchArtists = ({ token }) => {
   const { closeModal, chooseSong } = useSearchContext();
   const controllerRef = useRef();
 
-  useEffect(() => {
-    const search = async () => {
-      if (controllerRef.current) {
-        controllerRef.current.abort();
-      }
+  const search = async () => {
+    if (controllerRef.current) {
+      controllerRef.current.abort();
+    }
 
-      const controller = new AbortController();
-      controllerRef.current = controller;
-      let response;
+    const controller = new AbortController();
+    controllerRef.current = controller;
+    let response;
 
-      if (artists.length == 0) {
-        SetLoader(true);
-      }
+    if (artists.length == 0) {
+      SetLoader(true);
+    }
 
-      const option = {
-        signal: controllerRef.current?.signal,
-        method: "GET",
-        headers: {
-          "content-type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      };
-
-      response = await fetch(
-        `https://api.spotify.com/v1/search?q=${
-          searchTerm && searchTerm
-        }&type=artist&limit=10`,
-        option
-      );
-
-      const data = await response.json();
-      const status = response.status;
-
-      if (status == 200) {
-        setArtists(data.artists.items);
-        SetLoader(false);
-        controllerRef.current = null;
-      }
+    const option = {
+      signal: controllerRef.current?.signal,
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
     };
 
+    response = await fetch(
+      `https://api.spotify.com/v1/search?q=${
+        searchTerm && searchTerm
+      }&type=artist&limit=10`,
+      option
+    );
+
+    const data = await response.json();
+    const status = response.status;
+
+    if (status == 200) {
+      setArtists(data.artists.items);
+      controllerRef.current = null;
+    }
+
+    SetLoader(false);
+  };
+
+  useEffect(() => {
     if (searchTerm) {
       search();
     }

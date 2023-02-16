@@ -13,42 +13,42 @@ const Search = () => {
   const router = useRouter();
   const controllerRef = useRef();
 
+  async function searchUsers(e) {
+    if (controllerRef.current) {
+      controllerRef.current.abort();
+    }
+
+    const controller = new AbortController();
+    controllerRef.current = controller;
+    SetIsTyped(true);
+
+    const option = {
+      signal: controllerRef.current?.signal,
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    };
+
+    try {
+      var result = await API(option, `api/users/search/${searchTerm}`);
+    } catch (error) {
+      return;
+    }
+
+    if (result.status == 200) {
+      SetUsers(result.data.users);
+      controllerRef.current = null;
+    }
+
+    if (searchTerm === "") {
+      SetIsTyped(false);
+    }
+  }
+
   useEffect(() => {
     checkPermission(router);
   }, []);
 
   useEffect(() => {
-    async function searchUsers(e) {
-      if (controllerRef.current) {
-        controllerRef.current.abort();
-      }
-
-      const controller = new AbortController();
-      controllerRef.current = controller;
-      SetIsTyped(true);
-
-      const option = {
-        signal: controllerRef.current?.signal,
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-      };
-
-      try {
-        var result = await API(option, `api/users/search/${searchTerm}`);
-      } catch (error) {
-        return;
-      }
-
-      if (result.status == 200) {
-        SetUsers(result.data.users);
-        controllerRef.current = null;
-      }
-
-      if (searchTerm === "") {
-        SetIsTyped(false);
-      }
-    }
-
     if (searchTerm) {
       searchUsers();
     }
