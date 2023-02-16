@@ -34,7 +34,7 @@ const Search = () => {
       return;
     }
 
-    alert(result.data.users[0].username);
+    alert(result.data);
 
     if (result.status == 200) {
       SetUsers(result.data.users);
