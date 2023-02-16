@@ -14,13 +14,13 @@ const Search = () => {
   const controllerRef = useRef();
 
   async function searchUsers(e) {
+    SetIsTyped(true);
     if (controllerRef.current) {
       controllerRef.current.abort();
     }
 
     const controller = new AbortController();
     controllerRef.current = controller;
-    SetIsTyped(true);
 
     const option = {
       signal: controllerRef.current?.signal,
@@ -68,6 +68,7 @@ const Search = () => {
               setSearchTerm(event.target.value);
             }}
             id="searchInput"
+            autoComplete={"off"}
           />
         </div>
         {isTyped && <User users={users} />}
