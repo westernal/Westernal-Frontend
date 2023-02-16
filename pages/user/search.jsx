@@ -34,7 +34,7 @@ const Search = () => {
       return;
     }
 
-    alert(result.status);
+    alert(result.status, isTyped, result.data.users[0]);
 
     if (result.status == 200) {
       SetUsers(result.data.users);
@@ -73,7 +73,7 @@ const Search = () => {
             autoComplete={"off"}
           />
         </div>
-        {isTyped && <User users={users} />}
+        <User users={users} />
       </main>
       <Footer />
     </>
