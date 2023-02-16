@@ -65,7 +65,7 @@ const Search = () => {
             type="text"
             placeholder="Search users..."
             onChange={(event) => {
-              setSearchTerm(event.target.value.toLowerCase());
+              setSearchTerm(event.target.value);
             }}
             id="searchInput"
             autoComplete={"off"}

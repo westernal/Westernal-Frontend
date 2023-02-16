@@ -33,7 +33,12 @@ const PostForm = ({ publish, changeLoader, openModal }) => {
       <div className="form-inputs" autoComplete="off">
         <Icons />
         <div className="song-url flex">
-          <input type="text" id="song" placeholder="Song's URL" />
+          <input
+            type="text"
+            id="song"
+            placeholder="Song's URL"
+            autoComplete={"off"}
+          />
           OR
           <button className="search-btn" onClick={openModal}>
             <Image
