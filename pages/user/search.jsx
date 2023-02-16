@@ -37,7 +37,7 @@ const Search = () => {
     if (result.data.users[0]) {
       alert(result.data.users[0].username);
     } else {
-      alert("empty");
+      alert(`api/users/search/${searchTerm}`);
     }
 
     if (result.status == 200) {
