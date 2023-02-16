@@ -34,7 +34,11 @@ const Search = () => {
       return;
     }
 
-    alert(result.data);
+    if (result.data.users[0]) {
+      alert(result.data.users[0].username);
+    } else {
+      alert("empty");
+    }
 
     if (result.status == 200) {
       SetUsers(result.data.users);
