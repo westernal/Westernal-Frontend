@@ -34,12 +34,6 @@ const Search = () => {
       return;
     }
 
-    if (result.data.users[0]) {
-      alert(result.data.users[0].username);
-    } else {
-      alert(`api/users/search/${searchTerm}`);
-    }
-
     if (result.status == 200) {
       SetUsers(result.data.users);
       controllerRef.current = null;
@@ -71,7 +65,7 @@ const Search = () => {
             type="text"
             placeholder="Search users..."
             onChange={(event) => {
-              setSearchTerm(event.target.value);
+              setSearchTerm(event.target.value.toLowerCase());
             }}
             id="searchInput"
             autoComplete={"off"}
