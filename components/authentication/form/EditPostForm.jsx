@@ -14,7 +14,7 @@ const EditPostForm = ({ post, editPost }) => {
           type="text"
           defaultValue={post && post.caption && post.caption}
           id="caption"
-          autoComplete="new-password"
+          autoComplete={"off"}
         />
       </div>
 

@@ -121,19 +121,21 @@ const SettingForm = ({ user, image }) => {
           type="text"
           defaultValue={user && user.username}
           id="username"
-          autoComplete="new-password"
+          autoComplete={"off"}
         />
         <label htmlFor="bio">Bio</label>
         <input
           type="text"
           defaultValue={user && user.bio && user.bio}
           id="bio"
+          autoComplete={"off"}
         />
         <label htmlFor="link">Personal link</label>
         <input
           type="text"
           defaultValue={user && user.personal_link && user.personal_link}
           id="link"
+          autoComplete={"off"}
         />
         <label htmlFor="password">Password</label>
         <Link
