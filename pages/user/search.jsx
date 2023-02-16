@@ -15,6 +15,7 @@ const Search = () => {
 
   async function searchUsers(e) {
     SetIsTyped(true);
+    alert(searchTerm);
     if (controllerRef.current) {
       controllerRef.current.abort();
     }
