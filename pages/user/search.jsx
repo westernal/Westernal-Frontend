@@ -15,7 +15,6 @@ const Search = () => {
 
   async function searchUsers(e) {
     SetIsTyped(true);
-    alert(searchTerm);
     if (controllerRef.current) {
       controllerRef.current.abort();
     }
@@ -34,6 +33,8 @@ const Search = () => {
     } catch (error) {
       return;
     }
+
+    alert(result.status);
 
     if (result.status == 200) {
       SetUsers(result.data.users);
