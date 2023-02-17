@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useEffect } from "react";
 
 const BackToTopButton = () => {
@@ -22,7 +23,12 @@ const BackToTopButton = () => {
 
   return (
     <button id="top-button" onClick={goToTop}>
-      &#10095;
+      <Image
+        src={"/Images/Up Arrow.svg"}
+        width={20}
+        height={20}
+        alt="Top Arrow"
+      />
     </button>
   );
 };
