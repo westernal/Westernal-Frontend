@@ -16,7 +16,7 @@ const BackHeader = ({ title }) => {
           src="/Images/back.svg"
           alt="back button"
           width={20}
-          height={30}
+          height={20}
         />
       </button>
       <div className="title flex">
