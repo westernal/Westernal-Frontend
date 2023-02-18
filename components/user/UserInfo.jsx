@@ -46,12 +46,14 @@ const UserInfo = ({ isUserSelf, user, isLoggedIn }) => {
       <Head>
         <title key="title">Westernal - @{user.username} </title>
       </Head>
-      <UserHeader
-        username={user.username}
-        isVerified={user.verified}
-        isLoggedIn={isLoggedIn}
-        isUserSelf={isUserSelf}
-      />
+      {user && (
+        <UserHeader
+          username={user.username}
+          isVerified={user.verified}
+          isLoggedIn={isLoggedIn}
+          isUserSelf={isUserSelf}
+        />
+      )}
       <section className="profile-info">
         <div className="flex">
           <div className="profile-pic flex">
