@@ -100,6 +100,7 @@ const PostComment = ({
         placeholder={`Write a ${isReply ? "reply" : "comment"}...`}
         id="comment-text"
         onKeyDown={handleEnter}
+        autoComplete={"off"}
       />
       <div className="comment-buttons">
         <button className="btn" onClick={checkInput}>
