@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Head from "next/head";
 import FollowSection from "./followUser/FollowSection";
-import Follow from "./followUser/FollowSection";
 import jwtDecode from "jwt-decode";
 import UserHeader from "../layout/header/UserHeader";
 import FollowDetails from "./followUser/FollowDetails";
@@ -46,14 +45,14 @@ const UserInfo = ({ isUserSelf, user, isLoggedIn }) => {
       <Head>
         <title key="title">Westernal - @{user.username} </title>
       </Head>
-      {user && (
-        <UserHeader
-          username={user.username}
-          isVerified={user.verified}
-          isLoggedIn={isLoggedIn}
-          isUserSelf={isUserSelf}
-        />
-      )}
+
+      <UserHeader
+        username={user.username}
+        isVerified={user.verified}
+        isLoggedIn={isLoggedIn}
+        isUserSelf={isUserSelf}
+      />
+
       <section className="profile-info">
         <div className="flex">
           <div className="profile-pic flex">

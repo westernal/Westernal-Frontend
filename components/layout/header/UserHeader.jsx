@@ -20,8 +20,8 @@ const UserHeader = ({ username, isVerified, isLoggedIn, isUserSelf }) => {
           <button className="contact-btn">Login</button>
         </Link>
       )}
-      {isUserSelf && (
-        <div className="flex">
+      {isUserSelf && username && (
+        <div className="flex header-buttons">
           <Link href={`/${username}/saved`} className="flex" id="saved-posts">
             <Image
               src="/Images/save.svg"
