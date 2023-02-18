@@ -5,12 +5,10 @@ const BackHeader = ({ title }) => {
   const router = useRouter();
   return (
     <header className="back-header">
-      <a
-        href="#"
+      <button
         id="back-link"
-        aria-label="add"
-        onClick={(e) => {
-          e.preventDefault();
+        aria-label="back"
+        onClick={() => {
           router.back();
         }}
       >
@@ -18,9 +16,9 @@ const BackHeader = ({ title }) => {
           src="/Images/back.svg"
           alt="back button"
           width={20}
-          height={20}
+          height={30}
         />
-      </a>
+      </button>
       <div className="title flex">
         <h1>{title}</h1>
       </div>

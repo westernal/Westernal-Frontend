@@ -214,6 +214,11 @@ button {
   margin-left: -2px;
 }
 
+#back-link {
+  border: 0;
+  background-color: transparent;
+}
+
 .post-user {
   justify-content: left;
   gap: 7px;
