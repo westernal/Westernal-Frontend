@@ -31,9 +31,7 @@ const SavePost = ({ id, hide, onUnsave }) => {
     }
   };
 
-  const checkSavePost = (e) => {
-    e.preventDefault();
-
+  const checkSavePost = () => {
     if (!isSaved) {
       save();
     } else unsave();
@@ -99,9 +97,9 @@ const SavePost = ({ id, hide, onUnsave }) => {
   };
 
   return (
-    <a href="#" onClick={checkSavePost} id="save-post">
+    <li onClick={checkSavePost} id="save-post">
       {isSaved ? "Unsave post" : "Save post"}
-    </a>
+    </li>
   );
 };
 

@@ -5,45 +5,37 @@ import SavePost from "../save/SavePost";
 import SharePost from "../share/SharePost";
 
 const PostOptions = ({ onDelete, isLoggedIn, deletable, id, onUnsave }) => {
-  const openMenu = (e) => {
-    e.preventDefault();
-
+  const openMenu = () => {
     const menu = document.getElementById(id);
-
-    if (deletable) {
-      menu.style.height = "238px";
-    } else menu.style.height = "160px";
+    menu.style.maxHeight = "600px";
   };
 
-  const closeMenu = (e) => {
+  const closeMenu = () => {
     const menu = document.getElementById(id);
-
-    if (e) {
-      e.preventDefault();
-    }
-
-    menu.style.height = "0px";
+    menu.style.maxHeight = "0px";
   };
 
   return (
     <section className="post-options flex">
-      <a id="more" className="flex" href="#" onClick={openMenu}>
+      <button id="more" className="flex" onClick={openMenu}>
         ...
-      </a>
-      <div className="post-menu" id={id}>
+      </button>
+      <ul className="post-menu" id={id}>
         <SharePost id={id} hide={closeMenu} />
         {isLoggedIn && (
           <SavePost id={id} hide={closeMenu} onUnsave={onUnsave} />
         )}
-        {deletable && <Link href={`/post/edit/${id}`}>Edit post</Link>}
+        {deletable && (
+          <li>
+            <Link href={`/post/edit/${id}`}>Edit post</Link>
+          </li>
+        )}
         <RedirectPost id={id} hide={closeMenu} />
         {deletable && (
           <DeletePost onDelete={onDelete} id={id} hide={closeMenu} />
         )}
-        <a href="#" onClick={closeMenu}>
-          Cancel
-        </a>
-      </div>
+        <li onClick={closeMenu}>Cancel</li>
+      </ul>
     </section>
   );
 };

@@ -157,6 +157,12 @@ button {
   cursor: pointer;
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -214,7 +220,8 @@ button {
   margin-left: -2px;
 }
 
-#back-link {
+#back-link,
+#more {
   border: 0;
   background-color: transparent;
 }
@@ -1043,21 +1050,21 @@ h1 {
   right: 0;
   border-radius: 10px;
   background-color: #ededed;
-  flex-direction: column;
   width: 180px;
-  height: 0px;
-  display: flex;
-  transition: 0.3s;
+  max-height: 0;
+  transition: 0.5s;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-.post-menu a {
+.post-menu li {
   padding: 10px 20px;
   transition: 0.3s;
+  display: block;
   border-radius: 10px;
+  cursor: pointer;
 }
 
-.post-menu a:hover {
+.post-menu li:hover {
   background-color: white;
 }
 
@@ -1266,7 +1273,7 @@ h1 {
     background-color: #101015;
   }
 
-  .post-menu a:hover {
+  .post-menu li:hover {
     background-color: black;
   }
 
@@ -1336,7 +1343,8 @@ h1 {
     fill: white;
   }
 
-  a {
+  a,
+  #more {
     color: white;
   }
 
