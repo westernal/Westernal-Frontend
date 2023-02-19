@@ -49,8 +49,6 @@ const Likes = () => {
       <main className="likes">
         <User users={users} />
       </main>
-
-      {render && <Footer />}
     </>
   );
 };

@@ -1,17 +1,14 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import BackHeader from "../../components/layout/header/BackHeader";
-import Footer from "../../components/layout/Footer";
 import { useRouter } from "next/dist/client/router";
 import API from "../../requests/API";
 import Users from "../../components/user/Users";
 import Head from "next/head";
-import checkPermission from "../../Functions/checkPermission";
 
 const Followings = () => {
   const router = useRouter();
   const [following, SetFollowing] = useState();
-  const [render, setRender] = useState(false);
 
   async function getFollowing() {
     const option = {
@@ -32,14 +29,10 @@ const Followings = () => {
   }
 
   useEffect(() => {
-    setRender(checkPermission(router));
-  }, []);
-
-  useEffect(() => {
-    if (router.query.username && render) {
+    if (router.query.username) {
       getFollowing();
     }
-  }, [router.query, router, render]);
+  }, [router.query, router]);
   return (
     <>
       <Head>
@@ -47,11 +40,9 @@ const Followings = () => {
       </Head>
       <BackHeader title="Following" />
 
-      <main className="followers">
+      <main className="followings">
         <Users users={following} />
       </main>
-
-      {render && <Footer />}
     </>
   );
 };

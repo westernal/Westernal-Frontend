@@ -500,6 +500,12 @@ main {
   margin-bottom: 100px;
 }
 
+.followers,
+.followings,
+.likes {
+  margin-bottom: 0;
+}
+
 #edit-img {
   border-radius: 50%;
 }
