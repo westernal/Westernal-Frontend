@@ -1037,6 +1037,7 @@ h1 {
 #more {
   font-size: 40px;
   margin-top: -20px;
+  padding: 0;
 }
 
 .post-options {
