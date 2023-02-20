@@ -862,7 +862,8 @@ canvas {
   border-radius: 5px;
 }
 
-.search-modal .profile-notif:hover {
+.search-modal .profile-notif:hover,
+.user-list .profile-notif:hover {
   background-color: #ededed;
 }
 
@@ -1340,7 +1341,8 @@ h1 {
     color: white;
   }
 
-  .search-results .profile-notif:hover {
+  .search-results .profile-notif:hover,
+  .user-list .profile-notif:hover {
     background-color: #101015;
   }
 
