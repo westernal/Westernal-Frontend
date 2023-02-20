@@ -495,6 +495,7 @@ a {
   flex-direction: column;
   justify-content: left;
   align-items: baseline;
+  transition: 0.3s;
   gap: 5px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   justify-content: space-between;
@@ -1341,9 +1342,12 @@ h1 {
     color: white;
   }
 
-  .search-results .profile-notif:hover,
-  .user-list .profile-notif:hover {
+  .search-results .profile-notif:hover {
     background-color: #101015;
+  }
+
+  .user-list .profile-notif:hover {
+    background-color: #5f5d5d;
   }
 
   #like-count {
