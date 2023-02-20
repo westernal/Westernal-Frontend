@@ -356,8 +356,7 @@ hr {
 }
 
 .btn:hover {
-  background-color: white;
-  color: #9d38fc;
+  background-color: #6924aa;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
@@ -1158,12 +1157,6 @@ h1 {
   padding: 5px 10px;
 }
 
-.search-modal .btn:hover {
-  background-color: #9d38fc;
-  filter: contrast(0.7);
-  color: white;
-}
-
 .song-btns img:hover {
   filter: contrast(0.7);
 }
@@ -1312,8 +1305,6 @@ h1 {
   }
 
   .btn:hover {
-    background-color: #101015;
-    color: #9d38fc;
     box-shadow: none;
   }
 
