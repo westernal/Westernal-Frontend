@@ -17,8 +17,8 @@ const User = ({ users }) => {
         })}
       {users &&
         users.map((user) => (
-          <div className="profile-notif flex" key={user._id}>
-            <Link href={`/${user.username}`} className="flex">
+          <Link href={`/${user.username}`} className="flex" key={user._id}>
+            <div className="profile-notif flex">
               {
                 <Image
                   src={
@@ -43,8 +43,8 @@ const User = ({ users }) => {
                   />
                 </div>
               )}
-            </Link>
-          </div>
+            </div>
+          </Link>
         ))}
     </section>
   );
