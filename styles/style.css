@@ -905,8 +905,7 @@ canvas {
 }
 
 .file-input::-webkit-file-upload-button:hover {
-  background-color: white;
-  color: #6924aa;
+  background-color: #6924aa;
 }
 
 h1 {
