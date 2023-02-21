@@ -356,7 +356,7 @@ hr {
 }
 
 .btn:hover {
-  background-color: #6924aa;
+  background-color: #9d38fcb8;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
@@ -562,7 +562,7 @@ header .contact-btn {
 }
 
 #logout:hover {
-  background-color: #b23030;
+  background-color: #ff3636b8;
 }
 
 #add-btn {
@@ -743,7 +743,7 @@ canvas {
 }
 
 #confirm-delete:hover {
-  background-color: red;
+  background-color: #ff3636b8;
 }
 
 #cancel-delete {
@@ -900,7 +900,7 @@ canvas {
 }
 
 .file-input::-webkit-file-upload-button:hover {
-  background-color: #6924aa;
+  background-color: #9d38fcb8;
 }
 
 h1 {
@@ -1272,7 +1272,7 @@ h1 {
   }
 
   .error-page .contact-btn:hover {
-    background-color: black;
+    background-color: #101015b8;
   }
 
   .save-icon {
@@ -1298,9 +1298,6 @@ h1 {
   }
 
   #logout {
-    color: #101015;
-    background-color: #ff3636;
-    width: 60vw;
     box-shadow: none;
   }
 
@@ -1311,7 +1308,7 @@ h1 {
   }
 
   .contact-btn:hover {
-    background-color: #1c1c1c;
+    background-color: #252525b8;
   }
 
   .search-btn:hover {
