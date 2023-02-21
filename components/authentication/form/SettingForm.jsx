@@ -142,7 +142,7 @@ const SettingForm = ({ user, image }) => {
           href={`/user/forgot-password/${token}`}
           className="flex change-password"
         >
-          <button className="search-btn " id="password">
+          <button className="search-btn" id="password">
             Change password
           </button>
         </Link>

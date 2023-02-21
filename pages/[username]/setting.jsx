@@ -63,11 +63,8 @@ const Setting = () => {
 
         <div className="setting-btns">
           <a href="mailto:support@contact.westernal.net">
-            <button className="contact-btn" type="button">
-              Contact Support
-            </button>
+            <button className="contact-btn">Contact Support</button>
           </a>
-
           <Logout />
         </div>
       </main>
