@@ -899,7 +899,7 @@ canvas {
   background-color: #9d38fc;
   color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
   transition: 0.5s;
   padding: 5px 10px;
   font-size: 14px;
@@ -907,8 +907,7 @@ canvas {
 
 .file-input::-webkit-file-upload-button:hover {
   background-color: white;
-  color: #9d38fc;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  color: #6924aa;
 }
 
 h1 {
@@ -1284,12 +1283,6 @@ h1 {
 
   .save-icon {
     fill: white;
-  }
-
-  .file-input::-webkit-file-upload-button:hover {
-    background-color: #101015;
-    color: #9d38fc;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
 
   .search-btn {
