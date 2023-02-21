@@ -157,6 +157,10 @@ button {
   cursor: pointer;
 }
 
+textarea {
+  resize: none;
+}
+
 ul {
   list-style-type: none;
   margin: 0;

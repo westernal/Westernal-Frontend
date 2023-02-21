@@ -58,8 +58,8 @@ const PostForm = ({ publish, changeLoader, openModal }) => {
           onChange={(e) => SetCaptionValue(e.target.value)}
           rows={
             /\n/.test(captionValue)
-              ? Number(captionValue.match(/\n/g)?.length) + 1
-              : 1
+              ? Number(captionValue.match(/\n/g)?.length) + 6
+              : 6
           }
         />
       </section>
