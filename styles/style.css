@@ -562,8 +562,7 @@ header .contact-btn {
 }
 
 #logout:hover {
-  background-color: white;
-  color: #ff3636;
+  background-color: #b23030;
 }
 
 #add-btn {
@@ -1308,11 +1307,6 @@ h1 {
     background-color: #ff3636;
     width: 60vw;
     box-shadow: none;
-  }
-
-  #logout:hover {
-    color: #ff3636;
-    background-color: #252525;
   }
 
   .contact-btn {
