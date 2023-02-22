@@ -1,6 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Megrim");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
+:root {
+  --main-color: #9d38fc;
+  --main-hover-color: #9d38fcb8;
+  --dark-primary-color: #101015;
+  --dark-secondary-color: #252525;
+  --dark-primary-hover-color: #101015b8;
+  --dark-secondary-hover-color: #252525b8;
+  --error-color: #ff3636;
+  --error-hover-color: #ff3636b8;
+  --light-primary-color: white;
+  --light-secondary-color: #ededed;
+  --light-backup-color: #5f5d5d;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -45,7 +59,7 @@ a {
 
 header {
   padding: 20px;
-  background-color: #9d38fc;
+  background-color: var(--main-color);
   display: flex;
   position: fixed;
   width: 100%;
@@ -76,7 +90,7 @@ header {
 header a,
 header p,
 #website-name {
-  color: white;
+  color: var(--light-primary-color);
   font-family: "Megrim";
   font-size: 30px;
   font-weight: bolder;
@@ -95,7 +109,7 @@ header p,
   width: 100%;
   z-index: 100;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  background-color: white;
+  background-color: var(--light-primary-color);
 }
 
 .footer img {
@@ -114,7 +128,7 @@ header p,
 }
 
 .search-bar {
-  background-color: #9d38fc;
+  background-color: var(--main-color);
   z-index: 1;
   position: fixed;
   top: 0;
@@ -177,7 +191,7 @@ ul {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #5f5d5d;
+  background-color: var(--light-backup-color);
 }
 
 .notification-header,
@@ -194,8 +208,8 @@ ul {
 
 .loader-icon {
   font-family: megrim;
-  background-color: #9d38fc;
-  color: white;
+  background-color: var(--main-color);
+  color: var(--light-primary-color);
   font-size: 10rem;
   animation: pulse 1s infinite;
   width: 200px;
@@ -205,8 +219,8 @@ ul {
 
 .logo-loader {
   font-family: megrim;
-  background-color: #9d38fc;
-  color: white;
+  background-color: var(--main-color);
+  color: var(--light-primary-color);
   font-size: 2rem;
   animation: pulse 1s infinite;
   width: 50px;
@@ -243,12 +257,12 @@ ul {
 }
 
 .Toastify__toast {
-  background: #9d38fc !important;
+  background: var(--main-color) !important;
 }
 
 @keyframes pulse {
   0% {
-    box-shadow: #9d38fc 0 0 0 0;
+    box-shadow: var(--main-color) 0 0 0 0;
   }
   80% {
     box-shadow: #9d38fc00 0 0 0 20px;
@@ -283,7 +297,7 @@ ul {
 }
 
 hr {
-  border: 0.5px solid #ededed;
+  border: 0.5px solid var(--light-secondary-color);
   width: 100px;
 }
 
@@ -292,7 +306,7 @@ hr {
   margin-top: 0;
   font-size: 5rem;
   font-family: megrim;
-  color: #9d38fc;
+  color: var(--main-color);
 }
 
 .auth-form input,
@@ -325,8 +339,8 @@ hr {
 .search-btn {
   padding: 10px 20px;
   font-family: "Montserrat", sans-serif;
-  background-color: #9d38fc;
-  color: white;
+  background-color: var(--main-color);
+  color: var(--light-primary-color);
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border: none;
   border-radius: 10px;
@@ -340,8 +354,8 @@ hr {
 }
 
 .unfollow-btn {
-  color: #9d38fc;
-  background-color: white;
+  color: var(--main-color);
+  background-color: var(--light-primary-color);
 }
 
 .follow-btn,
@@ -350,37 +364,37 @@ hr {
 }
 
 .follow-btn:hover {
-  background-color: white;
-  color: #9d38fc;
+  background-color: var(--light-primary-color);
+  color: var(--main-color);
 }
 
 .unfollow-btn:hover {
-  background-color: #9d38fc;
-  color: white;
+  background-color: var(--main-color);
+  color: var(--light-primary-color);
 }
 
 .btn:hover {
-  background-color: #9d38fcb8;
+  background-color: var(--main-hover-color);
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .follow-name {
-  color: #5f5d5d;
+  color: var(--light-backup-color);
 }
 
 a {
-  color: #101015;
+  color: var(--dark-primary-color);
 }
 
 .login a,
 .signup a {
-  color: #9d38fc;
+  color: var(--main-color);
 }
 
 .profile-info {
   text-align: center;
   margin: 100px 10% 20px 10%;
-  border-bottom: 1px solid #ededed;
+  border-bottom: 1px solid var(--light-secondary-color);
 }
 
 .profile-pic {
@@ -417,7 +431,7 @@ a {
 }
 
 #delete-btn:hover {
-  fill: #ff3636;
+  fill: var(--error-color);
 }
 
 .follow-section {
@@ -464,11 +478,11 @@ a {
 }
 
 .post-info svg:hover path {
-  fill: #ff3636;
+  fill: var(--error-color);
 }
 
 #comments svg:hover path {
-  fill: #5f5d5d;
+  fill: var(--light-backup-color);
 }
 
 #date {
@@ -485,7 +499,7 @@ a {
 }
 
 #delete-link {
-  color: #ff3636;
+  color: var(--error-color);
 }
 
 .share-info .grid {
@@ -522,7 +536,7 @@ main {
 }
 
 header h1 {
-  color: white;
+  color: var(--light-primary-color);
   margin: 0;
   font-size: 1.5rem;
 }
@@ -544,8 +558,8 @@ textarea {
 .contact-btn,
 #confirm-delete,
 #cancel-delete {
-  color: #9d38fc;
-  background-color: white;
+  color: var(--main-color);
+  background-color: var(--light-primary-color);
   transition: 0.5s;
   border-radius: 10px;
   padding: 10px;
@@ -555,8 +569,8 @@ textarea {
 
 #logout,
 .contact-btn {
-  background-color: #ff3636;
-  color: white;
+  background-color: var(--error-color);
+  color: var(--light-primary-color);
   width: 60vw;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
@@ -566,7 +580,7 @@ header .contact-btn {
 }
 
 #logout:hover {
-  background-color: #ff3636b8;
+  background-color: var(--error-hover-color);
 }
 
 #add-btn {
@@ -590,7 +604,7 @@ audio {
 }
 
 #cm-user {
-  color: #9d38fc;
+  color: var(--main-color);
 }
 
 .SpotifyPlayer {
@@ -668,7 +682,7 @@ canvas {
 }
 
 .liked {
-  fill: #ff3636 !important;
+  fill: var(--error-color) !important;
 }
 
 .saved {
@@ -681,7 +695,7 @@ canvas {
   padding: 2px;
   transition: 0.5s;
   background-color: inherit;
-  border: 0.5px solid #5f5d5d;
+  border: 0.5px solid var(--light-backup-color);
   border-radius: 2px;
   transform: translateZ(0);
 }
@@ -697,7 +711,7 @@ canvas {
 
 .show {
   font-size: 14px;
-  color: #5f5d5d;
+  color: var(--light-backup-color);
 }
 
 .delete-modal {
@@ -723,7 +737,7 @@ canvas {
 }
 
 .close {
-  color: #5f5d5d;
+  color: var(--light-backup-color);
   transition: 0.3s;
   font-size: 28px;
   font-weight: bold;
@@ -741,13 +755,13 @@ canvas {
 }
 
 #confirm-delete {
-  background-color: #ff3636;
-  color: white;
+  background-color: var(--error-color);
+  color: var(--light-primary-color);
   width: 200px;
 }
 
 #confirm-delete:hover {
-  background-color: #ff3636b8;
+  background-color: var(--error-hover-color);
 }
 
 #cancel-delete {
@@ -755,7 +769,7 @@ canvas {
 }
 
 #cancel-delete:hover {
-  background-color: #ededed;
+  background-color: var(--light-secondary-color);
 }
 
 #post-caption {
@@ -804,8 +818,8 @@ canvas {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #9d38fc;
-  background-color: white;
+  color: var(--main-color);
+  background-color: var(--light-primary-color);
   gap: 5px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   padding: 0 10px;
@@ -863,7 +877,7 @@ canvas {
 
 .search-modal .profile-notif:hover,
 .user-list .profile-notif:hover {
-  background-color: #ededed;
+  background-color: var(--light-secondary-color);
 }
 
 .password-options {
@@ -881,11 +895,11 @@ canvas {
 }
 
 .setting section a {
-  color: #9d38fc;
+  color: var(--main-color);
 }
 
 #reset-text {
-  color: #9d38fc;
+  color: var(--main-color);
 }
 
 .m-10 {
@@ -894,8 +908,8 @@ canvas {
 
 .file-input::-webkit-file-upload-button {
   font-family: "Montserrat", sans-serif;
-  background-color: #9d38fc;
-  color: white;
+  background-color: var(--main-color);
+  color: var(--light-primary-color);
   border: none;
   border-radius: 5px;
   transition: 0.5s;
@@ -904,7 +918,7 @@ canvas {
 }
 
 .file-input::-webkit-file-upload-button:hover {
-  background-color: #9d38fcb8;
+  background-color: var(--main-hover-color);
 }
 
 h1 {
@@ -913,7 +927,7 @@ h1 {
 
 .contact-btn:hover,
 .search-btn:hover {
-  background-color: #ededed;
+  background-color: var(--light-secondary-color);
 }
 
 .error-page .contact-btn {
@@ -935,8 +949,8 @@ h1 {
 }
 
 .new-notif {
-  background-color: #ff3636;
-  color: white;
+  background-color: var(--error-color);
+  color: var(--light-primary-color);
   border-radius: 5px;
   font-size: 13px;
   width: 20px;
@@ -950,9 +964,9 @@ h1 {
 .post-error {
   width: 100%;
   height: 300px;
-  background-color: #101015;
+  background-color: var(--dark-primary-color);
   flex-direction: column;
-  color: white;
+  color: var(--light-primary-color);
   text-align: center;
   padding: 30px;
   gap: 1;
@@ -960,8 +974,8 @@ h1 {
 
 .error-icon {
   font-size: 35px;
-  background-color: white;
-  color: #101015;
+  background-color: var(--light-primary-color);
+  color: var(--dark-primary-color);
   display: grid;
   place-items: center;
   width: 50px;
@@ -975,7 +989,7 @@ h1 {
 
 @keyframes redPulse {
   0% {
-    box-shadow: #ff3636 0 0 0 0;
+    box-shadow: var(--error-color) 0 0 0 0;
   }
   80% {
     box-shadow: #9d38fc00 0 0 0 20px;
@@ -995,8 +1009,8 @@ h1 {
 }
 
 .contact-btn {
-  color: #9d38fc;
-  background-color: white;
+  color: var(--main-color);
+  background-color: var(--light-primary-color);
 }
 
 .post-header {
@@ -1017,7 +1031,7 @@ h1 {
 
 .search-type .active {
   font-weight: 600;
-  border-bottom: 2px solid #9d38fc;
+  border-bottom: 2px solid var(--main-color);
 }
 
 .save-icon {
@@ -1048,7 +1062,7 @@ h1 {
   top: 10px;
   right: 0;
   border-radius: 10px;
-  background-color: #ededed;
+  background-color: var(--light-secondary-color);
   width: 180px;
   max-height: 0;
   transition: 0.8s;
@@ -1064,13 +1078,13 @@ h1 {
 }
 
 .post-menu li:hover {
-  background-color: white;
+  background-color: var(--light-primary-color);
 }
 
 .pwa .modal-main {
   position: fixed;
   bottom: 0;
-  background-color: white;
+  background-color: var(--light-primary-color);
   margin: 0;
   width: 100%;
   border-radius: 30px 30px 0 0;
@@ -1089,14 +1103,14 @@ h1 {
 
 .app-info {
   justify-content: left;
-  background-color: #ededed;
+  background-color: var(--light-secondary-color);
   border-radius: 10px;
   padding: 10px;
   margin-top: 10px;
 }
 
 .app-logo {
-  background-color: white;
+  background-color: var(--light-primary-color);
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   padding: 0;
   border-radius: 5px;
@@ -1124,7 +1138,7 @@ h1 {
 }
 
 #user-link {
-  color: #9d38fc;
+  color: var(--main-color);
 }
 
 #user-link:hover {
@@ -1222,7 +1236,7 @@ h1 {
 }
 
 .app-description #website-name {
-  color: #9d38fc;
+  color: var(--main-color);
   font-size: 35px;
 }
 
@@ -1233,8 +1247,8 @@ h1 {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: #9d38fc;
-  color: white;
+  background-color: var(--main-color);
+  color: var(--light-primary-color);
   position: fixed;
   right: 20px;
   font-size: 18px;
@@ -1254,8 +1268,8 @@ h1 {
 
 @media screen and (prefers-color-scheme: dark) {
   body {
-    background-color: #101015;
-    color: white;
+    background-color: var(--dark-primary-color);
+    color: var(--light-primary-color);
   }
 
   .pwa .modal-main {
@@ -1263,7 +1277,7 @@ h1 {
   }
 
   .post-menu {
-    background-color: #101015;
+    background-color: var(--dark-primary-color);
   }
 
   .post-menu li:hover {
@@ -1272,25 +1286,25 @@ h1 {
 
   .error-page .contact-btn {
     width: unset;
-    background-color: #101015;
+    background-color: var(--dark-primary-color);
   }
 
   .error-page .contact-btn:hover {
-    background-color: #101015b8;
+    background-color: var(--dark-primary-hover-color);
   }
 
   .save-icon {
-    fill: white;
+    fill: var(--light-primary-color);
   }
 
   .search-btn {
-    background-color: #101015;
+    background-color: var(--dark-primary-color);
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
 
   @keyframes pulse {
     0% {
-      box-shadow: #9d38fc 0 0 0 0;
+      box-shadow: var(--main-color) 0 0 0 0;
     }
     80% {
       box-shadow: #9d38fc00 0 0 0 20px;
@@ -1306,30 +1320,30 @@ h1 {
   }
 
   .contact-btn {
-    background-color: #252525;
-    color: #9d38fc;
+    background-color: var(--dark-secondary-color);
+    color: var(--main-color);
     box-shadow: none;
   }
 
   .contact-btn:hover {
-    background-color: #252525b8;
+    background-color: var(--dark-secondary-hover-color);
   }
 
   .search-btn:hover {
-    background-color: #101015b8;
+    background-color: var(--dark-primary-hover-color);
   }
 
   #delete-btn {
-    fill: white;
+    fill: var(--light-primary-color);
   }
 
   a,
   #more {
-    color: white;
+    color: var(--light-primary-color);
   }
 
   .search-results .profile-notif:hover {
-    background-color: #101015;
+    background-color: var(--dark-primary-color);
   }
 
   .user-list .profile-notif:hover {
@@ -1337,11 +1351,11 @@ h1 {
   }
 
   #like-count {
-    color: white;
+    color: var(--light-primary-color);
   }
 
   .profile-info {
-    border-bottom: 1px solid #252525;
+    border-bottom: 1px solid var(--dark-secondary-color);
   }
 
   ::-webkit-scrollbar-track {
@@ -1349,7 +1363,7 @@ h1 {
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #252525;
+    background: var(--dark-secondary-color);
   }
 
   ::-webkit-scrollbar-thumb:hover {
@@ -1357,9 +1371,9 @@ h1 {
   }
 
   .footer {
-    background-color: #101015;
+    background-color: var(--dark-primary-color);
     box-shadow: none;
-    border: 1px solid #252525;
+    border: 1px solid var(--dark-secondary-color);
 
     border-bottom: unset;
   }
@@ -1369,38 +1383,38 @@ h1 {
   .profile-notif,
   .auth-form,
   .modal-text {
-    background-color: #252525;
+    background-color: var(--dark-secondary-color);
     box-shadow: none;
   }
 
   .search-modal {
-    background-color: #101015;
+    background-color: var(--dark-primary-color);
   }
 
   .search-modal input {
-    background-color: #252525;
+    background-color: var(--dark-secondary-color);
   }
 
   .post-info svg path,
   #comment svg path {
-    fill: white;
+    fill: var(--light-primary-color);
   }
 
   input,
   #image,
   textarea {
-    background-color: #101015;
-    color: white;
+    background-color: var(--dark-primary-color);
+    color: var(--light-primary-color);
   }
 
   input::placeholder,
   textarea::placeholder,
   #image {
-    color: #5f5d5d;
+    color: var(--light-backup-color);
   }
 
   .profile-pic {
-    background-color: #5f5d5d;
+    background-color: var(--light-backup-color);
   }
 
   .search-modal .profile-notif {
