@@ -40,7 +40,9 @@ const PostPage = () => {
   return (
     <>
       <Head>
-        <title>Westernal - Post</title>
+        <title>
+          Westernal - {post ? `Post from ${post.author.username}` : "Post"}
+        </title>
       </Head>
 
       <BackHeader title={"Post"} />
