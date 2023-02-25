@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import jwtDecode from "jwt-decode";
 import Link from "next/link";
 import DeleteComment from "../DeleteComment";
-import formatDate from "../../../../Functions/formatDate";
+import formatDate from "../../../../functions/formatDate";
 import Image from "next/image";
 
 const Reply = ({ reply, onDelete }) => {
