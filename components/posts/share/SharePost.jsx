@@ -8,23 +8,12 @@ const SharePost = ({ id, hide }) => {
     url: `https://www.westernal.net/post/${id}`,
   });
 
-  const copyLink = () => {
-    navigator.clipboard.writeText(Link.current.url);
-    hide();
-    toast.success("Link copied!");
-  };
-
   const share = async () => {
     await navigator.share(Link.current);
     hide();
   };
 
-  return (
-    <>
-      <li onClick={share}>Share post</li>
-      <li onClick={copyLink}>Copy link</li>
-    </>
-  );
+  return <li onClick={share}>Share post</li>;
 };
 
 export default SharePost;
