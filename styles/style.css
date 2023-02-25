@@ -1516,16 +1516,19 @@ h1 {
     width: 80vw;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     -webkit-appearance: none;
+    appearance: none;
   }
 
   .search-bar input {
     width: 80vw;
     -webkit-appearance: none;
+    appearance: none;
   }
 
   #search-input,
   #comment-text {
     -webkit-appearance: none;
+    appearance: none;
   }
 
   .password-options {
