@@ -5,7 +5,7 @@ import DeleteComment from "./DeleteComment";
 import ReplyComment from "./replies/ReplyComment";
 import API from "../../../requests/API";
 import Replies from "./replies/Replies";
-import formatDate from "../../../Functions/formatDate";
+import formatDate from "../../../functions/formatDate";
 import Image from "next/image";
 
 const Comment = ({ comment, onDelete, onReply }) => {

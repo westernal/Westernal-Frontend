@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import Logout from "../../components/authentication/Logout";
 import SettingForm from "../../components/authentication/form/SettingForm";
-import checkPermission from "../../Functions/checkPermission";
+import checkPermission from "../../functions/checkPermission";
 
 const Setting = () => {
   const [image, SetImage] = useState("/Images/userIcon.png");

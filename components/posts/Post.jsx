@@ -7,7 +7,7 @@ import SpotifyPlayer from "../player/SpotifyPlayer";
 import PostError from "./error/PostError";
 import PostIcons from "./icons/PostIcons";
 import PostOptions from "./options/PostOptions";
-import formatDate from "../../Functions/formatDate";
+import formatDate from "../../functions/formatDate";
 import jwtDecode from "jwt-decode";
 
 const Post = ({ post, onDelete, isLoggedIn = true, onUnsave }) => {

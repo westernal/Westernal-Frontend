@@ -12,7 +12,7 @@ import SearchSong from "../../components/posts/search/SearchSong";
 import FormLoader from "../../components/layout/loader/FormLoader";
 import PostForm from "../../components/authentication/form/PostForm";
 import { SearchMusicProvider } from "../../context/searchMusicContext";
-import checkPermission from "../../Functions/checkPermission";
+import checkPermission from "../../functions/checkPermission";
 
 const NewPost = () => {
   const [loader, SetLoader] = useState(false);

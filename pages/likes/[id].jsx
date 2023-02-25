@@ -6,7 +6,7 @@ import { useState } from "react";
 import User from "../../components/user/Users";
 import BackHeader from "../../components/layout/header/BackHeader";
 import Head from "next/head";
-import checkPermission from "../../Functions/checkPermission";
+import checkPermission from "../../functions/checkPermission";
 
 const Likes = () => {
   const router = useRouter();

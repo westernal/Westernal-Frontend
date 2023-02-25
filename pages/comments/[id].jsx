@@ -5,7 +5,7 @@ import PostComment from "../../components/posts/comments/PostComment";
 import Head from "next/head";
 import { useState } from "react";
 import { useEffect } from "react";
-import checkPermission from "../../Functions/checkPermission";
+import checkPermission from "../../functions/checkPermission";
 
 const Comments = () => {
   const router = useRouter();

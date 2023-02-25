@@ -6,10 +6,10 @@ import Link from "next/link";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import NotifLoader from "../../components/layout/loader/NotifLoader";
-import formatDate from "../../Functions/formatDate";
+import formatDate from "../../functions/formatDate";
 import Image from "next/image";
 import Header from "../../components/layout/header/Header";
-import checkPermission from "../../Functions/checkPermission";
+import checkPermission from "../../functions/checkPermission";
 
 const Notifications = () => {
   const [notifs, SetNotifs] = useState();

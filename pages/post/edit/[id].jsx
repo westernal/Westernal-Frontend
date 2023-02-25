@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import EditPost from "../../../components/posts/edit/editPost";
 import { useState, useEffect } from "react";
 import API from "../../../requests/API";
-import checkPermission from "../../../Functions/checkPermission";
+import checkPermission from "../../../functions/checkPermission";
 
 const EditPostPage = () => {
   const router = useRouter();

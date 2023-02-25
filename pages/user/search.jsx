@@ -4,7 +4,7 @@ import API from "../../requests/API";
 import User from "../../components/user/Users";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import checkPermission from "../../Functions/checkPermission";
+import checkPermission from "../../functions/checkPermission";
 
 const Search = () => {
   const [users, SetUsers] = useState();

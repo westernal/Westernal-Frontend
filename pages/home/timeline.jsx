@@ -8,7 +8,7 @@ import Head from "next/head";
 import ContentLoader from "../../components/layout/loader/ContentLoader";
 import { useRouter } from "next/router";
 import BackToTopButton from "../../components/layout/buttons/BackToTopButton";
-import checkPermission from "../../Functions/checkPermission";
+import checkPermission from "../../functions/checkPermission";
 
 export default function Index() {
   const [posts, SetPosts] = useState();

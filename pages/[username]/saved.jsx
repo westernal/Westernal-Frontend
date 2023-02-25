@@ -8,7 +8,7 @@ import Footer from "../../components/layout/Footer";
 import Head from "next/head";
 import PostLoader from "../../components/layout/loader/ContentLoader";
 import BackToTopButton from "../../components/layout/buttons/BackToTopButton";
-import checkPermission from "../../Functions/checkPermission";
+import checkPermission from "../../functions/checkPermission";
 import { useRouter } from "next/router";
 
 const Saved = () => {

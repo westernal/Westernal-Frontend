@@ -1,5 +1,4 @@
 import { useRef } from "react";
-import { toast } from "react-toastify";
 
 const SharePost = ({ id, hide }) => {
   const Link = useRef({
