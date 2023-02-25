@@ -2,7 +2,8 @@
 <p align="center"> <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ast2p3i2zthwnz5skluw.png" width=300px height=300px  /> </p>
 
 ## Demo
-![20230206205608 - Trim](https://user-images.githubusercontent.com/79543272/217045314-1e2c2afd-85de-4d63-a588-86d2c5166729.gif)
+![Untitled video - Made with Clipchamp](https://user-images.githubusercontent.com/79543272/221382756-92b662c6-c74d-4dd9-9601-59fd79430e7a.gif)
+
 
 ## Link
 [https://www.westernal.net/](https://www.westernal.net/)
