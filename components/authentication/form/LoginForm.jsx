@@ -36,7 +36,7 @@ const LoginForm = ({ login, changeLoader }) => {
   };
 
   return (
-    <form onSubmit={checkInputs}>
+    <form onSubmit={checkInputs} autoComplete="on">
       <section className="form-inputs">
         <input
           type="text"
