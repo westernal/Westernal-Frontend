@@ -38,19 +38,8 @@ const LoginForm = ({ login, changeLoader }) => {
   return (
     <form onSubmit={checkInputs} autoComplete="on">
       <section className="form-inputs">
-        <input
-          type="text"
-          placeholder="Username"
-          id="username"
-          autoComplete="on"
-        />
-
-        <input
-          type="password"
-          placeholder="Password"
-          id="password"
-          autoComplete="on"
-        />
+        <input type="text" placeholder="Username" id="username" />
+        <input type="password" placeholder="Password" id="password" />
         <section className="flex">
           <div className="flex password-options">
             <div className="flex ">

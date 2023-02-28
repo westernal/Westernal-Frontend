@@ -7,14 +7,13 @@ const EditPostForm = ({ post, editPost }) => {
     editPost(caption);
   };
   return (
-    <form onSubmit={checkInputs} autoComplete={"off"}>
+    <form onSubmit={checkInputs} autoComplete="off">
       <section className="form-inputs">
         <label htmlFor="caption">Caption</label>
         <input
           type="text"
           defaultValue={post && post.caption && post.caption}
           id="caption"
-          autoComplete={"off"}
         />
       </section>
 

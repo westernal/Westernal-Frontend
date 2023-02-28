@@ -29,16 +29,11 @@ const PostForm = ({ publish, changeLoader, openModal }) => {
   }
 
   return (
-    <form onSubmit={checkInputs}>
+    <form onSubmit={checkInputs} autoComplete="off">
       <section className="form-inputs" autoComplete="off">
         <Icons />
         <div className="song-url flex">
-          <input
-            type="text"
-            id="song"
-            placeholder="Song's URL"
-            autoComplete={"off"}
-          />
+          <input type="text" id="song" placeholder="Song's URL" />
           OR
           <button className="search-btn" onClick={openModal}>
             <Image
