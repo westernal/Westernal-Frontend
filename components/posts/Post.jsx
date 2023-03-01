@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import ReactPlayer from "react-player";
+import ReactPlayer from "react-player/lazy";
 import SpotifyPlayer from "../player/SpotifyPlayer";
 import PostError from "./error/PostError";
 import PostIcons from "./icons/PostIcons";
