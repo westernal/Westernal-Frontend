@@ -364,13 +364,11 @@ hr {
 }
 
 .follow-btn:hover {
-  background-color: var(--light-primary-color);
-  color: var(--main-color);
+  background-color: var(--main-hover-color);
 }
 
 .unfollow-btn:hover {
-  background-color: var(--main-color);
-  color: var(--light-primary-color);
+  background-color: var(--light-secondary-color);
 }
 
 .btn:hover {
@@ -1420,6 +1418,14 @@ h1 {
 
   .search-modal .profile-notif {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+
+  .unfollow-btn {
+    background-color: var(--dark-secondary-color);
+  }
+
+  .unfollow-btn:hover {
+    background-color: var(--dark-secondary-hover-color);
   }
 }
 
