@@ -448,10 +448,13 @@ a {
   word-wrap: break-word;
 }
 
-#post-caption,
 .post-info {
   margin-right: 10px;
   margin-left: 10px;
+}
+
+.post-caption {
+  padding: 0 10px;
 }
 
 .post-song {
@@ -773,7 +776,6 @@ canvas {
 #post-caption {
   text-align: left;
   margin-bottom: 10px;
-  padding: 0 10px;
 }
 
 #reply-a {
