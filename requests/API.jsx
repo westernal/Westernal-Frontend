@@ -11,7 +11,7 @@ export default async function API(options, address) {
 
   if (status == 403) {
     toast.error("Authentication failed, please login again.");
-    localStorage.removeItem(token);
+    localStorage.removeItem("token");
     location.reload();
   }
 
