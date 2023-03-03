@@ -12,7 +12,7 @@ export default async function API(options, address) {
   if (status == 403) {
     toast.error("Authentication failed, please login again.");
     localStorage.removeItem(token);
-    window.location.reload();
+    location.reload();
   }
 
   var requestResult = { status, data };
