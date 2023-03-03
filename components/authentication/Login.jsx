@@ -41,12 +41,12 @@ const Login = () => {
       router.push("/home/timeline");
     } else if (result.status === 403) {
       router.push("/user/forgot-password");
-      SetLoader(false);
       toast.error(result.data.message);
     } else {
-      SetLoader(false);
       toast.error(result.data.message);
     }
+
+    SetLoader(false);
   }
 
   const changeLoader = (loader) => {
