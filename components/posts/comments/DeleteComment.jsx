@@ -6,6 +6,8 @@ const DeleteComment = ({ onDelete, id }) => {
     e.preventDefault();
     const option = {
       method: "DELETE",
+      mode: "cors",
+      credentials: "include",
     };
 
     var result = await API(option, `api/comments/${id}`);

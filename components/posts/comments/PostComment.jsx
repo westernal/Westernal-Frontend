@@ -45,6 +45,8 @@ const PostComment = ({
         postId: postId,
         message: message,
       }),
+      mode: "cors",
+      credentials: "include",
     };
 
     try {
@@ -74,6 +76,8 @@ const PostComment = ({
         message: message,
         commentId: repliedComment,
       }),
+      mode: "cors",
+      credentials: "include",
     };
 
     try {

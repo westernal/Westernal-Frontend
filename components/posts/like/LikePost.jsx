@@ -26,12 +26,13 @@ const LikePost = ({ id, likesCount, postLikes }) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: "Bearer " + localStorage.getItem("token"),
         },
         body: JSON.stringify({
           userId: userID,
         }),
         redirect: "follow",
+        mode: "cors",
+        credentials: "include",
       };
 
       var result = await API(option, `api/posts/like/${id}`);

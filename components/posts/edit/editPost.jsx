@@ -16,11 +16,12 @@ const EditPost = ({ post, router }) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("token"),
       },
       body: JSON.stringify({
         caption: caption,
       }),
+      mode: "cors",
+      credentials: "include",
     };
 
     try {

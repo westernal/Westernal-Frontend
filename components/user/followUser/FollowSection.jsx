@@ -11,12 +11,12 @@ const Follow = ({ isFollowing, SetIsFollowing }) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("token"),
       },
       body: JSON.stringify({
         username: router.query.username,
       }),
       redirect: "follow",
+      credentials: "include",
     };
 
     var result = await API(
@@ -41,12 +41,13 @@ const Follow = ({ isFollowing, SetIsFollowing }) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("token"),
       },
       body: JSON.stringify({
         username: router.query.username,
       }),
       redirect: "follow",
+      mode: "cors",
+      credentials: "include",
     };
 
     var result = await API(

@@ -17,6 +17,8 @@ const Footer = () => {
       headers: {
         "content-type": "application/json",
       },
+      mode: "cors",
+      credentials: "include",
     };
 
     var result = await API(option, `api/users/notification/${userId}`);
@@ -42,6 +44,8 @@ const Footer = () => {
       headers: {
         "content-type": "application/json",
       },
+      mode: "cors",
+      credentials: "include",
     };
 
     var result = await API(

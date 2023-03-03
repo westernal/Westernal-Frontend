@@ -36,13 +36,14 @@ const NewPost = () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("token"),
       },
       body: JSON.stringify({
         caption: caption,
         authorID: jwt.userId,
         songURL: song,
       }),
+      mode: "cors",
+      credentials: "include",
     };
 
     try {

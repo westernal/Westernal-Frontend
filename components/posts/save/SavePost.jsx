@@ -20,6 +20,8 @@ const SavePost = ({ id, hide, onUnsave }) => {
       headers: {
         "content-type": "application/json",
       },
+      mode: "cors",
+      credentials: "include",
     };
 
     var result = await API(option, `api/users/${userId}`);
@@ -45,12 +47,13 @@ const SavePost = ({ id, hide, onUnsave }) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("token"),
       },
       body: JSON.stringify({
         userId: userId,
       }),
       redirect: "follow",
+      mode: "cors",
+      credentials: "include",
     };
 
     var result = await API(option, `api/posts/save/${id}`);

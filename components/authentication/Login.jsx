@@ -17,7 +17,10 @@ const Login = () => {
   async function login(username, password) {
     const option = {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Access: "application/json",
+      },
       body: JSON.stringify({
         username: username,
         password: password,

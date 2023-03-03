@@ -24,6 +24,8 @@ const SignUp = () => {
         password: password,
       }),
       redirect: "follow",
+      mode: "cors",
+      credentials: "include",
     };
 
     try {

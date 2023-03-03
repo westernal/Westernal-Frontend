@@ -75,9 +75,10 @@ const SettingForm = ({ user, image }) => {
 
     const option = {
       method: "POST",
-      headers: { Authorization: "Bearer " + localStorage.getItem("token") },
       body: newBody,
       redirect: "follow",
+      mode: "cors",
+      credentials: "include",
     };
 
     var result = await API(option, `api/users/edit/${user._id}`);

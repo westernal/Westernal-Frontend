@@ -20,6 +20,8 @@ const Comment = ({ comment, onDelete, onReply }) => {
         headers: {
           "content-type": "application/json",
         },
+        mode: "cors",
+        credentials: "include",
       };
 
       var result = await API(option, `api/comments/replies/${comment._id}`);

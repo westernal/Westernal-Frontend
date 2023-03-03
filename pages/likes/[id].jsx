@@ -18,8 +18,9 @@ const Likes = () => {
       method: "GET",
       headers: {
         "content-type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("token"),
       },
+      mode: "cors",
+      credentials: "include",
     };
 
     var result = await API(option, `api/posts/like/${router.query.id}`);

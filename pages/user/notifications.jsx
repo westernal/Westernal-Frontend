@@ -24,6 +24,8 @@ const Notifications = () => {
       headers: {
         "content-type": "application/json",
       },
+      mode: "cors",
+      credentials: "include",
     };
 
     var result = await API(option, `api/notifications/${id}`);
