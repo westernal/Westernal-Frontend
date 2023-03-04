@@ -9,12 +9,6 @@ export default async function API(options, address) {
 
   const status = response.status;
 
-  if (status == 403) {
-    toast.error("Authentication failed, please login again.");
-    localStorage.removeItem("token");
-    location.reload();
-  }
-
   var requestResult = { status, data };
 
   return requestResult;
