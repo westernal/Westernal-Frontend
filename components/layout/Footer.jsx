@@ -5,6 +5,7 @@ import { useState } from "react";
 import jwt_decode from "jwt-decode";
 import API from "../../requests/API";
 import { useEffect } from "react";
+import authError from "../../functions/authError";
 
 const Footer = () => {
   const [notificationCount, SetNotificationCount] = useState(0);
@@ -31,9 +32,16 @@ const Footer = () => {
 
   useEffect(() => {
     token = localStorage.getItem("token");
+    let decodedToken;
     if (token) {
-      Setjwt(jwt_decode(token));
-      getCount(jwt_decode(token).userId);
+      try {
+        decodedToken = jwt_decode(token);
+      } catch (error) {
+        authError();
+        return;
+      }
+      Setjwt(decodedToken);
+      getCount(decodedToken.userId);
     }
   }, []);
 
