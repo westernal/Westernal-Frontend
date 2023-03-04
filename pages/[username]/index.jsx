@@ -5,9 +5,9 @@ import Footer from "../../components/layout/Footer";
 import Post from "../../components/posts/Post";
 import API from "../../requests/API";
 import UserInfo from "../../components/user/UserInfo";
-import jwt_decode from "jwt-decode";
 import { toast } from "react-toastify";
 import BackToTopButton from "../../components/layout/buttons/BackToTopButton";
+import decodeJWT from "../../functions/decodeJWT";
 
 const Profile = () => {
   const router = useRouter();
@@ -54,7 +54,7 @@ const Profile = () => {
 
     function getToken() {
       var token = localStorage.getItem("token");
-      const jwt = jwt_decode(token);
+      const jwt = decodeJWT(token);
 
       checkUser(jwt.username);
     }

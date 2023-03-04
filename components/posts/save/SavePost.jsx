@@ -1,8 +1,8 @@
 import API from "../../../requests/API";
-import jwtDecode from "jwt-decode";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
 import { useState } from "react";
+import decodeJWT from "../../../functions/decodeJWT";
 
 const SavePost = ({ id, hide, onUnsave }) => {
   const [isSaved, SetIsSaved] = useState(false);
@@ -13,7 +13,7 @@ const SavePost = ({ id, hide, onUnsave }) => {
 
   const checkUser = async () => {
     var token = localStorage.getItem("token");
-    const userId = jwtDecode(token).userId;
+    const userId = decodeJWT(token).userId;
 
     const option = {
       method: "GET",
@@ -41,7 +41,7 @@ const SavePost = ({ id, hide, onUnsave }) => {
 
   const save = async () => {
     var token = localStorage.getItem("token");
-    const userId = jwtDecode(token).userId;
+    const userId = decodeJWT(token).userId;
 
     const option = {
       method: "POST",
@@ -71,7 +71,7 @@ const SavePost = ({ id, hide, onUnsave }) => {
 
   const unsave = async () => {
     var token = localStorage.getItem("token");
-    const userId = jwtDecode(token).userId;
+    const userId = decodeJWT(token).userId;
 
     const option = {
       method: "POST",

@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import jwt_decode from "jwt-decode";
 import API from "../../../requests/API";
 import Link from "next/link";
+import decodeJWT from "../../../functions/decodeJWT";
 
 const LikePost = ({ id, likesCount, postLikes }) => {
   const [likes, SetLikes] = useState(likesCount);
   const [hasLiked, SetHasLiked] = useState(false);
 
   useEffect(() => {
-    if (postLikes.includes(jwt_decode(localStorage.getItem("token")).userId)) {
+    if (postLikes.includes(decodeJWT(localStorage.getItem("token")).userId)) {
       document.getElementsByClassName(id)[0].classList.add("liked");
       SetHasLiked(true);
     }
@@ -18,8 +18,7 @@ const LikePost = ({ id, likesCount, postLikes }) => {
     e.preventDefault();
 
     var token = localStorage.getItem("token");
-
-    const userID = jwt_decode(token).userId;
+    const userID = decodeJWT(token).userId;
 
     if (!postLikes.includes(userID) || !hasLiked) {
       const option = {
@@ -51,7 +50,7 @@ const LikePost = ({ id, likesCount, postLikes }) => {
 
     var token = localStorage.getItem("token");
 
-    const userID = jwt_decode(token).userId;
+    const userID = decodeJWT(token).userId;
 
     if (postLikes.includes(userID) || hasLiked) {
       const option = {

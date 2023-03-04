@@ -1,7 +1,6 @@
 import Footer from "../../components/layout/Footer";
 import { useState, useEffect } from "react";
 import API from "../../requests/API";
-import jwt_decode from "jwt-decode";
 import Link from "next/link";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -10,6 +9,7 @@ import formatDate from "../../functions/formatDate";
 import Image from "next/image";
 import Header from "../../components/layout/header/Header";
 import checkPermission from "../../functions/checkPermission";
+import decodeJWT from "../../functions/decodeJWT";
 
 const Notifications = () => {
   const [notifs, SetNotifs] = useState();
@@ -18,7 +18,7 @@ const Notifications = () => {
   const host = "https://alinavidi.ir/";
 
   async function getNotifications() {
-    let id = jwt_decode(localStorage.getItem("token")).userId;
+    let id = decodeJWT(localStorage.getItem("token")).userId;
     const option = {
       method: "GET",
       headers: {

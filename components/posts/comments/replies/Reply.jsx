@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
-import jwtDecode from "jwt-decode";
 import Link from "next/link";
 import DeleteComment from "../DeleteComment";
 import formatDate from "../../../../functions/formatDate";
 import Image from "next/image";
+import decodeJWT from "../../../../functions/decodeJWT";
 
 const Reply = ({ reply, onDelete }) => {
   const [deletable, SetDeletable] = useState(false);
   const host = "https://alinavidi.ir/";
 
   useEffect(() => {
-    const userId = jwtDecode(localStorage.getItem("token")).userId;
+    const userId = decodeJWT(localStorage.getItem("token")).userId;
 
     if (userId === reply.writer.id) {
       SetDeletable(true);

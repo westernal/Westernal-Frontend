@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 import API from "../../../requests/API";
-import jwt_decode from "jwt-decode";
+import decodeJWT from "../../../functions/decodeJWT";
 
 const DeleteModal = ({ id, hide, onDelete }) => {
   const closeModal = (e) => {
@@ -28,7 +28,8 @@ const DeleteModal = ({ id, hide, onDelete }) => {
     if (result.status == 200) {
       toast.success("Post deleted!");
       var token = localStorage.getItem("token");
-      const jwt = jwt_decode(token);
+      const jwt = decodeJWT(token);
+
       onDelete(jwt.userId);
     }
   }

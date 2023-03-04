@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import BackHeader from "../../components/layout/header/BackHeader";
-import jwtDecode from "jwt-decode";
 import { useState } from "react";
 import API from "../../requests/API";
 import Post from "../../components/posts/Post";
@@ -10,15 +9,16 @@ import PostLoader from "../../components/layout/loader/ContentLoader";
 import BackToTopButton from "../../components/layout/buttons/BackToTopButton";
 import checkPermission from "../../functions/checkPermission";
 import { useRouter } from "next/router";
+import decodeJWT from "../../functions/decodeJWT";
 
 const Saved = () => {
   const [posts, SetPosts] = useState();
   const [render, setRender] = useState(false);
   const router = useRouter();
 
-  const getSavedPosts = async (userId) => {
+  const getSavedPosts = async () => {
     var token = localStorage.getItem("token");
-    const userID = jwtDecode(token).userId;
+    const userID = decodeJWT(token).userId;
 
     const option = {
       method: "GET",

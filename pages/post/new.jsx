@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import API from "../../requests/API";
-import jwt_decode from "jwt-decode";
 import BackHeader from "../../components/layout/header/BackHeader";
 import Footer from "../../components/layout/Footer";
 import Head from "next/head";
@@ -13,6 +12,7 @@ import FormLoader from "../../components/layout/loader/FormLoader";
 import PostForm from "../../components/authentication/form/PostForm";
 import { SearchMusicProvider } from "../../context/searchMusicContext";
 import checkPermission from "../../functions/checkPermission";
+import decodeJWT from "../../functions/decodeJWT";
 
 const NewPost = () => {
   const [loader, SetLoader] = useState(false);
@@ -23,14 +23,8 @@ const NewPost = () => {
     setRender(checkPermission(router));
   }, []);
 
-  function generateToken() {
-    var token = localStorage.getItem("token");
-    const jwt = jwt_decode(token);
-    return jwt;
-  }
-
   async function publish(song, caption) {
-    const jwt = generateToken();
+    const jwt = decodeJWT(localStorage.getItem("token"));
 
     const option = {
       method: "POST",

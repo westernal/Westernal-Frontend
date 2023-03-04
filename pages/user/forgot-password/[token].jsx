@@ -4,8 +4,8 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import Head from "next/dist/shared/lib/head";
 import BackHeader from "../../../components/layout/header/BackHeader";
-import jwtDecode from "jwt-decode";
 import FormLoader from "../../../components/layout/loader/FormLoader";
+import decodeJWT from "../../../functions/decodeJWT";
 
 const ChangePassword = () => {
   const router = useRouter();
@@ -18,7 +18,7 @@ const ChangePassword = () => {
     let id;
 
     try {
-      id = jwtDecode(router.query.token).userId;
+      id = decodeJWT(router.query.token).userId;
     } catch (error) {
       toast.error("Link expired!");
       router.push("/");

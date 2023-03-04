@@ -1,12 +1,14 @@
 import API from "../../../requests/API";
-import jwt_decode from "jwt-decode";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
+import decodeJWT from "../../../functions/decodeJWT";
 
 const Follow = ({ isFollowing, SetIsFollowing }) => {
   const router = useRouter();
 
   async function followUser() {
+    const jwt = decodeJWT(localStorage.getItem("token"));
+
     const option = {
       method: "POST",
       headers: {
@@ -20,10 +22,7 @@ const Follow = ({ isFollowing, SetIsFollowing }) => {
       credentials: "include",
     };
 
-    var result = await API(
-      option,
-      `api/users/follow/${jwt_decode(localStorage.getItem("token")).userId}`
-    );
+    var result = await API(option, `api/users/follow/${jwt.userId}`);
 
     if (result.status == 200) {
       toast.success(`You started following ${router.query.username}`);
@@ -38,6 +37,8 @@ const Follow = ({ isFollowing, SetIsFollowing }) => {
   }
 
   async function unfollowUser() {
+    const jwt = decodeJWT(localStorage.getItem("token"));
+
     const option = {
       method: "POST",
       headers: {
@@ -52,10 +53,7 @@ const Follow = ({ isFollowing, SetIsFollowing }) => {
       credentials: "include",
     };
 
-    var result = await API(
-      option,
-      `api/users/unfollow/${jwt_decode(localStorage.getItem("token")).userId}`
-    );
+    var result = await API(option, `api/users/unfollow/${jwt.userId}`);
 
     if (result.status == 200) {
       toast.success(`You unfollowed ${router.query.username}`);

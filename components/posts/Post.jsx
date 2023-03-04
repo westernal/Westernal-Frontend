@@ -8,7 +8,7 @@ import PostError from "./error/PostError";
 import PostIcons from "./icons/PostIcons";
 import PostOptions from "./options/PostOptions";
 import formatDate from "../../functions/formatDate";
-import jwtDecode from "jwt-decode";
+import decodeJWT from "../../functions/decodeJWT";
 
 const Post = ({ post, onDelete, isLoggedIn = true, onUnsave }) => {
   const [isSpotify, SetIsSpotify] = useState(false);
@@ -22,10 +22,9 @@ const Post = ({ post, onDelete, isLoggedIn = true, onUnsave }) => {
       }
     }
 
-    if (
-      isLoggedIn &&
-      post.author.username === jwtDecode(localStorage.getItem("token")).username
-    ) {
+    const jwt = decodeJWT(localStorage.getItem("token"));
+
+    if (isLoggedIn && post.author.username === jwt.username) {
       SetCanDelete(true);
     }
   }, [post]);

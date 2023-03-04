@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Head from "next/head";
 import FollowSection from "./followUser/FollowSection";
-import jwtDecode from "jwt-decode";
 import UserHeader from "../layout/header/UserHeader";
 import FollowDetails from "./followUser/FollowDetails";
+import decodeJWT from "../../functions/decodeJWT";
 
 const UserInfo = ({ isUserSelf, user, isLoggedIn }) => {
   const [isFollowing, SetIsFollowing] = useState(false);
@@ -18,7 +18,8 @@ const UserInfo = ({ isUserSelf, user, isLoggedIn }) => {
     } else SetAvatar(host + user.image);
 
     if (isLoggedIn) {
-      const userId = jwtDecode(localStorage.getItem("token")).userId;
+      const userId = decodeJWT(localStorage.getItem("token")).userId;
+
       if (!isUserSelf && user.followers.includes(userId)) {
         SetIsFollowing(true);
       }

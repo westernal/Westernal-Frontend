@@ -1,13 +1,13 @@
 import Footer from "../../components/layout/Footer";
 import { useState, useEffect } from "react";
 import API from "../../requests/API";
-import jwt_decode from "jwt-decode";
 import BackHeader from "../../components/layout/header/BackHeader";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Logout from "../../components/authentication/Logout";
 import SettingForm from "../../components/authentication/form/SettingForm";
 import checkPermission from "../../functions/checkPermission";
+import decodeJWT from "../../functions/decodeJWT";
 
 const Setting = () => {
   const [image, SetImage] = useState("/Images/userIcon.png");
@@ -34,7 +34,7 @@ const Setting = () => {
 
   function getToken() {
     var token = localStorage.getItem("token");
-    const jwt = jwt_decode(token);
+    const jwt = decodeJWT(token);
 
     getUserInfo(jwt.userId);
   }

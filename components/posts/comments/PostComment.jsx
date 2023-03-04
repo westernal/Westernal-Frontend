@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 import API from "../../../requests/API";
-import jwtDecode from "jwt-decode";
 import { useEffect } from "react";
+import decodeJWT from "../../../functions/decodeJWT";
 
 const PostComment = ({
   postId,
@@ -36,7 +36,8 @@ const PostComment = ({
   };
 
   const sendComment = async (message) => {
-    const writerId = jwtDecode(localStorage.getItem("token")).userId;
+    const writerId = decodeJWT(localStorage.getItem("token")).userId;
+
     const option = {
       method: "POST",
       headers: {
@@ -69,7 +70,8 @@ const PostComment = ({
   };
 
   const sendReply = async (message) => {
-    const writerId = jwtDecode(localStorage.getItem("token")).userId;
+    const writerId = decodeJWT(localStorage.getItem("token")).userId;
+
     const option = {
       method: "POST",
       headers: {

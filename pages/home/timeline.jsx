@@ -3,12 +3,12 @@ import Footer from "../../components/layout/Footer";
 import Header from "../../components/layout/header/Header";
 import Post from "../../components/posts/Post";
 import API from "../../requests/API";
-import jwt_decode from "jwt-decode";
 import Head from "next/head";
 import ContentLoader from "../../components/layout/loader/ContentLoader";
 import { useRouter } from "next/router";
 import BackToTopButton from "../../components/layout/buttons/BackToTopButton";
 import checkPermission from "../../functions/checkPermission";
+import decodeJWT from "../../functions/decodeJWT";
 
 export default function Index() {
   const [posts, SetPosts] = useState();
@@ -36,7 +36,7 @@ export default function Index() {
 
   useEffect(() => {
     if (render) {
-      const userId = jwt_decode(localStorage.getItem("token")).userId;
+      const userId = decodeJWT(localStorage.getItem("token")).userId;
       getPosts(userId);
     }
   }, [render]);
