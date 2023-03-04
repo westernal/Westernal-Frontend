@@ -75,6 +75,7 @@ const SettingForm = ({ user, image }) => {
 
     const option = {
       method: "POST",
+      headers: { Authorization: "Bearer " + localStorage.getItem("token") },
       body: newBody,
       redirect: "follow",
       mode: "cors",

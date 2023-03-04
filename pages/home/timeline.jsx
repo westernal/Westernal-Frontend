@@ -18,6 +18,7 @@ export default function Index() {
   async function getPosts(userId) {
     const option = {
       method: "GET",
+      headers: { Authorization: "Bearer " + localStorage.getItem("token") },
       mode: "cors",
       credentials: "include",
     };

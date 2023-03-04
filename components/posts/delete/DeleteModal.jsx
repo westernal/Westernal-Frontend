@@ -18,6 +18,7 @@ const DeleteModal = ({ id, hide, onDelete }) => {
     e.preventDefault();
     const option = {
       method: "DELETE",
+      headers: { Authorization: "Bearer " + localStorage.getItem("token") },
       mode: "cors",
       credentials: "include",
     };

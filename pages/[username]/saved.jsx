@@ -24,6 +24,7 @@ const Saved = () => {
       method: "GET",
       headers: {
         "content-type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("token"),
       },
       mode: "cors",
       credentials: "include",

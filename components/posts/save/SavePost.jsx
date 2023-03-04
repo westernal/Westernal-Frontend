@@ -47,6 +47,7 @@ const SavePost = ({ id, hide, onUnsave }) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("token"),
       },
       body: JSON.stringify({
         userId: userId,

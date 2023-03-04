@@ -39,7 +39,10 @@ const PostComment = ({
     const writerId = jwtDecode(localStorage.getItem("token")).userId;
     const option = {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
       body: JSON.stringify({
         writerId: writerId,
         postId: postId,
@@ -69,7 +72,10 @@ const PostComment = ({
     const writerId = jwtDecode(localStorage.getItem("token")).userId;
     const option = {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
       body: JSON.stringify({
         writerId: writerId,
         postId: postId,

@@ -6,6 +6,7 @@ const DeleteComment = ({ onDelete, id }) => {
     e.preventDefault();
     const option = {
       method: "DELETE",
+      headers: { Authorization: "Bearer " + localStorage.getItem("token") },
       mode: "cors",
       credentials: "include",
     };

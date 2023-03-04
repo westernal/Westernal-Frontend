@@ -16,6 +16,7 @@ const Footer = () => {
       method: "GET",
       headers: {
         "content-type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("token"),
       },
       mode: "cors",
       credentials: "include",
@@ -43,6 +44,7 @@ const Footer = () => {
       method: "POST",
       headers: {
         "content-type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("token"),
       },
       mode: "cors",
       credentials: "include",

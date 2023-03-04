@@ -40,7 +40,10 @@ const ChangePassword = () => {
 
     const option = {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + router.query.token,
+      },
       body: JSON.stringify({
         password: password,
       }),
