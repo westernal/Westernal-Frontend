@@ -48,23 +48,23 @@ export default function Index() {
       </Head>
       <main className="home">
         <section className="post-list flex">
-          {!posts &&
-            [1, 2, 3].map((elem, index) => {
-              return (
-                <div className="post" key={index}>
-                  <ContentLoader />
-                </div>
-              );
-            })}
+          {!posts
+            ? [1, 2, 3].map((elem, index) => {
+                return (
+                  <div className="post" key={index}>
+                    <ContentLoader />
+                  </div>
+                );
+              })
+            : null}
 
-          {posts &&
-            posts.map((post) => {
-              return <Post post={post} key={post._id} onDelete={getPosts} />;
-            })}
+          {posts?.map((post) => {
+            return <Post post={post} key={post._id} onDelete={getPosts} />;
+          })}
         </section>
         <BackToTopButton />
       </main>
-      {render && <Footer />}
+      {render ? <Footer /> : null}
     </>
   );
 }

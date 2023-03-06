@@ -6,21 +6,21 @@ const UserHeader = ({ username, isVerified, isLoggedIn, isUserSelf }) => {
     <header>
       <div className="flex username">
         <h1>{username}</h1>
-        {isVerified && (
+        {isVerified ? (
           <Image
             src="/Images/verified.png"
             alt="verified"
             width={25}
             height={25}
           />
-        )}
+        ) : null}
       </div>
-      {!isLoggedIn && (
+      {!isLoggedIn ? (
         <Link href="/">
           <button className="contact-btn">Login</button>
         </Link>
-      )}
-      {isUserSelf && username && (
+      ) : null}
+      {isUserSelf && username ? (
         <div className="flex header-buttons">
           <Link href={`/${username}/saved`} className="flex" id="saved-posts">
             <Image
@@ -40,7 +40,7 @@ const UserHeader = ({ username, isVerified, isLoggedIn, isUserSelf }) => {
             />
           </Link>
         </div>
-      )}
+      ) : null}
     </header>
   );
 };

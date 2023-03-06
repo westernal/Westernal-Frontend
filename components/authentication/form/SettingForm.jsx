@@ -119,19 +119,11 @@ const SettingForm = ({ user, image }) => {
           />
         </div>
         <label htmlFor="username">Username</label>
-        <input type="text" defaultValue={user && user.username} id="username" />
+        <input type="text" defaultValue={user?.username} id="username" />
         <label htmlFor="bio">Bio</label>
-        <input
-          type="text"
-          defaultValue={user && user.bio && user.bio}
-          id="bio"
-        />
+        <input type="text" defaultValue={user?.bio} id="bio" />
         <label htmlFor="link">Personal link</label>
-        <input
-          type="text"
-          defaultValue={user && user.personal_link && user.personal_link}
-          id="link"
-        />
+        <input type="text" defaultValue={user?.personal_link} id="link" />
         <label htmlFor="password">Password</label>
         <Link
           href={`/user/forgot-password/${token}`}
@@ -143,7 +135,7 @@ const SettingForm = ({ user, image }) => {
         </Link>
       </section>
 
-      {loader && <FormLoader />}
+      {loader ? <FormLoader /> : null}
 
       <div className="flex setting-btn">
         <button className="btn" disabled type="submit" id="submit-btn">

@@ -32,7 +32,7 @@ const Error = () => {
         </div>
       </div>
 
-      {isLoggedIn && <Footer />}
+      {isLoggedIn ? <Footer /> : null}
     </div>
   );
 };

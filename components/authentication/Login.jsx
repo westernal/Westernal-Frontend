@@ -75,7 +75,7 @@ const Login = () => {
       <section className="auth-form">
         <Image src={"/Images/logo.png"} alt="logo" width={120} height={120} />
 
-        {loader && <FormLoader />}
+        {loader ? <FormLoader /> : null}
 
         <LoginForm login={login} changeLoader={changeLoader} />
 

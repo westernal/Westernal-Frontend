@@ -36,7 +36,7 @@ const Reply = ({ reply, onDelete }) => {
           </span>
           <div id="cm-user" className="flex">
             {reply.writer.username}
-            {reply.writer.verified && (
+            {reply.writer.verified ? (
               <div className="verify">
                 <Image
                   src="/Images/verified (2).png"
@@ -45,7 +45,7 @@ const Reply = ({ reply, onDelete }) => {
                   height={20}
                 />
               </div>
-            )}
+            ) : null}
           </div>
         </Link>
         <span className="comment-message">{reply.message}</span>
@@ -55,7 +55,9 @@ const Reply = ({ reply, onDelete }) => {
         <div className="flex">
           <p id="date">{formatDate(reply.date)}</p>
         </div>
-        {deletable && <DeleteComment onDelete={onDelete} id={reply._id} />}
+        {deletable ? (
+          <DeleteComment onDelete={onDelete} id={reply._id} />
+        ) : null}
       </div>
     </div>
   );

@@ -61,7 +61,7 @@ const Comment = ({ comment, onDelete, onReply }) => {
             </span>
             <div id="cm-user" className="flex">
               {comment.writer.username}
-              {comment.writer.verified && (
+              {comment.writer.verified ? (
                 <div className="verify">
                   <Image
                     src="/Images/verified (2).png"
@@ -70,7 +70,7 @@ const Comment = ({ comment, onDelete, onReply }) => {
                     height={20}
                   />
                 </div>
-              )}
+              ) : null}
             </div>
           </Link>
           <span className="comment-message">{comment.message}</span>

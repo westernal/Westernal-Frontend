@@ -36,23 +36,23 @@ const CommentsList = ({ postId, rerender, onReply }) => {
   }, [rerender, postId, deleted]);
   return (
     <section className="cm-list">
-      {!comments &&
-        [1, 2, 3, 4, 5, 6, 7].map((elem, index) => {
-          return (
-            <div className="profile-notif flex" key={index}>
-              <NotifLoader />
-            </div>
-          );
-        })}
-      {comments &&
-        comments.map((comment) => (
-          <Comment
-            comment={comment}
-            key={comment._id}
-            onDelete={onDelete}
-            onReply={onReply}
-          />
-        ))}
+      {!comments
+        ? [1, 2, 3, 4, 5, 6, 7].map((elem, index) => {
+            return (
+              <div className="profile-notif flex" key={index}>
+                <NotifLoader />
+              </div>
+            );
+          })
+        : null}
+      {comments?.map((comment) => (
+        <Comment
+          comment={comment}
+          key={comment._id}
+          onDelete={onDelete}
+          onReply={onReply}
+        />
+      ))}
     </section>
   );
 };

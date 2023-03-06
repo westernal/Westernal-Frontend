@@ -118,11 +118,11 @@ const PostComment = ({
         <button className="btn" onClick={checkInput}>
           Post
         </button>
-        {isReply && (
+        {isReply ? (
           <button id="cancel-delete" onClick={() => onCancelReply()}>
             Cancel
           </button>
-        )}
+        ) : null}
       </div>
     </section>
   );

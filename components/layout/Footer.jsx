@@ -103,9 +103,9 @@ const Footer = () => {
             alt="notification"
             id="notif-icon"
           />
-          {notificationCount != 0 && (
+          {notificationCount != 0 ? (
             <div className="new-notif flex">{notificationCount}</div>
-          )}
+          ) : null}
         </div>
       </Link>
 

@@ -8,7 +8,7 @@ const SearchItems = ({ song }) => {
         <div className="song-cover">
           <Image
             alt="song's cover"
-            src={song.album.images[0].url}
+            src={song?.album?.images[0]?.url}
             width={60}
             height={60}
             id={"song-cover"}

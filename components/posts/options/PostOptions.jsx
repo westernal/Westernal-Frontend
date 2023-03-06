@@ -22,18 +22,18 @@ const PostOptions = ({ onDelete, isLoggedIn, deletable, id, onUnsave }) => {
       </button>
       <ul className="post-menu" id={id}>
         <SharePost id={id} hide={closeMenu} />
-        {isLoggedIn && (
+        {isLoggedIn ? (
           <SavePost id={id} hide={closeMenu} onUnsave={onUnsave} />
-        )}
-        {deletable && (
+        ) : null}
+        {deletable ? (
           <li>
             <Link href={`/post/edit/${id}`}>Edit post</Link>
           </li>
-        )}
+        ) : null}
         <RedirectPost id={id} hide={closeMenu} />
-        {deletable && (
+        {deletable ? (
           <DeletePost onDelete={onDelete} id={id} hide={closeMenu} />
-        )}
+        ) : null}
         <li onClick={closeMenu}>Cancel</li>
       </ul>
     </section>

@@ -55,30 +55,30 @@ const Saved = () => {
       <BackHeader title={"Saved Posts"} />
       <main className="saved-posts">
         <section className="post-list flex">
-          {!posts &&
-            [1, 2, 3].map((index) => {
-              return (
-                <div className="post" key={index}>
-                  <PostLoader />
-                </div>
-              );
-            })}
+          {!posts
+            ? [1, 2, 3].map((index) => {
+                return (
+                  <div className="post" key={index}>
+                    <PostLoader />
+                  </div>
+                );
+              })
+            : null}
 
-          {posts &&
-            posts.map((post) => {
-              return (
-                <Post
-                  post={post}
-                  onDelete={getSavedPosts}
-                  key={post._id}
-                  onUnsave={getSavedPosts}
-                />
-              );
-            })}
+          {posts?.map((post) => {
+            return (
+              <Post
+                post={post}
+                onDelete={getSavedPosts}
+                key={post._id}
+                onUnsave={getSavedPosts}
+              />
+            );
+          })}
         </section>
         <BackToTopButton />
       </main>
-      {render && <Footer />}
+      {render ? <Footer /> : null}
     </>
   );
 };

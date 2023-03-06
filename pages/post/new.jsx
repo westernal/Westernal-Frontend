@@ -86,7 +86,7 @@ const NewPost = () => {
         <div className="auth-form">
           <Image src={"/Images/logo.png"} alt="logo" width={120} height={120} />
 
-          {loader && <FormLoader />}
+          {loader ? <FormLoader /> : null}
 
           <PostForm
             publish={publish}
@@ -95,7 +95,7 @@ const NewPost = () => {
           />
         </div>
       </main>
-      {render && <Footer />}
+      {render ? <Footer /> : null}
     </>
   );
 };

@@ -54,7 +54,7 @@ const ForgotPassword = () => {
       <main className=" flex reset-password">
         <section className="auth-form">
           <p id="login-logo">W</p>
-          {loader && <FormLoader />}
+          {loader ? <FormLoader /> : null}
           <p id="reset-text">
             Enter your email so that we can send you a reset link!
           </p>

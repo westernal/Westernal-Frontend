@@ -70,30 +70,30 @@ const Profile = () => {
       <main className="profile">
         <UserInfo isUserSelf={isUserSelf} user={user} isLoggedIn={isLoggedIn} />
         <section className="flex post-list">
-          {!posts &&
-            [1, 2, 3].map((index) => {
-              return (
-                <div className="post" key={index}>
-                  <ContentLoader />
-                </div>
-              );
-            })}
+          {!posts
+            ? [1, 2, 3].map((index) => {
+                return (
+                  <div className="post" key={index}>
+                    <ContentLoader />
+                  </div>
+                );
+              })
+            : null}
 
-          {posts &&
-            posts.map((post) => {
-              return (
-                <Post
-                  post={post}
-                  onDelete={getUserPosts}
-                  key={post._id}
-                  isLoggedIn={isLoggedIn}
-                />
-              );
-            })}
+          {posts?.map((post) => {
+            return (
+              <Post
+                post={post}
+                onDelete={getUserPosts}
+                key={post._id}
+                isLoggedIn={isLoggedIn}
+              />
+            );
+          })}
         </section>
         <BackToTopButton />
       </main>
-      {isLoggedIn && <Footer />}
+      {isLoggedIn ? <Footer /> : null}
     </>
   );
 };

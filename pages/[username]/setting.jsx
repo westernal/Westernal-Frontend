@@ -69,7 +69,7 @@ const Setting = () => {
         </div>
       </main>
 
-      {render && <Footer />}
+      {render ? <Footer /> : null}
     </>
   );
 };

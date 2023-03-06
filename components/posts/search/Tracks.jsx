@@ -68,7 +68,7 @@ const SearchTracks = ({ token }) => {
         />
       </div>
       <div className="search-results">
-        {loader && <FormLoader />}
+        {loader ? <FormLoader /> : null}
         {songs.map((song) => {
           return <SearchItems song={song} key={song.id} />;
         })}

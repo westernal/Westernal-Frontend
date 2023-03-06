@@ -70,7 +70,7 @@ const ChangePassword = () => {
       <main className=" flex reset-password">
         <section className="auth-form">
           <p id="login-logo">W</p>
-          {loader && <FormLoader />}
+          {loader ? <FormLoader /> : null}
           <form onSubmit={editPassword}>
             <section className="form-inputs">
               <input

@@ -48,7 +48,7 @@ const PostPage = () => {
       <BackHeader title={"Post"} />
       <main className="post-page home">
         <section className="post-list flex">
-          {post && (
+          {post ? (
             <Post
               post={post}
               key={post._id}
@@ -57,10 +57,10 @@ const PostPage = () => {
               }}
               isLoggedIn={isLoggedIn}
             />
-          )}
+          ) : null}
         </section>
       </main>
-      {isLoggedIn && <Footer />}
+      {isLoggedIn ? <Footer /> : null}
     </>
   );
 };

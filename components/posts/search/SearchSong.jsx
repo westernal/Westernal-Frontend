@@ -57,9 +57,13 @@ const SearchSong = () => {
             Artist
           </a>
         </div>
-        {category == "Track" && <SearchTracks token={token} />}
-        {category == "Artist" && <SearchArtists token={token} />}
-        {category == "Album" && <SearchAlbum token={token} />}
+        {category == "Track" ? (
+          <SearchTracks token={token} />
+        ) : category == "Artist" ? (
+          <SearchArtists token={token} />
+        ) : category == "Album" ? (
+          <SearchAlbum token={token} />
+        ) : null}
       </div>
     </section>
   );

@@ -52,7 +52,7 @@ const Post = ({ post, onDelete, isLoggedIn = true, onUnsave }) => {
               height={40}
             />
             <p>{post.author.username}</p>
-            {post.author.verified && (
+            {post.author.verified ? (
               <div className="verify">
                 <Image
                   src="/Images/verified (2).png"
@@ -61,7 +61,7 @@ const Post = ({ post, onDelete, isLoggedIn = true, onUnsave }) => {
                   height={20}
                 />
               </div>
-            )}
+            ) : null}
           </div>
         </Link>
         <PostOptions
@@ -74,28 +74,28 @@ const Post = ({ post, onDelete, isLoggedIn = true, onUnsave }) => {
       </section>
 
       <section className="post-song flex">
-        {error && <PostError />}
-        {!isSpotify && !error && (
+        {error ? <PostError /> : null}
+        {!isSpotify && !error ? (
           <ReactPlayer
             url={post.songUrl}
             onError={playerError}
             controls={true}
             pip={true}
           />
-        )}
-        {isSpotify && !error && <SpotifyPlayer url={post.songUrl} />}
+        ) : null}
+        {isSpotify && !error ? <SpotifyPlayer url={post.songUrl} /> : null}
       </section>
 
       <section className="post-caption">
-        {post.caption && (
+        {post.caption ? (
           <strong id="post-caption" dir="auto">
             {post.caption}
           </strong>
-        )}
+        ) : null}
       </section>
 
       <section className="post-info flex">
-        {isLoggedIn && <PostIcons post={post} />}
+        {isLoggedIn ? <PostIcons post={post} /> : null}
         <p id="date">{formatDate(post.date)}</p>
       </section>
     </article>

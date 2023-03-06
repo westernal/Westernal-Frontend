@@ -70,14 +70,14 @@ const SearchArtists = ({ token }) => {
         />
       </div>
       <div className="search-results">
-        {loader && <FormLoader />}
+        {loader ? <FormLoader /> : null}
         {artists.map((artist) => {
           return (
             <div className="profile-notif artist-info" key={artist.id}>
               <div className="searched-song">
                 <Image
                   alt="artist's cover"
-                  src={artist.images[0] && artist.images[0].url}
+                  src={artist?.images[0]?.url}
                   width={60}
                   height={60}
                   id={"artist-cover"}

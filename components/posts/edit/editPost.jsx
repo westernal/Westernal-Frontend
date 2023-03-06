@@ -51,7 +51,7 @@ const EditPost = ({ post, router }) => {
       <BackHeader title={"Edit Post"} />
       <main className="edit-post setting flex">
         <section className="auth-form">
-          {loader && <FormLoader />}
+          {loader ? <FormLoader /> : null}
           <EditPostForm post={post} editPost={edit} />
         </section>
       </main>

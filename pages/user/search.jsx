@@ -71,7 +71,7 @@ const Search = () => {
             autoComplete={"off"}
           />
         </div>
-        {isTyped && <User users={users} />}
+        {isTyped ? <User users={users} /> : null}
       </main>
       <Footer />
     </>

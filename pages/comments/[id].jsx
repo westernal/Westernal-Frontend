@@ -38,13 +38,13 @@ const Comments = () => {
       </Head>
       <BackHeader title={"comments"} />
       <main className="comments">
-        {firstRender && (
+        {firstRender ? (
           <CommentsList
             postId={router.query.id}
             rerender={rerender}
             onReply={onReply}
           />
-        )}
+        ) : null}
 
         <div className="mb-100"></div>
 

@@ -71,7 +71,7 @@ const SignUp = () => {
       <section className="auth-form ">
         <Image src={"/Images/logo.png"} alt="logo" width={120} height={120} />
 
-        {loader && <FormLoader />}
+        {loader ? <FormLoader /> : null}
 
         <SignupForm signup={signup} changeLoader={changeLoader} />
 

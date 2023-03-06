@@ -60,27 +60,27 @@ const UserInfo = ({ isUserSelf, user, isLoggedIn }) => {
             <Image src={avatar} alt="profile picture" width={95} height={95} />
           </div>
         </div>
-        {user.bio && (
+        {user.bio ? (
           <strong id="user-bio" dir="auto">
             {user.bio}
           </strong>
-        )}
-        {user.personal_link && (
+        ) : null}
+        {user.personal_link ? (
           <div className="user-link">
             <a href={user.personal_link} id="user-link">
               {link}
             </a>
           </div>
-        )}
+        ) : null}
 
         <FollowDetails user={user} />
 
-        {!isUserSelf && isLoggedIn && (
+        {!isUserSelf && isLoggedIn ? (
           <FollowSection
             isFollowing={isFollowing}
             SetIsFollowing={changeIsFollowing}
           />
-        )}
+        ) : null}
       </section>
     </>
   );
