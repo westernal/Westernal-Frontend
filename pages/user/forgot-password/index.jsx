@@ -36,7 +36,7 @@ const ForgotPassword = () => {
       return;
     }
 
-    if (result && result.status == 200) {
+    if (result?.status == 200) {
       toast.success("Email sent!");
       SetLoader(false);
       document.getElementById("email-btn").innerText = "Send again";

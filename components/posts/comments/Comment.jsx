@@ -81,7 +81,9 @@ const Comment = ({ comment, onDelete, onReply }) => {
             <p id="date">{formatDate(comment.date)}</p>
             <ReplyComment onReply={onReply} id={comment._id} />
           </div>
-          {deletable && <DeleteComment onDelete={onDelete} id={comment._id} />}
+          {deletable ? (
+            <DeleteComment onDelete={onDelete} id={comment._id} />
+          ) : null}
         </div>
       </div>
       <Replies replies={replies} onDelete={onDelete} />

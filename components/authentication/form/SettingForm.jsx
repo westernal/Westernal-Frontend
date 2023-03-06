@@ -45,7 +45,7 @@ const SettingForm = ({ user, image }) => {
     const Image = document.getElementById("image");
     const link = document.getElementById("link");
 
-    if (link.value && !isURL(link.value)) {
+    if (!isURL(link?.value)) {
       toast.error("Personal link is invalid.");
       SetLoader(false);
       return;

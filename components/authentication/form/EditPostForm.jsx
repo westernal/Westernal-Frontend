@@ -10,11 +10,7 @@ const EditPostForm = ({ post, editPost }) => {
     <form onSubmit={checkInputs} autoComplete="off">
       <section className="form-inputs">
         <label htmlFor="caption">Caption</label>
-        <input
-          type="text"
-          defaultValue={post && post.caption && post.caption}
-          id="caption"
-        />
+        <input type="text" defaultValue={post?.caption} id="caption" />
       </section>
 
       <div className="flex setting-btn">

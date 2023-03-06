@@ -60,7 +60,7 @@ const PostComment = ({
       return;
     }
 
-    if (result && result.status == 201) {
+    if (result?.status == 201) {
       toast.success(`Comment posted!`);
       document.getElementById("comment-text").value = "";
       onPost();
@@ -95,7 +95,7 @@ const PostComment = ({
       return;
     }
 
-    if (result && result.status == 201) {
+    if (result?.status == 201) {
       toast.success(`Comment posted!`);
       document.getElementById("comment-text").value = "";
       onCancelReply();
