@@ -161,12 +161,6 @@ header p,
   height: 60px;
 }
 
-input:focus,
-button:focus,
-textarea:focus {
-  outline: none;
-}
-
 button {
   cursor: pointer;
 }
