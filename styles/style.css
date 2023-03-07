@@ -164,7 +164,7 @@ header p,
 input:focus,
 button:focus,
 textarea:focus {
-  outline-color: transparent;
+  outline: 0.1em solid transparent;
 }
 
 button {
