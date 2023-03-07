@@ -161,6 +161,12 @@ header p,
   height: 60px;
 }
 
+input:focus,
+button:focus,
+textarea:focus {
+  outline-color: transparent;
+}
+
 button {
   cursor: pointer;
 }
