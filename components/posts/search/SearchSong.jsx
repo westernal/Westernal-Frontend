@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import SearchTracks from "./Tracks";
 import SearchArtists from "./Artists";
-import getSpotifyToken from "../../../requests/getSpotifyToken";
+import getSpotifyToken from "../../../functions/requests/getSpotifyToken";
 import { useSearchContext } from "../../../context/searchMusicContext";
 import SearchAlbum from "./Album";
 

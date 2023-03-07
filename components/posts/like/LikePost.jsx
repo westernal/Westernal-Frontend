@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import decodeJWT from "../../../functions/decodeJWT";
-import usePostRequest from "../../../hooks/usePostRequest";
+import postRequest from "../../../functions/requests/postRequest";
 
 const LikePost = ({ id, likesCount, postLikes }) => {
   const [likes, SetLikes] = useState(likesCount);
@@ -21,7 +21,7 @@ const LikePost = ({ id, likesCount, postLikes }) => {
     const userID = decodeJWT(token).userId;
 
     if (!postLikes.includes(userID) || !hasLiked) {
-      const result = await usePostRequest(
+      const result = await postRequest(
         {
           userId: userID,
         },
@@ -29,7 +29,7 @@ const LikePost = ({ id, likesCount, postLikes }) => {
         true
       );
 
-      if (result.status == 200) {
+      if (result?.status == 200) {
         document.getElementsByClassName(id)[0].classList.add("liked");
         SetLikes(likes + 1);
         SetHasLiked(true);
@@ -45,7 +45,7 @@ const LikePost = ({ id, likesCount, postLikes }) => {
     const userID = decodeJWT(token).userId;
 
     if (postLikes.includes(userID) || hasLiked) {
-      const result = await usePostRequest(
+      const result = await postRequest(
         {
           userId: userID,
         },
@@ -53,7 +53,7 @@ const LikePost = ({ id, likesCount, postLikes }) => {
         true
       );
 
-      if (result.status == 200) {
+      if (result?.status == 200) {
         document.getElementsByClassName(id)[0].classList.remove("liked");
         SetLikes(likes - 1);
         SetHasLiked(false);

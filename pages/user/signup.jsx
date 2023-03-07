@@ -8,14 +8,14 @@ import SignupForm from "../../components/authentication/form/SignupForm";
 import FormLoader from "../../components/layout/loader/FormLoader";
 import Lottie from "react-lottie-player";
 import jsonFile from "../../public/Images/lf20_2gB0PZ.json";
-import usePostRequest from "../../hooks/usePostRequest";
+import postRequest from "../../functions/requests/postRequest";
 
 const SignUp = () => {
   const [loader, SetLoader] = useState(false);
   const router = useRouter();
 
   async function signup(username, email, password) {
-    const result = await usePostRequest(
+    const result = await postRequest(
       {
         username: username,
         email: email,

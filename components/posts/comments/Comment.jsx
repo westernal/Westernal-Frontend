@@ -3,10 +3,10 @@ import { useState, useEffect } from "react";
 import jwtDecode from "jwt-decode";
 import DeleteComment from "./DeleteComment";
 import ReplyComment from "./replies/ReplyComment";
-import API from "../../../requests/API";
 import Replies from "./replies/Replies";
 import formatDate from "../../../functions/formatDate";
 import Image from "next/image";
+import getRequest from "../../../functions/requests/getRequest";
 
 const Comment = ({ comment, onDelete, onReply }) => {
   const [deletable, SetDeletable] = useState(false);
@@ -15,19 +15,12 @@ const Comment = ({ comment, onDelete, onReply }) => {
 
   useEffect(() => {
     const getReplies = async () => {
-      const option = {
-        method: "GET",
-        headers: {
-          "content-type": "application/json",
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-        mode: "cors",
-        credentials: "include",
-      };
+      const result = await getRequest(
+        `api/comments/replies/${comment._id}`,
+        true
+      );
 
-      var result = await API(option, `api/comments/replies/${comment._id}`);
-
-      if (result.status == 200) {
+      if (result?.status == 200) {
         SetReplies(result.data.replies);
       }
     };

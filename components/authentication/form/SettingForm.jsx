@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import FormLoader from "../../layout/loader/FormLoader";
-import API from "../../../requests/API";
+import API from "../../../functions/requests/API";
 import { useRouter } from "next/router";
 
 const SettingForm = ({ user, image }) => {

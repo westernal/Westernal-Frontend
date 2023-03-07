@@ -2,11 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
 import { useState } from "react";
-import jwt_decode from "jwt-decode";
-import API from "../../requests/API";
 import { useEffect } from "react";
-import authError from "../../functions/authError";
-import usePostRequest from "../../hooks/usePostRequest";
+import postRequest from "../../functions/requests/postRequest";
+import getRequest from "../../functions/requests/getRequest";
+import decodeJWT from "../../functions/decodeJWT";
 
 const Footer = () => {
   const [notificationCount, SetNotificationCount] = useState(0);
@@ -14,17 +13,7 @@ const Footer = () => {
   const [jwt, Setjwt] = useState({ username: "" });
 
   const getCount = async (userId) => {
-    const option = {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
-      mode: "cors",
-      credentials: "include",
-    };
-
-    var result = await API(option, `api/users/notification/${userId}`);
+    const result = await getRequest(`api/users/notification/${userId}`, true);
 
     if (result.status == 200) {
       SetNotificationCount(result.data.notifications);
@@ -33,27 +22,15 @@ const Footer = () => {
 
   useEffect(() => {
     token = localStorage.getItem("token");
-    let decodedToken;
-    if (token) {
-      try {
-        decodedToken = jwt_decode(token);
-      } catch (error) {
-        authError();
-        return;
-      }
-      Setjwt(decodedToken);
-      getCount(decodedToken.userId);
-    }
+    const decodedToken = decodeJWT(token);
+
+    Setjwt(decodedToken);
+    getCount(decodedToken.userId);
   }, []);
 
   const clearNotification = async () => {
     SetNotificationCount(0);
-
-    await usePostRequest(
-      {},
-      `api/users/notification/clear/${jwt.userId}`,
-      true
-    );
+    await postRequest({}, `api/users/notification/clear/${jwt.userId}`, true);
   };
 
   return (

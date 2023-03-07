@@ -1,6 +1,5 @@
 import Footer from "../../components/layout/Footer";
 import { useState, useEffect } from "react";
-import API from "../../requests/API";
 import Link from "next/link";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -10,6 +9,7 @@ import Image from "next/image";
 import Header from "../../components/layout/header/Header";
 import checkPermission from "../../functions/checkPermission";
 import decodeJWT from "../../functions/decodeJWT";
+import getRequest from "../../functions/requests/getRequest";
 
 const Notifications = () => {
   const [notifs, SetNotifs] = useState();
@@ -19,17 +19,7 @@ const Notifications = () => {
 
   async function getNotifications() {
     let id = decodeJWT(localStorage.getItem("token")).userId;
-    const option = {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
-      mode: "cors",
-      credentials: "include",
-    };
-
-    var result = await API(option, `api/notifications/${id}`);
+    const result = await getRequest(`api/notifications/${id}`, true);
 
     if (result.status == 200) {
       SetNotifs(result.data.notifications);

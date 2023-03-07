@@ -1,9 +1,9 @@
-import API from "../../../requests/API";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
 import { useState } from "react";
 import decodeJWT from "../../../functions/decodeJWT";
-import usePostRequest from "../../../hooks/usePostRequest";
+import postRequest from "../../../functions/requests/postRequest";
+import getRequest from "../../../functions/requests/getRequest";
 
 const SavePost = ({ id, hide, onUnsave }) => {
   const [isSaved, SetIsSaved] = useState(false);
@@ -15,19 +15,9 @@ const SavePost = ({ id, hide, onUnsave }) => {
   const checkUser = async () => {
     var token = localStorage.getItem("token");
     const userId = decodeJWT(token).userId;
+    const result = await getRequest(`api/users/${userId}`);
 
-    const option = {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-      },
-      mode: "cors",
-      credentials: "include",
-    };
-
-    var result = await API(option, `api/users/${userId}`);
-
-    if (result.status == 200) {
+    if (result?.status == 200) {
       if (result.data.user.saved_posts.includes(id)) {
         SetIsSaved(true);
       }
@@ -44,7 +34,7 @@ const SavePost = ({ id, hide, onUnsave }) => {
     var token = localStorage.getItem("token");
     const userId = decodeJWT(token).userId;
 
-    const result = await usePostRequest(
+    const result = await postRequest(
       {
         userId: userId,
       },
@@ -66,7 +56,7 @@ const SavePost = ({ id, hide, onUnsave }) => {
     var token = localStorage.getItem("token");
     const userId = decodeJWT(token).userId;
 
-    const result = await usePostRequest(
+    const result = await postRequest(
       {
         userId: userId,
       },

@@ -2,10 +2,10 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { useEffect } from "react";
 import Footer from "../../components/layout/Footer";
-import API from "../../requests/API";
 import Head from "next/head";
 import Post from "../../components/posts/Post";
 import BackHeader from "../../components/layout/header/BackHeader";
+import getRequest from "../../functions/requests/getRequest";
 
 const PostPage = () => {
   const router = useRouter();
@@ -18,16 +18,9 @@ const PostPage = () => {
     }
 
     const getPost = async () => {
-      const option = {
-        method: "GET",
-        headers: {
-          "content-type": "application/json",
-        },
-      };
+      const result = await getRequest(`api/posts/${router.query.id}`);
 
-      var result = await API(option, `api/posts/${router.query.id}`);
-
-      if (result.status == 200) {
+      if (result?.status == 200) {
         SetPost(result.data.post);
       } else router.push("/404");
     };

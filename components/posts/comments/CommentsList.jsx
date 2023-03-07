@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import API from "../../../requests/API";
 import Comment from "./Comment";
 import NotifLoader from "../../layout/loader/NotifLoader";
+import getRequest from "../../../functions/requests/getRequest";
 
 const CommentsList = ({ postId, rerender, onReply }) => {
   const [comments, SetComments] = useState();
@@ -13,19 +13,9 @@ const CommentsList = ({ postId, rerender, onReply }) => {
 
   useEffect(() => {
     const getComments = async () => {
-      const option = {
-        method: "GET",
-        headers: {
-          "content-type": "application/json",
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-        mode: "cors",
-        credentials: "include",
-      };
+      const result = await getRequest(`api/comments/${postId}`, true);
 
-      var result = await API(option, `api/comments/${postId}`);
-
-      if (result.status == 200) {
+      if (result?.status == 200) {
         SetComments(result.data.comments);
       }
     };

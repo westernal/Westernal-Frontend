@@ -1,6 +1,5 @@
 import Footer from "../../components/layout/Footer";
 import { useState, useEffect } from "react";
-import API from "../../requests/API";
 import BackHeader from "../../components/layout/header/BackHeader";
 import { useRouter } from "next/router";
 import Head from "next/head";
@@ -8,6 +7,7 @@ import Logout from "../../components/authentication/Logout";
 import SettingForm from "../../components/authentication/form/SettingForm";
 import checkPermission from "../../functions/checkPermission";
 import decodeJWT from "../../functions/decodeJWT";
+import getRequest from "../../functions/requests/getRequest";
 
 const Setting = () => {
   const [image, SetImage] = useState("/Images/userIcon.png");
@@ -17,16 +17,9 @@ const Setting = () => {
   const host = "https://alinavidi.ir/";
 
   async function getUserInfo(id) {
-    const option = {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-      },
-    };
+    const result = await getRequest(`api/users/${id}`);
 
-    var result = await API(option, `api/users/${id}`);
-
-    if (result.status == 200) {
+    if (result?.status == 200) {
       SetUser(result.data.user);
       SetImage(host + result.data.user.image);
     }

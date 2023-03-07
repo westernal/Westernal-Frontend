@@ -5,7 +5,7 @@ import Head from "next/dist/shared/lib/head";
 import BackHeader from "../../../components/layout/header/BackHeader";
 import FormLoader from "../../../components/layout/loader/FormLoader";
 import decodeJWT from "../../../functions/decodeJWT";
-import usePostRequest from "../../../hooks/usePostRequest";
+import postRequest from "../../../functions/requests/postRequest";
 
 const ChangePassword = () => {
   const router = useRouter();
@@ -44,7 +44,7 @@ const ChangePassword = () => {
   };
 
   const editPassword = async (password, id) => {
-    const result = await usePostRequest(
+    const result = await postRequest(
       {
         password: password,
       },
@@ -53,12 +53,12 @@ const ChangePassword = () => {
       router.query.token
     );
 
-    if (result.status == 200) {
+    if (result?.status == 200) {
       toast.success(`Password changed!`);
       SetLoader(false);
       router.push(`/`);
     } else {
-      toast.error(result.data.message);
+      toast.error(result?.data?.message);
       SetLoader(false);
     }
   };

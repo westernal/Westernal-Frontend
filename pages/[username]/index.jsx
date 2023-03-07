@@ -3,11 +3,11 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Footer from "../../components/layout/Footer";
 import Post from "../../components/posts/Post";
-import API from "../../requests/API";
 import UserInfo from "../../components/user/UserInfo";
 import { toast } from "react-toastify";
 import BackToTopButton from "../../components/layout/buttons/BackToTopButton";
 import decodeJWT from "../../functions/decodeJWT";
+import getRequest from "../../functions/requests/getRequest";
 
 const Profile = () => {
   const router = useRouter();
@@ -23,14 +23,7 @@ const Profile = () => {
   const [isLoggedIn, SetIsLoggedIn] = useState(false);
 
   async function getUserPosts() {
-    const option = {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-      },
-    };
-
-    var result = await API(option, `api/posts/user/${router.query.username}`);
+    const result = await getRequest(`api/posts/user/${router.query.username}`);
 
     if (result.status == 200) {
       SetPosts(result.data.posts);

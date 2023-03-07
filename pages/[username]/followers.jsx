@@ -2,28 +2,20 @@ import { useState } from "react";
 import { useEffect } from "react";
 import BackHeader from "../../components/layout/header/BackHeader";
 import { useRouter } from "next/dist/client/router";
-import API from "../../requests/API";
 import Users from "../../components/user/Users";
 import Head from "next/head";
+import getRequest from "../../functions/requests/getRequest";
 
 const Followers = () => {
   const router = useRouter();
   const [followers, SetFollowers] = useState();
 
   async function getFollowers() {
-    const option = {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-      },
-    };
-
-    var result = await API(
-      option,
+    const result = await getRequest(
       `api/users/followers/${router.query.username}`
     );
 
-    if (result.status == 200) {
+    if (result?.status == 200) {
       SetFollowers(result.data.followers);
     }
   }

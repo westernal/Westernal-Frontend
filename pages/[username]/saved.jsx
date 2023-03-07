@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import BackHeader from "../../components/layout/header/BackHeader";
 import { useState } from "react";
-import API from "../../requests/API";
 import Post from "../../components/posts/Post";
 import Footer from "../../components/layout/Footer";
 import Head from "next/head";
@@ -10,6 +9,7 @@ import BackToTopButton from "../../components/layout/buttons/BackToTopButton";
 import checkPermission from "../../functions/checkPermission";
 import { useRouter } from "next/router";
 import decodeJWT from "../../functions/decodeJWT";
+import getRequest from "../../functions/requests/getRequest";
 
 const Saved = () => {
   const [posts, SetPosts] = useState();
@@ -19,20 +19,9 @@ const Saved = () => {
   const getSavedPosts = async () => {
     var token = localStorage.getItem("token");
     const userID = decodeJWT(token).userId;
+    const result = await getRequest(`api/users/saved-posts/${userID}`, true);
 
-    const option = {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
-      mode: "cors",
-      credentials: "include",
-    };
-
-    var result = await API(option, `api/users/saved-posts/${userID}`);
-
-    if (result.status == 200) {
+    if (result?.status == 200) {
       SetPosts(result.data.posts);
     }
   };

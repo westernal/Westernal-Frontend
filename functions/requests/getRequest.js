@@ -1,21 +1,18 @@
 import { toast } from "react-toastify";
-import API from "../requests/API";
+import API from "./API";
 
-export default async function usePostRequest(
-  body,
+export default async function getRequest(
   path,
   auth = false,
   authToken = localStorage.getItem("token")
 ) {
   const options = {
-    method: "POST",
+    method: "GET",
     headers: auth
       ? {
-          "Content-Type": "application/json",
           Authorization: "Bearer " + authToken,
         }
-      : { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
+      : {},
     redirect: "follow",
     mode: "cors",
     credentials: "include",

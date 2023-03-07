@@ -1,5 +1,3 @@
-import API from "../../requests/API";
-import Footer from "../../components/layout/Footer";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -7,6 +5,7 @@ import User from "../../components/user/Users";
 import BackHeader from "../../components/layout/header/BackHeader";
 import Head from "next/head";
 import checkPermission from "../../functions/checkPermission";
+import getRequest from "../../functions/requests/getRequest";
 
 const Likes = () => {
   const router = useRouter();
@@ -14,19 +13,9 @@ const Likes = () => {
   const [render, setRender] = useState(false);
 
   async function getPostLikes(id) {
-    const option = {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
-      mode: "cors",
-      credentials: "include",
-    };
+    const result = await getRequest(`api/posts/like/${router.query.id}`, true);
 
-    var result = await API(option, `api/posts/like/${router.query.id}`);
-
-    if (result.status == 200) {
+    if (result?.status == 200) {
       SetUsers(result.data.likes);
     }
   }

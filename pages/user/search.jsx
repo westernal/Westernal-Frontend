@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Footer from "../../components/layout/Footer";
-import API from "../../requests/API";
+import API from "../../functions/requests/API";
 import User from "../../components/user/Users";
 import Head from "next/head";
 import { useRouter } from "next/router";

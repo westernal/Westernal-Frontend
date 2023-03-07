@@ -7,14 +7,14 @@ import LoginForm from "./form/LoginForm";
 import FormLoader from "../layout/loader/FormLoader";
 import Lottie from "react-lottie-player";
 import jsonFile from "../../public/Images/lf20_2gB0PZ.json";
-import usePostRequest from "../../hooks/usePostRequest";
+import postRequest from "../../functions/requests/postRequest";
 
 const Login = () => {
   const [loader, SetLoader] = useState(false);
   const router = useRouter();
 
   async function login(username, password) {
-    const result = await usePostRequest(
+    const result = await postRequest(
       {
         username: username,
         password: password,

@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-import API from "../../../requests/API";
+import API from "../../../functions/requests/API";
 
 const DeleteComment = ({ onDelete, id }) => {
   const deleteComment = async (e) => {

@@ -12,7 +12,7 @@ import PostForm from "../../components/authentication/form/PostForm";
 import { SearchMusicProvider } from "../../context/searchMusicContext";
 import checkPermission from "../../functions/checkPermission";
 import decodeJWT from "../../functions/decodeJWT";
-import usePostRequest from "../../hooks/usePostRequest";
+import postRequest from "../../functions/requests/postRequest";
 
 const NewPost = () => {
   const [loader, SetLoader] = useState(false);
@@ -26,7 +26,7 @@ const NewPost = () => {
   async function publish(song, caption) {
     const jwt = decodeJWT(localStorage.getItem("token"));
 
-    const result = await usePostRequest(
+    const result = await postRequest(
       {
         caption: caption,
         authorID: jwt.userId,
@@ -41,11 +41,11 @@ const NewPost = () => {
       return;
     }
 
-    if (result.status == 201) {
+    if (result?.status == 201) {
       toast.success(`Post created!`);
       router.push("/home/timeline");
     } else {
-      toast.error(result.data.message);
+      toast.error(result?.data?.message);
       SetLoader(false);
     }
   }

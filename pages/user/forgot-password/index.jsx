@@ -3,7 +3,7 @@ import BackHeader from "../../../components/layout/header/BackHeader";
 import { toast } from "react-toastify";
 import { useState } from "react";
 import FormLoader from "../../../components/layout/loader/FormLoader";
-import usePostRequest from "../../../hooks/usePostRequest";
+import postRequest from "../../../functions/requests/postRequest";
 
 const ForgotPassword = () => {
   const [loader, SetLoader] = useState(false);
@@ -19,7 +19,7 @@ const ForgotPassword = () => {
       return;
     }
 
-    const result = await usePostRequest(
+    const result = await postRequest(
       {
         email: email,
       },
@@ -36,7 +36,7 @@ const ForgotPassword = () => {
       SetLoader(false);
       document.getElementById("email-btn").innerText = "Send again";
     } else {
-      toast.error(result.data.message);
+      toast.error(result?.data?.message);
       SetLoader(false);
     }
   };

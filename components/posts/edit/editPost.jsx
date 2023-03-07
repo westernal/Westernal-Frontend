@@ -1,11 +1,10 @@
 import Head from "next/head";
 import { useState } from "react";
 import { toast } from "react-toastify";
-import API from "../../../requests/API";
 import EditPostForm from "../../authentication/form/EditPostForm";
 import BackHeader from "../../layout/header/BackHeader";
 import FormLoader from "../../layout/loader/FormLoader";
-import usePostRequest from "../../../hooks/usePostRequest";
+import postRequest from "../../../functions/requests/postRequest";
 
 const EditPost = ({ post, router }) => {
   const [loader, SetLoader] = useState(false);
@@ -13,7 +12,7 @@ const EditPost = ({ post, router }) => {
   const edit = async (caption = "") => {
     SetLoader(true);
 
-    const result = await usePostRequest(
+    const result = await postRequest(
       {
         caption: caption,
       },
@@ -26,7 +25,7 @@ const EditPost = ({ post, router }) => {
       return;
     }
 
-    if (result.status == 200) {
+    if (result?.status == 200) {
       toast.success(`Post edited!!`);
       router.push(`/post/${post._id}`);
       SetLoader(false);

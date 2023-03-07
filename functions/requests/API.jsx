@@ -1,4 +1,4 @@
-import authError from "../functions/authError";
+import authError from "../authError";
 
 export default async function API(options, address) {
   const host = "https://alinavidi.ir/";

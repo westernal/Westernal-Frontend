@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 import decodeJWT from "../../../functions/decodeJWT";
-import usePostRequest from "../../../hooks/usePostRequest";
+import postRequest from "../../../functions/requests/postRequest";
 
 const Follow = ({ isFollowing, SetIsFollowing }) => {
   const router = useRouter();
@@ -9,7 +9,7 @@ const Follow = ({ isFollowing, SetIsFollowing }) => {
   async function followUser() {
     const jwt = decodeJWT(localStorage.getItem("token"));
 
-    const result = await usePostRequest(
+    const result = await postRequest(
       {
         username: router.query.username,
       },
@@ -37,7 +37,7 @@ const Follow = ({ isFollowing, SetIsFollowing }) => {
   async function unfollowUser() {
     const jwt = decodeJWT(localStorage.getItem("token"));
 
-    const result = await usePostRequest(
+    const result = await postRequest(
       {
         username: router.query.username,
       },

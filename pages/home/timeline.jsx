@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import Footer from "../../components/layout/Footer";
 import Header from "../../components/layout/header/Header";
 import Post from "../../components/posts/Post";
-import API from "../../requests/API";
 import Head from "next/head";
 import ContentLoader from "../../components/layout/loader/ContentLoader";
 import { useRouter } from "next/router";
 import BackToTopButton from "../../components/layout/buttons/BackToTopButton";
 import checkPermission from "../../functions/checkPermission";
 import decodeJWT from "../../functions/decodeJWT";
+import getRequest from "../../functions/requests/getRequest";
 
 export default function Index() {
   const [posts, SetPosts] = useState();
@@ -16,16 +16,9 @@ export default function Index() {
   const router = useRouter();
 
   async function getPosts(userId) {
-    const option = {
-      method: "GET",
-      headers: { Authorization: "Bearer " + localStorage.getItem("token") },
-      mode: "cors",
-      credentials: "include",
-    };
+    const result = await getRequest(`api/posts/timeline/${userId}`, true);
 
-    var result = await API(option, `api/posts/timeline/${userId}`);
-
-    if (result.status == 200) {
+    if (result?.status == 200) {
       SetPosts(result.data.posts);
     }
   }
