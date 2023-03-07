@@ -5,6 +5,7 @@ import API from "../../../requests/API";
 import EditPostForm from "../../authentication/form/EditPostForm";
 import BackHeader from "../../layout/header/BackHeader";
 import FormLoader from "../../layout/loader/FormLoader";
+import usePostRequest from "../../../hooks/usePostRequest";
 
 const EditPost = ({ post, router }) => {
   const [loader, SetLoader] = useState(false);
@@ -12,23 +13,15 @@ const EditPost = ({ post, router }) => {
   const edit = async (caption = "") => {
     SetLoader(true);
 
-    const option = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
-      body: JSON.stringify({
+    const result = await usePostRequest(
+      {
         caption: caption,
-      }),
-      mode: "cors",
-      credentials: "include",
-    };
+      },
+      `api/posts/edit/${post._id}`,
+      true
+    );
 
-    try {
-      var result = await API(option, `api/posts/edit/${post._id}`);
-    } catch (error) {
-      toast.error("Server Error! Please try again.");
+    if (!result) {
       SetLoader(false);
       return;
     }

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
-import API from "../../requests/API";
 import BackHeader from "../../components/layout/header/BackHeader";
 import Footer from "../../components/layout/Footer";
 import Head from "next/head";
@@ -13,6 +12,7 @@ import PostForm from "../../components/authentication/form/PostForm";
 import { SearchMusicProvider } from "../../context/searchMusicContext";
 import checkPermission from "../../functions/checkPermission";
 import decodeJWT from "../../functions/decodeJWT";
+import usePostRequest from "../../hooks/usePostRequest";
 
 const NewPost = () => {
   const [loader, SetLoader] = useState(false);
@@ -26,25 +26,19 @@ const NewPost = () => {
   async function publish(song, caption) {
     const jwt = decodeJWT(localStorage.getItem("token"));
 
-    const option = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
-      body: JSON.stringify({
+    const result = await usePostRequest(
+      {
         caption: caption,
         authorID: jwt.userId,
         songURL: song,
-      }),
-      mode: "cors",
-      credentials: "include",
-    };
+      },
+      "api/posts",
+      true
+    );
 
-    try {
-      var result = await API(option, "api/posts");
-    } catch (error) {
-      toast.error("Server error! please try again.");
+    if (!result) {
+      SetLoader(false);
+      return;
     }
 
     if (result.status == 201) {

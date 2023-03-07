@@ -2,47 +2,36 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
-import API from "../../requests/API";
 import Image from "next/image";
 import LoginForm from "./form/LoginForm";
 import FormLoader from "../layout/loader/FormLoader";
 import Lottie from "react-lottie-player";
 import jsonFile from "../../public/Images/lf20_2gB0PZ.json";
+import usePostRequest from "../../hooks/usePostRequest";
 
 const Login = () => {
   const [loader, SetLoader] = useState(false);
   const router = useRouter();
-  let result;
 
   async function login(username, password) {
-    const option = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Access: "application/json",
-      },
-      body: JSON.stringify({
+    const result = await usePostRequest(
+      {
         username: username,
         password: password,
-      }),
-      redirect: "follow",
-      mode: "cors",
-      credentials: "include",
-    };
+      },
+      "api/users/login"
+    );
 
-    try {
-      result = await API(option, "api/users/login");
-    } catch (error) {
-      toast.error("Server Error! Please try again.");
+    if (!result) {
       SetLoader(false);
       return;
     }
 
-    if (result.status == 200) {
+    if (result?.status == 200) {
       localStorage.setItem("token", result.data.token);
       toast.success(`Welcome, ${username}!`);
       router.push("/home/timeline");
-    } else if (result.status === 403) {
+    } else if (result?.status === 403) {
       router.push("/user/forgot-password");
       toast.error(result.data.message);
     } else {

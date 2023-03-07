@@ -1,9 +1,9 @@
 import Head from "next/head";
 import BackHeader from "../../../components/layout/header/BackHeader";
 import { toast } from "react-toastify";
-import API from "../../../requests/API";
 import { useState } from "react";
 import FormLoader from "../../../components/layout/loader/FormLoader";
+import usePostRequest from "../../../hooks/usePostRequest";
 
 const ForgotPassword = () => {
   const [loader, SetLoader] = useState(false);
@@ -19,19 +19,14 @@ const ForgotPassword = () => {
       return;
     }
 
-    const option = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
+    const result = await usePostRequest(
+      {
         email: email,
-      }),
-      redirect: "follow",
-    };
+      },
+      "api/users/reset-password"
+    );
 
-    try {
-      var result = await API(option, "api/users/reset-password");
-    } catch (error) {
-      toast.error("Server Error! Please try again.");
+    if (!result) {
       SetLoader(false);
       return;
     }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import API from "../../../requests/API";
 import Link from "next/link";
 import decodeJWT from "../../../functions/decodeJWT";
+import usePostRequest from "../../../hooks/usePostRequest";
 
 const LikePost = ({ id, likesCount, postLikes }) => {
   const [likes, SetLikes] = useState(likesCount);
@@ -21,21 +21,13 @@ const LikePost = ({ id, likesCount, postLikes }) => {
     const userID = decodeJWT(token).userId;
 
     if (!postLikes.includes(userID) || !hasLiked) {
-      const option = {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-        body: JSON.stringify({
+      const result = await usePostRequest(
+        {
           userId: userID,
-        }),
-        redirect: "follow",
-        mode: "cors",
-        credentials: "include",
-      };
-
-      var result = await API(option, `api/posts/like/${id}`);
+        },
+        `api/posts/like/${id}`,
+        true
+      );
 
       if (result.status == 200) {
         document.getElementsByClassName(id)[0].classList.add("liked");
@@ -53,19 +45,13 @@ const LikePost = ({ id, likesCount, postLikes }) => {
     const userID = decodeJWT(token).userId;
 
     if (postLikes.includes(userID) || hasLiked) {
-      const option = {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-        body: JSON.stringify({
+      const result = await usePostRequest(
+        {
           userId: userID,
-        }),
-        redirect: "follow",
-      };
-
-      var result = await API(option, `api/posts/unlike/${id}`);
+        },
+        `api/posts/unlike/${id}`,
+        true
+      );
 
       if (result.status == 200) {
         document.getElementsByClassName(id)[0].classList.remove("liked");

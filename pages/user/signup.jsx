@@ -2,37 +2,31 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
-import API from "../../requests/API";
 import Head from "next/head";
 import Image from "next/image";
 import SignupForm from "../../components/authentication/form/SignupForm";
 import FormLoader from "../../components/layout/loader/FormLoader";
 import Lottie from "react-lottie-player";
 import jsonFile from "../../public/Images/lf20_2gB0PZ.json";
+import usePostRequest from "../../hooks/usePostRequest";
 
 const SignUp = () => {
   const [loader, SetLoader] = useState(false);
   const router = useRouter();
 
   async function signup(username, email, password) {
-    const option = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
+    const result = await usePostRequest(
+      {
         username: username,
         email: email,
         password: password,
-      }),
-      redirect: "follow",
-      mode: "cors",
-      credentials: "include",
-    };
+      },
+      "api/users/signup"
+    );
 
-    try {
-      var result = await API(option, "api/users/signup");
-    } catch (error) {
-      toast.error("Server Error! Please try again.");
+    if (!result) {
       SetLoader(false);
+      return;
     }
 
     if (result?.status == 201) {

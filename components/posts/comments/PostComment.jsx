@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
-import API from "../../../requests/API";
 import { useEffect } from "react";
 import decodeJWT from "../../../functions/decodeJWT";
+import usePostRequest from "../../../hooks/usePostRequest";
 
 const PostComment = ({
   postId,
@@ -38,27 +38,15 @@ const PostComment = ({
   const sendComment = async (message) => {
     const writerId = decodeJWT(localStorage.getItem("token")).userId;
 
-    const option = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
-      body: JSON.stringify({
+    const result = await usePostRequest(
+      {
         writerId: writerId,
         postId: postId,
         message: message,
-      }),
-      mode: "cors",
-      credentials: "include",
-    };
-
-    try {
-      var result = await API(option, `api/comments`);
-    } catch (error) {
-      toast.error("Server error! please try again.");
-      return;
-    }
+      },
+      `api/comments`,
+      true
+    );
 
     if (result?.status == 201) {
       toast.success(`Comment posted!`);
@@ -72,28 +60,16 @@ const PostComment = ({
   const sendReply = async (message) => {
     const writerId = decodeJWT(localStorage.getItem("token")).userId;
 
-    const option = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
-      body: JSON.stringify({
+    const result = await usePostRequest(
+      {
         writerId: writerId,
         postId: postId,
         message: message,
         commentId: repliedComment,
-      }),
-      mode: "cors",
-      credentials: "include",
-    };
-
-    try {
-      var result = await API(option, `api/comments/replies`);
-    } catch (error) {
-      toast.error("Server error! please try again.");
-      return;
-    }
+      },
+      `api/comments/replies`,
+      true
+    );
 
     if (result?.status == 201) {
       toast.success(`Comment posted!`);

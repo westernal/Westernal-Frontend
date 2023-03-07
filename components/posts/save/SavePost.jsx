@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { toast } from "react-toastify";
 import { useState } from "react";
 import decodeJWT from "../../../functions/decodeJWT";
+import usePostRequest from "../../../hooks/usePostRequest";
 
 const SavePost = ({ id, hide, onUnsave }) => {
   const [isSaved, SetIsSaved] = useState(false);
@@ -43,29 +44,21 @@ const SavePost = ({ id, hide, onUnsave }) => {
     var token = localStorage.getItem("token");
     const userId = decodeJWT(token).userId;
 
-    const option = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
-      body: JSON.stringify({
+    const result = await usePostRequest(
+      {
         userId: userId,
-      }),
-      redirect: "follow",
-      mode: "cors",
-      credentials: "include",
-    };
-
-    var result = await API(option, `api/posts/save/${id}`);
+      },
+      `api/posts/save/${id}`,
+      true
+    );
 
     if (result.status == 200) {
       SetIsSaved(true);
       hide();
-      toast.success("Post saved!");
+      toast.success("Post saved.");
     } else {
       hide();
-      toast.error("It seems like there is a problem, please try again!");
+      toast.error("It seems like there is a problem, please try again.");
     }
   };
 
@@ -73,19 +66,13 @@ const SavePost = ({ id, hide, onUnsave }) => {
     var token = localStorage.getItem("token");
     const userId = decodeJWT(token).userId;
 
-    const option = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
-      body: JSON.stringify({
+    const result = await usePostRequest(
+      {
         userId: userId,
-      }),
-      redirect: "follow",
-    };
-
-    var result = await API(option, `api/posts/unsave/${id}`);
+      },
+      `api/posts/unsave/${id}`,
+      true
+    );
 
     if (result.status == 200) {
       SetIsSaved(false);
@@ -93,10 +80,10 @@ const SavePost = ({ id, hide, onUnsave }) => {
         onUnsave();
       }
       hide();
-      toast.success("Post unsaved!");
+      toast.success("Post unsaved.");
     } else {
       hide();
-      toast.error("It seems like there is a problem, please try again!");
+      toast.error("It seems like there is a problem, please try again.");
     }
   };
 

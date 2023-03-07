@@ -6,6 +6,7 @@ import jwt_decode from "jwt-decode";
 import API from "../../requests/API";
 import { useEffect } from "react";
 import authError from "../../functions/authError";
+import usePostRequest from "../../hooks/usePostRequest";
 
 const Footer = () => {
   const [notificationCount, SetNotificationCount] = useState(0);
@@ -48,19 +49,10 @@ const Footer = () => {
   const clearNotification = async () => {
     SetNotificationCount(0);
 
-    const option = {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
-      mode: "cors",
-      credentials: "include",
-    };
-
-    var result = await API(
-      option,
-      `api/users/notification/clear/${jwt.userId}`
+    await usePostRequest(
+      {},
+      `api/users/notification/clear/${jwt.userId}`,
+      true
     );
   };
 

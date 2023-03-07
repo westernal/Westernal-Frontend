@@ -1,4 +1,3 @@
-import API from "../../../requests/API";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -6,12 +5,13 @@ import Head from "next/dist/shared/lib/head";
 import BackHeader from "../../../components/layout/header/BackHeader";
 import FormLoader from "../../../components/layout/loader/FormLoader";
 import decodeJWT from "../../../functions/decodeJWT";
+import usePostRequest from "../../../hooks/usePostRequest";
 
 const ChangePassword = () => {
   const router = useRouter();
   const [loader, SetLoader] = useState(false);
 
-  const editPassword = async (e) => {
+  const checkPassword = (e) => {
     e.preventDefault();
     SetLoader(true);
 
@@ -31,26 +31,27 @@ const ChangePassword = () => {
     if (password.length < 6 && password.length !== 0) {
       toast.error("Password must be more than 6 characters!");
       SetLoader(false);
+      return;
     }
 
     if (password !== confirmPassword) {
       toast.error("Password must be equal to repeat password!");
       SetLoader(false);
+      return;
     }
 
-    const option = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + router.query.token,
-      },
-      body: JSON.stringify({
-        password: password,
-      }),
-      redirect: "follow",
-    };
+    editPassword(password, id);
+  };
 
-    var result = await API(option, `api/users/edit/password/${id}`);
+  const editPassword = async (password, id) => {
+    const result = await usePostRequest(
+      {
+        password: password,
+      },
+      `api/users/edit/password/${id}`,
+      true,
+      router.query.token
+    );
 
     if (result.status == 200) {
       toast.success(`Password changed!`);
@@ -71,7 +72,7 @@ const ChangePassword = () => {
         <section className="auth-form">
           <p id="login-logo">W</p>
           {loader ? <FormLoader /> : null}
-          <form onSubmit={editPassword}>
+          <form onSubmit={checkPassword}>
             <section className="form-inputs">
               <input
                 type="password"
