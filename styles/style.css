@@ -1444,6 +1444,12 @@ h1 {
     flex-direction: column;
     padding: 20px;
   }
+
+  input:focus-visible,
+  button:focus-visible,
+  textarea:focus-visible {
+    outline: none;
+  }
 }
 
 @media only screen and (max-width: 600px) {
