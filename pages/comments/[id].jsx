@@ -4,19 +4,14 @@ import CommentsList from "../../components/posts/comments/CommentsList";
 import PostComment from "../../components/posts/comments/PostComment";
 import Head from "next/head";
 import { useState } from "react";
-import { useEffect } from "react";
-import checkPermission from "../../functions/checkPermission";
+import useAuth from "../../hooks/useAuth";
 
 const Comments = () => {
   const router = useRouter();
   const [rerender, SetRerender] = useState(false);
   const [isReply, SetIsReply] = useState(false);
-  const [firstRender, setFirstRender] = useState(false);
+  const firstRender = useAuth(router);
   const [repliedComment, SetRepliedComment] = useState("");
-
-  useEffect(() => {
-    setFirstRender(checkPermission(router));
-  }, []);
 
   const onReply = (id) => {
     SetIsReply(true);

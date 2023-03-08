@@ -4,13 +4,13 @@ import { useState } from "react";
 import User from "../../components/user/Users";
 import BackHeader from "../../components/layout/header/BackHeader";
 import Head from "next/head";
-import checkPermission from "../../functions/checkPermission";
 import getRequest from "../../functions/requests/getRequest";
+import useAuth from "../../hooks/useAuth";
 
 const Likes = () => {
   const router = useRouter();
   const [users, SetUsers] = useState();
-  const [render, setRender] = useState(false);
+  const render = useAuth(true);
 
   async function getPostLikes(id) {
     const result = await getRequest(`api/posts/like/${router.query.id}`, true);
@@ -19,10 +19,6 @@ const Likes = () => {
       SetUsers(result.data.likes);
     }
   }
-
-  useEffect(() => {
-    setRender(checkPermission(router));
-  }, []);
 
   useEffect(() => {
     if (router.query.id && render) {

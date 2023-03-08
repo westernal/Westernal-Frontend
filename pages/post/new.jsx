@@ -4,24 +4,19 @@ import { toast } from "react-toastify";
 import BackHeader from "../../components/layout/header/BackHeader";
 import Footer from "../../components/layout/Footer";
 import Head from "next/head";
-import { useEffect } from "react";
 import Image from "next/image";
 import SearchSong from "../../components/posts/search/SearchSong";
 import FormLoader from "../../components/layout/loader/FormLoader";
 import PostForm from "../../components/authentication/form/PostForm";
 import { SearchMusicProvider } from "../../context/searchMusicContext";
-import checkPermission from "../../functions/checkPermission";
 import decodeJWT from "../../functions/decodeJWT";
 import postRequest from "../../functions/requests/postRequest";
+import useAuth from "../../hooks/useAuth";
 
 const NewPost = () => {
   const [loader, SetLoader] = useState(false);
-  const [render, setRender] = useState(false);
   const router = useRouter();
-
-  useEffect(() => {
-    setRender(checkPermission(router));
-  }, []);
+  const render = useAuth(router);
 
   async function publish(song, caption) {
     const jwt = decodeJWT(localStorage.getItem("token"));

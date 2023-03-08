@@ -1,25 +1,29 @@
 import { useRouter } from "next/router";
 import EditPost from "../../../components/posts/edit/editPost";
 import { useState, useEffect } from "react";
-import checkPermission from "../../../functions/checkPermission";
 import getRequest from "../../../functions/requests/getRequest";
+import useAuth from "../../../hooks/useAuth";
+import decodeJWT from "../../../functions/decodeJWT";
 
 const EditPostPage = () => {
   const router = useRouter();
   const [post, SetPost] = useState([]);
-  const [render, setRender] = useState(false);
+  const render = useAuth(router);
 
   const getPost = async (id) => {
     const result = await getRequest(`api/posts/${id}`, true);
 
     if (result?.status == 200) {
+      if (
+        result.data.post.author.username !=
+        decodeJWT(localStorage.getItem("token")).username
+      ) {
+        router.push("/404");
+        return;
+      }
       SetPost(result.data.post);
     } else router.push("/404");
   };
-
-  useEffect(() => {
-    setRender(checkPermission(router));
-  }, []);
 
   useEffect(() => {
     if (router.query.id && render) {

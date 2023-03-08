@@ -4,13 +4,14 @@ import API from "../../functions/requests/API";
 import User from "../../components/user/Users";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import checkPermission from "../../functions/checkPermission";
+import useAuth from "../../hooks/useAuth";
 
 const Search = () => {
   const [users, SetUsers] = useState();
   const [isTyped, SetIsTyped] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const router = useRouter();
+  const render = useAuth(router);
   const controllerRef = useRef();
 
   async function searchUsers(e) {
@@ -45,10 +46,6 @@ const Search = () => {
   }
 
   useEffect(() => {
-    checkPermission(router);
-  }, []);
-
-  useEffect(() => {
     if (searchTerm) {
       searchUsers();
     }
@@ -73,7 +70,7 @@ const Search = () => {
         </div>
         {isTyped ? <User users={users} /> : null}
       </main>
-      <Footer />
+      {render ? <Footer /> : null}
     </>
   );
 };

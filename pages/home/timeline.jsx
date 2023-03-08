@@ -6,14 +6,14 @@ import Head from "next/head";
 import ContentLoader from "../../components/layout/loader/ContentLoader";
 import { useRouter } from "next/router";
 import BackToTopButton from "../../components/layout/buttons/BackToTopButton";
-import checkPermission from "../../functions/checkPermission";
 import decodeJWT from "../../functions/decodeJWT";
 import getRequest from "../../functions/requests/getRequest";
+import useAuth from "../../hooks/useAuth";
 
 export default function Index() {
   const [posts, SetPosts] = useState();
-  const [render, setRender] = useState(false);
   const router = useRouter();
+  const render = useAuth(router);
 
   async function getPosts(userId) {
     const result = await getRequest(`api/posts/timeline/${userId}`, true);
@@ -22,10 +22,6 @@ export default function Index() {
       SetPosts(result.data.posts);
     }
   }
-
-  useEffect(() => {
-    setRender(checkPermission(router));
-  }, []);
 
   useEffect(() => {
     if (render) {

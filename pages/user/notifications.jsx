@@ -7,14 +7,14 @@ import NotifLoader from "../../components/layout/loader/NotifLoader";
 import formatDate from "../../functions/formatDate";
 import Image from "next/image";
 import Header from "../../components/layout/header/Header";
-import checkPermission from "../../functions/checkPermission";
 import decodeJWT from "../../functions/decodeJWT";
 import getRequest from "../../functions/requests/getRequest";
+import useAuth from "../../hooks/useAuth";
 
 const Notifications = () => {
   const [notifs, SetNotifs] = useState();
-  const [render, setRender] = useState(false);
   const router = useRouter();
+  const render = useAuth(router);
   const host = "https://alinavidi.ir/";
 
   async function getNotifications() {
@@ -25,10 +25,6 @@ const Notifications = () => {
       SetNotifs(result.data.notifications);
     }
   }
-
-  useEffect(() => {
-    setRender(checkPermission(router));
-  }, []);
 
   useEffect(() => {
     if (render) {

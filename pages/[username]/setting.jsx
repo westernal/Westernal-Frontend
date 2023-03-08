@@ -5,15 +5,15 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import Logout from "../../components/authentication/Logout";
 import SettingForm from "../../components/authentication/form/SettingForm";
-import checkPermission from "../../functions/checkPermission";
 import decodeJWT from "../../functions/decodeJWT";
 import getRequest from "../../functions/requests/getRequest";
+import useAuth from "../../hooks/useAuth";
 
 const Setting = () => {
   const [image, SetImage] = useState("/Images/userIcon.png");
   const [user, SetUser] = useState();
-  const [render, setRender] = useState(false);
   const router = useRouter();
+  const render = useAuth(router, true);
   const host = "https://alinavidi.ir/";
 
   async function getUserInfo(id) {
@@ -31,10 +31,6 @@ const Setting = () => {
 
     getUserInfo(jwt.userId);
   }
-
-  useEffect(() => {
-    setRender(checkPermission(router, true));
-  }, [router.query]);
 
   useEffect(() => {
     if (render) {
