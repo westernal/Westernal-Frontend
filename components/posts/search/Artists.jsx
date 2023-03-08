@@ -69,7 +69,7 @@ const SearchArtists = ({ token }) => {
           autoComplete={"off"}
         />
       </div>
-      <div className="search-results">
+      <section className="search-results">
         {loader ? <FormLoader /> : null}
         {artists.map((artist) => {
           return (
@@ -103,7 +103,7 @@ const SearchArtists = ({ token }) => {
             </div>
           );
         })}
-      </div>
+      </section>
     </section>
   );
 };

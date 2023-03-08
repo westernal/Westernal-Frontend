@@ -67,12 +67,12 @@ const SearchTracks = ({ token }) => {
           autoComplete={"off"}
         />
       </div>
-      <div className="search-results">
+      <section className="search-results">
         {loader ? <FormLoader /> : null}
         {songs.map((song) => {
           return <SearchItems song={song} key={song.id} />;
         })}
-      </div>
+      </section>
     </section>
   );
 };
