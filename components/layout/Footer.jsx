@@ -15,7 +15,7 @@ const Footer = () => {
   const getCount = async (userId) => {
     const result = await getRequest(`api/users/notification/${userId}`, true);
 
-    if (result.status == 200) {
+    if (result?.status == 200) {
       SetNotificationCount(result.data.notifications);
     }
   };

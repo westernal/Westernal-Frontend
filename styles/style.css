@@ -164,7 +164,7 @@ header p,
 input:focus-visible,
 button:focus-visible,
 textarea:focus-visible {
-  outline: 0.1em solid inherit;
+  outline: 1px solid var(--light-secondary-color);
 }
 
 button {
@@ -1325,6 +1325,12 @@ h1 {
     background-color: var(--dark-secondary-color);
     color: var(--main-color);
     box-shadow: none;
+  }
+
+  input:focus-visible,
+  button:focus-visible,
+  textarea:focus-visible {
+    outline: 1px solid var(--dark-secondary-color);
   }
 
   .contact-btn:hover {
