@@ -1,58 +1,11 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import FormLoader from "../../layout/loader/FormLoader";
 import SearchItems from "./Items/SearchItems";
+import useSearchSongs from "../../../hooks/useSearchSongs";
 
 const SearchTracks = ({ token }) => {
-  const [songs, SetSongs] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [loader, SetLoader] = useState(false);
-  const controllerRef = useRef();
-
-  const search = async () => {
-    if (controllerRef.current) {
-      controllerRef.current.abort();
-    }
-
-    const controller = new AbortController();
-    controllerRef.current = controller;
-    let response;
-
-    if (songs.length == 0) {
-      SetLoader(true);
-    }
-
-    const option = {
-      signal: controllerRef.current?.signal,
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    };
-
-    response = await fetch(
-      `https://api.spotify.com/v1/search?q=${
-        searchTerm && searchTerm
-      }&type=track&limit=10`,
-      option
-    );
-
-    const data = await response.json();
-    const status = response.status;
-
-    if (status == 200) {
-      SetSongs(data.tracks.items);
-      controllerRef.current = null;
-    }
-
-    SetLoader(false);
-  };
-
-  useEffect(() => {
-    if (searchTerm) {
-      search();
-    }
-  }, [searchTerm]);
+  const [loader, data] = useSearchSongs(searchTerm, "track", token);
 
   return (
     <section>
@@ -69,7 +22,7 @@ const SearchTracks = ({ token }) => {
       </div>
       <section className="search-results">
         {loader ? <FormLoader /> : null}
-        {songs.map((song) => {
+        {data?.tracks?.items.map((song) => {
           return <SearchItems song={song} key={song.id} />;
         })}
       </section>
