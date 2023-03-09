@@ -8,7 +8,7 @@ import postRequest from "../../../functions/requests/postRequest";
 const ForgotPassword = () => {
   const [loader, SetLoader] = useState(false);
 
-  const sendEmail = async (e) => {
+  const checkEmailInput = (e) => {
     e.preventDefault();
     SetLoader(true);
     const email = document.getElementById("email").value.toLowerCase();
@@ -19,6 +19,10 @@ const ForgotPassword = () => {
       return;
     }
 
+    sendEmail(email);
+  };
+
+  const sendEmail = async (email) => {
     const result = await postRequest(
       {
         email: email,
@@ -40,6 +44,7 @@ const ForgotPassword = () => {
       SetLoader(false);
     }
   };
+
   return (
     <>
       <Head>
@@ -53,7 +58,7 @@ const ForgotPassword = () => {
           <p id="reset-text">
             Enter your email so that we can send you a reset link!
           </p>
-          <form onSubmit={sendEmail}>
+          <form onSubmit={checkEmailInput}>
             <section className="form-inputs">
               <input
                 type="email"
