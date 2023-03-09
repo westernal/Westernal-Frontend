@@ -27,15 +27,19 @@ const Login = () => {
       return;
     }
 
-    if (result?.status == 200) {
-      localStorage.setItem("token", result.data.token);
-      toast.success(`Welcome, ${username}!`);
-      router.push("/home/timeline");
-    } else if (result?.status === 402) {
-      router.push("/user/forgot-password");
-      toast.error(result.data.message);
-    } else {
-      toast.error(result.data.message);
+    switch (result?.status) {
+      case 200:
+        localStorage.setItem("token", result.data.token);
+        toast.success(`Welcome, ${username}!`);
+        router.push("/home/timeline");
+        break;
+      case 402:
+        router.push("/user/forgot-password");
+        toast.error(result.data.message);
+        break;
+      default:
+        toast.error(result.data.message);
+        break;
     }
 
     SetLoader(false);

@@ -34,9 +34,10 @@ const SignUp = () => {
       toast.success(`Welcome, ${username}!`);
       router.push("/home/timeline");
     } else {
-      SetLoader(false);
       toast.error(result.data.message);
     }
+
+    SetLoader(false);
   }
 
   const changeLoader = (loader) => {
