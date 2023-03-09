@@ -14,7 +14,7 @@ const ForgotPassword = () => {
     const email = document.getElementById("email").value.toLowerCase();
 
     if (!email) {
-      toast.error("Enter your email");
+      toast.error("Enter your Email");
       SetLoader(false);
       return;
     }
@@ -70,11 +70,11 @@ const ForgotPassword = () => {
 
             <div className="flex form-button">
               <button className="btn" type="submit" id="email-btn">
-                Send email
+                Send Email
               </button>
             </div>
             <p style={{ opacity: 0.5 }}>
-              Don{"'"}t see an email? Check your spam folder.
+              Don{"'"}t see an Email? Check your spam folder.
             </p>
           </form>
         </section>
