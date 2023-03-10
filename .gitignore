@@ -14,9 +14,11 @@
 
 # production
 /build 
-public/*.js 
-public/*.js.map
-public/*.map  
+/public/*.js 
+/public/*.js.map
+/public/*.map 
+/public/robot.txt
+/public/sitemap.xml 
 
 # misc
 .DS_Store

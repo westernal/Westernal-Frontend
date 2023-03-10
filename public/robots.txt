@@ -1,9 +1,38 @@
 # *
 User-agent: *
+Disallow: /likes
+
+# *
+User-agent: *
+Disallow: /user/search
+
+# *
+User-agent: *
+Disallow: /user/notifications
+
+# *
+User-agent: *
+Disallow: /post/edit
+
+# *
+User-agent: *
+Disallow: /post/new
+
+# *
+User-agent: *
+Disallow: /home
+
+# *
+User-agent: *
+Disallow: /comments
+
+# *
+User-agent: *
 Allow: /
 
 # Host
-Host: https://westernal.net
+Host: https://www.westernal.net/
 
 # Sitemaps
-Sitemap: https://westernal.net/sitemap.xml
+Sitemap: https://www.westernal.net/sitemap.xml
+Sitemap: https://www.westernal.net/server-sitemap.xml
