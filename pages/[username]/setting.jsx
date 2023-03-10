@@ -7,7 +7,7 @@ import SettingForm from "../../components/authentication/form/SettingForm";
 import getRequest from "../../functions/requests/getRequest";
 import useAuth from "../../hooks/useAuth";
 
-const Setting = ({ user, image }) => {
+const Setting = ({ user }) => {
   const router = useRouter();
   const render = useAuth(router, true);
   const host = "https://alinavidi.ir/";
@@ -22,7 +22,7 @@ const Setting = ({ user, image }) => {
       {render ? (
         <main className="setting flex">
           <section className="auth-form">
-            <SettingForm user={user} image={host + image} />
+            <SettingForm user={user} image={host + user.image} />
           </section>
 
           <div className="setting-btns">
@@ -39,7 +39,7 @@ const Setting = ({ user, image }) => {
   );
 };
 
-export async function getServerSideProps(context) {
+export const getServerSideProps = async (context) => {
   const username = context.query.username;
   const result = await getRequest(`api/posts/user/${username}`);
 
@@ -52,9 +52,8 @@ export async function getServerSideProps(context) {
   return {
     props: {
       user: result.data.creator,
-      image: result.data.creator.image,
     },
   };
-}
+};
 
 export default Setting;

@@ -73,7 +73,7 @@ const Profile = ({ posts, user }) => {
   );
 };
 
-export async function getServerSideProps(context) {
+export const getServerSideProps = async (context) => {
   const username = context.query.username;
   const result = await getRequest(`api/posts/user/${username}`);
 
@@ -89,6 +89,6 @@ export async function getServerSideProps(context) {
       user: result.data.creator,
     },
   };
-}
+};
 
 export default Profile;
