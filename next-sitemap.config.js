@@ -23,5 +23,6 @@ module.exports = {
     "/post/new",
     "/home",
     "/comments",
+    "/server-sitemap.xml",
   ],
 };
