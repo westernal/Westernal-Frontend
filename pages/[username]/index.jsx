@@ -1,46 +1,20 @@
 import ContentLoader from "../../components/layout/loader/ContentLoader";
-import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Footer from "../../components/layout/Footer";
 import Post from "../../components/posts/Post";
 import UserInfo from "../../components/user/UserInfo";
-import { toast } from "react-toastify";
 import BackToTopButton from "../../components/layout/buttons/BackToTopButton";
 import decodeJWT from "../../functions/decodeJWT";
 import getRequest from "../../functions/requests/getRequest";
 
-const Profile = () => {
-  const router = useRouter();
+const Profile = ({ posts, user }) => {
   const [isUserSelf, SetIsUserSelf] = useState(false);
-  const [posts, SetPosts] = useState();
-  const [user, SetUser] = useState({
-    username: "",
-    image: "userIcon",
-    followers: [],
-    followings: [],
-    verified: false,
-  });
   const [isLoggedIn, SetIsLoggedIn] = useState(false);
-
-  async function getUserPosts() {
-    const result = await getRequest(`api/posts/user/${router.query.username}`);
-
-    if (result.status == 200) {
-      SetPosts(result.data.posts);
-      SetUser(result.data.creator);
-    } else if (result.status == 404) {
-      toast.error("User doesn't exist");
-      router.push("/404");
-    }
-  }
+  const [userPosts, SetUserPosts] = useState(posts);
 
   useEffect(() => {
-    if (router.query.username) {
-      getUserPosts();
-    }
-
     function checkUser(username) {
-      if (username === router.query.username) {
+      if (username === user.username) {
         SetIsUserSelf(true);
       }
     }
@@ -56,14 +30,22 @@ const Profile = () => {
       SetIsLoggedIn(true);
       getToken();
     }
-  }, [router.query, router]);
+  }, [user]);
+
+  const onDeletePost = (id) => {
+    const newPosts = userPosts.filter((post) => {
+      return post._id != id;
+    });
+
+    SetUserPosts(newPosts);
+  };
 
   return (
     <>
       <main className="profile">
         <UserInfo isUserSelf={isUserSelf} user={user} isLoggedIn={isLoggedIn} />
         <section className="flex post-list">
-          {!posts
+          {!userPosts
             ? [1, 2, 3].map((index) => {
                 return (
                   <div className="post" key={index}>
@@ -73,11 +55,11 @@ const Profile = () => {
               })
             : null}
 
-          {posts?.map((post) => {
+          {userPosts?.map((post) => {
             return (
               <Post
                 post={post}
-                onDelete={getUserPosts}
+                onDelete={onDeletePost}
                 key={post._id}
                 isLoggedIn={isLoggedIn}
               />
@@ -90,5 +72,23 @@ const Profile = () => {
     </>
   );
 };
+
+export async function getServerSideProps(context) {
+  const username = context.query.username;
+  const result = await getRequest(`api/posts/user/${username}`);
+
+  if (result?.status == 404) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      posts: result.data.posts,
+      user: result.data.creator,
+    },
+  };
+}
 
 export default Profile;

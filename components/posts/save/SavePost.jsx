@@ -67,7 +67,7 @@ const SavePost = ({ id, hide, onUnsave }) => {
     if (result.status == 200) {
       SetIsSaved(false);
       if (onUnsave) {
-        onUnsave();
+        onUnsave(id);
       }
       hide();
       toast.success("Post unsaved.");

@@ -1,11 +1,10 @@
 import { toast } from "react-toastify";
 import API from "./API";
 
-export default async function getRequest(
-  path,
-  auth = false,
-  authToken = localStorage.getItem("token")
-) {
+export default async function getRequest(path, auth = false, authToken) {
+  if (auth && !authToken) {
+    authToken = localStorage.getItem("token");
+  }
   const options = {
     method: "GET",
     headers: auth

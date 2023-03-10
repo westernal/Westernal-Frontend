@@ -26,6 +26,14 @@ const Saved = () => {
     }
   };
 
+  const onDeletePost = (id) => {
+    const newPosts = posts.filter((post) => {
+      return post._id != id;
+    });
+
+    SetPosts(newPosts);
+  };
+
   useEffect(() => {
     if (render) {
       getSavedPosts();
@@ -54,9 +62,9 @@ const Saved = () => {
             return (
               <Post
                 post={post}
-                onDelete={getSavedPosts}
+                onDelete={onDeletePost}
                 key={post._id}
-                onUnsave={getSavedPosts}
+                onUnsave={onDeletePost}
               />
             );
           })}

@@ -11,7 +11,7 @@ import formatDate from "../../functions/formatDate";
 import decodeJWT from "../../functions/decodeJWT";
 
 const Post = ({ post, onDelete, isLoggedIn = true, onUnsave }) => {
-  const [isSpotify, SetIsSpotify] = useState(false);
+  const [isSpotify, SetIsSpotify] = useState(true);
   const [error, SetError] = useState(false);
   const [canDelete, SetCanDelete] = useState(false);
 
@@ -19,7 +19,7 @@ const Post = ({ post, onDelete, isLoggedIn = true, onUnsave }) => {
     if (post.songUrl) {
       if (post.songUrl.toLowerCase().includes("spotify")) {
         SetIsSpotify(true);
-      }
+      } else SetIsSpotify(false);
     }
 
     if (

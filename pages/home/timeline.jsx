@@ -29,6 +29,15 @@ export default function Index() {
       getPosts(userId);
     }
   }, [render]);
+
+  const onDeletePost = (id) => {
+    const newPosts = posts.filter((post) => {
+      return post._id != id;
+    });
+
+    SetPosts(newPosts);
+  };
+
   return (
     <>
       <Header showLogo={true} />
@@ -48,7 +57,7 @@ export default function Index() {
             : null}
 
           {posts?.map((post) => {
-            return <Post post={post} key={post._id} onDelete={getPosts} />;
+            return <Post post={post} key={post._id} onDelete={onDeletePost} />;
           })}
         </section>
         <BackToTopButton />
