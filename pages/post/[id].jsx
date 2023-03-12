@@ -7,28 +7,15 @@ import Post from "../../components/posts/Post";
 import BackHeader from "../../components/layout/header/BackHeader";
 import getRequest from "../../functions/requests/getRequest";
 
-const PostPage = () => {
+const PostPage = ({ post }) => {
   const router = useRouter();
-  const [post, SetPost] = useState();
   const [isLoggedIn, SetIsLoggedIn] = useState(false);
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
       SetIsLoggedIn(true);
     }
-
-    const getPost = async () => {
-      const result = await getRequest(`api/posts/${router.query.id}`);
-
-      if (result?.status == 200) {
-        SetPost(result.data.post);
-      } else router.push("/404");
-    };
-
-    if (router.query.id) {
-      getPost();
-    }
-  }, [router.query]);
+  }, []);
 
   return (
     <>
@@ -56,6 +43,23 @@ const PostPage = () => {
       {isLoggedIn ? <Footer /> : null}
     </>
   );
+};
+
+export const getServerSideProps = async (context) => {
+  const userID = context.query.id;
+  const result = await getRequest(`api/posts/${userID}`);
+
+  if (result?.status != 200) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      post: result.data.post,
+    },
+  };
 };
 
 export default PostPage;
