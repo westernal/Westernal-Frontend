@@ -29,6 +29,7 @@ Download the app through share button --> add to HomeScreen.
 
 <span> <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/bky7y3ulqp4vvo0kvmxf.png" width=230px height=400px/>
 </span>
+<span><img src="https://user-images.githubusercontent.com/79543272/224791652-4cab6aa7-fc4f-49b2-be0a-d833e34bf707.png" width=180px height=388.8px/> </span>
 
 ## Dark Mode / Light Mode
 It also supports dark mode!
