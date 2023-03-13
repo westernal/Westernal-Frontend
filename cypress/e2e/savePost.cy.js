@@ -10,22 +10,22 @@ describe("save a post.", () => {
 
     //go to profile
     cy.findByRole("img", { name: /profile/i }).click({ force: true });
-    cy.wait(2000);
+    cy.wait(5000);
 
     //save the post
     cy.get("#more").click();
     cy.get("#save-post").click();
-    cy.wait(2000);
+    cy.wait(5000);
 
     //check if post saved
     cy.get("#saved-posts").click();
-    cy.wait(2000);
+    cy.wait(5000);
     cy.findByText("new post").should("be.visible");
 
     //unsave the post
     cy.get("#more").click();
     cy.get("#save-post").click();
-    cy.wait(2000);
+    cy.wait(5000);
 
     //check if comment deleted
     cy.findByText("new post").should("not.exist");
