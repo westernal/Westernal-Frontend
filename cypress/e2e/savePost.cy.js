@@ -15,17 +15,17 @@ describe("save a post.", () => {
     //save the post
     cy.get("#more").click();
     cy.get("#save-post").click();
-    cy.wait(1000);
+    cy.wait(2000);
 
     //check if post saved
     cy.get("#saved-posts").click();
-    cy.wait(1000);
+    cy.wait(2000);
     cy.findByText("new post").should("be.visible");
 
     //unsave the post
     cy.get("#more").click();
     cy.get("#save-post").click();
-    cy.wait(1000);
+    cy.wait(2000);
 
     //check if comment deleted
     cy.findByText("new post").should("not.exist");
