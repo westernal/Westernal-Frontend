@@ -3,6 +3,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Head from "next/head";
 import { useEffect } from "react";
+import ErrorBoundary from "../components/error/ErrorBoundary";
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
@@ -126,7 +127,9 @@ function MyApp({ Component, pageProps }) {
         pauseOnHover
         theme="colored"
       />
-      <Component {...pageProps} />
+      <ErrorBoundary>
+        <Component {...pageProps} />
+      </ErrorBoundary>
     </>
   );
 }
