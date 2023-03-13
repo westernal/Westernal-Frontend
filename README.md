@@ -9,7 +9,7 @@
 [https://www.westernal.net/](https://www.westernal.net/)
 
 ## What is Westernal?
-Westernal is a social media that you can share your songs with others, it is also a PWA.
+Westernal is a social media based on songs, you can share posts that includes part of a song, the whole song or music videos with your followers and let the music talk for you!
 
 
 <span><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/dq9mn10t7oaj4z5uepwa.png" width=180px height=388.8px/> </span>
