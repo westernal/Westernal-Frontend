@@ -24,7 +24,7 @@ const Post = ({ post, onDelete, isLoggedIn = true, onUnsave }) => {
 
     if (
       isLoggedIn &&
-      post.author.username === decodeJWT(localStorage.getItem("token")).username
+      post.author.username == decodeJWT(localStorage.getItem("token")).username
     ) {
       SetCanDelete(true);
     }
