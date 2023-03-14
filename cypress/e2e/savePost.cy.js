@@ -1,6 +1,5 @@
 describe("Save a post.", () => {
-  it("User can save a post and unsave it", () => {
-    let message = 1000 * Math.random();
+  it("User can save a post.", () => {
     //login
     cy.visit("/");
     cy.findByPlaceholderText(/username/i).type("cypress");
@@ -15,11 +14,5 @@ describe("Save a post.", () => {
     cy.findByText("Save post").click();
     cy.intercept("/api/posts/save/*").as("savePost");
     cy.wait("@savePost", { timeout: 60000 });
-
-    //unsave the post
-    cy.get("#more").click();
-    cy.findByText("Unsave post").click();
-    cy.intercept("/api/posts/unsave/*").as("unsavePost");
-    cy.wait("@unsavePost", { timeout: 60000 });
   });
 });

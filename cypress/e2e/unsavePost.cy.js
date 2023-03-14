@@ -1,5 +1,5 @@
-describe("Delete a post.", () => {
-  it("User can delete post.", () => {
+describe("Unsave a post.", () => {
+  it("User can unsave a post.", () => {
     //login
     cy.visit("/");
     cy.findByPlaceholderText(/username/i).type("cypress");
@@ -9,14 +9,10 @@ describe("Delete a post.", () => {
     cy.wait("@login", { timeout: 60000 });
     cy.url().should("include", "/home/timeline");
 
-    //delete the post
+    //unsave the post
     cy.get("#more").click();
-    cy.get("#delete-link").click();
-    cy.get("#confirm-delete").click();
-    cy.intercept("DELETE", "/api/posts/*").as("deletePost");
-    cy.wait("@deletePost", { timeout: 60000 });
-
-    //check if post deleted
-    cy.findByText("new post2").should("not.exist");
+    cy.findByText("Unsave post").click();
+    cy.intercept("/api/posts/unsave/*").as("unsavePost");
+    cy.wait("@unsavePost", { timeout: 60000 });
   });
 });
