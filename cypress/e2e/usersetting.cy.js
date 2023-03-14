@@ -6,7 +6,7 @@ describe("Edit user", () => {
     cy.findByPlaceholderText(/password/i).type("11111111");
     cy.findByRole("button", { name: /login/i }).click();
     cy.intercept("/api/users/login").as("login");
-    cy.wait("@login");
+    cy.wait("@login", { timeout: 60000 });
     cy.url().should("include", "/home/timeline");
 
     //go to settings

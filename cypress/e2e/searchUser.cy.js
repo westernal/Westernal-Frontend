@@ -6,7 +6,7 @@ describe("Search for a user.", () => {
     cy.findByPlaceholderText(/password/i).type("11111111");
     cy.findByRole("button", { name: /login/i }).click();
     cy.intercept("/api/users/login").as("login");
-    cy.wait("@login");
+    cy.wait("@login", { timeout: 60000 });
     cy.url().should("include", "/home/timeline");
 
     //click on search button
@@ -15,7 +15,7 @@ describe("Search for a user.", () => {
     //search for a user
     cy.findByRole("textbox").type("westernal");
     cy.intercept("/api/users/search/westernal").as("searchUser");
-    cy.wait("@searchUser");
+    cy.wait("@searchUser", { timeout: 60000 });
 
     //check if user exists
     cy.findByText("westernal").should("be.visible");

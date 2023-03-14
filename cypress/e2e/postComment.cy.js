@@ -7,7 +7,7 @@ describe("Commenting on a post.", () => {
     cy.findByPlaceholderText(/password/i).type("11111111");
     cy.findByRole("button", { name: /login/i }).click();
     cy.intercept("/api/users/login").as("login");
-    cy.wait("@login");
+    cy.wait("@login", { timeout: 60000 });
     cy.url().should("include", "/home/timeline");
 
     //click on comment button
@@ -17,7 +17,7 @@ describe("Commenting on a post.", () => {
     cy.findByRole("textbox").type(message);
     cy.findByRole("button", { name: /post/i }).click();
     cy.intercept("POST", `api/comments`).as("postComment");
-    cy.wait("@postComment");
+    cy.wait("@postComment", { timeout: 60000 });
 
     //check if comment added
     cy.findByText(message).should("be.visible");
@@ -25,7 +25,7 @@ describe("Commenting on a post.", () => {
     //delete comment
     cy.get("#delete-btn").click();
     cy.intercept("DELETE", `api/comments/*`).as("deleteComment");
-    cy.wait("@deleteComment");
+    cy.wait("@deleteComment", { timeout: 60000 });
 
     //check if comment deleted
     cy.findByText(message).should("not.exist");

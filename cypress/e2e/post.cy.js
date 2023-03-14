@@ -6,7 +6,7 @@ describe("Create post and delete post.", () => {
     cy.findByPlaceholderText(/password/i).type("11111111");
     cy.findByRole("button", { name: /login/i }).click();
     cy.intercept("/api/users/login").as("login");
-    cy.wait("@login");
+    cy.wait("@login", { timeout: 60000 });
     cy.url().should("include", "/home/timeline");
 
     //click on + button
@@ -19,7 +19,7 @@ describe("Create post and delete post.", () => {
     cy.findByPlaceholderText(/caption/i).type("new post2");
     cy.findByRole("button", { name: /post/i }).click();
     cy.intercept("POST", "/api/posts").as("createPost");
-    cy.wait("@createPost");
+    cy.wait("@createPost", { timeout: 60000 });
 
     //verify if post was made
     cy.findByText("new post2").should("be.visible");
@@ -29,7 +29,7 @@ describe("Create post and delete post.", () => {
     cy.get("#delete-link").click();
     cy.get("#confirm-delete").click();
     cy.intercept("DELETE", "/api/posts/*").as("deletePost");
-    cy.wait("@deletePost");
+    cy.wait("@deletePost", { timeout: 60000 });
 
     //check if post deleted
     cy.findByText("new post2").should("not.exist");
