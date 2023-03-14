@@ -9,7 +9,7 @@ describe("Search for a user.", () => {
     cy.wait("@login");
 
     //click on search button
-    cy.findByRole("link", { name: "search" }).click();
+    cy.visit("/user/search");
 
     //search for a user
     cy.findByRole("textbox").type("westernal");

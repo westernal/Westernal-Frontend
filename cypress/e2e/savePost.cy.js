@@ -10,7 +10,7 @@ describe("Save a post.", () => {
     cy.wait("@login");
 
     //go to profile
-    cy.findByRole("img", { name: /profile/i }).click();
+    cy.visit("/cypress");
 
     //save the post
     cy.get("#more").click();
@@ -19,9 +19,11 @@ describe("Save a post.", () => {
     cy.wait("@savePost");
 
     //go to saved posts
-    cy.get("#saved-posts").click();
+    cy.visit("/cypress/saved");
     cy.intercept("api/users/saved-posts/*").as("getSavedPosts");
     cy.wait("@getSavedPosts");
+    cy.intercept("/api/users/*").as("checkSavedPost");
+    cy.wait("@checkSavedPost");
 
     //check if post saved
     cy.findByText("new post").should("be.visible");

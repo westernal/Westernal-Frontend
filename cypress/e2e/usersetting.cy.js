@@ -8,11 +8,8 @@ describe("Edit user", () => {
     cy.intercept("/api/users/login").as("login");
     cy.wait("@login");
 
-    //go to profile
-    cy.findByRole("img", { name: /profile/i }).click();
-
-    //click setting button
-    cy.findByRole("img", { name: /setting/i }).click();
+    //go to settings
+    cy.visit("/cypress/setting");
 
     //change the profile
     cy.get("#image").selectFile(

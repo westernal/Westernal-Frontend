@@ -10,7 +10,7 @@ describe("Commenting on a post.", () => {
     cy.wait("@login");
 
     //go to profile
-    cy.findByRole("img", { name: /profile/i }).click();
+    cy.visit("/cypress");
 
     //click on comment button
     cy.get("#comments").click();

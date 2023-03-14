@@ -9,7 +9,7 @@ describe("Create post and delete post.", () => {
     cy.wait("@login");
 
     //click on + button
-    cy.get("#add-btn").click();
+    cy.visit("/post/new");
 
     //create post
     cy.get("#song").type(
@@ -21,7 +21,7 @@ describe("Create post and delete post.", () => {
     cy.wait("@createPost");
 
     //go to profile
-    cy.findByRole("img", { name: /profile/i }).click();
+    cy.visit("/cypress");
 
     //verify if post was made
     cy.findByText("new post").should("be.visible");
