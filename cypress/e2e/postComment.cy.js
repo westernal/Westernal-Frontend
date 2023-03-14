@@ -1,5 +1,5 @@
 describe("Commenting on a post.", () => {
-  it("Uer can comment on posts and delete it", () => {
+  it("User can comment on posts and delete it", () => {
     let message = 1000 * Math.random();
     //login
     cy.visit("/");

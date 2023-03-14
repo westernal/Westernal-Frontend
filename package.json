@@ -9,7 +9,7 @@
     "postbuild": "next-sitemap",
     "lint": "next lint",
     "test": "jest --watch",
-    "cypress": "cypress open"
+    "cypress": "cypress run"
   },
   "dependencies": {
     "jwt-decode": "^3.1.2",
