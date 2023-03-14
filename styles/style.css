@@ -778,11 +778,11 @@ canvas {
   margin-bottom: 10px;
 }
 
-#reply-a {
+#reply-cm {
   height: 23px;
 }
 
-#reply-a svg {
+#reply-cm svg {
   width: 23px;
   height: 23px;
   stroke-width: 2px;
