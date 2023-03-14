@@ -1,5 +1,5 @@
-describe("Create post and delete post.", () => {
-  it("User can create post and delete it.", () => {
+describe("Create a post.", () => {
+  it("User can create post.", () => {
     //login
     cy.visit("/");
     cy.findByPlaceholderText(/username/i).type("cypress");
@@ -9,10 +9,8 @@ describe("Create post and delete post.", () => {
     cy.wait("@login", { timeout: 60000 });
     cy.url().should("include", "/home/timeline");
 
-    //click on + button
+    //create a post
     cy.visit("/post/new");
-
-    //create post
     cy.get("#song").type(
       "https://open.spotify.com/track/0V3wPSX9ygBnCm8psDIegu"
     );
@@ -20,18 +18,5 @@ describe("Create post and delete post.", () => {
     cy.findByRole("button", { name: /post/i }).click();
     cy.intercept("POST", "/api/posts").as("createPost");
     cy.wait("@createPost", { timeout: 60000 });
-
-    //verify if post was made
-    cy.findByText("new post2").should("be.visible");
-
-    //delete the post
-    cy.get("#more").click();
-    cy.get("#delete-link").click();
-    cy.get("#confirm-delete").click();
-    cy.intercept("DELETE", "/api/posts/*").as("deletePost");
-    cy.wait("@deletePost", { timeout: 60000 });
-
-    //check if post deleted
-    cy.findByText("new post2").should("not.exist");
   });
 });

@@ -1,6 +1,5 @@
 import { toast } from "react-toastify";
 import API from "../../../functions/requests/API";
-import decodeJWT from "../../../functions/decodeJWT";
 
 const DeleteModal = ({ id, hide, onDelete }) => {
   const closeModal = (e) => {
