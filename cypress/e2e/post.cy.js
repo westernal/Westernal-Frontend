@@ -7,6 +7,7 @@ describe("Create post and delete post.", () => {
     cy.findByRole("button", { name: /login/i }).click();
     cy.intercept("/api/users/login").as("login");
     cy.wait("@login");
+    cy.url().should("include", "/home/timeline");
 
     //click on + button
     cy.visit("/post/new");
@@ -19,9 +20,6 @@ describe("Create post and delete post.", () => {
     cy.findByRole("button", { name: /post/i }).click();
     cy.intercept("POST", "/api/posts").as("createPost");
     cy.wait("@createPost");
-
-    //go to profile
-    cy.visit("/cypress");
 
     //verify if post was made
     cy.findByText("new post2").should("be.visible");

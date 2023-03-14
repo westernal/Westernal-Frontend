@@ -8,9 +8,7 @@ describe("Save a post.", () => {
     cy.findByRole("button", { name: /login/i }).click();
     cy.intercept("/api/users/login").as("login");
     cy.wait("@login");
-
-    //go to profile
-    cy.visit("/cypress");
+    cy.url().should("include", "/home/timeline");
 
     //save the post
     cy.get("#more").click();

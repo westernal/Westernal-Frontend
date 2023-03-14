@@ -8,9 +8,7 @@ describe("reply a comment.", () => {
     cy.findByRole("button", { name: /login/i }).click();
     cy.intercept("/api/users/login").as("login");
     cy.wait("@login");
-
-    //go to profile
-    cy.visit("/cypress");
+    cy.url().should("include", "/home/timeline");
 
     //click on comment button
     cy.get("#comments").click();

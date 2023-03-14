@@ -1,5 +1,5 @@
 describe("Edit user", () => {
-  it("User can edit his/her profile", async () => {
+  it("User can edit his/her profile", () => {
     //login
     cy.visit("/");
     cy.findByPlaceholderText(/username/i).type("cypress");
@@ -7,6 +7,7 @@ describe("Edit user", () => {
     cy.findByRole("button", { name: /login/i }).click();
     cy.intercept("/api/users/login").as("login");
     cy.wait("@login");
+    cy.url().should("include", "/home/timeline");
 
     //go to settings
     cy.visit("/cypress/setting");

@@ -1,5 +1,5 @@
 describe("Search for a user.", () => {
-  it("User can search other users", async () => {
+  it("User can search other users", () => {
     //login
     cy.visit("/");
     cy.findByPlaceholderText(/username/i).type("cypress");
@@ -7,6 +7,7 @@ describe("Search for a user.", () => {
     cy.findByRole("button", { name: /login/i }).click();
     cy.intercept("/api/users/login").as("login");
     cy.wait("@login");
+    cy.url().should("include", "/home/timeline");
 
     //click on search button
     cy.visit("/user/search");

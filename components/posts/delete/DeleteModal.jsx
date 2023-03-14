@@ -19,8 +19,6 @@ const DeleteModal = ({ id, hide, onDelete }) => {
     const option = {
       method: "DELETE",
       headers: { Authorization: "Bearer " + localStorage.getItem("token") },
-      mode: "cors",
-      credentials: "include",
     };
 
     var result = await API(option, `api/posts/${id}`);

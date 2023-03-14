@@ -8,9 +8,7 @@ describe("Commenting on a post.", () => {
     cy.findByRole("button", { name: /login/i }).click();
     cy.intercept("/api/users/login").as("login");
     cy.wait("@login");
-
-    //go to profile
-    cy.visit("/cypress");
+    cy.url().should("include", "/home/timeline");
 
     //click on comment button
     cy.get("#comments").click();
@@ -18,7 +16,7 @@ describe("Commenting on a post.", () => {
     //post a comment
     cy.findByRole("textbox").type(message);
     cy.findByRole("button", { name: /post/i }).click();
-    cy.intercept(`api/comments`).as("postComment");
+    cy.intercept("POST", `api/comments`).as("postComment");
     cy.wait("@postComment");
 
     //check if comment added
