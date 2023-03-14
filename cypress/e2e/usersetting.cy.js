@@ -1,5 +1,5 @@
 describe("Edit user", () => {
-  it("user can edit his profile", async () => {
+  it("User can edit his/her profile", async () => {
     //login
     cy.visit("/");
     cy.findByPlaceholderText(/username/i).type("cypress");

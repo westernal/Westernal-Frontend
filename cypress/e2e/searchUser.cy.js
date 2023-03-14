@@ -1,5 +1,5 @@
-describe("search for a user.", () => {
-  it("user can search other users", async () => {
+describe("Search for a user.", () => {
+  it("User can search other users", async () => {
     //login
     cy.visit("/");
     cy.findByPlaceholderText(/username/i).type("cypress");

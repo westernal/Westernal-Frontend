@@ -1,5 +1,5 @@
-describe("create post and delete.", () => {
-  it("user can create post and delete it.", async () => {
+describe("Create post and delete post.", () => {
+  it("User can create post and delete it.", async () => {
     //login
     cy.visit("/");
     cy.findByPlaceholderText(/username/i).type("cypress");

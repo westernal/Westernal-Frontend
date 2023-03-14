@@ -1,5 +1,5 @@
-describe("save a post.", () => {
-  it("user can save a post and unsave it", () => {
+describe("Save a post.", () => {
+  it("User can save a post and unsave it", () => {
     let message = 1000 * Math.random();
     //login
     cy.visit("/");
