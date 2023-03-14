@@ -6,20 +6,20 @@ describe("reply a comment.", () => {
     cy.findByPlaceholderText(/username/i).type("cypress");
     cy.findByPlaceholderText(/password/i).type("11111111");
     cy.findByRole("button", { name: /login/i }).click();
-    cy.wait(2000);
+    cy.intercept("/api/users/login").as("login");
+    cy.wait("@login");
 
     //go to profile
     cy.findByRole("img", { name: /profile/i }).click({ force: true });
-    cy.wait(2000);
 
     //click on comment button
     cy.get("#comments").click();
-    cy.wait(500);
 
     //post a comment
     cy.findByRole("textbox").type(message);
     cy.findByRole("button", { name: /post/i }).click();
-    cy.wait(1000);
+    cy.intercept(`api/comments`).as("postComment");
+    cy.wait("@postComment");
 
     //check if comment added
     cy.findByText(message).should("be.visible");
@@ -28,14 +28,16 @@ describe("reply a comment.", () => {
     cy.get("#reply-cm").click();
     cy.findByRole("textbox").type("test");
     cy.findByRole("button", { name: /post/i }).click();
-    cy.wait(1000);
+    cy.intercept(`api/comments/replies`).as("postReply");
+    cy.wait("@postReply");
 
     //check if reply added
     cy.findByText("test").should("be.visible");
 
     //delete comment
     cy.get("#delete-btn").click();
-    cy.wait(1000);
+    cy.intercept("DELETE", `api/comments/*`).as("deleteComment");
+    cy.wait("@deleteComment");
 
     //check if comment deleted
     cy.findByText(message).should("not.exist");
