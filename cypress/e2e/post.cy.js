@@ -1,5 +1,5 @@
 describe("Create post and delete post.", () => {
-  it("User can create post and delete it.", async () => {
+  it("User can create post and delete it.", () => {
     //login
     cy.visit("/");
     cy.findByPlaceholderText(/username/i).type("cypress");
@@ -15,7 +15,7 @@ describe("Create post and delete post.", () => {
     cy.get("#song").type(
       "https://open.spotify.com/track/0V3wPSX9ygBnCm8psDIegu"
     );
-    cy.findByPlaceholderText(/caption/i).type("new post");
+    cy.findByPlaceholderText(/caption/i).type("new post2");
     cy.findByRole("button", { name: /post/i }).click();
     cy.intercept("POST", "/api/posts").as("createPost");
     cy.wait("@createPost");
@@ -24,7 +24,7 @@ describe("Create post and delete post.", () => {
     cy.visit("/cypress");
 
     //verify if post was made
-    cy.findByText("new post").should("be.visible");
+    cy.findByText("new post2").should("be.visible");
 
     //delete the post
     cy.get("#more").click();
@@ -34,6 +34,6 @@ describe("Create post and delete post.", () => {
     cy.wait("@deletePost");
 
     //check if post deleted
-    cy.findByText("new post").should("not.exist");
+    cy.findByText("new post2").should("not.exist");
   });
 });
