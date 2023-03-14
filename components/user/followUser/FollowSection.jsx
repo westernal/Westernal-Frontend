@@ -65,6 +65,7 @@ const Follow = ({ isFollowing, SetIsFollowing }) => {
       <button
         className={`${isFollowing ? "unfollow-btn" : "follow-btn"}`}
         onClick={!isFollowing ? followUser : unfollowUser}
+        id={`${isFollowing ? "unfollow-btn" : "follow-btn"}`}
       >
         {!isFollowing ? <p>Follow</p> : <p>Unfollow</p>}
       </button>
