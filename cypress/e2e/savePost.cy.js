@@ -22,8 +22,6 @@ describe("Save a post.", () => {
     cy.visit("/cypress/saved");
     cy.intercept("api/users/saved-posts/*").as("getSavedPosts");
     cy.wait("@getSavedPosts");
-    cy.intercept("/api/users/*").as("checkSavedPost");
-    cy.wait("@checkSavedPost");
 
     //check if post saved
     cy.findByText("new post").should("be.visible");
