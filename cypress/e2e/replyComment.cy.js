@@ -10,7 +10,7 @@ describe("reply a comment.", () => {
     cy.wait("@login");
 
     //go to profile
-    cy.findByRole("img", { name: /profile/i }).click({ force: true });
+    cy.findByRole("img", { name: /profile/i }).click();
 
     //click on comment button
     cy.get("#comments").click();

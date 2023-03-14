@@ -5,11 +5,11 @@ describe("Edit user", () => {
     cy.findByPlaceholderText(/username/i).type("cypress");
     cy.findByPlaceholderText(/password/i).type("11111111");
     cy.findByRole("button", { name: /login/i }).click();
-    cy.wait(5000);
+    cy.intercept("/api/users/login").as("login");
+    cy.wait("@login");
 
     //go to profile
-    cy.findByRole("img", { name: /profile/i }).click({ force: true });
-    cy.wait(1000);
+    cy.findByRole("img", { name: /profile/i }).click();
 
     //click setting button
     cy.findByRole("img", { name: /setting/i }).click();
@@ -18,7 +18,7 @@ describe("Edit user", () => {
     cy.get("#image").selectFile(
       "C:/Users/ASUS/Desktop/Folders/Pictures/WhatsApp Image 2022-05-24 at 9.30.20 PM.jpeg"
     );
-    // cy.get("#changeUsername").clear().type("cypress");
+    cy.get("#username").clear().type("cypress");
     cy.get("#bio").clear().type("cypress test");
     cy.get("#link").clear().type("https://www.westernal.net/cypress");
     cy.findByRole("button", { name: /save/i }).click();
