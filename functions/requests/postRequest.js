@@ -17,8 +17,6 @@ export default async function postRequest(
       : { "Content-Type": "application/json" },
     body: JSON.stringify(body),
     redirect: "follow",
-    mode: "cors",
-    credentials: "include",
   };
 
   try {

@@ -13,8 +13,6 @@ export default async function getRequest(path, auth = false, authToken) {
         }
       : {},
     redirect: "follow",
-    mode: "cors",
-    credentials: "include",
   };
 
   try {
