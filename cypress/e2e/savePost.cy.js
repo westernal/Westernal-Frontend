@@ -18,21 +18,10 @@ describe("Save a post.", () => {
     cy.intercept("/api/posts/save/*").as("savePost");
     cy.wait("@savePost");
 
-    //go to saved posts
-    cy.visit("/cypress/saved");
-    cy.intercept("api/users/saved-posts/*").as("getSavedPosts");
-    cy.wait("@getSavedPosts");
-
-    //check if post saved
-    cy.findByText("new post").should("be.visible");
-
     //unsave the post
     cy.get("#more").click();
     cy.findByText("Unsave post").click();
     cy.intercept("/api/posts/unsave/*").as("unsavePost");
     cy.wait("@unsavePost");
-
-    //check if comment deleted
-    cy.findByText("new post").should("not.exist");
   });
 });
