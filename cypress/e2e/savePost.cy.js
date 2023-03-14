@@ -14,7 +14,7 @@ describe("Save a post.", () => {
 
     //save the post
     cy.get("#more").click();
-    cy.get("#save-post").click();
+    cy.findByText("Save post").click();
     cy.intercept("/api/posts/save/*").as("savePost");
     cy.wait("@savePost");
 
@@ -28,7 +28,7 @@ describe("Save a post.", () => {
 
     //unsave the post
     cy.get("#more").click();
-    cy.get("#save-post").click();
+    cy.findByText("Unsave post").click();
     cy.intercept("/api/posts/unsave/*").as("unsavePost");
     cy.wait("@unsavePost");
 
