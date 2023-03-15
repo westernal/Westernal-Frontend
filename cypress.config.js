@@ -9,6 +9,7 @@ module.exports = defineConfig({
     video: false,
     screenshotOnRunFailure: false,
     specPattern: [
+      "cypress/e2e/loadPages.cy.js",
       "cypress/e2e/login.cy.js",
       "cypress/e2e/searchUser.cy.js",
       "cypress/e2e/usersetting.cy.js",

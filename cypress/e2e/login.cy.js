@@ -1,5 +1,5 @@
 describe("Login user.", () => {
-  it("User can login.", async () => {
+  it("User can login.", () => {
     //login
     cy.visit("/");
     cy.findByPlaceholderText(/username/i).type("cypress");
