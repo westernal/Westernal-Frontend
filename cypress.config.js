@@ -19,6 +19,7 @@ module.exports = defineConfig({
       "cypress/e2e/createPost.cy.js",
       "cypress/e2e/postComment.cy.js",
       "cypress/e2e/replyComment.cy.js",
+      "cypress/e2e/editPost.cy.js",
       "cypress/e2e/savePost.cy.js",
       "cypress/e2e/unsavePost.cy.js",
       "cypress/e2e/deletePost.cy.js",
