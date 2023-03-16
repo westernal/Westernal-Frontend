@@ -38,10 +38,10 @@ class ErrorBoundary extends React.Component {
               </p>
               <div className="flex">
                 <Link href="/">
-                  <button className="cancel-delete">Go to home page</button>
+                  <button id="cancel-delete">Go to home page</button>
                 </Link>
                 <a href="https://github.com/westernal/social-media-frontend/issues">
-                  <button className="confirm-delete">Report this error</button>
+                  <button id="confirm-delete">Report this error</button>
                 </a>
               </div>
             </div>
