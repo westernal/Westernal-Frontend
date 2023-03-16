@@ -13,6 +13,7 @@ module.exports = defineConfig({
       "cypress/e2e/login.cy.js",
       "cypress/e2e/searchUser.cy.js",
       "cypress/e2e/usersetting.cy.js",
+      "cypress/e2e/changePassword.cy.js",
       "cypress/e2e/followUser.cy.js",
       "cypress/e2e/unfollowUser.cy.js",
       "cypress/e2e/createPost.cy.js",
