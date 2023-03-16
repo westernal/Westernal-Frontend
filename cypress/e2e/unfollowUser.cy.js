@@ -1,5 +1,5 @@
-describe("Follow a user.", () => {
-  it("User can follow another user.", () => {
+describe("Unfollow a user.", () => {
+  it("User can unfollow another user.", () => {
     //login
     cy.visit("/");
     cy.findByPlaceholderText(/username/i).type("cypress");

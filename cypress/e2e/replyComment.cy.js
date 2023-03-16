@@ -1,5 +1,5 @@
 describe("reply a comment.", () => {
-  it("Uer can reply a comment.", () => {
+  it("User can reply a comment.", () => {
     let message = 1000 * Math.random();
     //login
     cy.visit("/");
