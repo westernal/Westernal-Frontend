@@ -24,7 +24,7 @@ A user can easily signup and connect with people via following them and paste a 
 
 <span><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/5xxesj4mvc8uqo0zplux.png" width=180px height=388.8px/> </span>
 
-## Download the app.
+## Download the app
 Download the app through share button --> add to HomeScreen.
 
 <span> <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/bky7y3ulqp4vvo0kvmxf.png" width=230px height=400px/>
