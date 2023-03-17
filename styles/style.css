@@ -140,7 +140,7 @@ header p,
 .search-bar input,
 #comment-text,
 #search-input {
-  border-radius: 10px;
+  border-radius: 5px;
   border: none;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   padding: 10px 20px;
@@ -225,7 +225,7 @@ ul {
   animation: pulse 1s infinite;
   width: 50px;
   height: 50px;
-  border-radius: 10px;
+  border-radius: 5px;
   margin-bottom: 20px;
 }
 
@@ -314,7 +314,7 @@ hr {
   width: 50vw;
   padding: 10px;
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   font-family: "Montserrat", sans-serif;
   margin-bottom: 20px;
@@ -343,7 +343,7 @@ hr {
   color: var(--light-primary-color);
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
   margin: 20px;
   transition: 0.5s;
 }
@@ -562,7 +562,7 @@ textarea {
   color: var(--main-color);
   background-color: var(--light-primary-color);
   transition: 0.5s;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 10px;
   font-family: "Montserrat", sans-serif;
   border: none;
@@ -1063,7 +1063,7 @@ h1 {
   overflow: hidden;
   top: 10px;
   right: 0;
-  border-radius: 10px;
+  border-radius: 5px;
   background-color: var(--light-secondary-color);
   width: 180px;
   max-height: 0;
@@ -1075,7 +1075,7 @@ h1 {
   padding: 10px 20px;
   transition: 0.3s;
   display: block;
-  border-radius: 10px;
+  border-radius: 5px;
   cursor: pointer;
 }
 
