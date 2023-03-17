@@ -1,5 +1,5 @@
 describe("Create a post.", () => {
-  it("User can create post.", () => {
+  it("User can create a post.", () => {
     //login
     cy.visit("/");
     cy.findByPlaceholderText(/username/i).type("cypress");
