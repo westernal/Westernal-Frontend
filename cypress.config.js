@@ -10,6 +10,7 @@ module.exports = defineConfig({
     screenshotOnRunFailure: false,
     specPattern: [
       "cypress/e2e/loadPages.cy.js",
+      "cypress/e2e/signup.cy.js",
       "cypress/e2e/login.cy.js",
       "cypress/e2e/logout.cy.js",
       "cypress/e2e/searchUser.cy.js",
