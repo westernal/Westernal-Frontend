@@ -15,7 +15,7 @@ describe("Change password.", () => {
     cy.visit("/cypress/setting");
 
     //click change password button
-    cy.findByRole("button", { name: /Change password/i }).click();
+    cy.findByText("Change password").click();
 
     //enter new password and confirm it
     cy.get("#password").type("11111111");
