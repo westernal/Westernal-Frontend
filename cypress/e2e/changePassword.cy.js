@@ -2,8 +2,8 @@ describe("Change password.", () => {
   it("User can change password.", () => {
     //login
     cy.visit("/");
-    cy.findByPlaceholderText(/username/i).type("cypress");
-    cy.findByPlaceholderText(/password/i).type("11111111");
+    cy.get("#username").type("cypress");
+    cy.get("#password").type("11111111");
     cy.findByRole("button", { name: /login/i }).click();
     cy.intercept("/api/users/login").as("login");
     cy.wait("@login", { timeout: 60000 });
@@ -15,7 +15,7 @@ describe("Change password.", () => {
     cy.visit("/cypress/setting");
 
     //click change password button
-    cy.findByText("Change password").click();
+    cy.findByRole("button", { name: /Change password/i }).click();
 
     //enter new password and confirm it
     cy.get("#password").type("11111111");

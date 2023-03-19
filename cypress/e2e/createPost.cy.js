@@ -2,8 +2,8 @@ describe("Create a post.", () => {
   it("User can create a post.", () => {
     //login
     cy.visit("/");
-    cy.findByPlaceholderText(/username/i).type("cypress");
-    cy.findByPlaceholderText(/password/i).type("11111111");
+    cy.get("#username").type("cypress");
+    cy.get("#password").type("11111111");
     cy.findByRole("button", { name: /login/i }).click();
     cy.intercept("/api/users/login").as("login");
     cy.wait("@login", { timeout: 60000 });
