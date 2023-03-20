@@ -8,15 +8,10 @@ import decodeJWT from "../../functions/decodeJWT";
 
 const UserInfo = ({ isUserSelf, user, isLoggedIn }) => {
   const [isFollowing, SetIsFollowing] = useState(false);
-  const [avatar, SetAvatar] = useState("/Images/user.svg");
   const host = "https://alinavidi.ir/";
   const [link, SetLink] = useState();
 
   useEffect(() => {
-    if (user.image.includes("userIcon")) {
-      SetAvatar("/Images/user.svg");
-    } else SetAvatar(host + user.image);
-
     if (isLoggedIn) {
       const userId = decodeJWT(localStorage.getItem("token")).userId;
 
@@ -57,7 +52,12 @@ const UserInfo = ({ isUserSelf, user, isLoggedIn }) => {
       <section className="profile-info">
         <div className="flex">
           <div className="profile-pic flex">
-            <Image src={avatar} alt="profile picture" width={95} height={95} />
+            <Image
+              src={host + user.image}
+              alt="profile picture"
+              width={95}
+              height={95}
+            />
           </div>
         </div>
         {user.bio ? (
