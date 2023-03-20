@@ -18,7 +18,6 @@ export default async function getRequest(path, auth = false, authToken) {
   try {
     var result = await API(options, path);
   } catch (error) {
-    toast.error("Server Error! Please try again.");
     return;
   }
 
