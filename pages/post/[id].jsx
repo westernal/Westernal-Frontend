@@ -21,7 +21,10 @@ const PostPage = ({ post }) => {
     <>
       <Head>
         <title>
-          Westernal - {post ? `Post from ${post.author.username}` : "Post"}
+          Westernal -{" "}
+          {post?.caption
+            ? `${post.caption}`
+            : `Post from ${post?.author?.username}`}
         </title>
       </Head>
 
