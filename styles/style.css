@@ -1523,7 +1523,8 @@ h1 {
     width: 90vw;
   }
 
-  .form-inputs .flex {
+  .form-inputs .flex,
+  .error-btns {
     flex-direction: column;
   }
 

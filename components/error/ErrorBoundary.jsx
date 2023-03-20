@@ -36,7 +36,7 @@ class ErrorBoundary extends React.Component {
                 Sorry it seems like there is an error in website, we will try to
                 fix this as soon as possible!
               </p>
-              <div className="flex">
+              <div className="flex error-btns">
                 <Link href="/">
                   <button id="cancel-delete">Go to home page</button>
                 </Link>
