@@ -21,11 +21,11 @@ const PostPage = ({ post }) => {
     <>
       <Head>
         <title>
-          Westernal -{" "}
-          {post?.caption
-            ? `${post.caption}`
-            : `Post from ${post?.author?.username}`}
+          Westernal - {post ? `Post from ${post.author.username}` : "Post"}
         </title>
+        {post?.caption ? (
+          <meta name="description" content={`${post.caption}`} />
+        ) : null}
       </Head>
 
       <BackHeader title={"Post"} />
