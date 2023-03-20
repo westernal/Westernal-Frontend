@@ -39,7 +39,7 @@ const Setting = ({ user }) => {
   );
 };
 
-export const getServerSideProps = async (context) => {
+Setting.getInitialProps = async (context) => {
   const username = context.query.username;
   const result = await getRequest(`api/posts/user/${username}`);
 
@@ -50,9 +50,7 @@ export const getServerSideProps = async (context) => {
   }
 
   return {
-    props: {
-      user: result.data.creator,
-    },
+    user: result.data.creator,
   };
 };
 

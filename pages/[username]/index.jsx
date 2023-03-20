@@ -14,7 +14,7 @@ const Profile = ({ posts, user }) => {
 
   useEffect(() => {
     function checkUser(username) {
-      if (username === user.username) {
+      if (username === user?.username) {
         SetIsUserSelf(true);
       }
     }
@@ -73,7 +73,7 @@ const Profile = ({ posts, user }) => {
   );
 };
 
-export const getServerSideProps = async (context) => {
+Profile.getInitialProps = async (context) => {
   const username = context.query.username;
   const result = await getRequest(`api/posts/user/${username}`);
 
@@ -84,10 +84,8 @@ export const getServerSideProps = async (context) => {
   }
 
   return {
-    props: {
-      posts: result.data.posts,
-      user: result.data.creator,
-    },
+    posts: result.data.posts,
+    user: result.data.creator,
   };
 };
 

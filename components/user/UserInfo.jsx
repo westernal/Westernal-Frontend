@@ -15,15 +15,15 @@ const UserInfo = ({ isUserSelf, user, isLoggedIn }) => {
     if (isLoggedIn) {
       const userId = decodeJWT(localStorage.getItem("token")).userId;
 
-      if (!isUserSelf && user.followers.includes(userId)) {
+      if (!isUserSelf && user?.followers.includes(userId)) {
         SetIsFollowing(true);
       }
     }
 
-    if (user.personal_link || user.personal_link != " ") {
+    if (user?.personal_link || user?.personal_link != " ") {
       let domain;
       try {
-        domain = new URL(user.personal_link);
+        domain = new URL(user?.personal_link);
       } catch (error) {
         return;
       }
@@ -39,12 +39,12 @@ const UserInfo = ({ isUserSelf, user, isLoggedIn }) => {
   return (
     <>
       <Head>
-        <title key="title">Westernal - @{user.username} </title>
+        <title key="title">Westernal - @{user?.username} </title>
       </Head>
 
       <UserHeader
-        username={user.username}
-        isVerified={user.verified}
+        username={user?.username}
+        isVerified={user?.verified}
         isLoggedIn={isLoggedIn}
         isUserSelf={isUserSelf}
       />
@@ -53,21 +53,21 @@ const UserInfo = ({ isUserSelf, user, isLoggedIn }) => {
         <div className="flex">
           <div className="profile-pic flex">
             <Image
-              src={host + user.image}
+              src={host + user?.image}
               alt="profile picture"
               width={95}
               height={95}
             />
           </div>
         </div>
-        {user.bio ? (
+        {user?.bio ? (
           <strong id="user-bio" dir="auto">
-            {user.bio}
+            {user?.bio}
           </strong>
         ) : null}
-        {user.personal_link ? (
+        {user?.personal_link ? (
           <div className="user-link">
-            <a href={user.personal_link} id="user-link">
+            <a href={user?.personal_link} id="user-link">
               {link}
             </a>
           </div>

@@ -45,7 +45,7 @@ const PostPage = ({ post }) => {
   );
 };
 
-export const getServerSideProps = async (context) => {
+PostPage.getInitialProps = async (context) => {
   const userID = context.query.id;
   const result = await getRequest(`api/posts/${userID}`);
 
@@ -56,9 +56,7 @@ export const getServerSideProps = async (context) => {
   }
 
   return {
-    props: {
-      post: result.data.post,
-    },
+    post: result.data.post,
   };
 };
 
