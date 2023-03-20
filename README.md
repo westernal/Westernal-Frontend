@@ -17,7 +17,7 @@ Westernal is a social media based on songs, you can share posts that includes pa
 </span>
 
 ## How it works?
-A user can easily signup and connect with people via following them and paste a song URL from Spotify, YouTube, SoundCloud and etc. (not the actual song itself because of copyright) or search a song inside app (Spotify search) to share with followers followers. You can like and comment on posts to interact with people.
+A user can easily signup and connect with people via following them and paste a song URL from Spotify, YouTube, SoundCloud and etc. (not the actual song itself because of copyright) or search a song inside app (Spotify search) to share with followers. You can like and comment on posts to interact with people.
 
 
  [Youtube tutorial](https://youtu.be/iNav6lyYUR0)
