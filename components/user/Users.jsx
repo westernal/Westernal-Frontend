@@ -24,11 +24,7 @@ const User = ({ users }) => {
         >
           <div className="flex user-info">
             <Image
-              src={
-                !user.image.includes("userIcon")
-                  ? host + user.image
-                  : "/Images/user.svg"
-              }
+              src={host + user.image}
               width={50}
               height={50}
               style={{ borderRadius: "50%" }}

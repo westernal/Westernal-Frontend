@@ -55,11 +55,7 @@ const Notifications = () => {
               <div className="flex notif-main ">
                 <Link href={`/${notif.user.username}`} className="flex">
                   <Image
-                    src={
-                      !notif.user.image.includes("userIcon")
-                        ? host + notif.user.image
-                        : "/Images/user.svg"
-                    }
+                    src={host + notif.user.image}
                     alt="user avatar"
                     id="avatar"
                     width={40}

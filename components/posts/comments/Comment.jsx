@@ -41,11 +41,7 @@ const Comment = ({ comment, onDelete, onReply }) => {
           <Link href={`/${comment.writer.username}`} className=" flex">
             <span>
               <Image
-                src={
-                  !comment.writer.avatar.includes("userIcon")
-                    ? host + comment.writer.avatar
-                    : "/Images/user.svg"
-                }
+                src={host + comment.writer.avatar}
                 alt="user avatar"
                 id="avatar"
                 width={40}

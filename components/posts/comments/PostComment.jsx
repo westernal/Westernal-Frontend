@@ -95,7 +95,7 @@ const PostComment = ({
           Post
         </button>
         {isReply ? (
-          <button id="cancel-delete" onClick={() => onCancelReply()}>
+          <button id="cancel-delete" onClick={onCancelReply}>
             Cancel
           </button>
         ) : null}
