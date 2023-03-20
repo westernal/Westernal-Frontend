@@ -10,7 +10,7 @@
     "lint": "next lint",
     "test": "jest --watch",
     "cypress": "cypress run",
-    "cypressOpen": "cypress open"
+    "cypressopen": "cypress open"
   },
   "dependencies": {
     "jwt-decode": "^3.1.2",
