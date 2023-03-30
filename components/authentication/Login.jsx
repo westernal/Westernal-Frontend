@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import Image from "next/image";
 import LoginForm from "./form/LoginForm";
 import FormLoader from "../layout/loader/FormLoader";
-import Lottie from "react-lottie-player";
+import Lottie from "lottie-react";
 import jsonFile from "../../public/Images/lf20_2gB0PZ.json";
 import postRequest from "../../functions/requests/postRequest";
 
@@ -58,13 +58,7 @@ const Login = () => {
       <section className="app-description flex">
         <h1 id="website-name">westernal</h1>
         <h2>A social media to share your feelings through music.</h2>
-        {!userAgent.match(/safari/i) ? (
-          <Lottie
-            animationData={jsonFile}
-            play
-            style={{ width: 300, height: 300 }}
-          />
-        ) : null}
+        <Lottie animationData={jsonFile} autoplay width={300} height={300} />
       </section>
       <section className="auth-form">
         <Image src={"/Images/logo.png"} alt="logo" width={120} height={120} />
