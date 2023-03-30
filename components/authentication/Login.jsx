@@ -58,7 +58,9 @@ const Login = () => {
       <section className="app-description flex">
         <h1 id="website-name">westernal</h1>
         <h2>A social media to share your feelings through music.</h2>
-        <Lottie animationData={jsonFile} autoplay width={300} height={300} />
+        <div className="animation">
+          <Lottie animationData={jsonFile} autoplay width={280} height={280} />
+        </div>
       </section>
       <section className="auth-form">
         <Image src={"/Images/logo.png"} alt="logo" width={120} height={120} />
