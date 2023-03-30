@@ -56,11 +56,13 @@ const SignUp = () => {
       <section className="app-description flex">
         <h1 id="website-name">westernal</h1>
         <h2>A social media to share your feelings through music.</h2>
-        <Lottie
-          animationData={jsonFile}
-          play
-          style={{ width: 300, height: 300 }}
-        />
+        {!userAgent.match(/safari/i) ? (
+          <Lottie
+            animationData={jsonFile}
+            play
+            style={{ width: 300, height: 300 }}
+          />
+        ) : null}
       </section>
       <section className="auth-form ">
         <Image src={"/Images/logo.png"} alt="logo" width={120} height={120} />
