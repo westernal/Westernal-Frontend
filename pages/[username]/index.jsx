@@ -77,7 +77,7 @@ Profile.getInitialProps = async (context) => {
   const username = context.query.username;
   const result = await getRequest(`api/posts/user/${username}`);
 
-  if (result?.status == 404) {
+  if (result?.status == 404 || !result) {
     return {
       notFound: true,
     };
