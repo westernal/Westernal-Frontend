@@ -57,7 +57,6 @@ const SignUp = () => {
         <h1 id="website-name">westernal</h1>
         <h2>A social media to share your feelings through music.</h2>
         <Lottie
-          loop
           animationData={jsonFile}
           play
           style={{ width: 300, height: 300 }}
