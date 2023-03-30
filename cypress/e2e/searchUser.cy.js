@@ -14,7 +14,7 @@ describe("Search for a user.", () => {
 
     //search for a user
     cy.findByRole("textbox").type("westernal");
-    cy.intercept("/api/users/search/westernal").as("searchUser");
+    cy.intercept("/api/users/search?username=westernal").as("searchUser");
     cy.wait("@searchUser", { timeout: 60000 });
 
     //check if user exists
