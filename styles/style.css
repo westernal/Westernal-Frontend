@@ -1568,6 +1568,10 @@ h1 {
     width: 80vw;
   }
 
+  .app-description {
+    margin-top: 20px;
+  }
+
   .forgot-password a,
   .show-password {
     width: 40vw;
