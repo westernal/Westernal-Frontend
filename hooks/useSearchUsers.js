@@ -22,10 +22,12 @@ export default function useSearchUsers(searchTerm) {
     };
 
     try {
-      var result = await API(option, `api/users/search/${searchTerm}`);
+      var result = await API(option, `api/users/search?username=${searchTerm}`);
     } catch (error) {
       return;
     }
+
+    console.log(result);
 
     if (result?.status == 200) {
       SetUsers(result.data.users);
