@@ -17,7 +17,7 @@ export default function middleware(req) {
   }
 
   if (req.url.includes("/saved") || req.url.includes("/setting")) {
-    const username = decodeJWT(token).username;
+    const username = decodeJWT(token.value).username;
 
     if (!req.nextUrl.pathname.includes(`/${username}/`)) {
       return NextResponse.redirect(new URL("/404", req.url));

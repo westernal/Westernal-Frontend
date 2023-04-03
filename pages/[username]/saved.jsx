@@ -13,7 +13,7 @@ const Saved = () => {
   const [posts, SetPosts] = useState();
 
   const getSavedPosts = async () => {
-    var token = Cookies.get("token");
+    var token = Cookies.get("token").toString();
     const userID = decodeJWT(token).userId;
     const result = await getRequest(`api/users/saved-posts/${userID}`, true);
 

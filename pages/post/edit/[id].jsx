@@ -15,7 +15,7 @@ const EditPostPage = () => {
     if (result?.status == 200) {
       if (
         result.data.post.author.username !=
-        decodeJWT(Cookies.get("token")).username
+        decodeJWT(Cookies.get("token").toString()).username
       ) {
         router.push("/404");
         return;

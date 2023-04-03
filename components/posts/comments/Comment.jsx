@@ -26,7 +26,7 @@ const Comment = ({ comment, onDelete, onReply }) => {
       }
     };
 
-    const userId = jwtDecode(Cookies.get("token")).userId;
+    const userId = jwtDecode(Cookies.get("token").toString()).userId;
 
     if (userId === comment.writer.id) {
       SetDeletable(true);

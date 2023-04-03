@@ -6,7 +6,7 @@ export default async function postRequest(
   body,
   path,
   auth = false,
-  authToken = Cookies.get("token")
+  authToken = Cookies.get("token").toString()
 ) {
   const options = {
     method: "POST",

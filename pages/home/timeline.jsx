@@ -21,7 +21,7 @@ export default function Index() {
   }
 
   useEffect(() => {
-    const userId = decodeJWT(Cookies.get("token")).userId;
+    const userId = decodeJWT(Cookies.get("token").toString()).userId;
     getPosts(userId);
   }, []);
 

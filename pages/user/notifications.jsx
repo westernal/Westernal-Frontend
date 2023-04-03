@@ -17,7 +17,7 @@ const Notifications = () => {
   const host = "https://alinavidi.ir/";
 
   async function getNotifications() {
-    let id = decodeJWT(Cookies.get("token")).userId;
+    let id = decodeJWT(Cookies.get("token").toString()).userId;
     const result = await getRequest(`api/notifications/${id}`, true);
 
     if (result.status == 200) {

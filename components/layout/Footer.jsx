@@ -21,7 +21,7 @@ const Footer = () => {
   };
 
   useEffect(() => {
-    const token = Cookies.get("token");
+    const token = Cookies.get("token").toString();
     const decodedToken = decodeJWT(token);
 
     Setjwt(decodedToken);

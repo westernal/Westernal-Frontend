@@ -21,7 +21,7 @@ const Profile = ({ posts, user }) => {
     }
 
     function getToken() {
-      var token = Cookies.get("token");
+      var token = Cookies.get("token").toString();
       const jwt = decodeJWT(token);
 
       checkUser(jwt.username);

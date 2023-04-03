@@ -1,29 +1,32 @@
-import { useEffect } from "react";
+import { useMemo } from "react";
 import { toast } from "react-toastify";
 import { useState } from "react";
 import decodeJWT from "../../../functions/decodeJWT";
 import postRequest from "../../../functions/requests/postRequest";
-import getRequest from "../../../functions/requests/getRequest";
 import Cookies from "js-cookie";
 
 const SavePost = ({ id, hide, onUnsave }) => {
   const [isSaved, SetIsSaved] = useState(false);
 
-  useEffect(() => {
-    checkUser();
-  }, []);
-
   const checkUser = async () => {
-    var token = Cookies.get("token");
+    var token = Cookies.get("token").toString();
     const userId = decodeJWT(token).userId;
-    const result = await getRequest(`api/users/user/${userId}`);
+    const result = await postRequest(
+      {
+        postId: id,
+      },
+      `api/users/saved-posts/${userId}`,
+      true
+    );
 
     if (result?.status == 200) {
-      if (result.data.user.saved_posts.includes(id)) {
-        SetIsSaved(true);
-      }
+      SetIsSaved(result.data.isSaved);
     }
   };
+
+  useMemo(() => {
+    checkUser();
+  }, []);
 
   const checkSavePost = () => {
     if (!isSaved) {
@@ -32,7 +35,7 @@ const SavePost = ({ id, hide, onUnsave }) => {
   };
 
   const save = async () => {
-    var token = Cookies.get("token");
+    var token = Cookies.get("token").toString();
     const userId = decodeJWT(token).userId;
 
     const result = await postRequest(
@@ -54,7 +57,7 @@ const SavePost = ({ id, hide, onUnsave }) => {
   };
 
   const unsave = async () => {
-    var token = Cookies.get("token");
+    var token = Cookies.get("token").toString();
     const userId = decodeJWT(token).userId;
 
     const result = await postRequest(

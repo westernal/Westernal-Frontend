@@ -13,7 +13,7 @@ const PostPage = ({ post }) => {
   const [isLoggedIn, SetIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    if (Cookies.get("token")) {
+    if (Cookies.get("token").toString()) {
       SetIsLoggedIn(true);
     }
   }, []);

@@ -9,7 +9,7 @@ const LikePost = ({ id, likesCount, postLikes }) => {
   const [hasLiked, SetHasLiked] = useState(false);
 
   useEffect(() => {
-    if (postLikes.includes(decodeJWT(Cookies.get("token")).userId)) {
+    if (postLikes.includes(decodeJWT(Cookies.get("token").toString()).userId)) {
       document.getElementsByClassName(id)[0].classList.add("liked");
       SetHasLiked(true);
     }
@@ -18,7 +18,7 @@ const LikePost = ({ id, likesCount, postLikes }) => {
   async function likePost(e) {
     e.preventDefault();
 
-    var token = Cookies.get("token");
+    var token = Cookies.get("token").toString();
     const userID = decodeJWT(token).userId;
 
     if (!postLikes.includes(userID) || !hasLiked) {
@@ -41,7 +41,7 @@ const LikePost = ({ id, likesCount, postLikes }) => {
   async function unlikePost(e) {
     e.preventDefault();
 
-    var token = Cookies.get("token");
+    var token = Cookies.get("token").toString();
 
     const userID = decodeJWT(token).userId;
 
