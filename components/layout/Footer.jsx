@@ -9,28 +9,15 @@ import decodeJWT from "../../functions/decodeJWT";
 import Cookies from "js-cookie";
 
 const Footer = () => {
-  const [notificationCount, SetNotificationCount] = useState(0);
-  const [jwt, Setjwt] = useState({ username: "" });
-
-  const getCount = async (userId) => {
-    const result = await getRequest(`api/users/notification/${userId}`, true);
-
-    if (result?.status == 200) {
-      SetNotificationCount(result.data.notifications);
-    }
-  };
-
-  useEffect(() => {
-    const token = Cookies.get("token").toString();
-    const decodedToken = decodeJWT(token);
-
-    Setjwt(decodedToken);
-    getCount(decodedToken.userId);
-  }, []);
+  const userId = decodeJWT(Cookies.get("token").toString()).userId;
+  const { data: result, isLoading } = useSWR(
+    `api/users/notification/${userId}`,
+    (url) => getRequest(url, true)
+  );
 
   const clearNotification = async () => {
     SetNotificationCount(0);
-    await postRequest({}, `api/users/notification/clear/${jwt.userId}`, true);
+    await postRequest({}, `api/users/notification/clear/${userId}`, true);
   };
 
   return (
@@ -72,8 +59,8 @@ const Footer = () => {
             alt="notification"
             id="notif-icon"
           />
-          {notificationCount != 0 ? (
-            <div className="new-notif flex">{notificationCount}</div>
+          {result?.data.notifications != 0 ? (
+            <div className="new-notif flex">{result?.data.notifications}</div>
           ) : null}
         </div>
       </Link>
