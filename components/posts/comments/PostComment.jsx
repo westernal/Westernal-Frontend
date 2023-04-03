@@ -37,7 +37,7 @@ const PostComment = ({
   };
 
   const sendComment = async (message) => {
-    const writerId = decodeJWT(Cookies.get("token").toString()).userId;
+    const writerId = decodeJWT(Cookies.get("cookieToken").toString()).userId;
     const result = await postRequest(
       {
         writerId: writerId,
@@ -58,7 +58,7 @@ const PostComment = ({
   };
 
   const sendReply = async (message) => {
-    const writerId = decodeJWT(Cookies.get("token").toString()).userId;
+    const writerId = decodeJWT(Cookies.get("cookieToken").toString()).userId;
 
     const result = await postRequest(
       {

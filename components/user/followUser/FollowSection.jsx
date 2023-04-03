@@ -8,7 +8,7 @@ const Follow = ({ isFollowing, SetIsFollowing }) => {
   const router = useRouter();
 
   async function followUser() {
-    const jwt = decodeJWT(Cookies.get("token").toString());
+    const jwt = decodeJWT(Cookies.get("cookieToken").toString());
 
     const result = await postRequest(
       {
@@ -36,7 +36,7 @@ const Follow = ({ isFollowing, SetIsFollowing }) => {
   }
 
   async function unfollowUser() {
-    const jwt = decodeJWT(Cookies.get("token").toString());
+    const jwt = decodeJWT(Cookies.get("cookieToken").toString());
 
     const result = await postRequest(
       {

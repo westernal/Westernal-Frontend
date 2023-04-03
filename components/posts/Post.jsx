@@ -26,7 +26,7 @@ const Post = ({ post, onDelete, isLoggedIn = true, onUnsave }) => {
     if (
       isLoggedIn &&
       post.author.username ===
-        decodeJWT(Cookies.get("token").toString()).username
+        decodeJWT(Cookies.get("cookieToken").toString()).username
     ) {
       SetCanDelete(true);
     }

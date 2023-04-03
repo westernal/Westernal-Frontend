@@ -7,7 +7,9 @@ const DeleteComment = ({ onDelete, id }) => {
     e.preventDefault();
     const option = {
       method: "DELETE",
-      headers: { Authorization: "Bearer " + Cookies.get("token").toString() },
+      headers: {
+        Authorization: "Bearer " + Cookies.get("cookieToken").toString(),
+      },
       mode: "cors",
       credentials: "include",
     };

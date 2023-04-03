@@ -9,7 +9,7 @@ const SavePost = ({ id, hide, onUnsave }) => {
   const [isSaved, SetIsSaved] = useState(false);
 
   const checkUser = async () => {
-    var token = Cookies.get("token").toString();
+    var token = Cookies.get("cookieToken").toString();
     const userId = decodeJWT(token).userId;
     const result = await postRequest(
       {
@@ -35,7 +35,7 @@ const SavePost = ({ id, hide, onUnsave }) => {
   };
 
   const save = async () => {
-    var token = Cookies.get("token").toString();
+    var token = Cookies.get("cookieToken").toString();
     const userId = decodeJWT(token).userId;
 
     const result = await postRequest(
@@ -57,7 +57,7 @@ const SavePost = ({ id, hide, onUnsave }) => {
   };
 
   const unsave = async () => {
-    var token = Cookies.get("token").toString();
+    var token = Cookies.get("cookieToken").toString();
     const userId = decodeJWT(token).userId;
 
     const result = await postRequest(

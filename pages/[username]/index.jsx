@@ -21,13 +21,13 @@ const Profile = ({ posts, user }) => {
     }
 
     function getToken() {
-      var token = Cookies.get("token").toString();
+      var token = Cookies.get("cookieToken").toString();
       const jwt = decodeJWT(token);
 
       checkUser(jwt.username);
     }
 
-    if (Cookies.get("token")) {
+    if (Cookies.get("cookieToken")) {
       SetIsLoggedIn(true);
       getToken();
     }

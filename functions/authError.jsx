@@ -3,5 +3,5 @@ import Cookies from "js-cookie";
 
 export default function authError() {
   toast.error("Authentication failed, please login again.");
-  Cookies.remove("token");
+  Cookies.remove("cookieToken");
 }

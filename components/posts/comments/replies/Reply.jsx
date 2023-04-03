@@ -11,7 +11,7 @@ const Reply = ({ reply, onDelete }) => {
   const host = "https://alinavidi.ir/";
 
   useEffect(() => {
-    const userId = decodeJWT(Cookies.get("token").toString()).userId;
+    const userId = decodeJWT(Cookies.get("cookieToken").toString()).userId;
 
     if (userId === reply.writer.id) {
       SetDeletable(true);

@@ -6,11 +6,10 @@ import ContentLoader from "../../components/layout/loader/ContentLoader";
 import BackToTopButton from "../../components/layout/buttons/BackToTopButton";
 import decodeJWT from "../../functions/decodeJWT";
 import getRequest from "../../functions/requests/getRequest";
-import Cookies from "js-cookie";
 import useSWR from "swr";
+import { getCookie } from "cookies-next";
 
-export default function Index() {
-  const userId = decodeJWT(Cookies.get("token").toString()).userId;
+export default function Index({ userId }) {
   const { data: result, isLoading } = useSWR(
     `api/posts/timeline/${userId}`,
     (url) => getRequest(url, true)
@@ -42,7 +41,7 @@ export default function Index() {
               })
             : null}
 
-          {result?.data.posts.map((post) => {
+          {result?.data?.posts?.map((post) => {
             return <Post post={post} key={post._id} onDelete={onDeletePost} />;
           })}
         </section>
@@ -52,3 +51,13 @@ export default function Index() {
     </>
   );
 }
+
+export const getServerSideProps = async ({ req, res }) => {
+  const userId = decodeJWT(
+    getCookie("cookieToken", { req, res }).toString()
+  ).userId;
+
+  return {
+    props: { userId: userId },
+  };
+};

@@ -3,7 +3,7 @@ import API from "./API";
 
 export default async function getRequest(path, auth = false, authToken) {
   if (auth && !authToken) {
-    authToken = Cookies.get("token").toString();
+    authToken = Cookies.get("cookieToken").toString();
   }
   const options = {
     method: "GET",

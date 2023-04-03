@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 
 export default async function postRequest(body, path, auth = false, authToken) {
   if (auth && !authToken) {
-    authToken = Cookies.get("token").toString();
+    authToken = Cookies.get("cookieToken").toString();
   }
 
   const options = {

@@ -18,7 +18,9 @@ const DeleteModal = ({ id, hide, onDelete }) => {
     e.preventDefault();
     const option = {
       method: "DELETE",
-      headers: { Authorization: "Bearer " + Cookies.get("token").toString() },
+      headers: {
+        Authorization: "Bearer " + Cookies.get("cookieToken").toString(),
+      },
     };
 
     var result = await API(option, `api/posts/${id}`);

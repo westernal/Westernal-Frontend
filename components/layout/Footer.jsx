@@ -1,22 +1,27 @@
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
-import { useState } from "react";
-import { useEffect } from "react";
+import useSWR from "swr";
 import postRequest from "../../functions/requests/postRequest";
 import getRequest from "../../functions/requests/getRequest";
 import decodeJWT from "../../functions/decodeJWT";
-import Cookies from "js-cookie";
+import { getCookie } from "cookies-next";
+import { useEffect, useState } from "react";
 
 const Footer = () => {
-  const userId = decodeJWT(Cookies.get("token").toString()).userId;
+  const [token, SetToken] = useState({ username: "" });
+  const userId = token.userId;
   const { data: result, isLoading } = useSWR(
     `api/users/notification/${userId}`,
     (url) => getRequest(url, true)
   );
 
+  useEffect(() => {
+    const decodedToken = decodeJWT(getCookie("cookieToken").toString());
+    SetToken(decodedToken);
+  }, []);
+
   const clearNotification = async () => {
-    SetNotificationCount(0);
     await postRequest({}, `api/users/notification/clear/${userId}`, true);
   };
 
@@ -59,13 +64,15 @@ const Footer = () => {
             alt="notification"
             id="notif-icon"
           />
-          {result?.data.notifications != 0 ? (
-            <div className="new-notif flex">{result?.data.notifications}</div>
+          {result &&
+          result.data.notifications &&
+          result?.data?.notifications != 0 ? (
+            <div className="new-notif flex">{result?.data?.notifications}</div>
           ) : null}
         </div>
       </Link>
 
-      <Link href={`/${jwt.username}`}>
+      <Link href={`/${token.username}`}>
         <Image
           width={33}
           height={33}

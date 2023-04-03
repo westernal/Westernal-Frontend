@@ -14,7 +14,7 @@ const UserInfo = ({ isUserSelf, user, isLoggedIn }) => {
 
   useEffect(() => {
     if (isLoggedIn) {
-      const userId = decodeJWT(Cookies.get("token").toString()).userId;
+      const userId = decodeJWT(Cookies.get("cookieToken").toString()).userId;
 
       if (!isUserSelf && user?.followers.includes(userId)) {
         SetIsFollowing(true);

@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import decodeJWT from "./functions/decodeJWT";
 
 export default function middleware(req) {
-  const token = req.cookies.get("token");
+  const token = req.cookies.get("cookieToken");
 
   if (req.nextUrl.pathname == "/") {
     if (token) {

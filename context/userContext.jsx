@@ -15,7 +15,7 @@ export const UserContextProvider = ({ children }) => {
   let userName;
 
   useEffect(() => {
-    getTokenInfo(Cookies.get("token"));
+    getTokenInfo(Cookies.get("cookieToken"));
   }, []);
 
   const getTokenInfo = (token) => {

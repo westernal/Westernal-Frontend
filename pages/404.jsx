@@ -2,16 +2,15 @@ import Footer from "../components/layout/Footer";
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import Cookies from "js-cookie";
 
 const Error = () => {
   const [isLoggedIn, SetIsLoggedIn] = useState(false);
 
-  useEffect(() => {
-    if (localStorage.getItem("token")) {
-      SetIsLoggedIn(true);
-    }
-  }, []);
+  if (Cookies.get("cookieToken")) {
+    SetIsLoggedIn(true);
+  }
 
   return (
     <div className="error-page">

@@ -18,7 +18,7 @@ const NewPost = () => {
   const router = useRouter();
 
   async function publish(song, caption) {
-    const jwt = decodeJWT(Cookies.get("token").toString());
+    const jwt = decodeJWT(Cookies.get("cookieToken").toString());
 
     const result = await postRequest(
       {

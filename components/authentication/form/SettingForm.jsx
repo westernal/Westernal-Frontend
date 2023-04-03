@@ -15,7 +15,7 @@ const SettingForm = ({ user, image }) => {
   const router = useRouter();
 
   useEffect(() => {
-    SetToken(Cookies.get("token").toString());
+    SetToken(Cookies.get("cookieToken").toString());
   }, []);
 
   useEffect(() => {
@@ -77,7 +77,7 @@ const SettingForm = ({ user, image }) => {
     const option = {
       method: "POST",
       headers: {
-        Authorization: "Bearer " + Cookies.get("token").toString(),
+        Authorization: "Bearer " + Cookies.get("cookieToken").toString(),
       },
       body: newBody,
       redirect: "follow",
@@ -89,7 +89,7 @@ const SettingForm = ({ user, image }) => {
 
     if (result.status == 200) {
       toast.success(`Information Edited!`);
-      Cookies.set("token", result.data.token);
+      Cookies.set("cookieToken", result.data.token);
       router.push(`/${username}`);
     } else {
       SetLoader(false);
