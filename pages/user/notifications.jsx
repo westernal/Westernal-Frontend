@@ -1,8 +1,6 @@
 import Footer from "../../components/layout/Footer";
-import { useState, useEffect } from "react";
 import Link from "next/link";
 import Head from "next/head";
-import { useRouter } from "next/router";
 import NotifLoader from "../../components/layout/loader/NotifLoader";
 import formatDate from "../../functions/formatDate";
 import Image from "next/image";
@@ -10,24 +8,14 @@ import Header from "../../components/layout/header/Header";
 import decodeJWT from "../../functions/decodeJWT";
 import getRequest from "../../functions/requests/getRequest";
 import Cookies from "js-cookie";
+import useSWR from "swr";
 
 const Notifications = () => {
-  const [notifs, SetNotifs] = useState();
-  const router = useRouter();
+  const id = decodeJWT(Cookies.get("token").toString()).userId;
+  const { data: result, isLoading } = useSWR(`api/notifications/${id}`, (url) =>
+    getRequest(url, true)
+  );
   const host = "https://alinavidi.ir/";
-
-  async function getNotifications() {
-    let id = decodeJWT(Cookies.get("token").toString()).userId;
-    const result = await getRequest(`api/notifications/${id}`, true);
-
-    if (result.status == 200) {
-      SetNotifs(result.data.notifications);
-    }
-  }
-
-  useEffect(() => {
-    getNotifications();
-  }, []);
 
   return (
     <>
@@ -37,7 +25,7 @@ const Notifications = () => {
       <Header title={"Notifications"} />
       <main className="notification">
         <section className="notif-list">
-          {!notifs
+          {isLoading
             ? [1, 2, 3, 4, 5, 6, 7].map((elem, index) => {
                 return (
                   <div className="profile-notif flex" key={index}>
@@ -47,7 +35,7 @@ const Notifications = () => {
               })
             : null}
 
-          {notifs?.map((notif) => (
+          {result?.data.notifications.map((notif) => (
             <div className="profile-notif flex" key={notif._id}>
               <div className="flex notif-main ">
                 <Link href={`/${notif.user.username}`} className="flex">

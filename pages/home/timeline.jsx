@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import Footer from "../../components/layout/Footer";
 import Header from "../../components/layout/header/Header";
 import Post from "../../components/posts/Post";
@@ -8,25 +7,17 @@ import BackToTopButton from "../../components/layout/buttons/BackToTopButton";
 import decodeJWT from "../../functions/decodeJWT";
 import getRequest from "../../functions/requests/getRequest";
 import Cookies from "js-cookie";
+import useSWR from "swr";
 
 export default function Index() {
-  const [posts, SetPosts] = useState();
-
-  async function getPosts(userId) {
-    const result = await getRequest(`api/posts/timeline/${userId}`, true);
-
-    if (result?.status == 200) {
-      SetPosts(result.data.posts);
-    }
-  }
-
-  useEffect(() => {
-    const userId = decodeJWT(Cookies.get("token").toString()).userId;
-    getPosts(userId);
-  }, []);
+  const userId = decodeJWT(Cookies.get("token").toString()).userId;
+  const { data: result, isLoading } = useSWR(
+    `api/posts/timeline/${userId}`,
+    (url) => getRequest(url, true)
+  );
 
   const onDeletePost = (id) => {
-    const newPosts = posts.filter((post) => {
+    const newPosts = result.data.posts.filter((post) => {
       return post._id != id;
     });
 
@@ -41,7 +32,7 @@ export default function Index() {
       </Head>
       <main className="home">
         <section className="post-list flex">
-          {!posts
+          {isLoading
             ? [1, 2, 3].map((elem, index) => {
                 return (
                   <div className="post" key={index}>
@@ -51,7 +42,7 @@ export default function Index() {
               })
             : null}
 
-          {posts?.map((post) => {
+          {result?.data.posts.map((post) => {
             return <Post post={post} key={post._id} onDelete={onDeletePost} />;
           })}
         </section>
