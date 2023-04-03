@@ -1,15 +1,11 @@
 import Footer from "../../components/layout/Footer";
 import BackHeader from "../../components/layout/header/BackHeader";
-import { useRouter } from "next/router";
 import Head from "next/head";
 import Logout from "../../components/authentication/Logout";
 import SettingForm from "../../components/authentication/form/SettingForm";
 import getRequest from "../../functions/requests/getRequest";
-import useAuth from "../../hooks/useAuth";
 
 const Setting = ({ user }) => {
-  const router = useRouter();
-  const render = useAuth(router, true);
   const host = "https://alinavidi.ir/";
 
   return (
@@ -19,22 +15,20 @@ const Setting = ({ user }) => {
       </Head>
       <BackHeader title={"Setting"} />
 
-      {render ? (
-        <main className="setting flex">
-          <section className="auth-form">
-            <SettingForm user={user} image={host + user.image} />
-          </section>
+      <main className="setting flex">
+        <section className="auth-form">
+          <SettingForm user={user} image={host + user.image} />
+        </section>
 
-          <div className="setting-btns">
-            <a href="mailto:support@contact.westernal.net">
-              <button className="contact-btn">Contact Support</button>
-            </a>
-            <Logout />
-          </div>
-        </main>
-      ) : null}
+        <div className="setting-btns">
+          <a href="mailto:support@contact.westernal.net">
+            <button className="contact-btn">Contact Support</button>
+          </a>
+          <Logout />
+        </div>
+      </main>
 
-      {render ? <Footer /> : null}
+      <Footer />
     </>
   );
 };

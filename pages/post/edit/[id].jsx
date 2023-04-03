@@ -2,13 +2,11 @@ import { useRouter } from "next/router";
 import EditPost from "../../../components/posts/edit/editPost";
 import { useState, useEffect } from "react";
 import getRequest from "../../../functions/requests/getRequest";
-import useAuth from "../../../hooks/useAuth";
 import decodeJWT from "../../../functions/decodeJWT";
 
 const EditPostPage = () => {
   const router = useRouter();
   const [post, SetPost] = useState([]);
-  const render = useAuth(router);
 
   const getPost = async (id) => {
     const result = await getRequest(`api/posts/${id}`, true);
@@ -26,10 +24,10 @@ const EditPostPage = () => {
   };
 
   useEffect(() => {
-    if (router.query.id && render) {
+    if (router.query.id) {
       getPost(router.query.id);
     }
-  }, [router.query, render]);
+  }, [router.query]);
 
   return <EditPost post={post} router={router} />;
 };

@@ -9,12 +9,10 @@ import Image from "next/image";
 import Header from "../../components/layout/header/Header";
 import decodeJWT from "../../functions/decodeJWT";
 import getRequest from "../../functions/requests/getRequest";
-import useAuth from "../../hooks/useAuth";
 
 const Notifications = () => {
   const [notifs, SetNotifs] = useState();
   const router = useRouter();
-  const render = useAuth(router);
   const host = "https://alinavidi.ir/";
 
   async function getNotifications() {
@@ -27,10 +25,8 @@ const Notifications = () => {
   }
 
   useEffect(() => {
-    if (render) {
-      getNotifications();
-    }
-  }, [render]);
+    getNotifications();
+  }, []);
 
   return (
     <>
@@ -89,7 +85,7 @@ const Notifications = () => {
           ))}
         </section>
       </main>
-      {render ? <Footer /> : null}
+      <Footer />
     </>
   );
 };

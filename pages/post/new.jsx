@@ -11,12 +11,10 @@ import PostForm from "../../components/authentication/form/PostForm";
 import { SearchMusicProvider } from "../../context/searchMusicContext";
 import decodeJWT from "../../functions/decodeJWT";
 import postRequest from "../../functions/requests/postRequest";
-import useAuth from "../../hooks/useAuth";
 
 const NewPost = () => {
   const [loader, SetLoader] = useState(false);
   const router = useRouter();
-  const render = useAuth(router);
 
   async function publish(song, caption) {
     const jwt = decodeJWT(localStorage.getItem("token"));
@@ -84,7 +82,7 @@ const NewPost = () => {
           />
         </div>
       </main>
-      {render ? <Footer /> : null}
+      <Footer />
     </>
   );
 };

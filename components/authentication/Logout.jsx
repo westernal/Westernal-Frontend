@@ -1,3 +1,4 @@
+import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 
 const LogOut = () => {
@@ -6,6 +7,7 @@ const LogOut = () => {
   function logOut(e) {
     e.preventDefault();
     localStorage.removeItem("token");
+    Cookies.remove("token");
     router.push("/");
   }
 

@@ -4,16 +4,12 @@ import Header from "../../components/layout/header/Header";
 import Post from "../../components/posts/Post";
 import Head from "next/head";
 import ContentLoader from "../../components/layout/loader/ContentLoader";
-import { useRouter } from "next/router";
 import BackToTopButton from "../../components/layout/buttons/BackToTopButton";
 import decodeJWT from "../../functions/decodeJWT";
 import getRequest from "../../functions/requests/getRequest";
-import useAuth from "../../hooks/useAuth";
 
 export default function Index() {
   const [posts, SetPosts] = useState();
-  const router = useRouter();
-  const render = useAuth(router);
 
   async function getPosts(userId) {
     const result = await getRequest(`api/posts/timeline/${userId}`, true);
@@ -24,11 +20,9 @@ export default function Index() {
   }
 
   useEffect(() => {
-    if (render) {
-      const userId = decodeJWT(localStorage.getItem("token")).userId;
-      getPosts(userId);
-    }
-  }, [render]);
+    const userId = decodeJWT(localStorage.getItem("token")).userId;
+    getPosts(userId);
+  }, []);
 
   const onDeletePost = (id) => {
     const newPosts = posts.filter((post) => {
@@ -62,7 +56,7 @@ export default function Index() {
         </section>
         <BackToTopButton />
       </main>
-      {render ? <Footer /> : null}
+      <Footer />
     </>
   );
 }

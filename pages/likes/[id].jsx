@@ -5,12 +5,10 @@ import User from "../../components/user/Users";
 import BackHeader from "../../components/layout/header/BackHeader";
 import Head from "next/head";
 import getRequest from "../../functions/requests/getRequest";
-import useAuth from "../../hooks/useAuth";
 
 const Likes = () => {
   const router = useRouter();
   const [users, SetUsers] = useState();
-  const render = useAuth(true);
 
   async function getPostLikes(id) {
     const result = await getRequest(`api/posts/like/${router.query.id}`, true);
@@ -21,10 +19,10 @@ const Likes = () => {
   }
 
   useEffect(() => {
-    if (router.query.id && render) {
+    if (router.query.id) {
       getPostLikes();
     }
-  }, [router.query, router, render]);
+  }, [router.query, router]);
 
   return (
     <>

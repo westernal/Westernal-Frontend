@@ -6,15 +6,11 @@ import Footer from "../../components/layout/Footer";
 import Head from "next/head";
 import PostLoader from "../../components/layout/loader/ContentLoader";
 import BackToTopButton from "../../components/layout/buttons/BackToTopButton";
-import { useRouter } from "next/router";
 import decodeJWT from "../../functions/decodeJWT";
 import getRequest from "../../functions/requests/getRequest";
-import useAuth from "../../hooks/useAuth";
 
 const Saved = () => {
   const [posts, SetPosts] = useState();
-  const router = useRouter();
-  const render = useAuth(router, true);
 
   const getSavedPosts = async () => {
     var token = localStorage.getItem("token");
@@ -35,10 +31,8 @@ const Saved = () => {
   };
 
   useEffect(() => {
-    if (render) {
-      getSavedPosts();
-    }
-  }, [render]);
+    getSavedPosts();
+  }, []);
 
   return (
     <>
@@ -71,7 +65,7 @@ const Saved = () => {
         </section>
         <BackToTopButton />
       </main>
-      {render ? <Footer /> : null}
+      <Footer />
     </>
   );
 };
