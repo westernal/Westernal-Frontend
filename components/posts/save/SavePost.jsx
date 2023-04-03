@@ -16,7 +16,7 @@ const SavePost = ({ id, hide, onUnsave }) => {
   const checkUser = async () => {
     var token = Cookies.get("token");
     const userId = decodeJWT(token).userId;
-    const result = await getRequest(`api/users/${userId}`);
+    const result = await getRequest(`api/users/user/${userId}`);
 
     if (result?.status == 200) {
       if (result.data.user.saved_posts.includes(id)) {
