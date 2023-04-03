@@ -2,12 +2,11 @@ import { toast } from "react-toastify";
 import API from "./API";
 import Cookies from "js-cookie";
 
-export default async function postRequest(
-  body,
-  path,
-  auth = false,
-  authToken = Cookies.get("token").toString()
-) {
+export default async function postRequest(body, path, auth = false, authToken) {
+  if (auth && !authToken) {
+    authToken = Cookies.get("token").toString();
+  }
+
   const options = {
     method: "POST",
     headers: auth
