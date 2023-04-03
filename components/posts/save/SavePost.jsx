@@ -4,6 +4,7 @@ import { useState } from "react";
 import decodeJWT from "../../../functions/decodeJWT";
 import postRequest from "../../../functions/requests/postRequest";
 import getRequest from "../../../functions/requests/getRequest";
+import Cookies from "js-cookie";
 
 const SavePost = ({ id, hide, onUnsave }) => {
   const [isSaved, SetIsSaved] = useState(false);
@@ -13,7 +14,7 @@ const SavePost = ({ id, hide, onUnsave }) => {
   }, []);
 
   const checkUser = async () => {
-    var token = localStorage.getItem("token");
+    var token = Cookies.get("token");
     const userId = decodeJWT(token).userId;
     const result = await getRequest(`api/users/${userId}`);
 
@@ -31,7 +32,7 @@ const SavePost = ({ id, hide, onUnsave }) => {
   };
 
   const save = async () => {
-    var token = localStorage.getItem("token");
+    var token = Cookies.get("token");
     const userId = decodeJWT(token).userId;
 
     const result = await postRequest(
@@ -53,7 +54,7 @@ const SavePost = ({ id, hide, onUnsave }) => {
   };
 
   const unsave = async () => {
-    var token = localStorage.getItem("token");
+    var token = Cookies.get("token");
     const userId = decodeJWT(token).userId;
 
     const result = await postRequest(

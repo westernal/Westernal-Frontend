@@ -1,9 +1,9 @@
-import { toast } from "react-toastify";
+import Cookies from "js-cookie";
 import API from "./API";
 
 export default async function getRequest(path, auth = false, authToken) {
   if (auth && !authToken) {
-    authToken = localStorage.getItem("token");
+    authToken = Cookies.get("token").toString();
   }
   const options = {
     method: "GET",

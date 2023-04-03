@@ -7,6 +7,7 @@ import ContentLoader from "../../components/layout/loader/ContentLoader";
 import BackToTopButton from "../../components/layout/buttons/BackToTopButton";
 import decodeJWT from "../../functions/decodeJWT";
 import getRequest from "../../functions/requests/getRequest";
+import Cookies from "js-cookie";
 
 export default function Index() {
   const [posts, SetPosts] = useState();
@@ -20,7 +21,7 @@ export default function Index() {
   }
 
   useEffect(() => {
-    const userId = decodeJWT(localStorage.getItem("token")).userId;
+    const userId = decodeJWT(Cookies.get("token")).userId;
     getPosts(userId);
   }, []);
 

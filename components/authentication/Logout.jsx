@@ -6,7 +6,6 @@ const LogOut = () => {
 
   function logOut(e) {
     e.preventDefault();
-    localStorage.removeItem("token");
     Cookies.remove("token");
     router.push("/");
   }

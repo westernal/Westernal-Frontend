@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import decodeJWT from "../../../functions/decodeJWT";
 import postRequest from "../../../functions/requests/postRequest";
+import Cookies from "js-cookie";
 
 const LikePost = ({ id, likesCount, postLikes }) => {
   const [likes, SetLikes] = useState(likesCount);
   const [hasLiked, SetHasLiked] = useState(false);
 
   useEffect(() => {
-    if (postLikes.includes(decodeJWT(localStorage.getItem("token")).userId)) {
+    if (postLikes.includes(decodeJWT(Cookies.get("token")).userId)) {
       document.getElementsByClassName(id)[0].classList.add("liked");
       SetHasLiked(true);
     }
@@ -17,7 +18,7 @@ const LikePost = ({ id, likesCount, postLikes }) => {
   async function likePost(e) {
     e.preventDefault();
 
-    var token = localStorage.getItem("token");
+    var token = Cookies.get("token");
     const userID = decodeJWT(token).userId;
 
     if (!postLikes.includes(userID) || !hasLiked) {
@@ -40,7 +41,7 @@ const LikePost = ({ id, likesCount, postLikes }) => {
   async function unlikePost(e) {
     e.preventDefault();
 
-    var token = localStorage.getItem("token");
+    var token = Cookies.get("token");
 
     const userID = decodeJWT(token).userId;
 

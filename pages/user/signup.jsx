@@ -9,6 +9,7 @@ import FormLoader from "../../components/layout/loader/FormLoader";
 import Lottie from "lottie-react";
 import jsonFile from "../../public/Images/lf20_2gB0PZ.json";
 import postRequest from "../../functions/requests/postRequest";
+import Cookies from "js-cookie";
 
 const SignUp = () => {
   const [loader, SetLoader] = useState(false);
@@ -30,7 +31,7 @@ const SignUp = () => {
     }
 
     if (result?.status == 201) {
-      localStorage.setItem("token", result.data.token);
+      Cookies.set("token", result.data.token);
       toast.success(`Welcome, ${username}!`);
       router.push("/home/timeline");
     } else {

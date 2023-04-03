@@ -30,7 +30,6 @@ const Login = () => {
 
     switch (result?.status) {
       case 200:
-        localStorage.setItem("token", result.data.token);
         Cookies.set("token", result.data.token);
         toast.success(`Welcome, ${username}!`);
         router.push("/home/timeline");

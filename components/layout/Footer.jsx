@@ -6,10 +6,10 @@ import { useEffect } from "react";
 import postRequest from "../../functions/requests/postRequest";
 import getRequest from "../../functions/requests/getRequest";
 import decodeJWT from "../../functions/decodeJWT";
+import Cookies from "js-cookie";
 
 const Footer = () => {
   const [notificationCount, SetNotificationCount] = useState(0);
-  let token;
   const [jwt, Setjwt] = useState({ username: "" });
 
   const getCount = async (userId) => {
@@ -21,7 +21,7 @@ const Footer = () => {
   };
 
   useEffect(() => {
-    token = localStorage.getItem("token");
+    const token = Cookies.get("token");
     const decodedToken = decodeJWT(token);
 
     Setjwt(decodedToken);

@@ -1,5 +1,6 @@
 import { toast } from "react-toastify";
 import API from "../../../functions/requests/API";
+import Cookies from "js-cookie";
 
 const DeleteModal = ({ id, hide, onDelete }) => {
   const closeModal = (e) => {
@@ -17,7 +18,7 @@ const DeleteModal = ({ id, hide, onDelete }) => {
     e.preventDefault();
     const option = {
       method: "DELETE",
-      headers: { Authorization: "Bearer " + localStorage.getItem("token") },
+      headers: { Authorization: "Bearer " + Cookies.get("token").toString() },
     };
 
     var result = await API(option, `api/posts/${id}`);

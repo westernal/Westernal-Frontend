@@ -5,6 +5,7 @@ import FollowSection from "./followUser/FollowSection";
 import UserHeader from "../layout/header/UserHeader";
 import FollowDetails from "./followUser/FollowDetails";
 import decodeJWT from "../../functions/decodeJWT";
+import Cookies from "js-cookie";
 
 const UserInfo = ({ isUserSelf, user, isLoggedIn }) => {
   const [isFollowing, SetIsFollowing] = useState(false);
@@ -13,7 +14,7 @@ const UserInfo = ({ isUserSelf, user, isLoggedIn }) => {
 
   useEffect(() => {
     if (isLoggedIn) {
-      const userId = decodeJWT(localStorage.getItem("token")).userId;
+      const userId = decodeJWT(Cookies.get("token")).userId;
 
       if (!isUserSelf && user?.followers.includes(userId)) {
         SetIsFollowing(true);

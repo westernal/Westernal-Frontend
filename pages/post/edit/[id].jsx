@@ -3,6 +3,7 @@ import EditPost from "../../../components/posts/edit/editPost";
 import { useState, useEffect } from "react";
 import getRequest from "../../../functions/requests/getRequest";
 import decodeJWT from "../../../functions/decodeJWT";
+import Cookies from "js-cookie";
 
 const EditPostPage = () => {
   const router = useRouter();
@@ -14,7 +15,7 @@ const EditPostPage = () => {
     if (result?.status == 200) {
       if (
         result.data.post.author.username !=
-        decodeJWT(localStorage.getItem("token")).username
+        decodeJWT(Cookies.get("token")).username
       ) {
         router.push("/404");
         return;

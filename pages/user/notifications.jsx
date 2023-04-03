@@ -9,6 +9,7 @@ import Image from "next/image";
 import Header from "../../components/layout/header/Header";
 import decodeJWT from "../../functions/decodeJWT";
 import getRequest from "../../functions/requests/getRequest";
+import Cookies from "js-cookie";
 
 const Notifications = () => {
   const [notifs, SetNotifs] = useState();
@@ -16,7 +17,7 @@ const Notifications = () => {
   const host = "https://alinavidi.ir/";
 
   async function getNotifications() {
-    let id = decodeJWT(localStorage.getItem("token")).userId;
+    let id = decodeJWT(Cookies.get("token")).userId;
     const result = await getRequest(`api/notifications/${id}`, true);
 
     if (result.status == 200) {

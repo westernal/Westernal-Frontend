@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import FormLoader from "../../layout/loader/FormLoader";
 import API from "../../../functions/requests/API";
 import { useRouter } from "next/router";
+import Cookies from "js-cookie";
 
 const SettingForm = ({ user, image }) => {
   const host = "https://alinavidi.ir/";
@@ -14,7 +15,7 @@ const SettingForm = ({ user, image }) => {
   const router = useRouter();
 
   useEffect(() => {
-    SetToken(localStorage.getItem("token"));
+    SetToken(Cookies.get("token").toString());
   }, []);
 
   useEffect(() => {
@@ -75,7 +76,9 @@ const SettingForm = ({ user, image }) => {
 
     const option = {
       method: "POST",
-      headers: { Authorization: "Bearer " + localStorage.getItem("token") },
+      headers: {
+        Authorization: "Bearer " + Cookies.get("token").toString(),
+      },
       body: newBody,
       redirect: "follow",
       mode: "cors",
@@ -86,7 +89,7 @@ const SettingForm = ({ user, image }) => {
 
     if (result.status == 200) {
       toast.success(`Information Edited!`);
-      localStorage.setItem("token", result.data.token);
+      Cookies.set("token", result.data.token);
       router.push(`/${username}`);
     } else {
       SetLoader(false);

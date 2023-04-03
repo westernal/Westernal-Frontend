@@ -6,13 +6,14 @@ import Head from "next/head";
 import Post from "../../components/posts/Post";
 import BackHeader from "../../components/layout/header/BackHeader";
 import getRequest from "../../functions/requests/getRequest";
+import Cookies from "js-cookie";
 
 const PostPage = ({ post }) => {
   const router = useRouter();
   const [isLoggedIn, SetIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    if (localStorage.getItem("token")) {
+    if (Cookies.get("token")) {
       SetIsLoggedIn(true);
     }
   }, []);

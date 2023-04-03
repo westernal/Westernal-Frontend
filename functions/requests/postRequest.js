@@ -1,11 +1,12 @@
 import { toast } from "react-toastify";
 import API from "./API";
+import Cookies from "js-cookie";
 
 export default async function postRequest(
   body,
   path,
   auth = false,
-  authToken = localStorage.getItem("token")
+  authToken = Cookies.get("token")
 ) {
   const options = {
     method: "POST",

@@ -7,6 +7,7 @@ import Replies from "./replies/Replies";
 import formatDate from "../../../functions/formatDate";
 import Image from "next/image";
 import getRequest from "../../../functions/requests/getRequest";
+import Cookies from "js-cookie";
 
 const Comment = ({ comment, onDelete, onReply }) => {
   const [deletable, SetDeletable] = useState(false);
@@ -25,7 +26,7 @@ const Comment = ({ comment, onDelete, onReply }) => {
       }
     };
 
-    const userId = jwtDecode(localStorage.getItem("token")).userId;
+    const userId = jwtDecode(Cookies.get("token")).userId;
 
     if (userId === comment.writer.id) {
       SetDeletable(true);

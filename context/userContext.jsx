@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { createContext } from "react";
 import { useEffect } from "react";
 import jwtDecode from "jwt-decode";
+import Cookies from "js-cookie";
 
 export const UserContext = createContext();
 
@@ -14,7 +15,7 @@ export const UserContextProvider = ({ children }) => {
   let userName;
 
   useEffect(() => {
-    getTokenInfo(localStorage.getItem("token"));
+    getTokenInfo(Cookies.get("token"));
   }, []);
 
   const getTokenInfo = (token) => {

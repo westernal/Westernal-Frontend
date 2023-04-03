@@ -1,12 +1,13 @@
 import { toast } from "react-toastify";
 import API from "../../../functions/requests/API";
+import Cookies from "js-cookie";
 
 const DeleteComment = ({ onDelete, id }) => {
   const deleteComment = async (e) => {
     e.preventDefault();
     const option = {
       method: "DELETE",
-      headers: { Authorization: "Bearer " + localStorage.getItem("token") },
+      headers: { Authorization: "Bearer " + Cookies.get("token").toString() },
       mode: "cors",
       credentials: "include",
     };
