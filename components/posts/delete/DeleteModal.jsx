@@ -33,22 +33,28 @@ const DeleteModal = ({ id, hide, onDelete }) => {
   }
 
   return (
-    <section className="delete-modal" id={`delete-modal${id}`}>
-      <div className="modal-text">
-        <div onClick={closeModal} className="close">
-          &times;
-        </div>
-        <p>Are you sure you want to delete your post?</p>
-        <div className="flex">
-          <button id="cancel-delete" onClick={closeModal}>
-            Cancel
-          </button>
-          <button id="confirm-delete" onClick={deletePost}>
-            Delete
-          </button>
-        </div>
+    <div className="pwa">
+      <div className="modal" id={`delete-modal${id}`}>
+        <section className="modal-content flex">
+          <div className=" modal-main auth-form">
+            <div className="flex install-header">
+              <p>Are you sure you want to delete your post?</p>
+              <button onClick={closeModal} className="close1">
+                &times;
+              </button>
+            </div>
+            <div className="flex delete-btns">
+              <button id="cancel-delete" onClick={closeModal}>
+                Cancel
+              </button>
+              <button id="confirm-delete" onClick={deletePost}>
+                Delete
+              </button>
+            </div>
+          </div>
+        </section>
       </div>
-    </section>
+    </div>
   );
 };
 

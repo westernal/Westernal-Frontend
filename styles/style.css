@@ -673,6 +673,10 @@ canvas {
   border-radius: 10px;
 }
 
+.pwa canvas {
+  display: block;
+}
+
 .verify {
   margin-left: -5px;
   height: 20px;
@@ -763,7 +767,7 @@ canvas {
 #confirm-delete {
   background-color: var(--error-color);
   color: var(--light-primary-color);
-  width: 200px;
+  width: 150px;
 }
 
 #confirm-delete:hover {
@@ -772,10 +776,15 @@ canvas {
 
 #cancel-delete {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  width: 150px;
 }
 
 #cancel-delete:hover {
   background-color: var(--light-secondary-color);
+}
+
+.delete-btns {
+  margin-top: 30px;
 }
 
 #post-caption {
@@ -1280,14 +1289,20 @@ h1 {
   }
 
   .pwa .modal-main {
-    color: black;
+    background-color: var(--dark-secondary-color);
   }
 
-  .post-menu {
+  .install-header button {
+    color: var(--light-primary-color);
+  }
+
+  .post-menu,
+  #cancel-delete {
     background-color: var(--dark-primary-color);
   }
 
-  .post-menu li:hover {
+  .post-menu li:hover,
+  #cancel-delete:hover {
     background-color: black;
   }
 

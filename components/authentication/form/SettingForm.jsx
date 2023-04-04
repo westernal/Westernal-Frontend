@@ -1,4 +1,4 @@
-import Image from "next/image";
+import UserAvatar from "../../user/settings/avatar/userAvatar";
 import Link from "next/link";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -9,7 +9,6 @@ import { useRouter } from "next/router";
 import { getCookie, setCookie } from "cookies-next";
 
 const SettingForm = ({ user, image }) => {
-  const host = "https://alinavidi.ir/";
   const [token, SetToken] = useState("");
   const [loader, SetLoader] = useState(false);
   const router = useRouter();
@@ -100,27 +99,7 @@ const SettingForm = ({ user, image }) => {
   return (
     <form onSubmit={checkInputs} autoComplete="off">
       <section className="form-inputs">
-        <label htmlFor="image">Image</label>
-        <div className="flex image-setting">
-          <Image
-            width={50}
-            height={50}
-            src={
-              !image.includes("userIcon")
-                ? host + user.image
-                : "/Images/user.svg"
-            }
-            alt="user image"
-            id="edit-img"
-          />
-          <input
-            type="file"
-            id="image"
-            className="file-input"
-            name="image"
-            accept="image/*"
-          />
-        </div>
+        <UserAvatar imageSrc={user.image} />
         <label htmlFor="username">Username</label>
         <input type="text" defaultValue={user?.username} id="username" />
         <label htmlFor="bio">Bio</label>

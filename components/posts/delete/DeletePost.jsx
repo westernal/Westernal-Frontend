@@ -10,10 +10,10 @@ const DeletePost = ({ onDelete, id, hide }) => {
     hide();
 
     if (showModal) {
-      deleteModal.style.height = "0";
+      deleteModal.style.display = "none";
       SetShowModal(false);
     } else {
-      deleteModal.style.height = "100%";
+      deleteModal.style.display = "block";
       SetShowModal(true);
     }
   };
