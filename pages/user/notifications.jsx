@@ -17,7 +17,10 @@ const Notifications = () => {
     data: result,
     isLoading,
     error,
-  } = useSWR(`api/notifications/${userId}`, (url) => getRequest(url, true));
+  } = useSWR(
+    () => `api/notifications/${userId}`,
+    (url) => getRequest(url, true)
+  );
   const host = "https://alinavidi.ir/";
 
   useEffect(() => {

@@ -8,6 +8,7 @@ import decodeJWT from "../../functions/decodeJWT";
 import getRequest from "../../functions/requests/getRequest";
 import useSWR from "swr";
 import { getCookie } from "cookies-next";
+import { mutate } from "swr";
 import { useEffect, useState } from "react";
 
 export default function Index() {
@@ -16,14 +17,13 @@ export default function Index() {
     data: result,
     isLoading,
     error,
-  } = useSWR(`api/posts/timeline/${userId}`, (url) => getRequest(url, true));
+  } = useSWR(
+    () => `api/posts/timeline/${userId}`,
+    (url) => getRequest(url, true)
+  );
 
   const onDeletePost = (id) => {
-    const newPosts = result.data.posts.filter((post) => {
-      return post._id != id;
-    });
-
-    SetPosts(newPosts);
+    mutate(`api/posts/timeline/${userId}`);
   };
 
   useEffect(() => {

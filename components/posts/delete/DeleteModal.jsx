@@ -4,7 +4,7 @@ import { getCookie } from "cookies-next";
 
 const DeleteModal = ({ id, hide, onDelete }) => {
   const closeModal = (e) => {
-    e.preventDefault();
+    e?.preventDefault();
     hide();
   };
 
@@ -27,6 +27,7 @@ const DeleteModal = ({ id, hide, onDelete }) => {
 
     if (result.status == 200) {
       toast.success("Post deleted!");
+      closeModal();
       onDelete(id);
     }
   }
