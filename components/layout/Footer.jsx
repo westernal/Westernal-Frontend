@@ -37,8 +37,8 @@ const Footer = () => {
       </Head>
       <Link href="/home/timeline">
         <Image
-          width={28}
-          height={28}
+          width={32}
+          height={32}
           src="/Images/home.svg"
           alt="home"
           id="home-icon"
