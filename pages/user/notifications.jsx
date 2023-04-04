@@ -38,7 +38,7 @@ const Notifications = ({ id }) => {
 
           {!isLoading &&
             !error &&
-            result.data.notifications.map((notif) => (
+            result?.data?.notifications?.map((notif) => (
               <div className="profile-notif flex" key={notif._id}>
                 <div className="flex notif-main ">
                   <Link href={`/${notif.user.username}`} className="flex">

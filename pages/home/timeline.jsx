@@ -44,7 +44,7 @@ export default function Index({ userId }) {
 
           {!isLoading &&
             !error &&
-            result.data.posts.map((post) => {
+            result?.data?.posts?.map((post) => {
               return (
                 <Post post={post} key={post._id} onDelete={onDeletePost} />
               );

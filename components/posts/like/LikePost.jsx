@@ -10,9 +10,7 @@ const LikePost = ({ id, likesCount, postLikes }) => {
 
   useEffect(() => {
     if (
-      postLikes.includes(
-        decodeJWT(Cookies.get("cookieToken").toString()).userId
-      )
+      postLikes.includes(decodeJWT(getCookie("cookieToken").toString()).userId)
     ) {
       document.getElementsByClassName(id)[0].classList.add("liked");
       SetHasLiked(true);
