@@ -11,9 +11,11 @@ import { getCookie } from "cookies-next";
 import useSWR from "swr";
 
 const Notifications = ({ id }) => {
-  const { data: result, isLoading } = useSWR(`api/notifications/${id}`, (url) =>
-    getRequest(url, true)
-  );
+  const {
+    data: result,
+    isLoading,
+    error,
+  } = useSWR(`api/notifications/${id}`, (url) => getRequest(url, true));
   const host = "https://alinavidi.ir/";
 
   return (
@@ -34,8 +36,8 @@ const Notifications = ({ id }) => {
               })
             : null}
 
-          {result &&
-            result.data.notifications &&
+          {!isLoading &&
+            !error &&
             result.data.notifications.map((notif) => (
               <div className="profile-notif flex" key={notif._id}>
                 <div className="flex notif-main ">

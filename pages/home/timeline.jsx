@@ -10,10 +10,11 @@ import useSWR from "swr";
 import { getCookie } from "cookies-next";
 
 export default function Index({ userId }) {
-  const { data: result, isLoading } = useSWR(
-    `api/posts/timeline/${userId}`,
-    (url) => getRequest(url, true)
-  );
+  const {
+    data: result,
+    isLoading,
+    error,
+  } = useSWR(`api/posts/timeline/${userId}`, (url) => getRequest(url, true));
 
   const onDeletePost = (id) => {
     const newPosts = result.data.posts.filter((post) => {
@@ -41,9 +42,13 @@ export default function Index({ userId }) {
               })
             : null}
 
-          {result?.data?.posts?.map((post) => {
-            return <Post post={post} key={post._id} onDelete={onDeletePost} />;
-          })}
+          {!isLoading &&
+            !error &&
+            result.data.posts.map((post) => {
+              return (
+                <Post post={post} key={post._id} onDelete={onDeletePost} />
+              );
+            })}
         </section>
         <BackToTopButton />
       </main>
