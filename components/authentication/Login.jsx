@@ -8,7 +8,7 @@ import FormLoader from "../layout/loader/FormLoader";
 import Lottie from "lottie-react";
 import jsonFile from "../../public/Images/lf20_2gB0PZ.json";
 import postRequest from "../../functions/requests/postRequest";
-import Cookies from "js-cookie";
+import { setCookie } from "cookies-next";
 
 const Login = () => {
   const [loader, SetLoader] = useState(false);
@@ -30,7 +30,7 @@ const Login = () => {
 
     switch (result?.status) {
       case 200:
-        Cookies.set("cookieToken", result.data.token);
+        setCookie("cookieToken", result.data.token);
         toast.success(`Welcome, ${username}!`);
         router.push("/home/timeline");
         break;

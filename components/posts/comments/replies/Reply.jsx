@@ -4,14 +4,14 @@ import DeleteComment from "../DeleteComment";
 import formatDate from "../../../../functions/formatDate";
 import Image from "next/image";
 import decodeJWT from "../../../../functions/decodeJWT";
-import Cookies from "js-cookie";
+import { getCookie } from "cookies-next";
 
 const Reply = ({ reply, onDelete }) => {
   const [deletable, SetDeletable] = useState(false);
   const host = "https://alinavidi.ir/";
 
   useEffect(() => {
-    const userId = decodeJWT(Cookies.get("cookieToken").toString()).userId;
+    const userId = decodeJWT(getCookie("cookieToken").toString()).userId;
 
     if (userId === reply.writer.id) {
       SetDeletable(true);

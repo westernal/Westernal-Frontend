@@ -11,14 +11,14 @@ import PostForm from "../../components/authentication/form/PostForm";
 import { SearchMusicProvider } from "../../context/searchMusicContext";
 import decodeJWT from "../../functions/decodeJWT";
 import postRequest from "../../functions/requests/postRequest";
-import Cookies from "js-cookie";
+import { getCookie } from "cookies-next";
 
 const NewPost = () => {
   const [loader, SetLoader] = useState(false);
   const router = useRouter();
 
   async function publish(song, caption) {
-    const jwt = decodeJWT(Cookies.get("cookieToken").toString());
+    const jwt = decodeJWT(getCookie("cookieToken").toString());
 
     const result = await postRequest(
       {

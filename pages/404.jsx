@@ -3,12 +3,12 @@ import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
 import { useState } from "react";
-import Cookies from "js-cookie";
+import { getCookie } from "cookies-next";
 
 const Error = () => {
   const [isLoggedIn, SetIsLoggedIn] = useState(false);
 
-  if (Cookies.get("cookieToken")) {
+  if (getCookie("cookieToken")) {
     SetIsLoggedIn(true);
   }
 

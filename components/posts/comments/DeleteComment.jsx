@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 import API from "../../../functions/requests/API";
-import Cookies from "js-cookie";
+import { getCookie } from "cookies-next";
 
 const DeleteComment = ({ onDelete, id }) => {
   const deleteComment = async (e) => {
@@ -8,7 +8,7 @@ const DeleteComment = ({ onDelete, id }) => {
     const option = {
       method: "DELETE",
       headers: {
-        Authorization: "Bearer " + Cookies.get("cookieToken").toString(),
+        Authorization: "Bearer " + getCookie("cookieToken").toString(),
       },
       mode: "cors",
       credentials: "include",

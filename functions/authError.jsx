@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
-import Cookies from "js-cookie";
+import { removeCookies } from "cookies-next";
 
 export default function authError() {
   toast.error("Authentication failed, please login again.");
-  Cookies.remove("cookieToken");
+  removeCookies("cookieToken");
 }

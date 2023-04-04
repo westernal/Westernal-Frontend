@@ -7,13 +7,13 @@ import PostLoader from "../../components/layout/loader/ContentLoader";
 import BackToTopButton from "../../components/layout/buttons/BackToTopButton";
 import decodeJWT from "../../functions/decodeJWT";
 import getRequest from "../../functions/requests/getRequest";
-import Cookies from "js-cookie";
+import { getCookie } from "cookies-next";
 
 const Saved = () => {
   const [posts, SetPosts] = useState();
 
   const getSavedPosts = async () => {
-    var token = Cookies.get("cookieToken").toString();
+    var token = getCookie("cookieToken").toString();
     const userID = decodeJWT(token).userId;
     const result = await getRequest(`api/users/saved-posts/${userID}`, true);
 

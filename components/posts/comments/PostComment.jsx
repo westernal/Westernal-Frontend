@@ -2,7 +2,7 @@ import { toast } from "react-toastify";
 import { useEffect } from "react";
 import decodeJWT from "../../../functions/decodeJWT";
 import postRequest from "../../../functions/requests/postRequest";
-import Cookies from "js-cookie";
+import { getCookie } from "cookies-next";
 
 const PostComment = ({
   postId,
@@ -37,7 +37,7 @@ const PostComment = ({
   };
 
   const sendComment = async (message) => {
-    const writerId = decodeJWT(Cookies.get("cookieToken").toString()).userId;
+    const writerId = decodeJWT(getCookie("cookieToken").toString()).userId;
     const result = await postRequest(
       {
         writerId: writerId,
@@ -58,7 +58,7 @@ const PostComment = ({
   };
 
   const sendReply = async (message) => {
-    const writerId = decodeJWT(Cookies.get("cookieToken").toString()).userId;
+    const writerId = decodeJWT(getCookie("cookieToken").toString()).userId;
 
     const result = await postRequest(
       {

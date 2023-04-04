@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import decodeJWT from "../../../functions/decodeJWT";
 import postRequest from "../../../functions/requests/postRequest";
-import Cookies from "js-cookie";
+import { getCookie } from "cookies-next";
 
 const LikePost = ({ id, likesCount, postLikes }) => {
   const [likes, SetLikes] = useState(likesCount);
@@ -22,7 +22,7 @@ const LikePost = ({ id, likesCount, postLikes }) => {
   async function likePost(e) {
     e.preventDefault();
 
-    var token = Cookies.get("cookieToken").toString();
+    var token = getCookie("cookieToken").toString();
     const userID = decodeJWT(token).userId;
 
     if (!postLikes.includes(userID) || !hasLiked) {
@@ -45,7 +45,7 @@ const LikePost = ({ id, likesCount, postLikes }) => {
   async function unlikePost(e) {
     e.preventDefault();
 
-    var token = Cookies.get("cookieToken").toString();
+    var token = getCookie("cookieToken").toString();
 
     const userID = decodeJWT(token).userId;
 

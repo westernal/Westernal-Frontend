@@ -3,7 +3,7 @@ import EditPost from "../../../components/posts/edit/editPost";
 import { useState, useEffect } from "react";
 import getRequest from "../../../functions/requests/getRequest";
 import decodeJWT from "../../../functions/decodeJWT";
-import Cookies from "js-cookie";
+import { getCookie } from "cookies-next";
 
 const EditPostPage = () => {
   const router = useRouter();
@@ -15,7 +15,7 @@ const EditPostPage = () => {
     if (result?.status == 200) {
       if (
         result.data.post.author.username !=
-        decodeJWT(Cookies.get("cookieToken").toString()).username
+        decodeJWT(getCookie("cookieToken").toString()).username
       ) {
         router.push("/404");
         return;

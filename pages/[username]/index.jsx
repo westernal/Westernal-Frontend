@@ -6,7 +6,7 @@ import UserInfo from "../../components/user/UserInfo";
 import BackToTopButton from "../../components/layout/buttons/BackToTopButton";
 import decodeJWT from "../../functions/decodeJWT";
 import getRequest from "../../functions/requests/getRequest";
-import Cookies from "js-cookie";
+import { getCookie } from "cookies-next";
 
 const Profile = ({ posts, user }) => {
   const [isUserSelf, SetIsUserSelf] = useState(false);
@@ -21,13 +21,13 @@ const Profile = ({ posts, user }) => {
     }
 
     function getToken() {
-      var token = Cookies.get("cookieToken").toString();
+      var token = getCookie("cookieToken").toString();
       const jwt = decodeJWT(token);
 
       checkUser(jwt.username);
     }
 
-    if (Cookies.get("cookieToken")) {
+    if (getCookie("cookieToken")) {
       SetIsLoggedIn(true);
       getToken();
     }

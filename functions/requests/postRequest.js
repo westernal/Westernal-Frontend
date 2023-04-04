@@ -1,10 +1,10 @@
 import { toast } from "react-toastify";
 import API from "./API";
-import Cookies from "js-cookie";
+import { getCookie } from "cookies-next";
 
 export default async function postRequest(body, path, auth = false, authToken) {
   if (auth && !authToken) {
-    authToken = Cookies.get("cookieToken").toString();
+    authToken = getCookie("cookieToken").toString();
   }
 
   const options = {

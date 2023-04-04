@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 import API from "../../../functions/requests/API";
-import Cookies from "js-cookie";
+import { getCookie } from "cookies-next";
 
 const DeleteModal = ({ id, hide, onDelete }) => {
   const closeModal = (e) => {
@@ -19,7 +19,7 @@ const DeleteModal = ({ id, hide, onDelete }) => {
     const option = {
       method: "DELETE",
       headers: {
-        Authorization: "Bearer " + Cookies.get("cookieToken").toString(),
+        Authorization: "Bearer " + getCookie("cookieToken").toString(),
       },
     };
 

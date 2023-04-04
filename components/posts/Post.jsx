@@ -9,7 +9,7 @@ import PostIcons from "./icons/PostIcons";
 import PostOptions from "./options/PostOptions";
 import formatDate from "../../functions/formatDate";
 import decodeJWT from "../../functions/decodeJWT";
-import Cookies from "js-cookie";
+import { getCookie } from "cookies-next";
 
 const Post = ({ post, onDelete, isLoggedIn = true, onUnsave }) => {
   const [isSpotify, SetIsSpotify] = useState(true);
@@ -26,7 +26,7 @@ const Post = ({ post, onDelete, isLoggedIn = true, onUnsave }) => {
     if (
       isLoggedIn &&
       post.author.username ===
-        decodeJWT(Cookies.get("cookieToken").toString()).username
+        decodeJWT(getCookie("cookieToken").toString()).username
     ) {
       SetCanDelete(true);
     }

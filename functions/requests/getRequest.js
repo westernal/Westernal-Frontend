@@ -1,9 +1,9 @@
-import Cookies from "js-cookie";
+import { getCookie } from "cookies-next";
 import API from "./API";
 
 export default async function getRequest(path, auth = false, authToken) {
   if (auth && !authToken) {
-    authToken = Cookies.get("cookieToken").toString();
+    authToken = getCookie("cookieToken").toString();
   }
   const options = {
     method: "GET",

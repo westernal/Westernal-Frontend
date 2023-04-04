@@ -1,12 +1,12 @@
-import Cookies from "js-cookie";
 import { useRouter } from "next/router";
+import { removeCookie } from "cookies-next";
 
 const LogOut = () => {
   const router = useRouter();
 
   function logOut(e) {
     e.preventDefault();
-    Cookies.remove("cookieToken");
+    removeCookie("cookieToken");
     router.push("/");
   }
 

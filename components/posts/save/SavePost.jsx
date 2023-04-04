@@ -3,13 +3,13 @@ import { toast } from "react-toastify";
 import { useState } from "react";
 import decodeJWT from "../../../functions/decodeJWT";
 import postRequest from "../../../functions/requests/postRequest";
-import Cookies from "js-cookie";
+import { getCookie } from "cookies-next";
 
 const SavePost = ({ id, hide, onUnsave }) => {
   const [isSaved, SetIsSaved] = useState(false);
 
   const checkUser = async () => {
-    var token = Cookies.get("cookieToken").toString();
+    var token = getCookie("cookieToken").toString();
     const userId = decodeJWT(token).userId;
     const result = await postRequest(
       {
@@ -35,7 +35,7 @@ const SavePost = ({ id, hide, onUnsave }) => {
   };
 
   const save = async () => {
-    var token = Cookies.get("cookieToken").toString();
+    var token = getCookie("cookieToken").toString();
     const userId = decodeJWT(token).userId;
 
     const result = await postRequest(
@@ -57,7 +57,7 @@ const SavePost = ({ id, hide, onUnsave }) => {
   };
 
   const unsave = async () => {
-    var token = Cookies.get("cookieToken").toString();
+    var token = getCookie("cookieToken").toString();
     const userId = decodeJWT(token).userId;
 
     const result = await postRequest(
