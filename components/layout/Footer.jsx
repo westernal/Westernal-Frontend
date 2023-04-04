@@ -39,7 +39,7 @@ const Footer = () => {
         <Image
           width={28}
           height={28}
-          src="/Images/home.png"
+          src="/Images/home.svg"
           alt="home"
           id="home-icon"
         />
