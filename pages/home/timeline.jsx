@@ -8,8 +8,10 @@ import decodeJWT from "../../functions/decodeJWT";
 import getRequest from "../../functions/requests/getRequest";
 import useSWR from "swr";
 import { getCookie } from "cookies-next";
+import { useEffect, useState } from "react";
 
-export default function Index({ userId }) {
+export default function Index() {
+  const [userId, SetUserId] = useState("");
   const {
     data: result,
     isLoading,
@@ -23,6 +25,10 @@ export default function Index({ userId }) {
 
     SetPosts(newPosts);
   };
+
+  useEffect(() => {
+    SetUserId(decodeJWT(getCookie("cookieToken").toString()).userId);
+  }, []);
 
   return (
     <>
@@ -56,13 +62,3 @@ export default function Index({ userId }) {
     </>
   );
 }
-
-export const getServerSideProps = async ({ req, res }) => {
-  const userId = decodeJWT(
-    getCookie("cookieToken", { req, res }).toString()
-  ).userId;
-
-  return {
-    props: { userId: userId },
-  };
-};

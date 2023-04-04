@@ -9,14 +9,20 @@ import decodeJWT from "../../functions/decodeJWT";
 import getRequest from "../../functions/requests/getRequest";
 import { getCookie } from "cookies-next";
 import useSWR from "swr";
+import { useEffect, useState } from "react";
 
-const Notifications = ({ id }) => {
+const Notifications = () => {
+  const [userId, SetUserId] = useState("");
   const {
     data: result,
     isLoading,
     error,
-  } = useSWR(`api/notifications/${id}`, (url) => getRequest(url, true));
+  } = useSWR(`api/notifications/${userId}`, (url) => getRequest(url, true));
   const host = "https://alinavidi.ir/";
+
+  useEffect(() => {
+    SetUserId(decodeJWT(getCookie("cookieToken").toString()).userId);
+  }, []);
 
   return (
     <>
@@ -80,16 +86,6 @@ const Notifications = ({ id }) => {
       <Footer />
     </>
   );
-};
-
-export const getServerSideProps = async ({ req, res }) => {
-  const userId = decodeJWT(
-    getCookie("cookieToken", { req, res }).toString()
-  ).userId;
-
-  return {
-    props: { id: userId },
-  };
 };
 
 export default Notifications;

@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "cookies-next": "^2.1.1",
-    "js-cookie": "^3.0.1",
     "jwt-decode": "^3.1.2",
     "lottie-react": "^2.4.0",
     "next": "^13.2.3",
