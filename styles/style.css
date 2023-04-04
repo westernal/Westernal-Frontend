@@ -1477,6 +1477,10 @@ h1 {
     width: 70px;
   }
 
+  .footer img {
+    opacity: 1;
+  }
+
   .animation {
     display: none;
   }
