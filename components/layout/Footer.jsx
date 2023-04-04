@@ -8,7 +8,7 @@ import decodeJWT from "../../functions/decodeJWT";
 import { getCookie } from "cookies-next";
 import { useEffect, useState } from "react";
 
-const Footer = () => {
+const Footer = ({ classnames = "footer" }) => {
   const [token, SetToken] = useState({ username: "" });
   const userId = token.userId;
   const { data: result, isLoading } = useSWR(
@@ -26,7 +26,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="footer">
+    <footer className={classnames}>
       <Head>
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />

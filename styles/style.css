@@ -118,11 +118,15 @@ header p,
   background-color: var(--light-primary-color);
 }
 
-.footer img {
+footer img {
   opacity: 0.6;
 }
 
-.footer img:hover {
+footer img:focus,
+.home #home-icon,
+.search #search-icon,
+.notification #notif-icon,
+.profile #user-icon {
   opacity: 1;
 }
 

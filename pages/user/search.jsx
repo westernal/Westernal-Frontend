@@ -27,7 +27,7 @@ const Search = () => {
         </div>
         {isTyped ? <User users={users} /> : null}
       </main>
-      <Footer />
+      <Footer classnames="footer search" />
     </>
   );
 };

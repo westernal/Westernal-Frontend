@@ -58,7 +58,7 @@ export default function Index() {
         </section>
         <BackToTopButton />
       </main>
-      <Footer />
+      <Footer classnames="footer home" />
     </>
   );
 }

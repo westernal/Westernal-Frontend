@@ -69,7 +69,7 @@ const Profile = ({ posts, user }) => {
         </section>
         <BackToTopButton />
       </main>
-      {isLoggedIn ? <Footer /> : null}
+      {isLoggedIn ? <Footer classnames="footer profile" /> : null}
     </>
   );
 };

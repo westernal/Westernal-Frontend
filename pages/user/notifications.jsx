@@ -86,7 +86,7 @@ const Notifications = () => {
             ))}
         </section>
       </main>
-      <Footer />
+      <Footer classnames="footer notification" />
     </>
   );
 };
