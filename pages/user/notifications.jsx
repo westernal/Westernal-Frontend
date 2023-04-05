@@ -9,10 +9,8 @@ import decodeJWT from "../../functions/decodeJWT";
 import getRequest from "../../functions/requests/getRequest";
 import { getCookie } from "cookies-next";
 import useSWR from "swr";
-import { useEffect, useState } from "react";
 
-const Notifications = () => {
-  const [userId, SetUserId] = useState("");
+const Notifications = ({ userId }) => {
   const {
     data: result,
     isLoading,
@@ -22,10 +20,6 @@ const Notifications = () => {
     (url) => getRequest(url, true)
   );
   const host = "https://alinavidi.ir/";
-
-  useEffect(() => {
-    SetUserId(decodeJWT(getCookie("cookieToken").toString()).userId);
-  }, []);
 
   return (
     <>
@@ -89,6 +83,16 @@ const Notifications = () => {
       <Footer classnames="footer notification" />
     </>
   );
+};
+
+Notifications.getInitialProps = async ({ req, res }) => {
+  const userId = decodeJWT(
+    getCookie("cookieToken", { req, res }).toString()
+  ).userId;
+
+  return {
+    userId: userId,
+  };
 };
 
 export default Notifications;

@@ -9,10 +9,8 @@ import getRequest from "../../functions/requests/getRequest";
 import useSWR from "swr";
 import { getCookie } from "cookies-next";
 import { mutate } from "swr";
-import { useEffect, useState } from "react";
 
-export default function Index() {
-  const [userId, SetUserId] = useState("");
+const Timeline = ({ userId }) => {
   const {
     data: result,
     isLoading,
@@ -25,10 +23,6 @@ export default function Index() {
   const onDeletePost = (id) => {
     mutate(`api/posts/timeline/${userId}`);
   };
-
-  useEffect(() => {
-    SetUserId(decodeJWT(getCookie("cookieToken").toString()).userId);
-  }, []);
 
   return (
     <>
@@ -61,4 +55,16 @@ export default function Index() {
       <Footer classnames="footer home" />
     </>
   );
-}
+};
+
+Timeline.getInitialProps = async ({ req, res }) => {
+  const userId = decodeJWT(
+    getCookie("cookieToken", { req, res }).toString()
+  ).userId;
+
+  return {
+    userId: userId,
+  };
+};
+
+export default Timeline;
