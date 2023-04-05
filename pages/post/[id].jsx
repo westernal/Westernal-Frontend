@@ -1,6 +1,4 @@
 import { useRouter } from "next/router";
-import { useState } from "react";
-import { useEffect } from "react";
 import Footer from "../../components/layout/Footer";
 import Head from "next/head";
 import Post from "../../components/posts/Post";
@@ -8,15 +6,8 @@ import BackHeader from "../../components/layout/header/BackHeader";
 import getRequest from "../../functions/requests/getRequest";
 import { getCookie } from "cookies-next";
 
-const PostPage = ({ post }) => {
+const PostPage = ({ post, isLoggedIn }) => {
   const router = useRouter();
-  const [isLoggedIn, SetIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    if (getCookie("cookieToken").toString()) {
-      SetIsLoggedIn(true);
-    }
-  }, []);
 
   return (
     <>
@@ -49,9 +40,14 @@ const PostPage = ({ post }) => {
   );
 };
 
-PostPage.getInitialProps = async (context) => {
-  const userID = context.query.id;
+PostPage.getInitialProps = async ({ query, req, res }) => {
+  const userID = query.id;
   const result = await getRequest(`api/posts/${userID}`);
+  let isLoggedIn = false;
+
+  if (getCookie("cookieToken", { req, res })) {
+    isLoggedIn = true;
+  }
 
   if (result?.status != 200) {
     return {
@@ -61,6 +57,7 @@ PostPage.getInitialProps = async (context) => {
 
   return {
     post: result.data.post,
+    isLoggedIn: isLoggedIn,
   };
 };
 
