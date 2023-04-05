@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useEffect } from "react";
 import { toast } from "react-toastify";
 import { useState } from "react";
 import decodeJWT from "../../../functions/decodeJWT";
@@ -24,7 +24,7 @@ const SavePost = ({ id, hide, onUnsave }) => {
     }
   };
 
-  useMemo(() => {
+  useEffect(() => {
     checkUser();
   }, []);
 

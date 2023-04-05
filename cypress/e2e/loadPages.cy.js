@@ -7,6 +7,12 @@ describe("Testing pages.", () => {
     cy.visit("/user/forgot-password");
     cy.visit("/user/forgot-password/token");
 
+    //visit without login
+    cy.visit("/westernal");
+    cy.visit("/westernal/followers");
+    cy.visit("/westernal/following");
+    cy.visit("/post/63d689e481959628b5ec9211");
+
     //login
     cy.visit("/");
     cy.get("#username").type("cypress");
