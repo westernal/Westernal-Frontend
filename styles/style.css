@@ -84,7 +84,8 @@ header {
 .cm-list,
 .setting .auth-form,
 .add-post .auth-form,
-.reset-password .auth-form {
+.reset-password .auth-form,
+.search-explore {
   margin-top: 100px !important;
 }
 
@@ -101,6 +102,12 @@ header p,
   font-size: 30px;
   font-weight: bolder;
   margin: 0;
+}
+
+.search-explore #website-name,
+.app-description #website-name {
+  font-size: 40px;
+  color: var(--main-color);
 }
 
 .footer {
@@ -1263,6 +1270,10 @@ h1 {
 
 #top-button:hover {
   opacity: 0.8;
+}
+
+.search-explore {
+  text-align: center;
 }
 
 @media screen and (prefers-color-scheme: dark) {

@@ -3,6 +3,7 @@ import Footer from "../../components/layout/Footer";
 import User from "../../components/user/Users";
 import Head from "next/head";
 import useSearchUsers from "../../hooks/useSearchUsers";
+import SearchExplore from "../../components/user/search/searchExplore";
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -25,7 +26,7 @@ const Search = () => {
             autoComplete={"off"}
           />
         </div>
-        {isTyped ? <User users={users} /> : null}
+        {isTyped ? <User users={users} /> : <SearchExplore />}
       </main>
       <Footer classnames="footer search" />
     </>
