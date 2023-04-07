@@ -6,6 +6,8 @@ const nextConfig = {
 const withPWA = require("next-pwa")({
   dest: "public",
   publicExcludes: ["!robots.txt", "!sitemap.xml", "!sitemap-0.xml"],
+  buildExcludes: [/middleware-manifest.json$/],
+  runtimeCaching,
 });
 
 module.exports = withPWA({
