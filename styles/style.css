@@ -269,7 +269,8 @@ ul {
 #like-count,
 #like-btn,
 #delete-btn,
-.save-icon {
+.save-icon,
+.v-user {
   transition: 0.2s;
 }
 
@@ -898,7 +899,8 @@ canvas {
 .contact-btn:hover,
 .search-btn:hover,
 #cancel-delete:hover,
-.unfollow-btn:hover {
+.unfollow-btn:hover,
+.v-user:hover {
   background-color: var(--light-secondary-color);
 }
 
@@ -1276,6 +1278,22 @@ h1 {
   text-align: center;
 }
 
+.verified-users .auth-form {
+  margin: 0;
+}
+
+.search-explore {
+  padding: 0 20px;
+}
+
+.v-user {
+  width: 300px !important;
+}
+
+.v-user .bio {
+  color: var(--dark-primary-color);
+}
+
 @media screen and (prefers-color-scheme: dark) {
   body {
     background-color: var(--dark-primary-color);
@@ -1286,6 +1304,10 @@ h1 {
   .unfollow-btn,
   .search-modal input {
     background-color: var(--dark-secondary-color);
+  }
+
+  .v-user .bio {
+    color: var(--light-secondary-color);
   }
 
   .post-menu,
@@ -1349,7 +1371,8 @@ h1 {
   }
 
   .contact-btn:hover,
-  .unfollow-btn:hover {
+  .unfollow-btn:hover,
+  .v-user:hover {
     background-color: var(--dark-secondary-hover-color);
   }
 
@@ -1517,7 +1540,8 @@ h1 {
   }
 
   .form-inputs .flex,
-  .error-btns {
+  .error-btns,
+  .verified-users {
     flex-direction: column;
   }
 
