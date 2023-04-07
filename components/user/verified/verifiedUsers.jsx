@@ -18,6 +18,7 @@ const VerifiedUsers = ({ users }) => {
                 width={80}
                 height={80}
                 id="avatar"
+                alt="Avatar"
               />
             </div>
             <div className="user-description">
