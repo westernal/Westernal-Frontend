@@ -5,6 +5,8 @@ const nextConfig = {
 
 const withPWA = require("next-pwa")({
   dest: "public",
+  register: true,
+  skipWaiting: true,
   publicExcludes: ["!robots.txt", "!sitemap.xml", "!sitemap-0.xml"],
   buildExcludes: [/middleware-manifest.json$/],
   runtimeCaching,
