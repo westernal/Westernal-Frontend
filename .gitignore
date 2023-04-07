@@ -13,7 +13,7 @@
 
 # production
 /build 
-/public/*.map 
+
 
 # misc
 .DS_Store
