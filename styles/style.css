@@ -1313,7 +1313,8 @@ h1 {
   .post-menu,
   #cancel-delete,
   .search-modal,
-  .search-results .profile-notif:hover {
+  .search-results .profile-notif:hover,
+  .app-info {
     background-color: var(--dark-primary-color);
   }
 
