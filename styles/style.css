@@ -1301,8 +1301,7 @@ h1 {
   }
 
   .pwa .modal-main,
-  .unfollow-btn,
-  .search-modal input {
+  .unfollow-btn {
     background-color: var(--dark-secondary-color);
   }
 
@@ -1314,7 +1313,8 @@ h1 {
   #cancel-delete,
   .search-modal,
   .search-results .profile-notif:hover,
-  .app-info {
+  .app-info,
+  .search-modal input {
     background-color: var(--dark-primary-color);
   }
 
