@@ -3,15 +3,18 @@ import DeletePost from "../delete/DeletePost";
 import RedirectPost from "../redirect/RedirectPost";
 import SavePost from "../save/SavePost";
 import SharePost from "../share/SharePost";
+import { usePostContext } from "../../../context/postContext";
 
-const PostOptions = ({ onDelete, isLoggedIn, deletable, id, onUnsave }) => {
+const PostOptions = ({ onDelete, isLoggedIn, deletable, onUnsave }) => {
+  const post = usePostContext();
+
   const openMenu = () => {
-    const menu = document.getElementById(id);
+    const menu = document.getElementById(post._id);
     menu.style.maxHeight = "600px";
   };
 
   const closeMenu = () => {
-    const menu = document.getElementById(id);
+    const menu = document.getElementById(post._id);
     menu.style.maxHeight = "0px";
   };
 
@@ -20,19 +23,19 @@ const PostOptions = ({ onDelete, isLoggedIn, deletable, id, onUnsave }) => {
       <button id="more" className="flex" onClick={openMenu}>
         ...
       </button>
-      <ul className="post-menu" id={id}>
-        <SharePost id={id} hide={closeMenu} />
+      <ul className="post-menu" id={post._id}>
+        <SharePost id={post._id} hide={closeMenu} />
         {isLoggedIn ? (
-          <SavePost id={id} hide={closeMenu} onUnsave={onUnsave} />
+          <SavePost id={post._id} hide={closeMenu} onUnsave={onUnsave} />
         ) : null}
         {deletable ? (
           <li>
-            <Link href={`/post/edit/${id}`}>Edit post</Link>
+            <Link href={`/post/edit/${post._id}`}>Edit post</Link>
           </li>
         ) : null}
-        <RedirectPost id={id} hide={closeMenu} />
+        <RedirectPost id={post._id} hide={closeMenu} />
         {deletable ? (
-          <DeletePost onDelete={onDelete} id={id} hide={closeMenu} />
+          <DeletePost onDelete={onDelete} id={post._id} hide={closeMenu} />
         ) : null}
         <li onClick={closeMenu}>Cancel</li>
       </ul>

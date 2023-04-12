@@ -1,14 +1,12 @@
+import { usePostContext } from "../../../context/postContext";
 import LikePost from "../like/LikePost";
 import Link from "next/link";
 
-const PostIcons = ({ post }) => {
+const PostIcons = () => {
+  const post = usePostContext();
   return (
     <section className="post-icons flex">
-      <LikePost
-        id={post._id}
-        likesCount={post.likes.length}
-        postLikes={post.likes}
-      />
+      <LikePost />
       <Link href={`/comments/${post._id}`} id="comments" className="flex gap-5">
         <svg viewBox="0 0 24 24">
           <g id="Icons" stroke="none" fill="none">
