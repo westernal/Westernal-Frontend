@@ -1,0 +1,71 @@
+import { toast } from "react-toastify";
+import Link from "next/link";
+
+const LoginForm = ({ login, changeLoader }) => {
+  function checkInputs(e: any) {
+    e.preventDefault();
+
+    changeLoader("on");
+    const password = document.getElementById("password") as HTMLInputElement;
+    const username = document.getElementById("username") as HTMLInputElement;
+
+    if (username.value == "") {
+      toast.error("Username must be included!");
+      changeLoader("off");
+      return;
+    }
+
+    if (password.value.length < 6) {
+      toast.error("Password must be more than 6 characters!");
+      changeLoader("off");
+      return;
+    } else login(username.value.toLowerCase(), password.value);
+  }
+
+  const showPassword = (e) => {
+    if (e.target.style.backgroundColor === "inherit") {
+      e.target.style.backgroundColor = "#5f5d5d";
+    } else e.target.style.backgroundColor = "inherit";
+
+    var password = document.getElementById("password") as HTMLInputElement;
+    if (password.type === "password") {
+      password.type = "text";
+    } else {
+      password.type = "password";
+    }
+  };
+
+  return (
+    <form onSubmit={checkInputs} autoComplete="on">
+      <section className="form-inputs">
+        <input type="text" placeholder="Username" id="username" />
+        <input type="password" placeholder="Password" id="password" />
+        <section className="flex">
+          <div className="flex password-options">
+            <div className="flex ">
+              <div className="show-password">
+                <div
+                  className="checkbox"
+                  onClick={showPassword}
+                  style={{ backgroundColor: "inherit" }}
+                ></div>
+                <p className="show">Show password</p>
+              </div>
+            </div>
+            <div className="flex forgot-password">
+              <Link href="/user/forgot-password">Forgot password?</Link>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <div className="flex">
+        <button className="btn" type="submit">
+          Login
+        </button>
+      </div>
+    </form>
+  );
+};
+
+export default LoginForm;
