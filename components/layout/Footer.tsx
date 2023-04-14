@@ -10,9 +10,8 @@ import { useEffect, useState } from "react";
 
 const Footer = ({ classnames = "footer" }) => {
   const [token, SetToken] = useState<any>({ username: "", userId: 0 });
-  const userId = token.userId;
-  const { data: result, isLoading } = useSWR(
-    `api/users/notification/${userId}`,
+  const { data: result } = useSWR(
+    `api/users/notification/${token.userId}`,
     (url) => getRequest(url, true)
   );
 
@@ -22,7 +21,7 @@ const Footer = ({ classnames = "footer" }) => {
   }, []);
 
   const clearNotification = async () => {
-    await postRequest({}, `api/users/notification/clear/${userId}`, true);
+    await postRequest({}, `api/users/notification/clear/${token.userId}`, true);
   };
 
   return (
