@@ -1,20 +1,20 @@
 export interface Post {
-    _id:string;
-    caption?: string;
+    _id:string,
+    caption?: string,
     author: {
-        id: string;
-        username: string;
-        image: string;
-        verified: boolean;
-    };
-    songUrl: string;
-    date: Date;
-    likes: string[];
-    comments_length: number;
+        id: string,
+        username: string,
+        image: string,
+        verified: boolean,
+    },
+    songUrl: string,
+    date: Date,
+    likes: string[],
+    comments_length: number,
 }
 
 export interface User {
-    _id:string;
+    _id:string,
     username: string,
     email: string,
     password: string,
@@ -43,4 +43,17 @@ export interface Comment {
       date: Date,
       replies: string[],
       type: string,
+}
+
+export interface Notification {
+    owner: string,
+  user: {
+    id: string,
+    username: string,
+    image: string,
+    verified: boolean,
+  },
+  postId?: string,
+  message: string,
+  date: Date,
 }
