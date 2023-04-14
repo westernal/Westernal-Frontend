@@ -1,4 +1,4 @@
-export default function formatDate(date: Date) {
+export default function formatDate(date: Date): string {
   date = new Date(date);
 
   var seconds = Math.floor((new Date().getTime() - date.getTime()) / 1000);

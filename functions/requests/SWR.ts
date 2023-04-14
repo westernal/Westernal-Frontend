@@ -1,6 +1,6 @@
 import useSWR from "swr";
 
-const fetcher = async (options, url:string) => {
+const fetcher = async (options: object, url:string) => {
   const response = await fetch(url, options);
 
   const data = await response.json();
@@ -8,7 +8,7 @@ const fetcher = async (options, url:string) => {
   return data;
 };
 
-export default function SWR(options, address: string) {
+export default function SWR(options: object, address: string) {
   const host = "https://alinavidi.ir/";
   const url = host + address;
   const { data } = useSWR(url, (url) => fetcher(options, url));

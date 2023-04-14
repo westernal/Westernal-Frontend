@@ -1,6 +1,6 @@
 import authError from "../authError";
 
-export default async function API(options, address: string) {
+export default async function API(options: object, address: string) {
   const host = "https://alinavidi.ir/";
 
   const response = await fetch(host + address, options);
