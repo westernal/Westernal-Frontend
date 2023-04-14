@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import Head from "next/head";
 import useSWR from "swr";
 import postRequest from "../../functions/requests/postRequest";
 import getRequest from "../../functions/requests/getRequest";
@@ -26,14 +25,6 @@ const Footer = ({ classnames = "footer" }) => {
 
   return (
     <footer className={classnames}>
-      <Head>
-        <meta charSet="utf-8" />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta
-          name="viewport"
-          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=5"
-        />
-      </Head>
       <Link href="/home/timeline">
         <Image
           width={32}

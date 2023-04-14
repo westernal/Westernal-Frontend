@@ -53,11 +53,17 @@ const SignupForm = ({ signup, changeLoader }) => {
       <section className="form-inputs">
         <input type="text" placeholder="Username" id="username" />
         <input type="text" placeholder="Email" id="email" />
-        <input type="password" placeholder="Password" id="password" />
+        <input
+          type="password"
+          placeholder="Password"
+          id="password"
+          autoComplete="off"
+        />
         <input
           type="password"
           placeholder="Confirm Password"
           id="confirm-password"
+          autoComplete="off"
         />
       </section>
 
