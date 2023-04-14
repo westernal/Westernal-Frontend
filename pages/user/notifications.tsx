@@ -9,6 +9,7 @@ import decodeJWT from "../../functions/decodeJWT";
 import getRequest from "../../functions/requests/getRequest";
 import { getCookie } from "cookies-next";
 import useSWR from "swr";
+import { Notification } from "../../interfaces/interface";
 
 const Notifications = ({ userId }: { userId: string }) => {
   const {
@@ -41,7 +42,7 @@ const Notifications = ({ userId }: { userId: string }) => {
 
           {!isLoading &&
             !error &&
-            result?.data?.notifications?.map((notif) => (
+            result?.data?.notifications?.map((notif: Notification) => (
               <div className="profile-notif flex" key={notif._id}>
                 <div className="flex notif-main ">
                   <Link href={`/${notif.user.username}`} className="flex">

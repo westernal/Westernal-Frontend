@@ -46,6 +46,7 @@ export interface Comment {
 }
 
 export interface Notification {
+    _id: string,
     owner: string,
   user: {
     id: string,

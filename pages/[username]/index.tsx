@@ -52,7 +52,7 @@ const Profile = ({
         <UserInfo isUserSelf={isUserSelf} user={user} isLoggedIn={isLoggedIn} />
         <section className="flex post-list">
           {!userPosts
-            ? [1, 2, 3].map((index) => {
+            ? [1, 2, 3].map((index: number) => {
                 return (
                   <div className="post" key={index}>
                     <ContentLoader />
@@ -61,7 +61,7 @@ const Profile = ({
               })
             : null}
 
-          {userPosts?.map((post) => {
+          {userPosts?.map((post: PostType) => {
             return (
               <Post
                 post={post}

@@ -9,6 +9,7 @@ import getRequest from "../../functions/requests/getRequest";
 import useSWR from "swr";
 import { getCookie } from "cookies-next";
 import { mutate } from "swr";
+import { Post as PostType } from "../../interfaces/interface";
 
 const Timeline = ({ userId }: { userId: string }) => {
   const {
@@ -44,7 +45,7 @@ const Timeline = ({ userId }: { userId: string }) => {
 
           {!isLoading &&
             !error &&
-            result?.data?.posts?.map((post) => {
+            result?.data?.posts?.map((post: PostType) => {
               return (
                 <Post post={post} key={post._id} onDelete={onDeletePost} />
               );
