@@ -24,9 +24,9 @@ const Post = ({
   isLoggedIn?: boolean;
   onUnsave?: any;
 }) => {
-  const [isSpotify, SetIsSpotify] = useState(true);
-  const [error, SetError] = useState(false);
-  const [canDelete, SetCanDelete] = useState(false);
+  const [isSpotify, SetIsSpotify] = useState<boolean>(true);
+  const [error, SetError] = useState<boolean>(false);
+  const [canDelete, SetCanDelete] = useState<boolean>(false);
 
   useEffect(() => {
     if (post.songUrl) {

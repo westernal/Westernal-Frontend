@@ -39,7 +39,7 @@ const Profile = ({
     }
   }, [user]);
 
-  const onDeletePost = (id) => {
+  const onDeletePost = (id: string) => {
     const newPosts = userPosts.filter((post) => {
       return post._id != id;
     });

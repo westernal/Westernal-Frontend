@@ -21,7 +21,7 @@ const Timeline = ({ userId }: { userId: string }) => {
     (url) => getRequest(url, true)
   );
 
-  const onDeletePost = (id) => {
+  const onDeletePost = (id?: string) => {
     mutate(`api/posts/timeline/${userId}`);
   };
 
@@ -34,7 +34,7 @@ const Timeline = ({ userId }: { userId: string }) => {
       <main className="home">
         <section className="post-list flex">
           {isLoading
-            ? [1, 2, 3].map((elem, index) => {
+            ? [1, 2, 3].map((index) => {
                 return (
                   <div className="post" key={index}>
                     <ContentLoader />
