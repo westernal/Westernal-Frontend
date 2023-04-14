@@ -12,6 +12,8 @@ describe("Edit post.", () => {
     //edit the post
     cy.get("#more").click();
     cy.findByText("Edit post").click();
+    cy.intercept("GET", "/api/posts/*").as("getPost");
+    cy.wait("@getPost", { timeout: 60000 });
     cy.get("#caption").type("Testing caption");
     cy.findByText("Save").click();
     cy.intercept("/api/posts/edit/*").as("editPost");

@@ -1,4 +1,6 @@
-const EditPostForm = ({ post, editPost }) => {
+import { Post } from "../../../interfaces/interface";
+
+const EditPostForm = ({ post, editPost }: { post: Post; editPost: any }) => {
   const checkInputs = (e: any) => {
     e.preventDefault();
 
