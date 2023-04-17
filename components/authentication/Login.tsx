@@ -31,8 +31,8 @@ const Login = () => {
     switch (result?.status) {
       case 200:
         setCookie("cookieToken", result.data.token);
-        toast.success(`Welcome, ${username}!`);
         router.push("/home/timeline");
+        toast.success(`Welcome, ${username}!`);
         break;
       case 402:
         router.push("/user/forgot-password");
