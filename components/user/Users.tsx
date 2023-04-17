@@ -17,7 +17,7 @@ const User = ({ users }: { users: User[] }) => {
             );
           })
         : null}
-      {users?.map((user) => (
+      {users?.map((user: User) => (
         <Link
           href={`/${user.username}`}
           className="user flex profile-notif"

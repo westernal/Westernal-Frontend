@@ -5,10 +5,11 @@ import User from "../../components/user/Users";
 import BackHeader from "../../components/layout/header/BackHeader";
 import Head from "next/head";
 import getRequest from "../../functions/requests/getRequest";
+import { User as UserType } from "../../interfaces/interface";
 
 const Likes = () => {
   const router: any = useRouter();
-  const [users, SetUsers] = useState();
+  const [users, SetUsers] = useState<UserType[]>();
 
   async function getPostLikes() {
     const result = await getRequest(`api/posts/like/${router.query.id}`, true);

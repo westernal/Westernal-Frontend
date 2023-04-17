@@ -19,7 +19,7 @@ const UserInfo = ({
 }) => {
   const [isFollowing, SetIsFollowing] = useState<boolean>(false);
   const host: string = "https://alinavidi.ir/";
-  const [link, SetLink] = useState<string>();
+  const [link, SetLink] = useState<URL | string>();
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -31,7 +31,7 @@ const UserInfo = ({
     }
 
     if (user?.personal_link || user?.personal_link != " ") {
-      let domain;
+      let domain: URL | string;
       try {
         domain = new URL(user?.personal_link);
       } catch (error) {

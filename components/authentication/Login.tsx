@@ -11,10 +11,10 @@ import postRequest from "../../functions/requests/postRequest";
 import { setCookie } from "cookies-next";
 
 const Login = () => {
-  const [loader, SetLoader] = useState(false);
+  const [loader, SetLoader] = useState<boolean>(false);
   const router = useRouter();
 
-  async function login(username, password) {
+  async function login(username: string, password: string) {
     const result = await postRequest(
       {
         username: username,
@@ -46,7 +46,7 @@ const Login = () => {
     SetLoader(false);
   }
 
-  const changeLoader = (loader) => {
+  const changeLoader = (loader: string) => {
     if (loader === "off") {
       SetLoader(false);
     } else if (loader === "on") {
