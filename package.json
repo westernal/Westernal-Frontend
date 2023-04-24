@@ -12,6 +12,7 @@
     "cypress": "cypress open"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
     "cookies-next": "^2.1.1",
     "jwt-decode": "^3.1.2",
     "lottie-react": "^2.4.0",
@@ -24,6 +25,7 @@
     "react-dom": "^18.2.0",
     "react-image-crop": "^10.0.9",
     "react-player": "^2.11.2",
+    "react-redux": "^8.0.5",
     "react-toastify": "^8.2.0",
     "swr": "^2.0.3"
   },
