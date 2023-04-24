@@ -1,24 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { User } from "../../interfaces/interface";
+import { UserSlice } from "../../interfaces/interface";
 
-const initialState: User = {
-    _id: "",
-    username: "",
-    email: "",
-    image: "",
-    bio: "",
-    followings: [],
-    followers: [],
-    posts: [],
-    verified: false,
-    new_notification: 0,
-    saved_posts: [],
-    personal_link: "",
-    failed_login_attempts: 0,
+const initialState: UserSlice = {
+   users: [],
+   isLoading: false,
+   error: ''
 }
 
 const userSlice = createSlice({
-    name: 'cart',
+    name: 'user',
     initialState,
     reducers: {
    

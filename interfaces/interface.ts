@@ -58,3 +58,9 @@ export interface Notification {
   message: string,
   date: Date,
 }
+
+export interface UserSlice {
+  users: User[],
+  isLoading: boolean,
+  error: string
+}
