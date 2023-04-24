@@ -17,7 +17,7 @@ export interface User {
     _id:string,
     username: string,
     email: string,
-    password: string,
+    password?: string,
     image: string,
     bio?: string,
     followings: string[],
