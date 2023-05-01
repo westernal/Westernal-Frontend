@@ -1,5 +1,4 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
-import Loader from "../components/layout/loader/Loader";
 
 class MyDocument extends Document {
   render() {
@@ -105,7 +104,6 @@ class MyDocument extends Document {
           />
         </Head>
         <body>
-          <Loader />
           <Main />
           <NextScript />
         </body>
