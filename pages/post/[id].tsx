@@ -27,7 +27,7 @@ const PostPage = ({
         ) : null}
       </Head>
 
-      <BackHeader title={"Post"} />
+      <BackHeader title={"Post"} head={false} />
       <main className="post-page home">
         <section className="post-list flex">
           {post ? (

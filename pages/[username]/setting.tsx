@@ -1,6 +1,5 @@
 import Footer from "../../components/layout/Footer";
 import BackHeader from "../../components/layout/header/BackHeader";
-import Head from "next/head";
 import Logout from "../../components/authentication/Logout";
 import SettingForm from "../../components/authentication/form/SettingForm";
 import getRequest from "../../functions/requests/getRequest";
@@ -11,9 +10,6 @@ const Setting = ({ user }: { user: User }) => {
 
   return (
     <>
-      <Head>
-        <title>Westernal - Setting</title>
-      </Head>
       <BackHeader title={"Setting"} />
 
       <main className="setting flex">

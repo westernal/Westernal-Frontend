@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import BackHeader from "../../components/layout/header/BackHeader";
 import Footer from "../../components/layout/Footer";
-import Head from "next/head";
 import Image from "next/image";
 import SearchSong from "../../components/posts/search/SearchSong";
 import FormLoader from "../../components/layout/loader/FormLoader";
@@ -60,10 +59,6 @@ const NewPost = () => {
 
   return (
     <>
-      <Head>
-        <title>Westernal - New Post</title>
-      </Head>
-
       <BackHeader title="New Post" />
 
       <SearchMusicProvider>

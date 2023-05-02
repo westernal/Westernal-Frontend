@@ -1,10 +1,22 @@
 import { useRouter } from "next/router";
 import Image from "next/image";
+import Head from "next/head";
 
-const BackHeader = ({ title }) => {
+const BackHeader = ({
+  title,
+  head = true,
+}: {
+  title: string;
+  head?: boolean;
+}) => {
   const router = useRouter();
   return (
     <header className="back-header">
+      {head ? (
+        <Head>
+          <title>Westernal - {title}</title>
+        </Head>
+      ) : null}
       <button
         id="back-link"
         aria-label="back"

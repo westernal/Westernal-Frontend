@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import User from "../../components/user/Users";
 import BackHeader from "../../components/layout/header/BackHeader";
-import Head from "next/head";
 import getRequest from "../../functions/requests/getRequest";
 import { User as UserType } from "../../interfaces/interface";
 
@@ -27,9 +26,6 @@ const Likes = () => {
 
   return (
     <>
-      <Head>
-        <title>Westernal - Likes</title>
-      </Head>
       <BackHeader title={"Likes"} />
 
       <main className="likes">

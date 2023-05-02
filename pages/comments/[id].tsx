@@ -2,7 +2,6 @@ import { useRouter } from "next/router";
 import BackHeader from "../../components/layout/header/BackHeader";
 import CommentsList from "../../components/posts/comments/CommentsList";
 import PostComment from "../../components/posts/comments/PostComment";
-import Head from "next/head";
 import { useState } from "react";
 
 const Comments = () => {
@@ -26,10 +25,7 @@ const Comments = () => {
 
   return (
     <>
-      <Head>
-        <title>Westernal - Comments</title>
-      </Head>
-      <BackHeader title={"comments"} />
+      <BackHeader title={"Comments"} />
       <main className="comments">
         <CommentsList
           postId={router.query.id}

@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import EditPostForm from "../../authentication/form/EditPostForm";
@@ -37,10 +36,6 @@ const EditPost = ({ post, router }: { post: Post; router: any }) => {
   };
   return (
     <>
-      <Head>
-        <title>Westernal - Edit Post</title>
-      </Head>
-
       <BackHeader title={"Edit Post"} />
       <main className="edit-post setting flex">
         <section className="auth-form">

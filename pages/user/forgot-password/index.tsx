@@ -1,4 +1,3 @@
-import Head from "next/head";
 import BackHeader from "../../../components/layout/header/BackHeader";
 import { toast } from "react-toastify";
 import { useState } from "react";
@@ -49,9 +48,6 @@ const ForgotPassword = () => {
 
   return (
     <>
-      <Head>
-        <title>Westernal - Reset Password</title>
-      </Head>
       <BackHeader title="Reset Password" />
       <main className=" flex reset-password">
         <section className="auth-form">

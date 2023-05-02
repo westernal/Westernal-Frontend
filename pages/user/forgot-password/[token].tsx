@@ -1,7 +1,6 @@
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import Head from "next/dist/shared/lib/head";
 import BackHeader from "../../../components/layout/header/BackHeader";
 import FormLoader from "../../../components/layout/loader/FormLoader";
 import decodeJWT from "../../../functions/decodeJWT";
@@ -67,9 +66,6 @@ const ChangePassword = () => {
   };
   return (
     <>
-      <Head>
-        <title>Westernal - Reset Password</title>
-      </Head>
       <BackHeader title="Reset Password" />
       <main className=" flex reset-password">
         <section className="auth-form">

@@ -2,7 +2,6 @@ import { useEffect, useState, useMemo } from "react";
 import BackHeader from "../../components/layout/header/BackHeader";
 import Post from "../../components/posts/Post";
 import Footer from "../../components/layout/Footer";
-import Head from "next/head";
 import PostLoader from "../../components/layout/loader/ContentLoader";
 import BackToTopButton from "../../components/layout/buttons/BackToTopButton";
 import decodeJWT from "../../functions/decodeJWT";
@@ -37,9 +36,6 @@ const Saved = () => {
 
   return (
     <>
-      <Head>
-        <title>Westernal - Saved Posts</title>
-      </Head>
       <BackHeader title={"Saved Posts"} />
       <main className="saved-posts">
         <section className="post-list flex">

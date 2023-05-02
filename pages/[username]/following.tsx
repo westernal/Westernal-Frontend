@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import BackHeader from "../../components/layout/header/BackHeader";
 import { useRouter } from "next/dist/client/router";
 import Users from "../../components/user/Users";
-import Head from "next/head";
 import getRequest from "../../functions/requests/getRequest";
 import { User } from "../../interfaces/interface";
 
@@ -28,9 +27,6 @@ const Followings = () => {
   }, [router.query, router]);
   return (
     <>
-      <Head>
-        <title>Westernal - Following</title>
-      </Head>
       <BackHeader title="Following" />
 
       <main className="followings">
