@@ -10,7 +10,7 @@ const Chats = ({ chats }: { chats: Chat[] }) => {
       <BackHeader title={"Chats"} />
       Soon will be chats...
       {chats.map((chat) => {
-        return <Conversation chat={chat} />;
+        return <Conversation chat={chat} key={chat._id} />;
       })}
     </main>
   );
