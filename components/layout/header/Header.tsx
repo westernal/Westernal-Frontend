@@ -16,7 +16,7 @@ const Header = ({ showLogo = false, title = "" }) => {
             <h1 id="website-name">westernal</h1>
           </a>
           <div className="header-icons flex">
-            <Link href={"/post/new"} id="add-btn">
+            <Link href={"/chats"} id="add-btn">
               <Image
                 src={"/Images/chat.svg"}
                 width={30}
