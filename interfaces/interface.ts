@@ -64,3 +64,22 @@ export interface UserSlice {
   isLoading: boolean,
   error: string
 }
+
+export interface Message {
+  _id: string,
+  chatId: string
+sender: {
+  id: string,
+  username: string,
+  image: string,
+  verified: boolean,
+},
+text: string,
+createdAt: Date,
+updatedAt: Date
+}
+
+export interface Chat {
+  _id: string,
+  members: any[]
+}
