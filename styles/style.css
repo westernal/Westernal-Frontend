@@ -1294,6 +1294,10 @@ h1 {
   color: var(--dark-primary-color);
 }
 
+.header-icons {
+  gap: 15px;
+}
+
 @media screen and (prefers-color-scheme: dark) {
   body {
     background-color: var(--dark-primary-color);

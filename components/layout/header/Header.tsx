@@ -15,14 +15,24 @@ const Header = ({ showLogo = false, title = "" }) => {
           >
             <h1 id="website-name">westernal</h1>
           </a>
-          <Link href={"/post/new"} id="add-btn">
-            <Image
-              src={"/Images/add.svg"}
-              width={25}
-              height={25}
-              alt="add button"
-            />
-          </Link>
+          <div className="header-icons flex">
+            <Link href={"/post/new"} id="add-btn">
+              <Image
+                src={"/Images/chat.svg"}
+                width={30}
+                height={30}
+                alt="add button"
+              />
+            </Link>
+            <Link href={"/post/new"} id="add-btn">
+              <Image
+                src={"/Images/add.svg"}
+                width={25}
+                height={25}
+                alt="add button"
+              />
+            </Link>
+          </div>
         </>
       ) : (
         <h1 className="notification-header">{title}</h1>
