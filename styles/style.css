@@ -85,7 +85,8 @@ header {
 .setting .auth-form,
 .add-post .auth-form,
 .reset-password .auth-form,
-.search-explore {
+.search-explore,
+.chats {
   margin-top: 100px !important;
 }
 
