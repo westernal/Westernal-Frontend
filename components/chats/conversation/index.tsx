@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { Chat, ChatMember } from "../../interfaces/interface";
+import { Chat, ChatMember } from "../../../interfaces/interface";
 import Image from "next/image";
-import { HOST } from "../../data/data";
+import { HOST } from "../../../data/data";
 import { useEffect, useState } from "react";
-import decodeJWT from "../../functions/decodeJWT";
+import decodeJWT from "../../../functions/decodeJWT";
 import { getCookie } from "cookies-next";
 
 const Conversation = ({ chat }: { chat: Chat }) => {
