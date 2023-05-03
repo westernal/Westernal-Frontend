@@ -86,13 +86,20 @@ header {
 .add-post .auth-form,
 .reset-password .auth-form,
 .search-explore,
-.chats {
+.chats,
+.new-chat {
   margin-top: 100px !important;
 }
 
 .post-list,
 .setting {
   flex-direction: column;
+}
+
+.new-chat .search-bar {
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 header a,

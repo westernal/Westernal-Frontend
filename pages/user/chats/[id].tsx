@@ -4,7 +4,7 @@ const Chat = () => {
   return (
     <>
       <BackHeader title="username" />
-      <main className="chat"></main>
+      <main className="chats">chat</main>
     </>
   );
 };
