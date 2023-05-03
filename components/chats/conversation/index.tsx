@@ -20,7 +20,7 @@ const Conversation = ({ chat }: { chat: Chat }) => {
     getReceiver();
   }, []);
   return (
-    <Link href={`/${chat._id}`} className="user flex profile-notif">
+    <Link href={`/user/chats/${chat._id}`} className="user flex profile-notif">
       <div className="flex user-info">
         <Image
           src={HOST + member?.image}
