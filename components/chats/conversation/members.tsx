@@ -45,6 +45,7 @@ const Members = ({ users }: { users: User[] }) => {
             e.preventDefault();
             createChat(user._id);
           }}
+          key={user._id}
           className="user flex profile-notif"
         >
           <div className="flex user-info">
