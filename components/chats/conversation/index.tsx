@@ -23,15 +23,15 @@ const Conversation = ({ chat }: { chat: Chat }) => {
     <Link href={`/${chat._id}`} className="user flex profile-notif">
       <div className="flex user-info">
         <Image
-          src={HOST + member.image}
+          src={HOST + member?.image}
           width={50}
           height={50}
           style={{ borderRadius: "50%" }}
           alt="user avatar"
         />
 
-        <strong id="userId">{member.username} </strong>
-        {member.verified ? (
+        <strong id="userId">{member?.username} </strong>
+        {member?.verified ? (
           <div className="verify">
             <Image
               src="/Images/verified (2).png"

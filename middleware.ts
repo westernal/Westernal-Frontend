@@ -38,5 +38,7 @@ export const config = {
     "/post/edit/:path",
     "/user/notifications",
     "/user/search",
+    "/user/chat/:path",
+    "/user/chat",
   ],
 };

@@ -18,6 +18,8 @@ module.exports = {
   exclude: [
     "/likes",
     "/user/search",
+    "/user/chats",
+    "/user/chats/*",
     "/user/notifications",
     "/post/edit",
     "/post/new",
