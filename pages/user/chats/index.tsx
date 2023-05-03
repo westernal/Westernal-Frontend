@@ -5,6 +5,7 @@ import BackHeader from "../../../components/layout/header/BackHeader";
 import Conversation from "../../../components/chats/conversation";
 import { useEffect, useState } from "react";
 import decodeJWT from "../../../functions/decodeJWT";
+import NewChat from "../../../components/chats/conversation/new";
 
 const Chats = () => {
   const [chats, setChats] = useState<Chat[]>([]);
@@ -29,6 +30,7 @@ const Chats = () => {
         {chats.map((chat) => {
           return <Conversation chat={chat} key={chat._id} />;
         })}
+        <NewChat />
       </main>
     </>
   );

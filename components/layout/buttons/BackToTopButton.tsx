@@ -15,7 +15,7 @@ const BackToTopButton = () => {
     document.addEventListener("scroll", checkButtonVisiblity);
   }, []);
 
-  const goToTop = (event) => {
+  const goToTop = (event: any) => {
     event.preventDefault();
     window.scrollTo({ top: 0, behavior: "smooth" });
     checkButtonVisiblity();

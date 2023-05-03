@@ -1275,6 +1275,11 @@ h1 {
   opacity: 0.8;
 }
 
+.chats #top-button {
+  bottom: 20px;
+  font-size: 30px;
+}
+
 .search-explore {
   text-align: center;
 }
