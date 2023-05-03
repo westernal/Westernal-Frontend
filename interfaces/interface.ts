@@ -68,18 +68,24 @@ export interface UserSlice {
 export interface Message {
   _id: string,
   chatId: string
-sender: {
-  id: string,
-  username: string,
-  image: string,
-  verified: boolean,
-},
-text: string,
-createdAt: Date,
-updatedAt: Date
+  sender: {
+    id: string,
+    username: string,
+    image: string,
+    verified: boolean,
+  },
+  text: string,
+  createdAt: Date,
+  updatedAt: Date
 }
 
 export interface Chat {
   _id: string,
   members: any[]
+}
+
+export interface ChatMember {
+  username: string,
+  image: string,
+  verified: boolean
 }

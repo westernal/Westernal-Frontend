@@ -2,7 +2,7 @@ import { getCookie } from "cookies-next";
 import getRequest from "../../../functions/requests/getRequest";
 import { Chat } from "../../../interfaces/interface";
 import BackHeader from "../../../components/layout/header/BackHeader";
-import Conversation from "../../../components/chats/chat";
+import Conversation from "../../../components/chats/conversation";
 import { useEffect, useState } from "react";
 import decodeJWT from "../../../functions/decodeJWT";
 
