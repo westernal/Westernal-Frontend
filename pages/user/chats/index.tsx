@@ -26,7 +26,6 @@ const Chats = () => {
     <>
       <BackHeader title={"Chats"} />
       <main className="chats">
-        Soon will be chats...
         {chats.map((chat) => {
           return <Conversation chat={chat} key={chat._id} />;
         })}
