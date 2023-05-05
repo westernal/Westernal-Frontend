@@ -18,7 +18,7 @@ const Messages = () => {
   return (
     <section className="messages">
       {result?.data?.messages?.map((message: MessageType) => {
-        return <Message message={message} />;
+        return <Message message={message} key={message._id} />;
       })}
     </section>
   );

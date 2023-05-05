@@ -10,7 +10,6 @@ const Message = ({ message }: { message: Message }) => {
   return (
     <div
       className="comment flex"
-      key={message._id}
       style={
         message.sender.username ==
         decodeJWT(getCookie("cookieToken").toString()).username
