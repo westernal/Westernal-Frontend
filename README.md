@@ -40,6 +40,11 @@ It also supports dark mode!
 <span> <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/pgi5eorm3i88ysjv55bc.png" width=180px height=388.8px/>
 </span>
 
+## Chat
+Chat with different users and ask them how they feel!
+<div> <img src="https://user-images.githubusercontent.com/79543272/236470038-83ae2be3-3196-4ad0-8f32-c7d0bfcf6321.png" width=180px height=388.8px/> </div>
+
+
 ## Reset password
 If you forgot your password we will send you an email to reset your password!
 
