@@ -409,8 +409,7 @@ a {
 .signup a,
 #reset-text,
 #user-link,
-.setting section a,
-#cm-user {
+.setting section a {
   color: var(--main-color);
 }
 
@@ -1274,7 +1273,8 @@ h1 {
   z-index: 4;
 }
 
-#top-button.active {
+#top-button.active,
+.chats #top-button {
   transform: translateY(0);
 }
 
@@ -1631,6 +1631,10 @@ h1 {
 
   .footer {
     padding-bottom: 30px;
+  }
+
+  .chats #top-button {
+    font-size: 20px;
   }
 
   #image {

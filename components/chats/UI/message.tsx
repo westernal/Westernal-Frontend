@@ -14,7 +14,7 @@ const Message = ({ message }: { message: Message }) => {
         message.sender.username ==
         decodeJWT(getCookie("cookieToken").toString()).username
           ? null
-          : { backgroundColor: "#5f5d5d" }
+          : { backgroundColor: "#9d38fcb8" }
       }
     >
       <div className="flex comment-main ">
