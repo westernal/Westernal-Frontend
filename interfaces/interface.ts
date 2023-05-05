@@ -71,7 +71,7 @@ export interface Message {
   sender: {
     id: string,
     username: string,
-    image: string,
+    avatar: string,
     verified: boolean,
   },
   text: string,
