@@ -9,7 +9,7 @@ const Chat = () => {
   };
   return (
     <>
-      <BackHeader title="username" />
+      <BackHeader title="Chat" />
       <main className="chats">
         <Messages />
         <ChatInput onMessageSent={onMessageSent} />
