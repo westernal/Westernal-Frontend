@@ -1635,6 +1635,8 @@ h1 {
 
   .chats #top-button {
     font-size: 20px;
+    margin: 0;
+    padding: 0;
   }
 
   #image {
