@@ -42,6 +42,9 @@ const Conversation = ({ chat }: { chat: Chat }) => {
           </div>
         ) : null}
       </div>
+      {chat.new_message[0] ? (
+        <div className="new-notif flex">{chat.new_message[0]}</div>
+      ) : null}
     </Link>
   );
 };

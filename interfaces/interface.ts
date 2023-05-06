@@ -28,6 +28,7 @@ export interface User {
     saved_posts: string[],
     personal_link?: string,
     failed_login_attempts: number,
+    new_message: number
 }
 
 export interface Comment {
@@ -81,7 +82,8 @@ export interface Message {
 
 export interface Chat {
   _id: string,
-  members: any[]
+  members: any[],
+  new_message: number
 }
 
 export interface ChatMember {
