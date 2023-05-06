@@ -27,8 +27,8 @@ const Chat = () => {
       );
     };
 
-    resetMessageCount();
-  }, []);
+    if (router.query.id) resetMessageCount();
+  }, [router.query]);
   return (
     <>
       <BackHeader title="Chat" />
