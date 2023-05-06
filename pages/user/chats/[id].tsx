@@ -13,20 +13,21 @@ const Chat = () => {
 
   const onMessageSent = (id: string) => {
     mutate(`api/chats/chat/messages/${id}`);
+    resetMessageCount();
+  };
+
+  const resetMessageCount = async () => {
+    const senderId = decodeJWT(getCookie("cookieToken").toString()).userId;
+    const result = await postRequest(
+      {
+        chatId: router.query.id,
+      },
+      `api/users/messages/reset/${senderId}`,
+      true
+    );
   };
 
   useEffect(() => {
-    const resetMessageCount = async () => {
-      const senderId = decodeJWT(getCookie("cookieToken").toString()).userId;
-      const result = await postRequest(
-        {
-          chatId: router.query.id,
-        },
-        `api/users/messages/reset/${senderId}`,
-        true
-      );
-    };
-
     if (router.query.id) resetMessageCount();
   }, [router.query]);
   return (
