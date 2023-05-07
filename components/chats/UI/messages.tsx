@@ -4,7 +4,7 @@ import { Message as MessageType } from "../../../interfaces/interface";
 const Messages = ({ messages }) => {
   return (
     <section className="messages">
-      {messages.map((message: MessageType, index: number) => {
+      {messages.map((message: any, index: number) => {
         return <Message message={message} key={index} />;
       })}
     </section>

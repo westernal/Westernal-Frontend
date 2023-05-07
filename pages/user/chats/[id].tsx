@@ -10,20 +10,18 @@ import postRequest from "../../../functions/requests/postRequest";
 import getRequest from "../../../functions/requests/getRequest";
 import useSocket from "../../../hooks/useSocket";
 
-const Chat = () => {
+const Chat = ({ userId }) => {
   const router = useRouter();
   const [messages, SetMessages] = useState<any>([]);
-  const [senderId, SetSenderId] = useState<string>();
-  const { arrivalMessage } = useSocket(senderId);
-
-  useEffect(() => {
-    const id = decodeJWT(getCookie("cookieToken").toString()).userId;
-    SetSenderId(id);
-  }, []);
+  const { arrivalMessage, returnedSocket } = useSocket(userId);
 
   useEffect(() => {
     if (arrivalMessage) {
-      SetMessages(messages.push(arrivalMessage));
+      SetMessages((prev: any) => {
+        let newState = prev.slice();
+        newState.unshift(arrivalMessage);
+        return newState;
+      });
     }
   }, [arrivalMessage]);
 
@@ -60,10 +58,20 @@ const Chat = () => {
       <BackHeader title="Chat" />
       <main className="chats">
         <Messages messages={messages} />
-        <ChatInput onMessageSent={getMessages} />
+        <ChatInput onMessageSent={getMessages} socket={returnedSocket} />
       </main>
     </>
   );
+};
+
+export const getServerSideProps = async ({ req, res }) => {
+  const userId: string = decodeJWT(
+    getCookie("cookieToken", { req, res }).toString()
+  ).userId;
+
+  return {
+    props: { userId: userId },
+  };
 };
 
 export default Chat;

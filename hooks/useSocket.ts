@@ -12,9 +12,6 @@ export default function useSocket(userId: string) {
 
   useEffect(() => {
     socket.current.emit("addUser", userId)
-    socket.current.on("getUsers", (users: any) => {
-        console.log(users);
-    })
   },[userId])
 
   const returnedSocket = socket.current

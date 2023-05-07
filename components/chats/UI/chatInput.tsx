@@ -3,13 +3,11 @@ import decodeJWT from "../../../functions/decodeJWT";
 import { getCookie } from "cookies-next";
 import postRequest from "../../../functions/requests/postRequest";
 import { toast } from "react-toastify";
-import useSocket from "../../../hooks/useSocket";
 import { useEffect, useState } from "react";
 
-const ChatInput = ({ onMessageSent }) => {
+const ChatInput = ({ onMessageSent, socket }) => {
   const router = useRouter();
   const [senderId, SetSenderId] = useState<string>();
-  const { returnedSocket } = useSocket(senderId);
 
   useEffect(() => {
     const id = decodeJWT(getCookie("cookieToken").toString()).userId;
@@ -40,7 +38,7 @@ const ChatInput = ({ onMessageSent }) => {
       (document.getElementById("comment-text") as HTMLInputElement).value = "";
 
       onMessageSent(router.query.id);
-      returnedSocket.emit("sendMessage", {
+      socket.emit("sendMessage", {
         senderId: senderId,
         receiverId: result.data.receiverId,
         text: message,
