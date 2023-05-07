@@ -3,15 +3,29 @@ import decodeJWT from "../../../functions/decodeJWT";
 import { getCookie } from "cookies-next";
 import postRequest from "../../../functions/requests/postRequest";
 import { toast } from "react-toastify";
+import useSocket from "../../../hooks/useSocket";
+import { useEffect, useState } from "react";
 
 const ChatInput = ({ onMessageSent }) => {
   const router = useRouter();
+  const [senderId, SetSenderId] = useState<string>();
+  const { returnedSocket } = useSocket(senderId);
+
+  useEffect(() => {
+    const id = decodeJWT(getCookie("cookieToken").toString()).userId;
+    SetSenderId(id);
+  }, []);
 
   const sendMessage = async () => {
-    const senderId = decodeJWT(getCookie("cookieToken").toString()).userId;
     const message = (
       document.getElementById("comment-text") as HTMLInputElement
     ).value;
+
+    if (!message) {
+      toast.error("Please type something.");
+      return;
+    }
+
     const result = await postRequest(
       {
         chatId: router.query.id,
@@ -24,7 +38,13 @@ const ChatInput = ({ onMessageSent }) => {
 
     if (result?.status == 200) {
       (document.getElementById("comment-text") as HTMLInputElement).value = "";
+
       onMessageSent(router.query.id);
+      returnedSocket.emit("sendMessage", {
+        senderId: senderId,
+        receiverId: result.data.receiverId,
+        text: message,
+      });
     } else {
       toast.error(result.data.message);
     }
