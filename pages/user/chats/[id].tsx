@@ -1,4 +1,3 @@
-import { mutate } from "swr";
 import ChatInput from "../../../components/chats/UI/chatInput";
 import Messages from "../../../components/chats/UI/messages";
 import BackHeader from "../../../components/layout/header/BackHeader";
@@ -40,12 +39,11 @@ const Chat = ({ userId }) => {
   }, [router.query]);
 
   const resetMessageCount = async () => {
-    const senderId = decodeJWT(getCookie("cookieToken").toString()).userId;
     const result = await postRequest(
       {
         chatId: router.query.id,
       },
-      `api/users/messages/reset/${senderId}`,
+      `api/users/messages/reset/${userId}`,
       true
     );
   };
