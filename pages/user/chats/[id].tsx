@@ -52,7 +52,7 @@ const Chat = ({ userId }) => {
 
   useEffect(() => {
     if (router.query.id) resetMessageCount();
-  }, [router.query]);
+  }, [router.query, messages]);
   return (
     <>
       <BackHeader title="Chat" />
