@@ -1460,6 +1460,10 @@ h1 {
     box-shadow: none;
   }
 
+  .post-comment {
+    border-top: 1px solid var(--light-backup-color);
+  }
+
   .post-info svg path,
   #comment svg path {
     fill: var(--light-primary-color);
