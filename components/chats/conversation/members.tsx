@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { getCookie } from "cookies-next";
 import decodeJWT from "../../../functions/decodeJWT";
 import postRequest from "../../../functions/requests/postRequest";
+import { toast } from "react-toastify";
 
 const Members = ({ users }: { users: User[] }) => {
   const host = "https://alinavidi.ir/";
@@ -24,7 +25,7 @@ const Members = ({ users }: { users: User[] }) => {
 
     if (result?.status === 200) {
       router.push(`/user/chats/${result.data.chatId}`);
-    }
+    } else toast.error(result.data.message);
   };
 
   return (
