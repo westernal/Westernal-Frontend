@@ -627,9 +627,13 @@ audio {
 .post-comment {
   position: fixed;
   left: 0;
-  bottom: 20px;
+  bottom: 0;
+  padding: 20px;
+  border-radius: 10px 10px 0 0;
   width: 100%;
   z-index: 100;
+  background-color: white;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .SpotifyPlayer {
@@ -1450,7 +1454,8 @@ h1 {
   .comment,
   .profile-notif,
   .auth-form,
-  .modal-text {
+  .modal-text,
+  .post-comment {
     background-color: var(--dark-secondary-color);
     box-shadow: none;
   }
