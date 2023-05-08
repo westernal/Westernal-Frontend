@@ -6,6 +6,7 @@ import Conversation from "../../../components/chats/conversation";
 import { useEffect, useState } from "react";
 import decodeJWT from "../../../functions/decodeJWT";
 import NewChat from "../../../components/chats/conversation/new";
+import Footer from "../../../components/layout/Footer";
 
 const Chats = () => {
   const [chats, setChats] = useState<Chat[]>([]);
@@ -31,6 +32,7 @@ const Chats = () => {
         })}
         <NewChat />
       </main>
+      <Footer />
     </>
   );
 };
