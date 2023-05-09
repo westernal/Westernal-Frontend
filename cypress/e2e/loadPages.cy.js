@@ -43,5 +43,10 @@ describe("Testing pages.", () => {
     cy.visit("/post/63d689e481959628b5ec9211");
     cy.visit("/likes/63d689e481959628b5ec9211");
     cy.visit("/comments/63d689e481959628b5ec9211");
+
+    //chat
+    cy.visit("/user/chats");
+    cy.visit("/user/chats/new");
+    cy.visit("/user/chats/6457f9b14712fc1b48698a6d");
   });
 });
