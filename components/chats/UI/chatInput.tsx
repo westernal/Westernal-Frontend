@@ -20,7 +20,6 @@ const ChatInput = ({ onMessageSent, socket }) => {
     ).value;
 
     if (!message) {
-      toast.error("Please type something.");
       return;
     }
 
