@@ -1,5 +1,5 @@
 describe("Create a new chat.", () => {
-  it("User can follow another user.", () => {
+  it("User can create a new chat.", () => {
     //login
     cy.visit("/");
     cy.get("#username").type("cypress");
@@ -12,13 +12,13 @@ describe("Create a new chat.", () => {
     //click on chat button
     cy.visit("/user/chats/new");
 
-    //follow user
+    //find user
     cy.findByRole("textbox").type("testuser2424");
     cy.findByText("testuser2424").click();
-    cy.intercept("/api/chats/create").as("createChat");
+    cy.intercept("api/chats/create").as("createChat");
     cy.wait("@createChat", { timeout: 60000 });
 
-    //check if chat exist
+    //check if chat exists
     cy.visit("/user/chats");
     cy.findByText("testuser2424").should("be.visible");
   });
