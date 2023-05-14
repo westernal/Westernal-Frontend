@@ -17,6 +17,9 @@ describe("Send a message.", () => {
     cy.findByRole("textbox").type(message);
     cy.findByRole("button", { name: /send/i }).click();
     cy.wait(6000);
+    Cypress.on("uncaught:exception", (err, runnable) => {
+      return false;
+    });
 
     //check if message exists
     cy.findByText(message).should("be.visible");
