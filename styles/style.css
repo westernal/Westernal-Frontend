@@ -1328,6 +1328,25 @@ h1 {
   position: inherit;
 }
 
+dialog {
+  background-color: inherit;
+  border: 0;
+}
+
+dialog::backdrop {
+  backdrop-filter: blur(5px);
+}
+
+.dialog {
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  max-width: unset;
+  max-height: unset;
+  border-radius: 20px 20px 0 0;
+  margin: auto auto 0 auto !important;
+}
+
 @media screen and (prefers-color-scheme: dark) {
   body {
     background-color: var(--dark-primary-color);
@@ -1418,7 +1437,8 @@ h1 {
   a,
   #more,
   #like-count,
-  .install-header button {
+  .install-header button,
+  dialog {
     color: var(--light-primary-color);
   }
 

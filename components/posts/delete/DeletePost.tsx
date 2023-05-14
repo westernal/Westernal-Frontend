@@ -13,14 +13,16 @@ const DeletePost = ({
   const [showModal, SetShowModal] = useState<boolean>(false);
 
   const modalDisplay = () => {
-    const deleteModal = document.getElementById(`delete-modal${id}`);
+    const deleteModal = document.getElementById(
+      `delete-modal${id}`
+    ) as HTMLDialogElement;
     hide();
 
     if (showModal) {
-      deleteModal.style.display = "none";
+      deleteModal.close();
       SetShowModal(false);
     } else {
-      deleteModal.style.display = "block";
+      deleteModal.showModal();
       SetShowModal(true);
     }
   };

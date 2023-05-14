@@ -12,7 +12,7 @@ export default function Index() {
         x.matches &&
         !window.matchMedia("(display-mode: standalone)").matches
       ) {
-        document.getElementById("myModal").style.display = "block";
+        document.querySelector("dialog").showModal();
       }
     }
 

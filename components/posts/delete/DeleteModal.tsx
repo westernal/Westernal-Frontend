@@ -11,11 +11,6 @@ const DeleteModal = ({
   hide: any;
   onDelete: any;
 }) => {
-  const closeModal = (e?: any) => {
-    e?.preventDefault();
-    hide();
-  };
-
   window.onclick = function (event: any) {
     if (event.target == document.getElementById("delete-modal")) {
       hide();
@@ -35,34 +30,28 @@ const DeleteModal = ({
 
     if (result.status == 200) {
       toast.success("Post deleted!");
-      closeModal();
+      hide();
       onDelete(id);
     }
   }
 
   return (
-    <div className="pwa">
-      <div className="modal" id={`delete-modal${id}`}>
-        <section className="modal-content flex">
-          <div className=" modal-main auth-form">
-            <div className="flex install-header">
-              <p>Are you sure you want to delete your post?</p>
-              <button onClick={closeModal} className="close1">
-                &times;
-              </button>
-            </div>
-            <div className="flex delete-btns">
-              <button id="cancel-delete" onClick={closeModal}>
-                Cancel
-              </button>
-              <button id="confirm-delete" onClick={deletePost}>
-                Delete
-              </button>
-            </div>
-          </div>
-        </section>
+    <dialog className="modal-main auth-form dialog" id={`delete-modal${id}`}>
+      <div className="flex install-header">
+        <p>Are you sure you want to delete your post?</p>
+        <button onClick={hide} className="close1">
+          &times;
+        </button>
       </div>
-    </div>
+      <div className="flex delete-btns">
+        <button id="cancel-delete" onClick={hide}>
+          Cancel
+        </button>
+        <button id="confirm-delete" onClick={deletePost}>
+          Delete
+        </button>
+      </div>
+    </dialog>
   );
 };
 
