@@ -25,7 +25,7 @@ const SearchSong = () => {
     };
   }, []);
 
-  const categoryHandler = (e) => {
+  const categoryHandler = (e: any) => {
     e.preventDefault();
     document.getElementsByClassName("active")[0].classList.remove("active");
     e.target.classList.add("active");
@@ -33,10 +33,9 @@ const SearchSong = () => {
   };
 
   return (
-    <section className="delete-modal" id="delete-modal">
-      <div className="modal-text search-modal">
-        <a
-          href="#"
+    <dialog className="modal-main auth-form dialog" id="search-modal">
+      <div className="search-header">
+        <button
           onClick={(e) => {
             e.preventDefault();
             closeModal();
@@ -45,7 +44,7 @@ const SearchSong = () => {
           className="close"
         >
           &times;
-        </a>
+        </button>
         <div className="search-type flex">
           <a href="#" className="active" onClick={categoryHandler}>
             Track
@@ -57,15 +56,15 @@ const SearchSong = () => {
             Artist
           </a>
         </div>
-        {category == "Track" ? (
-          <SearchTracks token={token} />
-        ) : category == "Artist" ? (
-          <SearchArtists token={token} />
-        ) : category == "Album" ? (
-          <SearchAlbum token={token} />
-        ) : null}
       </div>
-    </section>
+      {category == "Track" ? (
+        <SearchTracks token={token} />
+      ) : category == "Artist" ? (
+        <SearchArtists token={token} />
+      ) : category == "Album" ? (
+        <SearchAlbum token={token} />
+      ) : null}
+    </dialog>
   );
 };
 

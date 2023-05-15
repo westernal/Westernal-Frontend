@@ -174,8 +174,19 @@ footer img:focus,
 }
 
 #search-input {
+  width: 90% !important;
+  margin-top: 120px;
+}
+
+#search-modal .search-results {
+  margin-top: 100px;
+}
+
+#search-input,
+.search-header {
+  position: fixed;
   width: 100%;
-  margin: 0 15px;
+  z-index: 2;
 }
 
 .song-search {
@@ -264,7 +275,8 @@ ul {
 }
 
 #back-link,
-#more {
+#more,
+.close {
   border: 0;
   background-color: transparent;
 }
@@ -772,7 +784,8 @@ canvas {
 .close {
   color: var(--light-backup-color);
   transition: 0.3s;
-  font-size: 28px;
+  font-size: 28px !important;
+  float: left;
   font-weight: bold;
 }
 
@@ -785,6 +798,11 @@ canvas {
 
 .modal-text .flex {
   margin-top: 30px;
+}
+
+#search-modal {
+  height: 80vh;
+  overflow: auto;
 }
 
 #confirm-delete {
@@ -873,25 +891,13 @@ canvas {
   font-size: 14px;
 }
 
-.search-modal {
-  width: 90vw;
-  height: 80vh;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  overflow: auto;
-  left: 0;
-  right: 0;
-}
-
 #artist {
   font-weight: unset;
   opacity: 0.7;
   margin-top: -12px;
 }
 
-.search-modal .profile-notif {
+#search-modal .profile-notif {
   padding: 10px;
   display: flex;
   justify-content: space-between;
@@ -909,7 +915,7 @@ canvas {
   border-radius: 5px;
 }
 
-.search-modal .profile-notif:hover,
+#search-modal .profile-notif:hover,
 .user-list .profile-notif:hover,
 .contact-btn:hover,
 .search-btn:hover,
@@ -1043,11 +1049,6 @@ h1 {
 .post-header {
   justify-content: space-between;
   padding: 0 10px;
-}
-
-.search-type {
-  margin-bottom: 15px;
-  margin-top: -25px !important;
 }
 
 .search-type a {
@@ -1188,7 +1189,7 @@ h1 {
   padding: 10px;
 }
 
-.search-modal .btn {
+#search-modal .btn {
   margin: 0;
   padding: 5px 10px;
 }
@@ -1364,10 +1365,11 @@ dialog::backdrop {
 
   .post-menu,
   #cancel-delete,
-  .search-modal,
+  #search-modal,
   .search-results .profile-notif:hover,
+  #search-modal .profile-notif:hover,
   .app-info,
-  .search-modal input {
+  #search-modal input {
     background-color: var(--dark-primary-color);
   }
 
@@ -1505,7 +1507,7 @@ dialog::backdrop {
     background-color: var(--light-backup-color);
   }
 
-  .search-modal .profile-notif {
+  #search-modal .profile-notif {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
 }
@@ -1568,7 +1570,7 @@ dialog::backdrop {
     width: 80vw !important;
   }
 
-  .search-modal .profile-notif {
+  #search-modal .profile-notif {
     display: block;
     padding-bottom: 10px;
   }
@@ -1628,6 +1630,10 @@ dialog::backdrop {
   #comment-text {
     -webkit-appearance: none;
     appearance: none;
+  }
+
+  #search-input {
+    width: 80% !important;
   }
 
   .password-options {

@@ -3,9 +3,11 @@ import Image from "next/dist/client/image";
 import Icons from "../../posts/icons/WebsiteIcons";
 import { toast } from "react-toastify";
 import { useState } from "react";
+import { useSearchContext } from "../../../context/searchMusicContext";
 
-const PostForm = ({ publish, changeLoader, openModal }) => {
+const PostForm = ({ publish, changeLoader }) => {
   const [captionValue, SetCaptionValue] = useState("");
+  const { openModal } = useSearchContext();
 
   function checkInputs(e: any) {
     e.preventDefault();
@@ -35,7 +37,13 @@ const PostForm = ({ publish, changeLoader, openModal }) => {
         <div className="song-url flex">
           <input type="text" id="song" placeholder="Song's URL" />
           OR
-          <button className="search-btn" onClick={openModal}>
+          <button
+            className="search-btn"
+            onClick={(e: any) => {
+              e.preventDefault();
+              openModal();
+            }}
+          >
             <Image
               src={"/Images/spotify.svg"}
               width={25}

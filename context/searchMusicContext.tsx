@@ -14,8 +14,17 @@ export const SearchMusicProvider = ({ children }) => {
   };
 
   const closeModal = () => {
-    const searchModal = document.getElementById("delete-modal");
-    searchModal.style.height = "0";
+    const searchModal = document.getElementById(
+      "search-modal"
+    ) as HTMLDialogElement;
+    searchModal.close();
+  };
+
+  const openModal = () => {
+    const searchModal = document.getElementById(
+      "search-modal"
+    ) as HTMLDialogElement;
+    searchModal.showModal();
   };
 
   const playSong = (id: string) => {
@@ -39,7 +48,14 @@ export const SearchMusicProvider = ({ children }) => {
 
   return (
     <SearchMusicContext.Provider
-      value={{ closeModal, chooseSong, playSong, pauseSong, pauseOtherSongs }}
+      value={{
+        closeModal,
+        chooseSong,
+        playSong,
+        pauseSong,
+        pauseOtherSongs,
+        openModal,
+      }}
     >
       {children}
     </SearchMusicContext.Provider>

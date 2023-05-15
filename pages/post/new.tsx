@@ -51,35 +51,22 @@ const NewPost = () => {
     }
   };
 
-  const openModal = (e: any) => {
-    e.preventDefault();
-    const searchModal = document.getElementById("delete-modal");
-    searchModal.style.height = "100%";
-  };
-
   return (
-    <>
+    <SearchMusicProvider>
       <BackHeader title="New Post" />
 
-      <SearchMusicProvider>
-        <SearchSong />
-      </SearchMusicProvider>
-
+      <SearchSong />
       <main className="flex add-post">
         <div className="auth-form">
           <Image src={"/Images/logo.png"} alt="logo" width={120} height={120} />
 
           {loader ? <FormLoader /> : null}
 
-          <PostForm
-            publish={publish}
-            changeLoader={changeLoader}
-            openModal={openModal}
-          />
+          <PostForm publish={publish} changeLoader={changeLoader} />
         </div>
       </main>
       <Footer />
-    </>
+    </SearchMusicProvider>
   );
 };
 
