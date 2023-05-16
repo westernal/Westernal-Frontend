@@ -15,7 +15,9 @@ describe("Change password.", () => {
     cy.visit("/cypress/setting");
 
     //click change password button
+    cy.wait(2000);
     cy.findByText("Change password").click();
+    cy.wait(2000);
 
     //enter new password and confirm it
     cy.get("#password").type("11111111");
