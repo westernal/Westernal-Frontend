@@ -759,19 +759,6 @@ canvas {
   color: var(--light-backup-color);
 }
 
-.delete-modal {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 0;
-  transition: 0.5s;
-  z-index: 101;
-  overflow: auto;
-  backdrop-filter: blur(2px);
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
 .modal-text {
   background-color: #fefefe;
   margin: 150px auto;
