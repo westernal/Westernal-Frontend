@@ -41,7 +41,7 @@ const LikePost = () => {
     }
   }
 
-  async function unlikePost(e) {
+  async function unlikePost(e: any) {
     e.preventDefault();
 
     var token = getCookie("cookieToken").toString();
