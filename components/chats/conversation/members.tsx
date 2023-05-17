@@ -7,9 +7,9 @@ import { getCookie } from "cookies-next";
 import decodeJWT from "../../../functions/decodeJWT";
 import postRequest from "../../../functions/requests/postRequest";
 import { toast } from "react-toastify";
+import { HOST } from "../../../data/data";
 
 const Members = ({ users }: { users: User[] }) => {
-  const host = "https://alinavidi.ir/";
   const router = useRouter();
 
   const createChat = async (receiverId: string) => {
@@ -51,7 +51,7 @@ const Members = ({ users }: { users: User[] }) => {
         >
           <div className="flex user-info">
             <Image
-              src={host + user.image}
+              src={HOST + user.image}
               width={50}
               height={50}
               style={{ borderRadius: "50%" }}

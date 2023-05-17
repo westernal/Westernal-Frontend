@@ -10,6 +10,7 @@ import getRequest from "../../functions/requests/getRequest";
 import { getCookie } from "cookies-next";
 import useSWR from "swr";
 import { Notification } from "../../interfaces/interface";
+import { HOST } from "../../data/data";
 
 const Notifications = ({ userId }: { userId: string }) => {
   const {
@@ -20,7 +21,6 @@ const Notifications = ({ userId }: { userId: string }) => {
     () => `api/notifications/${userId}`,
     (url) => getRequest(url, true)
   );
-  const host = "https://alinavidi.ir/";
 
   return (
     <>
@@ -47,7 +47,7 @@ const Notifications = ({ userId }: { userId: string }) => {
                 <div className="flex notif-main ">
                   <Link href={`/${notif.user.username}`} className="flex">
                     <Image
-                      src={host + notif.user.image}
+                      src={HOST + notif.user.image}
                       alt="user avatar"
                       id="avatar"
                       width={40}

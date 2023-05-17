@@ -12,6 +12,7 @@ import decodeJWT from "../../functions/decodeJWT";
 import { getCookie } from "cookies-next";
 import { PostProvider } from "../../context/postContext";
 import { Post } from "../../interfaces/interface";
+import { HOST } from "../../data/data";
 
 const Post = ({
   post,
@@ -48,8 +49,6 @@ const Post = ({
     SetError(true);
   };
 
-  const host = "https://alinavidi.ir/";
-
   return (
     <PostProvider post={post}>
       <article className="post" id={`post${post._id}`}>
@@ -57,11 +56,7 @@ const Post = ({
           <Link href={`/${post.author.username}`}>
             <div className="post-user flex">
               <Image
-                src={
-                  !post.author.image.includes("userIcon")
-                    ? host + post.author.image
-                    : "/Images/user.svg"
-                }
+                src={HOST + post.author.image}
                 alt="user avatar"
                 id="avatar"
                 width={40}

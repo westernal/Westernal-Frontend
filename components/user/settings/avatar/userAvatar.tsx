@@ -1,7 +1,7 @@
 import Image from "next/image";
+import { HOST } from "../../../../data/data";
 
 const UserAvatar = ({ imageSrc }) => {
-  const host = "https://alinavidi.ir/";
   return (
     <>
       <label htmlFor="image">Image</label>
@@ -9,7 +9,7 @@ const UserAvatar = ({ imageSrc }) => {
         <Image
           width={50}
           height={50}
-          src={host + imageSrc}
+          src={HOST + imageSrc}
           alt="User avatar"
           id="edit-img"
         />

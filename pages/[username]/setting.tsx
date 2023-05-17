@@ -6,15 +6,13 @@ import getRequest from "../../functions/requests/getRequest";
 import { User } from "../../interfaces/interface";
 
 const Setting = ({ user }: { user: User }) => {
-  const host = "https://alinavidi.ir/";
-
   return (
     <>
       <BackHeader title={"Setting"} />
 
       <main className="setting flex">
         <section className="auth-form">
-          <SettingForm user={user} image={host + user.image} />
+          <SettingForm user={user} />
         </section>
 
         <div className="setting-btns">

@@ -8,7 +8,7 @@ import API from "../../../functions/requests/API";
 import { useRouter } from "next/router";
 import { getCookie, setCookie } from "cookies-next";
 
-const SettingForm = ({ user, image }) => {
+const SettingForm = ({ user }) => {
   const [token, SetToken] = useState("");
   const [loader, SetLoader] = useState(false);
   const router = useRouter();
@@ -36,7 +36,7 @@ const SettingForm = ({ user, image }) => {
     return true;
   };
 
-  function checkInputs(e) {
+  function checkInputs(e: any) {
     e.preventDefault();
     SetLoader(true);
 

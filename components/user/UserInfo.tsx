@@ -7,6 +7,7 @@ import FollowDetails from "./followUser/FollowDetails";
 import decodeJWT from "../../functions/decodeJWT";
 import { getCookie } from "cookies-next";
 import { User } from "../../interfaces/interface";
+import { HOST } from "../../data/data";
 
 const UserInfo = ({
   isUserSelf,
@@ -18,7 +19,6 @@ const UserInfo = ({
   isLoggedIn: boolean;
 }) => {
   const [isFollowing, SetIsFollowing] = useState<boolean>(false);
-  const host: string = "https://alinavidi.ir/";
   const [link, SetLink] = useState<URL | string>();
 
   useEffect(() => {
@@ -63,7 +63,7 @@ const UserInfo = ({
         <div className="flex">
           <div className="profile-pic flex">
             <Image
-              src={host + user?.image}
+              src={HOST + user?.image}
               alt="profile picture"
               width={95}
               height={95}

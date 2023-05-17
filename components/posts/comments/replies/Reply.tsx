@@ -6,10 +6,10 @@ import Image from "next/image";
 import decodeJWT from "../../../../functions/decodeJWT";
 import { getCookie } from "cookies-next";
 import { Comment } from "../../../../interfaces/interface";
+import { HOST } from "../../../../data/data";
 
 const Reply = ({ reply, onDelete }: { reply: Comment; onDelete: any }) => {
   const [deletable, SetDeletable] = useState(false);
-  const host = "https://alinavidi.ir/";
 
   useEffect(() => {
     const userId = decodeJWT(getCookie("cookieToken").toString()).userId;
@@ -25,11 +25,7 @@ const Reply = ({ reply, onDelete }: { reply: Comment; onDelete: any }) => {
         <Link href={`/${reply.writer.username}`} className="flex">
           <span>
             <Image
-              src={
-                !reply.writer.avatar.includes("userIcon")
-                  ? host + reply.writer.avatar
-                  : "/Images/user.svg"
-              }
+              src={HOST + reply.writer.avatar}
               alt="user avatar"
               id="avatar"
               width={40}

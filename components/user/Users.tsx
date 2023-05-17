@@ -2,10 +2,9 @@ import Link from "next/link";
 import Image from "next/image";
 import UserLoader from "../layout/loader/UserContentLoader";
 import { User } from "../../interfaces/interface";
+import { HOST } from "../../data/data";
 
 const User = ({ users }: { users: User[] }) => {
-  const host = "https://alinavidi.ir/";
-
   return (
     <section className="user-list">
       {!users
@@ -25,7 +24,7 @@ const User = ({ users }: { users: User[] }) => {
         >
           <div className="flex user-info">
             <Image
-              src={host + user.image}
+              src={HOST + user.image}
               width={50}
               height={50}
               style={{ borderRadius: "50%" }}

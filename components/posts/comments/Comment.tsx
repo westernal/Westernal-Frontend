@@ -9,6 +9,7 @@ import getRequest from "../../../functions/requests/getRequest";
 import { getCookie } from "cookies-next";
 import decodeJWT from "../../../functions/decodeJWT";
 import { Comment } from "../../../interfaces/interface";
+import { HOST } from "../../../data/data";
 
 const Comment = ({
   comment,
@@ -21,7 +22,6 @@ const Comment = ({
 }) => {
   const [deletable, SetDeletable] = useState<boolean>(false);
   const [replies, SetReplies] = useState([]);
-  const host = "https://alinavidi.ir/";
 
   useEffect(() => {
     const getReplies = async () => {
@@ -51,7 +51,7 @@ const Comment = ({
           <Link href={`/${comment.writer.username}`} className=" flex">
             <span>
               <Image
-                src={host + comment.writer.avatar}
+                src={HOST + comment.writer.avatar}
                 alt="user avatar"
                 id="avatar"
                 width={40}
