@@ -1327,7 +1327,7 @@ dialog::backdrop {
 
 .dialog {
   bottom: 0;
-  width: 100%;
+  width: 100% !important;
   overflow: hidden;
   max-width: unset;
   max-height: unset;
