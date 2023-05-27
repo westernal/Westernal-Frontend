@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-import { validate } from "react-email-validator";
+import * as EmailValidator from "email-validator";
 
 const SignupForm = ({ signup, changeLoader }) => {
   function checkInputs(e: any) {
@@ -26,7 +26,7 @@ const SignupForm = ({ signup, changeLoader }) => {
       return;
     }
 
-    if (!validate(email.value)) {
+    if (!EmailValidator.validate(email.value)) {
       toast.error(`Enter a valid Email!`);
       changeLoader("off");
       return;
