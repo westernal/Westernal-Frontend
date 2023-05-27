@@ -22,17 +22,17 @@ const Profile = ({
   const [userPosts, SetUserPosts] = useState<PostType[]>(posts);
 
   useEffect(() => {
-    function checkUser(username: string) {
+    const checkUser = (username: string) => {
       if (username === user?.username) {
         SetIsUserSelf(true);
       }
-    }
+    };
 
-    function getToken() {
+    const getToken = () => {
       var token = getCookie("cookieToken").toString();
       const jwt = decodeJWT(token);
       checkUser(jwt.username);
-    }
+    };
 
     if (isLoggedIn) {
       getToken();

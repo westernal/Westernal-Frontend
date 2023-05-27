@@ -10,7 +10,7 @@ const Followings = () => {
   const router: any = useRouter();
   const [following, SetFollowing] = useState<User[]>();
 
-  async function getFollowing(isMounted: boolean) {
+  const getFollowing = async (isMounted: boolean) => {
     const result = await getRequest(
       `api/users/following/${router.query.username}`
     );
@@ -18,7 +18,7 @@ const Followings = () => {
     if (result?.status == 200) {
       if (isMounted) SetFollowing(result.data.following);
     }
-  }
+  };
 
   useEffect(() => {
     let isMounted = true;
