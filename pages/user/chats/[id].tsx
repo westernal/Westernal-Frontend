@@ -24,18 +24,22 @@ const Chat = ({ userId }) => {
     }
   }, [arrivalMessage]);
 
-  const getMessages = async (chatId: any) => {
+  const getMessages = async (chatId: any, isMounted: boolean) => {
     const result = await getRequest(`api/chats/chat/messages/${chatId}`, true);
 
     if (result?.status === 200) {
-      SetMessages(result.data.messages);
+      if (isMounted) SetMessages(result.data.messages);
     }
   };
 
   useEffect(() => {
+    let isMounted = true;
     if (router.query.id) {
-      getMessages(router.query.id);
+      getMessages(router.query.id, isMounted);
     }
+    return () => {
+      isMounted = false;
+    };
   }, [router.query]);
 
   const resetMessageCount = async () => {

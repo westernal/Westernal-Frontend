@@ -12,13 +12,13 @@ import { Post as PostType } from "../../interfaces/interface";
 const Saved = () => {
   const [posts, SetPosts] = useState<PostType[]>();
 
-  const getSavedPosts = async () => {
+  const getSavedPosts = async (isMounted: boolean) => {
     var token = getCookie("cookieToken").toString();
     const userID = decodeJWT(token).userId;
     const result = await getRequest(`api/users/saved-posts/${userID}`, true);
 
     if (result?.status == 200) {
-      SetPosts(result.data.posts);
+      if (isMounted) SetPosts(result.data.posts);
     }
   };
 
@@ -31,7 +31,11 @@ const Saved = () => {
   };
 
   useEffect(() => {
-    getSavedPosts();
+    let isMounted = true;
+    getSavedPosts(isMounted);
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return (

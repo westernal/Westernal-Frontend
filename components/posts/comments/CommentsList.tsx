@@ -13,17 +13,21 @@ const CommentsList = ({ postId, rerender, onReply }) => {
   };
 
   useEffect(() => {
+    let isMounted = true;
     const getComments = async () => {
       const result = await getRequest(`api/comments/${postId}`, true);
 
       if (result?.status == 200) {
-        SetComments(result.data.comments);
+        if (isMounted) SetComments(result.data.comments);
       }
     };
 
     if (postId) {
       getComments();
     }
+    return () => {
+      isMounted = false;
+    };
   }, [rerender, postId, deleted]);
   return (
     <section className="cm-list">
