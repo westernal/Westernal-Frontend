@@ -30,7 +30,9 @@ const Login = () => {
 
     switch (result?.status) {
       case 200:
-        setCookie("cookieToken", result.data.token);
+        setCookie("cookieToken", result.data.token, {
+          expires: new Date(new Date().getTime() + 1000 * 60 * 60 * 24 * 365),
+        });
         router.push("/home/timeline");
         toast.success(`Welcome, ${username}!`);
         break;
