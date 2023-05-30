@@ -1,7 +1,7 @@
 const FormLoader = () => {
   return (
-    <div className="flex from-loader">
-      <div className="logo-loader flex">
+    <div className="form-loader">
+      <div className="logo-loader">
         <p id="loader">w</p>
       </div>
     </div>
