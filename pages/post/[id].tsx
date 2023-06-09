@@ -57,9 +57,8 @@ PostPage.getInitialProps = async ({ query, req, res }) => {
   }
 
   if (result?.status != 200) {
-    return {
-      notFound: true,
-    };
+    res.writeHead(307, { Location: "/404" });
+    res.end();
   }
 
   return {

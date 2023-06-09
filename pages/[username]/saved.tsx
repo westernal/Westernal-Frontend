@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState } from "react";
 import BackHeader from "../../components/layout/header/BackHeader";
 import Post from "../../components/posts/Post";
 import Footer from "../../components/layout/Footer";

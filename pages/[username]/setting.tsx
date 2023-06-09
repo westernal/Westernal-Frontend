@@ -33,9 +33,8 @@ Setting.getInitialProps = async (context: any) => {
   const result = await getRequest(`api/posts/user/${username}`);
 
   if (result?.status == 404 || !result) {
-    return {
-      notFound: true,
-    };
+    context.res.writeHead(307, { Location: "/404" });
+    context.res.end();
   }
 
   return {

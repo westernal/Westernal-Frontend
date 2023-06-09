@@ -1,17 +1,8 @@
-import Footer from "../components/layout/Footer";
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
-import { useState } from "react";
-import { getCookie } from "cookies-next";
 
 const Error = () => {
-  const [isLoggedIn, SetIsLoggedIn] = useState(false);
-
-  if (getCookie("cookieToken")) {
-    SetIsLoggedIn(true);
-  }
-
   return (
     <div className="error-page">
       <Head>
@@ -30,8 +21,6 @@ const Error = () => {
           </Link>
         </div>
       </div>
-
-      {isLoggedIn ? <Footer /> : null}
     </div>
   );
 };
