@@ -1,16 +1,15 @@
 import { Post } from "../../../interfaces/interface";
 
 const EditPostForm = ({ post, editPost }: { post: Post; editPost: any }) => {
-  const checkInputs = (e: any) => {
+  const getInputValue = (e: any) => {
     e.preventDefault();
-
     const caption = (document.getElementById("caption") as HTMLInputElement)
       .value;
-
     editPost(caption);
   };
+
   return (
-    <form onSubmit={checkInputs} autoComplete="off">
+    <form onSubmit={getInputValue} autoComplete="off">
       <section className="form-inputs">
         <label htmlFor="caption">Caption</label>
         <input type="text" defaultValue={post?.caption} id="caption" />

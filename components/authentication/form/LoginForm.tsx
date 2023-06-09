@@ -2,32 +2,37 @@ import { toast } from "react-toastify";
 import Link from "next/link";
 
 const LoginForm = ({ login, changeLoader }) => {
-  function checkInputs(e: any) {
+  const getInputsValues = (e: any) => {
     e.preventDefault();
-
     changeLoader("on");
     const password = document.getElementById("password") as HTMLInputElement;
     const username = document.getElementById("username") as HTMLInputElement;
+    checkInputs(username.value.toLowerCase(), password.value);
+  };
 
-    if (username.value == "") {
+  const checkInputs = (username: string, password: string) => {
+    if (username == "") {
       toast.error("Username must be included!");
       changeLoader("off");
       return;
     }
 
-    if (password.value.length < 6) {
+    if (password.length < 6) {
       toast.error("Password must be more than 6 characters!");
       changeLoader("off");
       return;
-    } else login(username.value.toLowerCase(), password.value);
-  }
+    } else login(username, password);
+  };
 
-  const showPassword = (e) => {
-    if (e.target.style.backgroundColor === "inherit") {
-      e.target.style.backgroundColor = "#5f5d5d";
-    } else e.target.style.backgroundColor = "inherit";
+  const changeCheckboxColor = (checkBox: any) => {
+    if (checkBox.style.backgroundColor === "inherit") {
+      checkBox.style.backgroundColor = "#5f5d5d";
+    } else checkBox.style.backgroundColor = "inherit";
+  };
 
-    var password = document.getElementById("password") as HTMLInputElement;
+  const showPassword = (e: any) => {
+    changeCheckboxColor(e.target);
+    const password = document.getElementById("password") as HTMLInputElement;
     if (password.type === "password") {
       password.type = "text";
     } else {
@@ -36,7 +41,7 @@ const LoginForm = ({ login, changeLoader }) => {
   };
 
   return (
-    <form onSubmit={checkInputs} autoComplete="on">
+    <form onSubmit={getInputsValues} autoComplete="on">
       <section className="form-inputs">
         <input
           type="text"

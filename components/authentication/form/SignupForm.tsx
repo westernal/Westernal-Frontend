@@ -2,7 +2,7 @@ import { toast } from "react-toastify";
 import * as EmailValidator from "email-validator";
 
 const SignupForm = ({ signup, changeLoader }) => {
-  function checkInputs(e: any) {
+  const getInputsValues = (e: any) => {
     e.preventDefault();
     changeLoader("on");
     const password = document.getElementById("password") as HTMLInputElement;
@@ -11,46 +11,53 @@ const SignupForm = ({ signup, changeLoader }) => {
     ) as HTMLInputElement;
     const username = document.getElementById("username") as HTMLInputElement;
     const email = document.getElementById("email") as HTMLInputElement;
-
     let correctedUsername = username.value.replace(/\s+/g, "");
+    checkInputs(
+      correctedUsername,
+      email.value,
+      password.value,
+      confirmPassword.value
+    );
+  };
 
-    if (username.value == "") {
+  const checkInputs = (
+    username: string,
+    email: string,
+    password: string,
+    confirmPassword: string
+  ) => {
+    if (username == "") {
       toast.error("Username must be included!");
       changeLoader("off");
       return;
     }
 
-    if (email.value == "") {
+    if (email == "") {
       toast.error("Email must be included!");
       changeLoader("off");
       return;
     }
 
-    if (!EmailValidator.validate(email.value)) {
+    if (!EmailValidator.validate(email)) {
       toast.error(`Enter a valid Email!`);
       changeLoader("off");
       return;
     }
 
-    if (password.value.length < 6) {
+    if (password.length < 6) {
       toast.error("Password must be more than 6 characters!");
       changeLoader("off");
       return;
     }
 
-    if (password.value !== confirmPassword.value) {
+    if (password !== confirmPassword) {
       toast.error("Password must be equal to repeat password!");
       changeLoader("off");
       return;
-    } else
-      signup(
-        correctedUsername.toLowerCase(),
-        email.value.toLowerCase(),
-        password.value
-      );
-  }
+    } else signup(username.toLowerCase(), email.toLowerCase(), password);
+  };
   return (
-    <form onSubmit={checkInputs} autoComplete="off">
+    <form onSubmit={getInputsValues} autoComplete="off">
       <section className="form-inputs">
         <input type="text" placeholder="Username" id="username" />
         <input type="text" placeholder="Email" id="email" />

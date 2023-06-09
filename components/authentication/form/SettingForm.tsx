@@ -36,15 +36,22 @@ const SettingForm = ({ user }) => {
     return true;
   };
 
-  function checkInputs(e: any) {
+  const getInputsValues = (e: any) => {
     e.preventDefault();
     SetLoader(true);
-
     let username = document.getElementById("username") as HTMLInputElement;
     let bio = document.getElementById("bio") as HTMLInputElement;
-    const Image = document.getElementById("image") as HTMLInputElement;
+    const image = document.getElementById("image") as HTMLInputElement;
     const link = document.getElementById("link") as HTMLInputElement;
+    checkInputs(username, bio, image, link);
+  };
 
+  const checkInputs = (
+    username: HTMLInputElement,
+    bio: HTMLInputElement,
+    image: HTMLInputElement,
+    link: HTMLInputElement
+  ) => {
     if (!isURL(link?.value)) {
       toast.error("Personal link is invalid.");
       SetLoader(false);
@@ -61,10 +68,10 @@ const SettingForm = ({ user }) => {
     editUser(
       correctedUsername.toLowerCase(),
       bio.value,
-      Image.files[0],
+      image.files[0],
       link.value.toLowerCase()
     );
-  }
+  };
 
   async function editUser(
     username: string,
@@ -104,7 +111,7 @@ const SettingForm = ({ user }) => {
   }
 
   return (
-    <form onSubmit={checkInputs} autoComplete="off">
+    <form onSubmit={getInputsValues} autoComplete="off">
       <section className="form-inputs">
         <UserAvatar imageSrc={user.image} />
         <label htmlFor="username">Username</label>
