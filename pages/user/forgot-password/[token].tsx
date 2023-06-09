@@ -10,11 +10,10 @@ const ChangePassword = () => {
   const router: any = useRouter();
   const [loader, SetLoader] = useState(false);
 
-  const checkPassword = (e: any) => {
+  const getUserId = (e: any) => {
     e.preventDefault();
     SetLoader(true);
-
-    let id;
+    let id: string;
 
     try {
       id = decodeJWT(router.query.token).userId;
@@ -24,6 +23,10 @@ const ChangePassword = () => {
       return;
     }
 
+    checkPassword(id);
+  };
+
+  const checkPassword = (userId: string) => {
     const password = (document.getElementById("password") as HTMLInputElement)
       .value;
     const confirmPassword = (
@@ -42,15 +45,15 @@ const ChangePassword = () => {
       return;
     }
 
-    editPassword(password, id);
+    editPassword(password, userId);
   };
 
-  const editPassword = async (password: string, id: string) => {
+  const editPassword = async (password: string, userId: string) => {
     const result = await postRequest(
       {
         password: password,
       },
-      `api/users/edit/password/${id}`,
+      `api/users/edit/password/${userId}`,
       true,
       router.query.token
     );
@@ -71,7 +74,7 @@ const ChangePassword = () => {
         <section className="auth-form">
           <p id="login-logo">W</p>
           {loader ? <FormLoader /> : null}
-          <form onSubmit={checkPassword}>
+          <form onSubmit={getUserId}>
             <section className="form-inputs">
               <input
                 type="password"
