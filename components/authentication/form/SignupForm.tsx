@@ -5,6 +5,7 @@ const SignupForm = ({ signup, changeLoader }) => {
   const getInputsValues = (e: any) => {
     e.preventDefault();
     changeLoader("on");
+
     const password = document.getElementById("password") as HTMLInputElement;
     const confirmPassword = document.getElementById(
       "confirm-password"
@@ -12,6 +13,7 @@ const SignupForm = ({ signup, changeLoader }) => {
     const username = document.getElementById("username") as HTMLInputElement;
     const email = document.getElementById("email") as HTMLInputElement;
     let correctedUsername = username.value.replace(/\s+/g, "");
+
     checkInputs(
       correctedUsername,
       email.value,
