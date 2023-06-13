@@ -10,22 +10,16 @@ self.fallback = async request => {
       if (true) return caches.match("/_offline", {
         ignoreSearch: true
       });
-
     case 'image':
       if (false) {}
-
     case 'audio':
       if (false) {}
-
     case 'video':
       if (false) {}
-
     case 'font':
       if (false) {}
-
     case '':
       if (false) {}
-
     default:
       return Response.error();
   }

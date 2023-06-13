@@ -1,6 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Megrim");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-
 @supports (font: -apple-system-body) and (-webkit-appearance: none) {
   img[loading="lazy"] {
     clip-path: inset(0.6px);
@@ -23,10 +20,10 @@
 
 * {
   box-sizing: border-box;
+  font-family: var(--font-main);
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
   overflow-x: hidden;
   overflow-y: overlay;
   margin: 0;
@@ -106,7 +103,7 @@ header a,
 header p,
 #website-name {
   color: var(--light-primary-color);
-  font-family: "Megrim";
+  font-family: var(--font-logo);
   font-size: 30px;
   font-weight: bolder;
   margin: 0;
@@ -170,7 +167,7 @@ footer img:focus,
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   padding: 10px 20px;
   width: 70%;
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-main);
 }
 
 #search-input {
@@ -232,7 +229,7 @@ ul {
 
 .notification-header,
 .profile header p {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-main);
   font-size: 1.5rem;
 }
 
@@ -353,7 +350,7 @@ hr {
   border: none;
   border-radius: 5px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-main);
   margin-bottom: 20px;
 }
 
@@ -375,7 +372,7 @@ hr {
 .unfollow-btn,
 .search-btn {
   padding: 10px 20px;
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-main);
   background-color: var(--main-color);
   color: var(--light-primary-color);
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -604,7 +601,7 @@ textarea {
   transition: 0.5s;
   border-radius: 5px;
   padding: 10px;
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-main);
   border: none;
 }
 
@@ -929,7 +926,7 @@ canvas {
 }
 
 .file-input::-webkit-file-upload-button {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-main);
   background-color: var(--main-color);
   color: var(--light-primary-color);
   border: none;
