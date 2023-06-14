@@ -240,7 +240,7 @@ ul {
 }
 
 .loader-icon {
-  font-family: megrim;
+  font-family: var(--font-logo);
   background-color: var(--main-color);
   color: var(--light-primary-color);
   font-size: 10rem;
@@ -251,7 +251,7 @@ ul {
 }
 
 .logo-loader {
-  font-family: megrim;
+  font-family: var(--font-logo);
   background-color: var(--main-color);
   color: var(--light-primary-color);
   font-size: 2rem;
@@ -339,7 +339,7 @@ hr {
   margin-bottom: 30px;
   margin-top: 0;
   font-size: 5rem;
-  font-family: megrim;
+  font-family: var(--font-logo);
   color: var(--main-color);
 }
 
