@@ -78,7 +78,7 @@ const UserInfo = ({
         {user?.personal_link ? (
           <div className="user-link">
             <a href={user?.personal_link} id="user-link">
-              {link}
+              <>{link}</>
             </a>
           </div>
         ) : null}
