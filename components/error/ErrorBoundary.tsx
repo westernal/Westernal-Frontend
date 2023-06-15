@@ -1,21 +1,31 @@
-import React from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import React, { Component, ErrorInfo, ReactNode } from "react";
 
-class ErrorBoundary extends React.Component<{}, { hasError: boolean }> {
-  constructor(props: any) {
-    super(props);
+interface Props {
+  children?: ReactNode;
+}
 
-    this.state = { hasError: false };
-  }
-  static getDerivedStateFromError(error: Error) {
+interface State {
+  hasError: boolean;
+}
+
+class ErrorBoundary extends Component<Props, State> {
+  public state: State = {
+    hasError: false,
+  };
+
+  public static getDerivedStateFromError(_: Error): State {
+    // Update state so the next render will show the fallback UI.
     return { hasError: true };
   }
-  componentDidCatch(error: Error, errorInfo: any) {
-    console.log({ error, errorInfo });
+
+  public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    console.error("Uncaught error:", error, errorInfo);
   }
-  render() {
+
+  public render() {
     if (this.state.hasError) {
       return (
         <div className="error-page">
