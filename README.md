@@ -60,7 +60,7 @@ If you forgot your password we will send you an email to reset your password!
 # Technologies
 **Front-End:** Next.js |
 **Back-End:** Node.js, Express |
-**Database:** MongoDB | **E2E Tests:** Cypress | **State Management:** Redux Toolkit, React Context
+**Database:** MongoDB | **Tests:** Cypress, Jest | **State Management:** Redux Toolkit, React Context
 
 # Source Code
  [Front-End](https://github.com/westernal/social-media-frontend) |
