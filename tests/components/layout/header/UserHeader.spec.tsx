@@ -31,4 +31,19 @@ describe("User header component", () => {
     !USER_HEADER.findByRole("button", { name: "Login" });
     !USER_HEADER.findByTestId("header-buttons");
   });
+
+  it.only("User header showing header buttons and login button when user is logged in", () => {
+    const USERNAME = "westernal";
+    const USER_HEADER = render(
+      <UserHeader
+        username={USERNAME}
+        isVerified={true}
+        isLoggedIn={false}
+        isUserSelf={false}
+      />
+    );
+
+    USER_HEADER.findByRole("button", { name: "Login" });
+    USER_HEADER.findByTestId("header-buttons");
+  });
 });
