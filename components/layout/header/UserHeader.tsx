@@ -31,7 +31,7 @@ const UserHeader = ({
         </Link>
       ) : null}
       {isUserSelf && username ? (
-        <div className="flex header-buttons">
+        <div className="flex header-buttons" data-testid="header-buttons">
           <Link href={`/${username}/saved`} className="flex" id="saved-posts">
             <Image
               src="/Images/save.svg"
