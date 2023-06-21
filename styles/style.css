@@ -237,6 +237,7 @@ ul {
   height: 100vh;
   width: 100vw;
   z-index: 2;
+  font-family: var(--font-logo);
 }
 
 .loader-icon {
