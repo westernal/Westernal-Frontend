@@ -265,6 +265,7 @@ ul {
 
 #loader {
   margin: 0;
+  font-family: var(--font-logo);
 }
 
 .post-user p {
