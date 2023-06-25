@@ -1,3 +1,5 @@
+"use client";
+
 const Loader = () => {
   return (
     <div className="loader flex" id="splash-screen">
