@@ -13,7 +13,7 @@ const SearchAlbum = ({ token }: { token: string }) => {
     <section>
       <div className="flex song-search">
         <input
-          type="text"
+          type="search"
           placeholder="Search an album..."
           id="search-input"
           onChange={(event) => {

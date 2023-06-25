@@ -17,7 +17,7 @@ const Search = () => {
       <main className="search">
         <div className="search-bar flex">
           <input
-            type="text"
+            type="search"
             placeholder="Search users..."
             onChange={(event) => {
               setSearchTerm(event.target.value);

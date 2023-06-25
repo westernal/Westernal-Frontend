@@ -11,7 +11,7 @@ const SearchTracks = ({ token }) => {
     <section>
       <div className="flex song-search">
         <input
-          type="text"
+          type="search"
           placeholder="Search a track..."
           id="search-input"
           onChange={(event) => {
