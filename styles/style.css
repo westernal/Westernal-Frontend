@@ -110,7 +110,7 @@ header p,
 }
 
 .search-explore #website-name,
-.app-description #website-name {
+.auth-form #website-name {
   font-size: 40px;
   color: var(--main-color);
 }
@@ -1230,12 +1230,27 @@ h1 {
 .login,
 .signup {
   gap: 50px;
-  padding: 75px;
+  padding: 20px;
+  margin-bottom: 0;
+  display: grid;
+  place-items: center;
+  grid-template-columns: auto auto;
+  min-height: 100vh;
 }
 
 .login .auth-form,
 .signup .auth-form {
   margin: 0;
+  padding: 20px;
+}
+
+.signup .auth-form {
+  padding: 10px;
+}
+
+.login .auth-form .flex,
+.signup .auth-form .flex {
+  margin-bottom: 0;
 }
 
 .app-description {
@@ -1494,12 +1509,6 @@ dialog::backdrop {
 }
 
 @media only screen and (max-width: 950px) {
-  .login,
-  .signup {
-    flex-direction: column;
-    padding: 20px;
-  }
-
   input:focus-visible,
   button:focus-visible,
   textarea:focus-visible {
@@ -1619,7 +1628,7 @@ dialog::backdrop {
   }
 
   .app-description {
-    margin-top: 20px;
+    display: none;
   }
 
   .forgot-password a,
