@@ -7,10 +7,10 @@
 :root {
   --main-color: #9d38fc;
   --main-hover-color: #9d38fcb8;
-  --dark-primary-color: #010409;
-  --dark-secondary-color: #0d1117;
-  --dark-primary-hover-color: #010409b8;
-  --dark-secondary-hover-color: #0d1117b8;
+  --dark-primary-color: #0d1117;
+  --dark-secondary-color: #010409;
+  --dark-primary-hover-color: #0d1117b8;
+  --dark-secondary-hover-color: #010409b8;
   --error-color: #ff3636;
   --error-hover-color: #ff3636b8;
   --light-primary-color: white;
