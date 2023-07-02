@@ -589,6 +589,7 @@ textarea {
 
 #avatar {
   border-radius: 50%;
+  border: 1px solid var(--light-backup-color);
 }
 
 .header-icons .notification-icon {
@@ -1444,6 +1445,10 @@ dialog::backdrop {
   header,
   .btn {
     box-shadow: none;
+  }
+
+  #avatar {
+    border: 1px solid var(--dark-backup-color);
   }
 
   .user-list .profile-notif:hover {
