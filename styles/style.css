@@ -11,6 +11,7 @@
   --dark-secondary-color: #0d1117;
   --dark-primary-hover-color: #010409b8;
   --dark-secondary-hover-color: #0d1117b8;
+  --dark-backup-color: #30363d;
   --error-color: #ff3636;
   --error-hover-color: #ff3636b8;
   --light-primary-color: white;
@@ -1476,6 +1477,7 @@ dialog::backdrop {
   #search-input {
     background-color: var(--dark-secondary-color);
     box-shadow: none;
+    border: 1px solid var(--dark-backup-color);
   }
 
   .post-comment {
