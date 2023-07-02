@@ -1441,6 +1441,11 @@ dialog::backdrop {
     color: var(--light-primary-color);
   }
 
+  header,
+  .btn {
+    box-shadow: none;
+  }
+
   .user-list .profile-notif:hover {
     background-color: #343333;
   }
