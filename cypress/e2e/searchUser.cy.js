@@ -13,7 +13,7 @@ describe("Search for a user.", () => {
     cy.visit("/user/search");
 
     //search for a user
-    cy.findByRole("textbox").type("westernal");
+    cy.findByRole("searchbox").type("westernal");
     cy.intercept("/api/users/search?username=westernal").as("searchUser");
     cy.wait("@searchUser", { timeout: 60000 });
 
