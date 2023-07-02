@@ -14,7 +14,7 @@ const SettingForm = ({ user }) => {
   const router = useRouter();
 
   useEffect(() => {
-    SetToken(getCookie("cookieToken").toString());
+    SetToken(getCookie("cookieToken")?.toString());
   }, []);
 
   useEffect(() => {

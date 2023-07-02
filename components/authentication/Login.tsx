@@ -2,7 +2,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
-import Image from "next/image";
 import LoginForm from "./form/LoginForm";
 import FormLoader from "../layout/loader/FormLoader";
 import Lottie from "lottie-react";
