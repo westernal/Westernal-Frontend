@@ -1443,7 +1443,8 @@ dialog::backdrop {
   }
 
   header,
-  .btn {
+  .btn,
+  .post-menu {
     box-shadow: none;
   }
 
