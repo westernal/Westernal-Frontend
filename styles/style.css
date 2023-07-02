@@ -1509,11 +1509,12 @@ dialog::backdrop {
   input::placeholder,
   textarea::placeholder,
   #image {
-    color: var(--light-backup-color);
+    color: var(--dark-backup-color);
   }
 
   .profile-pic {
-    background-color: var(--light-backup-color);
+    background-color: var(--dark-backup-color);
+    box-shadow: none;
   }
 
   #search-modal .profile-notif {
