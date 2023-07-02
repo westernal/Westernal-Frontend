@@ -770,7 +770,7 @@ canvas {
 }
 
 .close {
-  color: var(--light-backup-color);
+  color: var(--dark-backup-color);
   transition: 0.3s;
   font-size: 28px !important;
   float: left;
@@ -779,7 +779,7 @@ canvas {
 }
 
 .close:hover {
-  color: var(--dark-secondary-color);
+  color: var(--light-secondary-color);
 }
 
 .modal-text .flex {
@@ -1491,7 +1491,7 @@ dialog::backdrop {
   }
 
   .post-comment {
-    border-top: 1px solid var(--light-backup-color);
+    border-top: 1px solid var(--dark-backup-color);
   }
 
   .post-info svg path,
