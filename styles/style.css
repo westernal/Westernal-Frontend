@@ -1410,11 +1410,6 @@ dialog::backdrop {
     }
   }
 
-  .btn:hover,
-  #logout {
-    box-shadow: none;
-  }
-
   .contact-btn {
     background-color: var(--dark-secondary-color);
     color: var(--main-color);
@@ -1448,7 +1443,11 @@ dialog::backdrop {
 
   header,
   .btn,
-  .post-menu {
+  .post-menu,
+  .search-btn,
+  .btn:hover,
+  #logout,
+  .search-bar {
     box-shadow: none;
   }
 
@@ -1511,6 +1510,7 @@ dialog::backdrop {
   textarea {
     background-color: var(--dark-primary-color);
     color: var(--light-primary-color);
+    box-shadow: none !important;
   }
 
   input::placeholder,

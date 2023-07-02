@@ -15,7 +15,7 @@ const Search = () => {
         <title>Westernal - Search</title>
       </Head>
       <main className="search">
-        <div className="search-bar flex">
+        <header className="search-bar flex">
           <input
             type="search"
             placeholder="Search users..."
@@ -25,7 +25,7 @@ const Search = () => {
             id="searchInput"
             autoComplete={"off"}
           />
-        </div>
+        </header>
         {isTyped ? <User users={users} /> : <SearchExplore />}
       </main>
       <Footer classnames="footer search" />
