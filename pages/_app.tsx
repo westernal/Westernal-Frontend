@@ -24,13 +24,13 @@ function MyApp({ Component, pageProps }: AppProps) {
         pauseOnHover
         theme="colored"
       />
-      <ErrorBoundary>
-        <Suspense fallback={<Loader />}>
-          <div className={`${montserrat.variable} ${megrim.variable}`}>
+      <div className={`${montserrat.variable} ${megrim.variable}`}>
+        <ErrorBoundary>
+          <Suspense fallback={<Loader />}>
             <Component {...pageProps} />
-          </div>
-        </Suspense>
-      </ErrorBoundary>
+          </Suspense>
+        </ErrorBoundary>
+      </div>
     </>
   );
 }
