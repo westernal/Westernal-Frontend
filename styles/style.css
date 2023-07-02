@@ -1079,8 +1079,12 @@ h1 {
   background-color: var(--light-secondary-color);
   width: 180px;
   max-height: 0;
-  transition: 0.8s;
+  transition: max-height 0.8s;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.post-options .active {
+  max-height: 600px;
 }
 
 .post-menu li {
@@ -1448,7 +1452,9 @@ dialog::backdrop {
     box-shadow: none;
   }
 
-  #avatar {
+  #avatar,
+  .post-options .active,
+  .post iframe {
     border: 1px solid var(--dark-backup-color);
   }
 
