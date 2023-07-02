@@ -777,7 +777,7 @@ canvas {
 }
 
 .close:hover {
-  color: white;
+  color: var(--dark-secondary-color);
 }
 
 .modal-text .flex {
@@ -1435,7 +1435,8 @@ dialog::backdrop {
   #more,
   #like-count,
   .install-header button,
-  dialog {
+  dialog,
+  .close:hover {
     color: var(--light-primary-color);
   }
 
