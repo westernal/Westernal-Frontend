@@ -3,10 +3,10 @@ describe("Signup user.", () => {
     console.log(process.env);
     //signup
     cy.visit("/user/signup");
-    cy.get("#username").type("newtestuser");
+    cy.get("#username").type(Cypress.env("CYPRESS_USERNAME"));
     cy.get("#email").type("newtestuser@gmail.com");
-    cy.get("#password").type("11111111");
-    cy.get("#confirm-password").type("11111111");
+    cy.get("#password").type(Cypress.env("CYPRESS_PASSWORD"));
+    cy.get("#confirm-password").type(Cypress.env("CYPRESS_PASSWORD"));
     cy.findByRole("button", { name: /Signup/i }).click();
     cy.intercept("/api/users/signup", {
       body: {

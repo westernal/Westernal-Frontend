@@ -2,8 +2,8 @@ describe("Edit post.", () => {
   it("User can Edit post.", () => {
     //login
     cy.visit("/");
-    cy.get("#username").type("cypress");
-    cy.get("#password").type("11111111");
+    cy.get("#username").type(Cypress.env("CYPRESS_USERNAME"));
+    cy.get("#password").type(Cypress.env("CYPRESS_PASSWORD"));
     cy.findByRole("button", { name: /login/i }).click();
     cy.intercept("/api/users/login").as("login");
     cy.wait("@login", { timeout: 60000 });
