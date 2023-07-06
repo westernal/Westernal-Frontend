@@ -31,7 +31,9 @@ const SignUp = () => {
     }
 
     if (result?.status == 201) {
-      setCookie("token", result.data.token);
+      setCookie("cookieToken", result.data.token, {
+        expires: new Date(new Date().getTime() + 1000 * 60 * 60 * 24 * 365),
+      });
       toast.success(`Welcome, ${username}!`);
       router.push("/home/timeline");
     } else {
