@@ -60,7 +60,7 @@ const Timeline = ({ userId }: { userId: string }) => {
 
 Timeline.getInitialProps = async ({ req, res }) => {
   const userId: string = decodeJWT(
-    getCookie("cookieToken", { req, res }).toString()
+    getCookie("cookieToken", { req, res })?.toString()
   ).userId;
 
   return {
