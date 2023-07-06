@@ -20,8 +20,8 @@ describe("Change password.", () => {
     cy.wait(2000);
 
     //enter new password and confirm it
-    cy.get("#password").type("11111111");
-    cy.get("#confirm-password").type("11111111");
+    cy.get("#password").type(Cypress.env("CYPRESS_PASSWORD"));
+    cy.get("#confirm-password").type(Cypress.env("CYPRESS_PASSWORD"));
     cy.findByText("Change password").click();
 
     //check if password changed correctly
