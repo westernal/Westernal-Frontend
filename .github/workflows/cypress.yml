@@ -7,13 +7,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-      - name: Cypress run
-        uses: cypress-io/github-action@v5.1.0
+        uses: actions/checkout@v5
+      - name: Set environment variables
         env:
           CYPRESS_TOKEN: ${{ secrets.CYPRESS_TOKEN }}
           CYPRESS_USERNAME: ${{ secrets.CYPRESS_USERNAME }}
           CYPRESS_PASSWORD: ${{ secrets.CYPRESS_PASSWORD }}
+        run: |
+          echo "CYPRESS_TOKEN=$CYPRESS_TOKEN" >> $GITHUB_ENV
+          echo "CYPRESS_USERNAME=$CYPRESS_USERNAME" >> $GITHUB_ENV
+          echo "CYPRESS_PASSWORD=$CYPRESS_PASSWORD" >> $GITHUB_ENV
+      - name: Cypress run
+        uses: cypress-io/github-action@v5.1.0
         with:
           build: npm run build
           start: npm start

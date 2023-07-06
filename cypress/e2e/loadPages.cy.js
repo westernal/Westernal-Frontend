@@ -1,7 +1,5 @@
 describe("Testing pages.", () => {
   it("All pages loads successfuly.", () => {
-    console.log(Cypress.env("CYPRESS_USERNAME"));
-    console.log(Cypress.env("CYPRESS_PASSWORD"));
     //signup
     cy.visit("/user/signup");
 
