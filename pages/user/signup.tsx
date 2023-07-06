@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import Head from "next/head";
-import Image from "next/image";
 import SignupForm from "../../components/authentication/form/SignupForm";
 import FormLoader from "../../components/layout/loader/FormLoader";
 import Lottie from "lottie-react";
