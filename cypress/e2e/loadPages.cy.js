@@ -1,5 +1,7 @@
 describe("Testing pages.", () => {
   it("All pages loads successfuly.", () => {
+    const USERNAME = Cypress.env("CYPRESS_USERNAME");
+    const PASSWORD = Cypress.env("CYPRESS_PASSWORD");
     //signup
     cy.visit("/user/signup");
 
@@ -15,8 +17,8 @@ describe("Testing pages.", () => {
 
     //login
     cy.visit("/");
-    cy.get("#username").type(Cypress.env("CYPRESS_USERNAME"));
-    cy.get("#password").type(Cypress.env("CYPRESS_PASSWORD"));
+    cy.get("#username").type(USERNAME);
+    cy.get("#password").type(PASSWORD);
     cy.findByRole("button", { name: /login/i }).click();
     cy.intercept("/api/users/login").as("login");
     cy.wait("@login", { timeout: 60000 });
