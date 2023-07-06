@@ -14,15 +14,9 @@ jobs:
           CYPRESS_USERNAME: ${{ secrets.CYPRESS_USERNAME }}
           CYPRESS_PASSWORD: ${{ secrets.CYPRESS_PASSWORD }}
         run: |
-          if [ "$CYPRESS_PASSWORD" == "123456789" ]
-          then
-            echo "Got secret"
-          fi
-
-          if [ "$CYPRESS_USERNAME" == "cypress" ]
-          then
-            echo "Got secret something else"
-          fi
+          echo "CYPRESS_TOKEN=$CYPRESS_TOKEN" >> $GITHUB_ENV
+          echo "CYPRESS_USERNAME=$CYPRESS_USERNAME" >> $GITHUB_ENV
+          echo "CYPRESS_PASSWORD=$CYPRESS_PASSWORD" >> $GITHUB_ENV
       - name: Cypress run
         uses: cypress-io/github-action@v5.1.0
         with:
