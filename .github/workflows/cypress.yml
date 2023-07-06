@@ -8,15 +8,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Set environment variables
-        env:
-          CYPRESS_TOKEN: ${{ secrets.CYPRESS_TOKEN }}
-          CYPRESS_USERNAME: ${{ secrets.CYPRESS_USERNAME }}
-          CYPRESS_PASSWORD: ${{ secrets.CYPRESS_PASSWORD }}
+      - name: Write the cypress.env.json file 📝
         run: |
-          echo "CYPRESS_TOKEN=$CYPRESS_TOKEN" >> $GITHUB_ENV
-          echo "CYPRESS_USERNAME=$CYPRESS_USERNAME" >> $GITHUB_ENV
-          echo "CYPRESS_PASSWORD=$CYPRESS_PASSWORD" >> $GITHUB_ENV
+          echo '${{ secrets.CYPRESS_ENV_CI }}' > cypress.env.json
       - name: Cypress run
         uses: cypress-io/github-action@v5.1.0
         with:
