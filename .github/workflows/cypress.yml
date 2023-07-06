@@ -14,7 +14,7 @@ jobs:
           CYPRESS_USERNAME: ${{ secrets.CYPRESS_USERNAME }}
           CYPRESS_PASSWORD: ${{ secrets.CYPRESS_PASSWORD }}
         run: |
-          if [ "$CYPRESS_PASSWORD" == "12345678" ]
+          if [ "$CYPRESS_PASSWORD" == "123456789" ]
           then
             echo "Got secret"
           fi
