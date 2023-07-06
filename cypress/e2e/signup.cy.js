@@ -10,7 +10,7 @@ describe("Signup user.", () => {
     cy.findByRole("button", { name: /Signup/i }).click();
     cy.intercept("/api/users/signup", {
       body: {
-        token: Cypress.env("TOKEN"),
+        token: Cypress.env("CYPRESS_TOKEN"),
       },
       statusCode: 201,
     }).as("signup");
