@@ -12,7 +12,7 @@ jobs:
         env:
           TOKEN: ${{ secrets.TOKEN }}
         run: |
-         if [ "$TOKEN" == "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDE2ZDRkYWI3Mjg4MGE0MjFiYjZjYzgiLCJ1c2VybmFtZSI6Im5ld3Rlc3R1c2VyIiwiaWF0IjoxNjg4NjQyOTAyfQ.TVydoU8KZDgziAOTkbiZxypuULektqUq4OKK8661ei4" ]
+         if [ "$TOKEN" == "E2ZDRkYWI3Mjg4MGE0MjFiYjZjYzgiLCJ1c2VybmFtZSI6Im5ld3Rlc3R1c2VyIiwiaWF0IjoxNjg4NjQyOTAyfQ.TVydoU8KZDgziAOTkbiZxypuULektqUq4OKK8661ei4" ]
           then
             echo "Got secret"
           fi
