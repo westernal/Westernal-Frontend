@@ -36,7 +36,7 @@ const ChatInput = ({ onMessageSent, socket }) => {
     if (result?.status == 200) {
       (document.getElementById("comment-text") as HTMLInputElement).value = "";
 
-      onMessageSent(router.query.id);
+      onMessageSent(router.query.id, true);
       socket.emit("sendMessage", {
         senderId: senderId,
         receiverId: result.data.receiverId,
