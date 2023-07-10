@@ -1,5 +1,6 @@
 describe("Edit user", () => {
   it("User can edit his/her profile", () => {
+    let randomNumber = 1000 * Math.random();
     //login
     cy.visit("/");
     cy.get("#username").type(Cypress.env("CYPRESS_USERNAME"));
@@ -15,9 +16,15 @@ describe("Edit user", () => {
     //change the profile
     cy.fixture("logo.png", { encoding: null }).as("profilePicture");
     cy.get("#image").selectFile("@profilePicture");
-    cy.get("#username").clear().type("cypress");
-    cy.get("#bio").clear().type("cypress test");
+    cy.get("#username").clear().type(Cypress.env("CYPRESS_USERNAME"));
+    cy.get("#bio").clear().type(`cypress test ${randomNumber}`);
     cy.get("#link").clear().type("https://www.westernal.net/cypress");
     cy.findByRole("button", { name: /save/i }).click();
+    cy.intercept("api/users/edit/*").as("editUser");
+    cy.wait("@editUser", { timeout: 60000 });
+
+    //check if changes happend
+    cy.visit("/cypress");
+    cy.findByText(`cypress test ${randomNumber}`).should("be.visible");
   });
 });
