@@ -1,7 +1,11 @@
 import { getCookie } from "cookies-next";
 import API from "./API";
 
-export default async function getRequest(path:string, auth: boolean = false, authToken?:string) {
+export default async function getRequest(
+  path: string,
+  auth: boolean = false,
+  authToken?: string
+) {
   if (auth && !authToken) {
     authToken = getCookie("cookieToken").toString();
   }
