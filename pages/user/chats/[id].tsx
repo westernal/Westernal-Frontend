@@ -42,19 +42,19 @@ const Chat = ({ userId }) => {
     };
   }, [router.query]);
 
-  const resetMessageCount = async () => {
-    const result = await postRequest(
-      {
-        chatId: router.query.id,
-      },
-      `api/users/messages/reset/${userId}`,
-      true
-    );
-  };
-
   useEffect(() => {
+    const resetMessageCount = async () => {
+      const result = await postRequest(
+        {
+          chatId: router.query.id,
+        },
+        `api/users/messages/reset/${userId}`,
+        true
+      );
+    };
+
     if (router.query.id) resetMessageCount();
-  }, [router.query, messages]);
+  }, [router.query, messages, userId]);
   return (
     <>
       <BackHeader title="Chat" />

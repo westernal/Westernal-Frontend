@@ -37,7 +37,7 @@ const Profile = ({
     if (isLoggedIn) {
       getToken();
     }
-  }, [user]);
+  }, [user, isLoggedIn]);
 
   const onDeletePost = (id: string) => {
     const newPosts = userPosts.filter((post) => {

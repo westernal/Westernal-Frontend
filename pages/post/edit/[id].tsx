@@ -10,26 +10,26 @@ const EditPostPage = () => {
   const router: any = useRouter();
   const [post, SetPost] = useState<Post>();
 
-  const getPost = async (id: string) => {
-    const result = await getRequest(`api/posts/${id}`, true);
-
-    if (result?.status == 200) {
-      if (
-        result.data.post.author.username !=
-        decodeJWT(getCookie("cookieToken").toString()).username
-      ) {
-        router.push("/404");
-        return;
-      }
-      SetPost(result.data.post);
-    } else router.push("/404");
-  };
-
   useEffect(() => {
+    const getPost = async (id: string) => {
+      const result = await getRequest(`api/posts/${id}`, true);
+
+      if (result?.status == 200) {
+        if (
+          result.data.post.author.username !=
+          decodeJWT(getCookie("cookieToken").toString()).username
+        ) {
+          router.push("/404");
+          return;
+        }
+        SetPost(result.data.post);
+      } else router.push("/404");
+    };
+
     if (router.query.id) {
       getPost(router.query.id);
     }
-  }, [router.query]);
+  }, [router.query, router]);
 
   return <EditPost post={post} router={router} />;
 };

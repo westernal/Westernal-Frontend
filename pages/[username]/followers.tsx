@@ -10,18 +10,19 @@ const Followers = () => {
   const router: any = useRouter();
   const [followers, SetFollowers] = useState<User[]>();
 
-  const getFollowers = async (isMounted: boolean) => {
-    const result = await getRequest(
-      `api/users/followers/${router.query.username}`
-    );
-
-    if (result?.status == 200) {
-      if (isMounted) SetFollowers(result.data.followers);
-    }
-  };
-
   useEffect(() => {
+    const getFollowers = async (isMounted: boolean) => {
+      const result = await getRequest(
+        `api/users/followers/${router.query.username}`
+      );
+
+      if (result?.status == 200) {
+        if (isMounted) SetFollowers(result.data.followers);
+      }
+    };
+
     let isMounted = true;
+
     if (router.query.username) {
       getFollowers(isMounted);
     }

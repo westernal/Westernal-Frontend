@@ -40,7 +40,7 @@ const UserInfo = ({
       domain = domain.hostname.replace("www.", "") + domain.pathname;
       SetLink(domain);
     }
-  }, [user, isLoggedIn]);
+  }, [user, isLoggedIn, isUserSelf]);
 
   const changeIsFollowing = (followBoolean) => {
     SetIsFollowing(followBoolean);

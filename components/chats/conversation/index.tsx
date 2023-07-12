@@ -18,7 +18,7 @@ const Conversation = ({ chat }: { chat: Chat }) => {
     };
 
     getReceiver();
-  }, []);
+  }, [chat.members]);
   return (
     <Link href={`/user/chats/${chat._id}`} className="user flex profile-notif">
       <div className="flex user-info">

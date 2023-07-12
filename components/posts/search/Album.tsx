@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Image from "next/dist/client/image";
+import Image from "next/image";
 import FormLoader from "../../layout/loader/FormLoader";
 import { useSearchContext } from "../../../context/searchMusicContext";
 import useSearchSongs from "../../../hooks/useSearchSongs";

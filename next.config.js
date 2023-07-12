@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
   reactStrictMode: true,
+  images: {
+    domains: ["localhost", "alinavidi.ir", "i.scdn.co"],
+  },
 };
 
 const runtimeCaching = require("next-pwa/cache");
@@ -14,9 +18,4 @@ const withPWA = require("next-pwa")({
   runtimeCaching,
 });
 
-module.exports = withPWA({
-  images: {
-    domains: ["localhost", "alinavidi.ir", "i.scdn.co"],
-  },
-  nextConfig,
-});
+module.exports = withPWA(nextConfig);

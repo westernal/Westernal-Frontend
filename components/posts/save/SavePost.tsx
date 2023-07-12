@@ -16,25 +16,25 @@ const SavePost = ({
 }) => {
   const [isSaved, SetIsSaved] = useState<boolean>(false);
 
-  const checkUser = async () => {
-    var token = getCookie("cookieToken").toString();
-    const userId = decodeJWT(token).userId;
-    const result = await postRequest(
-      {
-        postId: id,
-      },
-      `api/users/saved-posts/${userId}`,
-      true
-    );
-
-    if (result?.status == 200) {
-      SetIsSaved(result.data.isSaved);
-    }
-  };
-
   useEffect(() => {
+    const checkUser = async () => {
+      var token = getCookie("cookieToken").toString();
+      const userId = decodeJWT(token).userId;
+      const result = await postRequest(
+        {
+          postId: id,
+        },
+        `api/users/saved-posts/${userId}`,
+        true
+      );
+
+      if (result?.status == 200) {
+        SetIsSaved(result.data.isSaved);
+      }
+    };
+
     checkUser();
-  }, []);
+  }, [id]);
 
   const checkSavePost = () => {
     if (!isSaved) {

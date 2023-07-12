@@ -10,15 +10,18 @@ const Likes = () => {
   const router: any = useRouter();
   const [users, SetUsers] = useState<UserType[]>();
 
-  async function getPostLikes() {
-    const result = await getRequest(`api/posts/like/${router.query.id}`, true);
-
-    if (result?.status == 200) {
-      SetUsers(result.data.likes);
-    }
-  }
-
   useEffect(() => {
+    async function getPostLikes() {
+      const result = await getRequest(
+        `api/posts/like/${router.query.id}`,
+        true
+      );
+
+      if (result?.status == 200) {
+        SetUsers(result.data.likes);
+      }
+    }
+
     if (router.query.id) {
       getPostLikes();
     }

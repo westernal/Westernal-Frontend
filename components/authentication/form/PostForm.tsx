@@ -1,5 +1,5 @@
 import ReactPlayer from "react-player";
-import Image from "next/dist/client/image";
+import Image from "next/image";
 import Icons from "../../posts/icons/WebsiteIcons";
 import { toast } from "react-toastify";
 import { useState } from "react";

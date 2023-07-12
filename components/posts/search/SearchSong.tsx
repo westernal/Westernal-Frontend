@@ -18,12 +18,12 @@ const SearchSong = () => {
 
     getToken();
 
-    window.onclick = function (event) {
-      if (event.target == document.getElementById("delete-modal")) {
+    window.onclick = function (event: any) {
+      if (event.target == document.getElementById("search-modal")) {
         closeModal();
       }
     };
-  }, []);
+  }, [closeModal]);
 
   const categoryHandler = (e: any) => {
     e.preventDefault();
