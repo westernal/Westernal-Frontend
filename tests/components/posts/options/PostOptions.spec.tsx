@@ -1,6 +1,6 @@
 import React from "react";
 import PostOptions from "../../../../components/posts/options/PostOptions";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { PostProvider } from "../../../../context/postContext";
 import { useRouter } from "next/router";
 
@@ -21,7 +21,7 @@ describe("Post options component", () => {
     }));
 
     const mockFn = jest.fn();
-    const POST_OPTIONS = render(
+    render(
       <PostProvider post={{ _id: 0 }}>
         <PostOptions
           onDelete={mockFn}
@@ -31,6 +31,8 @@ describe("Post options component", () => {
         />
       </PostProvider>
     );
-    POST_OPTIONS.findByText("Delete post");
+
+    const deleteItem = screen.getByText("Delete post");
+    expect(deleteItem).toBeVisible();
   });
 });

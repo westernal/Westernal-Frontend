@@ -1,11 +1,11 @@
 import React from "react";
 import UserHeader from "../../../../components/layout/header/UserHeader";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 
 describe("User header component", () => {
   it.only("User header component renders username correctly", () => {
     const USERNAME = "westernal";
-    const USER_HEADER = render(
+    const userHeader = render(
       <UserHeader
         username={USERNAME}
         isVerified={true}
@@ -14,12 +14,12 @@ describe("User header component", () => {
       />
     );
 
-    USER_HEADER.findByText(USERNAME);
+    userHeader.findByText(USERNAME);
   });
 
-  it.only("User header not showing header buttons and login button when user is not logged in", () => {
+  it.only("User header not showing header buttons and showing login button when user is not logged in", () => {
     const USERNAME = "westernal";
-    const USER_HEADER = render(
+    render(
       <UserHeader
         username={USERNAME}
         isVerified={true}
@@ -28,22 +28,25 @@ describe("User header component", () => {
       />
     );
 
-    !USER_HEADER.findByRole("button", { name: "Login" });
-    !USER_HEADER.findByTestId("header-buttons");
+    const loginButton = screen.getByRole("button", { name: "Login" });
+    const headerButtons = screen.queryByRole("header-buttons");
+
+    expect(headerButtons).toBeFalsy();
+    expect(loginButton).toBeVisible();
   });
 
-  it.only("User header showing header buttons and login button when user is logged in", () => {
+  it.only("User header showing header buttons when user is logged in", () => {
     const USERNAME = "westernal";
-    const USER_HEADER = render(
+    render(
       <UserHeader
         username={USERNAME}
         isVerified={true}
-        isLoggedIn={false}
-        isUserSelf={false}
+        isLoggedIn={true}
+        isUserSelf={true}
       />
     );
 
-    USER_HEADER.findByRole("button", { name: "Login" });
-    USER_HEADER.findByTestId("header-buttons");
+    const headerButtons = screen.getByTestId("header-buttons");
+    expect(headerButtons).toBeVisible();
   });
 });
