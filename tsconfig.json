@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "pages/server-sitemap.xml/index.tsx", "pages/server-sitemap.xml/index.tsx", "pages/index.ts", "tests/pages/index.spec.jsx"  ],
+, "pages/server-sitemap.xml/index.tsx", "pages/server-sitemap.xml/index.tsx", "pages/index.ts", "tests/pages/index.spec.jsx", "cypress/e2e/changePassword.cy.js"  ],
   "exclude": [
     "node_modules"
   ]
