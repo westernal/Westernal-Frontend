@@ -5,7 +5,7 @@ import { render, screen } from "@testing-library/react";
 describe("User header component", () => {
   it.only("User header component renders username correctly", () => {
     const USERNAME = "westernal";
-    const userHeader = render(
+    render(
       <UserHeader
         username={USERNAME}
         isVerified={true}
@@ -14,7 +14,8 @@ describe("User header component", () => {
       />
     );
 
-    userHeader.findByText(USERNAME);
+    const usernameElement = screen.getByText(USERNAME);
+    expect(usernameElement).toBeVisible();
   });
 
   it.only("User header not showing header buttons and showing login button when user is not logged in", () => {
