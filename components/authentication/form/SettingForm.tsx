@@ -36,7 +36,7 @@ const SettingForm = ({ user }) => {
     return true;
   };
 
-  const getInputsValues = (e: any) => {
+  const getInputs = (e: any) => {
     e.preventDefault();
     SetLoader(true);
     let username = document.getElementById("username") as HTMLInputElement;
@@ -52,10 +52,12 @@ const SettingForm = ({ user }) => {
     image: HTMLInputElement,
     link: HTMLInputElement
   ) => {
-    if (!isURL(link?.value)) {
-      toast.error("Personal link is invalid.");
-      SetLoader(false);
-      return;
+    if (link.value) {
+      if (!isURL(link?.value)) {
+        toast.error("Personal link is invalid.");
+        SetLoader(false);
+        return;
+      }
     }
 
     if (!username.value) {
@@ -111,7 +113,7 @@ const SettingForm = ({ user }) => {
   }
 
   return (
-    <form onSubmit={getInputsValues} autoComplete="off">
+    <form onSubmit={getInputs} autoComplete="off">
       <section className="form-inputs">
         <UserAvatar imageSrc={user.image} />
         <label htmlFor="username">Username</label>
